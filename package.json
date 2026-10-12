@@ -12,7 +12,7 @@
     "test": "vitest run --passWithNoTests",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
-    "kb:validate": "node scripts/kb-validate.mjs"
+    "kb:validate": "tsx scripts/validate-kb.ts"
   },
   "dependencies": {
     "react": "18.3.1",
@@ -33,6 +33,7 @@
     "globals": "15.11.0",
     "jsdom": "25.0.1",
     "prettier": "3.3.3",
+    "tsx": "^4.19.2",
     "typescript": "5.6.3",
     "typescript-eslint": "8.12.2",
     "vite": "5.4.10",
