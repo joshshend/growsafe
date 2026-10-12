@@ -1,0 +1,113 @@
+{
+  "id": "tv-furniture-tip-over",
+  "name": "TV and furniture tip-over",
+  "rooms": ["living_room", "bedroom", "nursery"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 2,
+      "rationale": "CPSC figures do not break out children under 1; scored low until pulling up and climbing begin."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "CPSC: 55% of tip-over deaths from 2013 to July 2023 (all ages) involved children aged 1-3."
+    },
+    "24-36m": {
+      "score": 5,
+      "rationale": "Still inside the 1-3 age group that CPSC links to over half of tip-over deaths."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "CPSC counts children under 18 as 71% of deaths but gives no split past age 3; scored conservatively."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "furniture, TV and appliance tip-over injuries",
+      "age_band": "all ages (children under 18 are 44% of injuries)",
+      "source": "CPSC",
+      "year": "2020-2022",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2024/Ahead-of-Sundays-Game-CPSC-Reminds-Families-to-Tackle-the-Deadly-Hazard-of-TV-and-Furniture-Tip-Overs",
+      "note": "About 17,800 emergency-department-treated tip-over injuries per year (2020-2022 average); children under 18 accounted for 44%, roughly one child every 53 minutes. The count also includes appliances."
+    },
+    {
+      "cause_category": "furniture, TV and appliance tip-over deaths",
+      "age_band": "all ages; 1-3 years highlighted",
+      "source": "CPSC",
+      "year": "2013-July 2023",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2024/Ahead-of-Sundays-Game-CPSC-Reminds-Families-to-Tackle-the-Deadly-Hazard-of-TV-and-Furniture-Tip-Overs",
+      "note": "137 child deaths (children are 71% of tip-over deaths). Of 217 deaths at all ages, 47% involved a television and 55% involved children aged 1-3."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 6,
+  "detection_cues": ["unanchored_tv", "unanchored_dresser", "heavy_items_high_shelf"],
+  "why_it_matters": "Toddlers climb and pull on dressers, bookcases and TVs, and these can fall on them. Anchoring furniture and TVs to the wall reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Move heavier items to lower shelves and drawers, and keep toys and remotes off the tops of furniture so children have no reason to climb.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "If a TV cannot be anchored yet, put it on a sturdy, low base, push it as far back as it will go, and keep its cords out of reach.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Anchor every dresser, bookcase and other clothing storage unit to the wall with an anti-tip strap or bracket, even if it is old or was bought recently.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 25,
+      "minutes": 30,
+      "tools": ["drill", "stud finder", "screwdriver"]
+    },
+    {
+      "order": 4,
+      "text": "Mount flat-screen TVs to the wall, or fasten them to the stand with the anchor method the TV maker describes.",
+      "cost_usd_min": 20,
+      "cost_usd_max": 100,
+      "minutes": 60,
+      "tools": ["drill", "stud finder"]
+    },
+    {
+      "order": 5,
+      "text": "If you used a recalled anti-tip kit, contact the recall firm for a free replacement and swap it in.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 20,
+      "tools": ["screwdriver"]
+    }
+  ],
+  "reminder": {
+    "every_days": 180,
+    "text": "Check that wall anchors are still tight and that any new furniture or TV is anchored."
+  },
+  "verify_rule": "Every dresser, bookcase and TV stand is strapped or bracketed to the wall, and a gentle pull on its top does not tip it forward.",
+  "blind_spots": [
+    "Whether an anchor is screwed into a wall stud cannot be seen in a photo",
+    "Anchors hidden behind furniture or inside drawers",
+    "Furniture and TVs in other rooms or at relatives' homes"
+  ],
+  "citations": [
+    {
+      "title": "Ahead of Sunday's Game, CPSC Reminds Families to Tackle the Deadly Hazard of TV and Furniture Tip-Overs",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2024/Ahead-of-Sundays-Game-CPSC-Reminds-Families-to-Tackle-the-Deadly-Hazard-of-TV-and-Furniture-Tip-Overs",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "CPSC Anchor It! Campaign Marks 10 Years: Fewer Furniture Tip-Overs Lead to Safer American Households",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2025/CPSC-AnchorIt-Campaign-Marks-10-Years-Fewer-Furniture-Tip-Overs-Lead-to-Safer-American-Households",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "tv"
+}

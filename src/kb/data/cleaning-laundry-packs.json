@@ -1,0 +1,121 @@
+{
+  "id": "cleaning-laundry-packs",
+  "name": "Laundry packets and cleaning products",
+  "rooms": ["kitchen", "bathroom", "garage"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 3,
+      "rationale": "Sources give no age split within 5 and younger; crawling babies can reach low cabinets, so scored moderately."
+    },
+    "12-24m": {
+      "score": 4,
+      "rationale": "AAP calls laundry packets extremely toxic; no finer age data found, so scored conservatively."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Same toxicity and same age-data limit."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "Included in the 5-and-younger poison center reports; older children can follow label instructions."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "laundry detergent packet exposures",
+      "age_band": "5 years and younger",
+      "source": "AAP",
+      "year": "January-February 2024",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Laundry-Room-and-Detergent-Safety.aspx",
+      "note": "U.S. poison centers received 1,423 reports of laundry packet exposures in children 5 and younger in those two months. AAP says exposures have slightly decreased since voluntary standards in 2015 but the products remain extremely toxic."
+    },
+    {
+      "cause_category": "laundry packet injuries treated in emergency departments",
+      "age_band": "children under 5 (report scope; age of the product table not restated, so confirm)",
+      "source": "CPSC",
+      "year": "2022",
+      "url": "https://www.cpsc.gov/s3fs-public/Pediatric_Poisoning_Fatalities_Injuries_Report_2024_final.pdf",
+      "note": "CPSC's annual pediatric poisoning report lists laundry packets at about 2,900 emergency-department-treated injuries in 2022 and bleach at about 2,700."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 6,
+  "detection_cues": ["cleaning_products_low", "laundry_packets_accessible"],
+  "why_it_matters": "Laundry packets and cleaners can badly harm a child who bites, swallows or gets them in the eyes. Locking them away, high up, reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Move laundry packets, detergent and cleaning products to a high cabinet out of sight and reach, not on top of the washer or dryer or in drawers beneath it.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Keep products in their original labeled containers, closed tightly, and leave packets in the original container until just before they go in the machine.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Keep the laundry room door closed when you are not in it, clean up spills right away, and never mix cleaning products.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add a cabinet latch or lock where these products are stored.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 25,
+      "minutes": 15,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 5,
+      "text": "Consider traditional liquid or powder detergent instead of single-load packets while children 6 or younger live in or visit the home.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 10,
+      "minutes": 0,
+      "tools": []
+    },
+    {
+      "order": 6,
+      "text": "Save Poison Help (1-800-222-1222) in your phone and call it if a child gets detergent in the mouth or eyes.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 90,
+    "text": "Check that laundry packets and cleaners are back in the high, locked spot."
+  },
+  "verify_rule": "All laundry packets and cleaning products are in a closed, high or locked cabinet in original containers, not within a child's reach.",
+  "blind_spots": [
+    "Products inside closed cabinets or the garage",
+    "Spray bottles and sink-side items outside the frame",
+    "Homes of relatives and other caregivers"
+  ],
+  "citations": [
+    {
+      "title": "Laundry Room and Detergent Safety",
+      "publisher": "HealthyChildren.org (American Academy of Pediatrics)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Laundry-Room-and-Detergent-Safety.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Annual Report: Unintentional Pediatric Poisoning Injuries and Fatalities (March 2024)",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/s3fs-public/Pediatric_Poisoning_Fatalities_Injuries_Report_2024_final.pdf",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "spray"
+}

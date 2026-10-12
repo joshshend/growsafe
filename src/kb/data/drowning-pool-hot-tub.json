@@ -1,0 +1,133 @@
+{
+  "id": "drowning-pool-hot-tub",
+  "name": "Pool and hot tub drowning",
+  "rooms": ["outdoors"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 3,
+      "rationale": "CDC: pools were 7% of under-1 drowning deaths (2018-2019), far below bathtubs; scored lower."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "CDC: 59% of drowning deaths at ages 1-4 (2018-2019) were in swimming pools."
+    },
+    "24-36m": {
+      "score": 5,
+      "rationale": "Same ages 1-4 group; CPSC says nearly 80% of pool and spa drowning victims under 15 are under 5."
+    },
+    "36-60m": {
+      "score": 4,
+      "rationale": "Still within the under-5 group CPSC highlights; gate and barrier failures remain the main route."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "pool drowning deaths",
+      "age_band": "1-4 years",
+      "source": "CDC",
+      "year": "2018-2019",
+      "url": "https://www.cdc.gov/nchs/products/databriefs/db413.htm",
+      "note": "59% of 821 unintentional drowning deaths among children ages 1-4 occurred in swimming pools, the largest share (NCHS Data Brief 413). For under-1s the pool share was 7%."
+    },
+    {
+      "cause_category": "pool and spa fatal drownings",
+      "age_band": "under 15 (nearly 80% under 5)",
+      "source": "CPSC",
+      "year": "2021-2023",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Report-Highlights-Persistent-Risk-of-Childhood-Drowning",
+      "note": "An average of 376 children under 15 fatally drowned in pool or spa incidents each year; nearly 80% of victims were under 5. The release does not say whether its separate residential-setting figure (over 70%) is limited to pools and spas."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 6,
+  "detection_cues": ["pool_unfenced", "hot_tub_uncovered"],
+  "why_it_matters": "Pools and hot tubs are where most toddler drowning deaths in the CDC data occur, and a child can get in within moments. Layers such as fences, latched gates, alarms and an adult watcher reduce the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Name an adult 'Water Watcher' who stays free of phones and other distractions whenever a child is in or near water.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 0,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Remove toys from the pool area when it is not in use, lock doors that lead to the water, and block or remove removable pool ladders.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Keep the hot tub or spa covered and the cover latched when nobody is using it.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add alarms to doors that open onto the pool area.",
+      "cost_usd_min": 15,
+      "cost_usd_max": 60,
+      "minutes": 20,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 5,
+      "text": "Enclose the pool on four sides with a barrier at least 4 feet tall that separates it from the house, with self-closing, self-latching gates.",
+      "cost_usd_min": 1000,
+      "cost_usd_max": 10000,
+      "minutes": 960,
+      "tools": ["contractor"]
+    },
+    {
+      "order": 6,
+      "text": "Keep children away from drains and openings, and ask your pool service about drain covers that meet federal standards.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 15,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 90,
+    "text": "Test that the pool gate closes and latches by itself and that door alarms work."
+  },
+  "verify_rule": "The pool is enclosed on all four sides by a barrier at least 4 feet tall, gates close and latch on their own, and the spa cover is latched.",
+  "blind_spots": [
+    "Barrier height and whether a gate latches by itself",
+    "Neighbors' pools and open water near the home",
+    "Adult supervision cannot be seen in a photo"
+  ],
+  "citations": [
+    {
+      "title": "CPSC Report Highlights Persistent Risk of Childhood Drowning",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Report-Highlights-Persistent-Risk-of-Childhood-Drowning",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Unintentional Drowning Deaths Among Children Aged 0-17 Years: United States, 1999-2019 (NCHS Data Brief No. 413)",
+      "publisher": "Centers for Disease Control and Prevention (National Center for Health Statistics)",
+      "url": "https://www.cdc.gov/nchs/products/databriefs/db413.htm",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Preventing Drowning",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/drowning/prevention/index.html",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Child Drownings: AAP Finds Layers of Protection Key to Prevent Tragedies",
+      "publisher": "HealthyChildren.org (American Academy of Pediatrics)",
+      "url": "https://www.healthychildren.org/English/news/Pages/Child-Drownings-AAP-Finds-Layers-of-Protection-Key-to-Prevent-Tragedies.aspx",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "pool"
+}

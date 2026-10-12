@@ -1,0 +1,123 @@
+{
+  "id": "button-battery-magnets",
+  "name": "Button batteries and small magnets",
+  "rooms": ["living_room", "bedroom", "kitchen"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 4,
+      "rationale": "CPSC: a swallowed battery can burn through the esophagus in as little as two hours; no age split found, scored conservatively."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "Same severity; CPSC's battery standard protects children 6 and younger, but gives no finer age breakdown."
+    },
+    "24-36m": {
+      "score": 5,
+      "rationale": "Same severity and same age caveat as 12-24 months."
+    },
+    "36-60m": {
+      "score": 4,
+      "rationale": "Still inside the 6-and-younger group; no age split found in the pages opened."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "button cell and coin battery ingestion",
+      "age_band": "not stated in the release summary (federal standard protects children 6 and younger)",
+      "source": "CPSC",
+      "year": "2011-2021",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2023/Making-Families-Safer-from-Button-Cell-or-Coin-Battery-Dangers-Reeses-Law-Leads-to-New-Federal-Mandatory-Safety-Standard",
+      "note": "CPSC cites 27 deaths and an estimated 54,300 emergency room injuries from 2011 through 2021. Age band of these counts was not confirmed on the page, so treat as to be verified."
+    },
+    {
+      "cause_category": "magnet ingestion",
+      "age_band": "children and teens (no age breakdown given)",
+      "source": "CPSC",
+      "year": "2010-2021",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Approves-New-Federal-Safety-Standard-for-Magnets-to-Prevent-Deaths-and-Serious-Injuries-from-High-Powered-Magnet-Ingestion",
+      "note": "CPSC estimates 26,600 magnet ingestions were treated in emergency rooms from 2010 through 2021, with cases rising each year since 2018, and knows of seven deaths."
+    }
+  ],
+  "evidence_status": "verify",
+  "unlock_age_months": 6,
+  "detection_cues": [
+    "button_battery_accessible",
+    "loose_magnets_accessible",
+    "small_objects_floor"
+  ],
+  "why_it_matters": "Swallowed button batteries and magnets can cause severe internal injuries within hours and need emergency care. Keeping them out of reach reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Check toys and household products for battery compartments that open easily, and keep those items away from young children.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 15,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 2,
+      "text": "Repair, replace or throw away any product with a damaged battery compartment, and keep loose batteries out of children's sight and reach.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 10,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Remove high-powered magnet sets from the home, and put away small magnets right after use, checking the floor for strays.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Store small or loose magnets in a locked container placed high or out of sight.",
+      "cost_usd_min": 10,
+      "cost_usd_max": 30,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 5,
+      "text": "Save Poison Help (1-800-222-1222) and the National Battery Ingestion Hotline (800-498-8666) in your phone. If a swallowed battery or magnet is suspected, go to the nearest emergency department right away.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 90,
+    "text": "Check toys and devices for loose battery compartments and the floor for stray magnets."
+  },
+  "verify_rule": "No product in the room has an open or loose battery compartment, and magnet sets and spare batteries are removed or locked up out of reach.",
+  "blind_spots": [
+    "Batteries inside closed devices and magnets inside toys cannot be seen",
+    "Items in bags, purses and drawers",
+    "Small coin cells or magnets on the floor are hard to spot in a photo"
+  ],
+  "citations": [
+    {
+      "title": "Making Families Safer from Button Cell or Coin Battery Dangers; Reese's Law Leads to New Federal Mandatory Safety Standard",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2023/Making-Families-Safer-from-Button-Cell-or-Coin-Battery-Dangers-Reeses-Law-Leads-to-New-Federal-Mandatory-Safety-Standard",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "CPSC Approves New Federal Safety Standard for Magnets to Prevent Deaths and Serious Injuries from High-Powered Magnet Ingestion",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Approves-New-Federal-Safety-Standard-for-Magnets-to-Prevent-Deaths-and-Serious-Injuries-from-High-Powered-Magnet-Ingestion",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "How High-Powered Magnetic Toys Can Harm Children",
+      "publisher": "HealthyChildren.org (American Academy of Pediatrics)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Dangers-of-Magnetic-Toys-and-Fake-Piercings.aspx",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "battery"
+}

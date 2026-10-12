@@ -1,0 +1,143 @@
+{
+  "id": "window-cords-and-falls",
+  "name": "Window cords and window falls",
+  "rooms": ["bedroom", "nursery", "living_room"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 3,
+      "rationale": "CPSC's cord data cover infants and children under 5 without a split; scored lower before climbing begins."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "CPSC: about nine children under 5 die each year from window covering cords; falls data cover ages 12 and under."
+    },
+    "24-36m": {
+      "score": 5,
+      "rationale": "Same under-5 cord hazard; toddlers climb to windows, and falls cost lives in the 12-and-under data."
+    },
+    "36-60m": {
+      "score": 4,
+      "rationale": "Still under 5 for cords; no finer age split for falls."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "strangulation in window covering cords",
+      "age_band": "under 5 years",
+      "source": "CPSC",
+      "year": "per release dated 2022-11-02",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2023/CPSC-Approves-New-Federal-Safety-Standard-for-Custom-Window-Coverings-to-Prevent-Deaths-and-Serious-Injuries-from-Strangulation-Window-Covering-Cords-Now-Deemed-a-Substantial-Product-Hazard",
+      "note": "CPSC says about nine children under 5 die each year from strangulation in corded window coverings (its latest data at that time)."
+    },
+    {
+      "cause_category": "strangulation in window covering cords",
+      "age_band": "infants and young children",
+      "source": "CPSC",
+      "year": "1996-2012",
+      "url": "https://www.cpsc.gov/content/october-is-window-covering-safety-month",
+      "note": "About 184 infants and young children died from window cord strangulation; CPSC knew of more than 100 non-fatal incidents."
+    },
+    {
+      "cause_category": "falls from windows",
+      "age_band": "12 years and under",
+      "source": "CPSC",
+      "year": "2024 (injuries); 2021-2023 (deaths)",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Urges-Families-to-Protect-Children-During-National-Window-Safety-Week",
+      "note": "About 5,600 children 12 and under were treated in emergency departments for window falls in 2024, about one in three needing hospitalization; at least 25 died from window falls in 2021-2023."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 6,
+  "detection_cues": ["blind_cord", "window_low_no_guard", "furniture_near_window"],
+  "why_it_matters": "Dangling blind cords can strangle young children, and open windows within reach can lead to serious falls. Moving furniture, shortening cords and limiting how far windows open reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Move cribs, beds, chairs and other climbable furniture away from windows.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 15,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Keep cords well out of reach and as short as possible, and open windows from the top rather than the bottom when you can.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Anchor continuous-loop cords tight to the wall or floor with a tension device, and adjust cord stops on inner cords.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 15,
+      "minutes": 15,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 4,
+      "text": "Request a free retrofit repair kit from the Window Covering Safety Council (800-506-4636 or windowcoverings.org); some kits do not fix a dangling pull cord.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 20,
+      "tools": []
+    },
+    {
+      "order": 5,
+      "text": "Install window stops so windows open no more than four inches. Do not rely on screens to keep a child in.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 25,
+      "minutes": 20,
+      "tools": ["drill", "screwdriver"]
+    },
+    {
+      "order": 6,
+      "text": "Install window guards that adults can open in a fire; renters should ask the landlord.",
+      "cost_usd_min": 30,
+      "cost_usd_max": 120,
+      "minutes": 30,
+      "tools": ["drill"]
+    },
+    {
+      "order": 7,
+      "text": "Replace corded window coverings with cordless ones in rooms where young children sleep or play.",
+      "cost_usd_min": 25,
+      "cost_usd_max": 200,
+      "minutes": 45,
+      "tools": ["drill", "screwdriver"]
+    }
+  ],
+  "reminder": {
+    "every_days": 180,
+    "text": "Check window cords, stops and guards, and that furniture has not been moved under a window."
+  },
+  "verify_rule": "Window coverings have no reachable cords, windows open no more than four inches or have guards, and no climbable furniture stands under them.",
+  "blind_spots": [
+    "Cord length and inner cords behind shades",
+    "Whether window stops or guards actually hold",
+    "Windows in other rooms and at relatives' homes"
+  ],
+  "citations": [
+    {
+      "title": "CPSC Approves New Federal Safety Standard for Custom Window Coverings to Prevent Deaths and Serious Injuries from Strangulation",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2023/CPSC-Approves-New-Federal-Safety-Standard-for-Custom-Window-Coverings-to-Prevent-Deaths-and-Serious-Injuries-from-Strangulation-Window-Covering-Cords-Now-Deemed-a-Substantial-Product-Hazard",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "October is Window Covering Safety Month",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/content/october-is-window-covering-safety-month",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "CPSC Urges Families to Protect Children During National Window Safety Week",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Newsroom/News-Releases/2026/CPSC-Urges-Families-to-Protect-Children-During-National-Window-Safety-Week",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "window"
+}

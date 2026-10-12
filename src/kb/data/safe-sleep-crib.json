@@ -1,0 +1,105 @@
+{
+  "id": "safe-sleep-crib",
+  "name": "Infant sleep environment",
+  "rooms": ["nursery", "bedroom"],
+  "stages": ["0-3m", "3-6m", "6-12m"],
+  "severity": {
+    "0-3m": {
+      "score": 5,
+      "rationale": "CDC MMWR: 66% of sudden unexpected infant deaths (2020-2024) were at 0-3 months."
+    },
+    "3-6m": {
+      "score": 4,
+      "rationale": "CDC MMWR: 24% of these deaths were at 4-6 months."
+    },
+    "6-12m": {
+      "score": 2,
+      "rationale": "CDC MMWR: 10% were at 7-11 months; risk is much lower but not zero."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "sleep-related infant deaths",
+      "age_band": "infants under 1 year",
+      "source": "CDC",
+      "year": "2022",
+      "url": "https://www.cdc.gov/reproductive-health/features/babies-sleep.html",
+      "note": "About 3,700 sleep-related deaths among U.S. babies in 2022. CDC says soft bedding raised the chance of sleep-related suffocation 16-fold compared with no soft bedding."
+    },
+    {
+      "cause_category": "sudden unexpected infant deaths and sleep setting",
+      "age_band": "infants under 1 year (66% at 0-3 months)",
+      "source": "CDC",
+      "year": "2020-2024",
+      "url": "https://www.cdc.gov/mmwr/volumes/75/wr/mm7535a1.htm",
+      "note": "Among 4,861 cases from 31 registry jurisdictions: 78% had soft bedding present, 75% were on a surface other than a crib, 59% shared a sleep surface, and 46% were found not on their back."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 0,
+  "detection_cues": ["crib_loose_items", "infant_non_crib_sleep_surface"],
+  "why_it_matters": "Most sleep-related infant deaths happen in the first months, and many involve soft bedding or a sleep surface that is not a crib. A bare crib or bassinet, with the baby on their back, reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Place the baby on their back for every sleep, including naps.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 0,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Take blankets, pillows, bumper pads and soft toys out of the sleep area.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Keep the crib or bassinet in your room, ideally for at least the first 6 months, and avoid sofas and armchairs for sleep.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 15,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Dress the baby in a wearable sleep sack instead of loose blankets, and avoid weighted sleep products.",
+      "cost_usd_min": 15,
+      "cost_usd_max": 40,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 5,
+      "text": "Use a firm, flat mattress in a safety-approved crib covered only by a fitted sheet; replace the setup if the surface is soft or the crib is damaged.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 300,
+      "minutes": 30,
+      "tools": ["screwdriver"]
+    }
+  ],
+  "verify_rule": "The crib or bassinet holds only a firm flat mattress with a fitted sheet, with no bumpers, blankets, pillows or toys, and it is in the parents' room.",
+  "blind_spots": [
+    "Which position the baby is placed in cannot be seen in a photo",
+    "Where the baby actually sleeps at night, or at daycare and relatives' homes",
+    "Mattress firmness and whether the crib meets current standards"
+  ],
+  "citations": [
+    {
+      "title": "Helping Babies Sleep Safely",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/reproductive-health/features/babies-sleep.html",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Characteristics of Sudden Unexpected Infant Deaths - United States, 2020-2024",
+      "publisher": "Centers for Disease Control and Prevention (MMWR)",
+      "url": "https://www.cdc.gov/mmwr/volumes/75/wr/mm7535a1.htm",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "crib"
+}

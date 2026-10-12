@@ -1,0 +1,139 @@
+{
+  "id": "drowning-bathtub-bucket",
+  "name": "Drowning in bathtubs, buckets and toilets",
+  "rooms": ["bathroom", "garage", "outdoors"],
+  "stages": ["0-3m", "3-6m", "6-12m", "12-24m", "24-36m"],
+  "severity": {
+    "0-3m": {
+      "score": 3,
+      "rationale": "CDC data cover all infants under 1 together, so the youngest months are scored conservatively."
+    },
+    "3-6m": {
+      "score": 4,
+      "rationale": "CDC: 75% of drowning deaths under age 1 (2018-2019) happened in bathtubs."
+    },
+    "6-12m": {
+      "score": 4,
+      "rationale": "Same under-1 bathtub share; babies who sit up are often placed in bath seats, which do not prevent drowning."
+    },
+    "12-24m": {
+      "score": 4,
+      "rationale": "Drowning is the leading cause of death at ages 1-4, but CDC's place data for that age mostly point to pools."
+    },
+    "24-36m": {
+      "score": 3,
+      "rationale": "Still inside the ages 1-4 group; no bathtub or bucket split is published in the sources opened."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "bathtub drowning deaths",
+      "age_band": "under 1 year",
+      "source": "CDC",
+      "year": "2018-2019",
+      "url": "https://www.cdc.gov/nchs/products/databriefs/db413.htm",
+      "note": "75% of 73 unintentional drowning deaths among children under 1 occurred in bathtubs (NCHS Data Brief 413)."
+    },
+    {
+      "cause_category": "leaving a young child alone in the bath",
+      "age_band": "children under 2 (caregiver survey)",
+      "source": "AAP",
+      "year": "2021",
+      "url": "https://www.healthychildren.org/English/news/Pages/Child-Drownings-AAP-Finds-Layers-of-Protection-Key-to-Prevent-Tragedies.aspx",
+      "note": "AAP reports that an estimated 15% to 30% of caregivers said they left a child under 2 alone in the bath for a minute to just over five minutes."
+    },
+    {
+      "cause_category": "drowning, all settings",
+      "age_band": "1-4 years",
+      "source": "CDC",
+      "year": "not stated on page (page dated 2026-01-27)",
+      "url": "https://www.cdc.gov/drowning/data-research/facts/index.html",
+      "note": "CDC states drowning causes more deaths among children ages 1-4 than any other cause."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 0,
+  "detection_cues": ["open_water_container", "standing_water_in_tub", "toilet_lid_open"],
+  "why_it_matters": "A young child can drown in only a few inches of water, quickly and silently. Staying within reach and emptying containers after use reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Stay within arm's reach of a child in the bath every second. If you must leave, even briefly, take the child with you wrapped in a towel.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 0,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Drain the tub right after bath time and empty buckets, pails and other water containers as soon as you finish using them.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Store buckets and containers where a child cannot reach them, and keep toilet lids closed.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add a toilet lid lock if a toddler can lift the lid.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 15,
+      "minutes": 10,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 5,
+      "text": "Do not count on bath seats or rings to keep a child from drowning; they are bathing aids and the adult must still stay within reach.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 0,
+      "tools": []
+    }
+  ],
+  "verify_rule": "The tub is drained, toilet lids are closed, and every bucket or container is empty and out of a child's reach.",
+  "blind_spots": [
+    "Adult supervision cannot be seen in a photo",
+    "Water left in a container outside the frame",
+    "Bathrooms, buckets and tubs at other homes"
+  ],
+  "citations": [
+    {
+      "title": "Unintentional Drowning Deaths Among Children Aged 0-17 Years: United States, 1999-2019 (NCHS Data Brief No. 413)",
+      "publisher": "Centers for Disease Control and Prevention (National Center for Health Statistics)",
+      "url": "https://www.cdc.gov/nchs/products/databriefs/db413.htm",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "5 Bathroom Safety Tips for Infants & Young Children",
+      "publisher": "HealthyChildren.org (American Academy of Pediatrics)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Bathroom-Safety.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Child Drownings: AAP Finds Layers of Protection Key to Prevent Tragedies",
+      "publisher": "HealthyChildren.org (American Academy of Pediatrics)",
+      "url": "https://www.healthychildren.org/English/news/Pages/Child-Drownings-AAP-Finds-Layers-of-Protection-Key-to-Prevent-Tragedies.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Be on Guard for In-home Drowning Dangers",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/s3fs-public/NSN-14-032025_InHomeDrowning_v3.pdf?VersionId=rXOqfbEENFzHj1NTSSMkVZv9TQwiGPqo",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Drowning Facts",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/drowning/data-research/facts/index.html",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "bathtub"
+}

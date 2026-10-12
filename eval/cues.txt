@@ -21,3 +21,12 @@ car_seat_loose_install
 car_seat_harness_slack
 garage_chemicals_low
 garage_tools_reach
+pool_unfenced
+hot_tub_uncovered
+standing_water_in_tub
+toilet_lid_open
+infant_non_crib_sleep_surface
+button_battery_accessible
+loose_magnets_accessible
+laundry_packets_accessible
+furniture_near_window

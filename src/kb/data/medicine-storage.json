@@ -1,0 +1,119 @@
+{
+  "id": "medicine-storage",
+  "name": "Medicine, vitamin and supplement storage",
+  "rooms": ["kitchen", "bedroom", "bathroom", "living_room"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 3,
+      "rationale": "Crawlers can reach low items; the CDC-linked study found most visits at ages 1-2, so scored below those ages."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "Study of children 5 and younger: 67.4% of unsupervised medication ED visits (2017-2020) were ages 1-2."
+    },
+    "24-36m": {
+      "score": 5,
+      "rationale": "Still within the ages 1-2 group that made up most visits."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "Fewer visits fall outside ages 1-2, but melatonin visits skewed to ages 3-5 (52.4%) in CDC's report."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "unsupervised medication exposures",
+      "age_band": "5 years and younger (most visits ages 1-2)",
+      "source": "other",
+      "year": "2009-2020",
+      "url": "https://stacks.cdc.gov/view/cdc/151698",
+      "note": "Journal article hosted on CDC Stacks (American Journal of Preventive Medicine, 2023): an estimated 677,968 emergency department visits over 2009-2020; annual visits fell from 66,416 in 2009 to 36,564 in 2020."
+    },
+    {
+      "cause_category": "unsupervised melatonin ingestion",
+      "age_band": "5 years and younger",
+      "source": "CDC",
+      "year": "2019-2022",
+      "url": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7309a5.htm",
+      "note": "An estimated 10,930 emergency department visits; gummies were documented in 47.3% and melatonin was the only medication in 90.2% of visits (MMWR, March 2024)."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 6,
+  "detection_cues": ["medicine_within_reach"],
+  "why_it_matters": "Young children, most often around ages 1 and 2, swallow medicines, vitamins and gummies they find within reach. Storing them up high and out of sight reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Put away all medicines, vitamins and supplements, including gummies, after every use; never leave them on a counter or by a bedside.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Store them up high where children cannot see or reach them, and relock safety caps each time because children may still open them.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Ask visitors to keep purses, coats and bags that hold medicine up and out of sight.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add a lockable box or cabinet lock for medicines.",
+      "cost_usd_min": 10,
+      "cost_usd_max": 40,
+      "minutes": 20,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 5,
+      "text": "Save the Poison Help number (1-800-222-1222) in every phone and share it with other caregivers. Never call medicine candy.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 90,
+    "text": "Check bedside tables, counters and visitors' bags for medicines, vitamins and gummies."
+  },
+  "verify_rule": "No medicine, vitamin or supplement is visible or within a child's reach in the room, and any lockable storage is closed.",
+  "blind_spots": [
+    "Medicines in purses, bags and coat pockets",
+    "Items inside closed drawers or cabinets",
+    "Homes of relatives and other caregivers"
+  ],
+  "citations": [
+    {
+      "title": "Trends in Emergency Department Visits for Unsupervised Pediatric Medication Exposures",
+      "publisher": "American Journal of Preventive Medicine (via CDC Stacks)",
+      "url": "https://stacks.cdc.gov/view/cdc/151698",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Notes from the Field: Emergency Department Visits for Unsupervised Pediatric Melatonin Ingestion - United States, 2019-2022",
+      "publisher": "Centers for Disease Control and Prevention (MMWR)",
+      "url": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7309a5.htm",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "About the PROTECT Initiative",
+      "publisher": "Centers for Disease Control and Prevention",
+      "url": "https://www.cdc.gov/medication-safety/protect/index.html",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "pill"
+}
