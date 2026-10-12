@@ -1,0 +1,6 @@
+# T5 Core UI (start after T4 merges; uses src/store, src/ui, src/i18n)
+Read ARCHITECTURE.md, frontend-design intent: calm, high-contrast, large type, friendly not clinical. One accent color, system font stack, 16px+ body, 44px targets, no color-only meaning (icon + text for severity).
+Build: store (Zustand + idb-keyval persistence, schemaVersion, reset button in /about); i18n t() with en.json (es.json mirrored with "[ES]" prefix placeholders); HashRouter routes /, /child/new, /home/new, /plan, /task/:id, /room/:homeId/:room, /about.
+Screens: onboarding (add child: nickname + birth month/year; add home: name + choose rooms), plan list grouped "Do first / This month / Coming up", filter by home and room, progress bar per room and home, task detail (why it matters, ordered steps, cost range, time, citation links, "Why this ranks here" panel from `reasons`, owner picker (typed names), due date, status), footer disclaimer + Poison Help tel: link on every plan screen. Task rows show severity as icon+word.
+Tests: store unit tests; Playwright smoke (add child + home -> plan shows tasks -> mark one done -> reload -> persists); axe on /plan and /task.
+Done when `npm run dev` demo works on a phone-width viewport and all checks pass. Append to AI_USE.md. Reply <150 words incl. what Josh should click through.

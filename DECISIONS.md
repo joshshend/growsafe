@@ -8,3 +8,4 @@
 - 2026-10-11 Added "Help & Support" tab (Relink/CareLoop pattern): curated, verified, Texas-first resources incl. financial help for safety gear; caregiver-support links only (no screenings/advice). Cut to make room: vaccine keeper, last-dose log, well-child reminders.
 - 2026-10-11 Story: Josh's own reason + 5-8 caregiver interviews go in the video and write-up (both recent winners lead with research and a personal why).
 - 2026-10-11 T8 eval harness: Python floor relaxed from 3.11 to 3.10 (Josh's Mac shell has 3.10.12; code is stdlib-only, nothing 3.11-specific). Coordinator-approved.
+- 2026-10-11 Architecture frozen in ARCHITECTURE.md: HashRouter, Zustand + idb-keyval, fflate for share links, Vercel for static host + the single photo proxy function. Briefs T3a/T3b/T4/T5/T6/T7/T9 written in tasks/.

@@ -1,0 +1,4 @@
+# T7 Share by link (pure logic first; UI after T5)
+src/share/: redact(plan) keeps only: child nicknames + age band (not birth date), home names, room list, tasks (hazard id, room, status, owner name, due), schema version. Strips emergency cards, full names, addresses, photos, notes fields. encodePlan: JSON -> fflate deflate -> base64url -> `${origin}/#/import?d=${data}`; decodePlan validates with Zod, rejects unknown version, size > 8KB warning (show "use file export instead"). file.ts: export/import .kidproof.json with the same redaction.
+UI: Share button on /plan: native Web Share API (navigator.share) else copy link; /import route shows a read-only view of the plan with a "Make my own copy" button. No server involved.
+Tests: round-trip; redaction fixtures (emergency card, full name, birthdate never appear in encoded output - decode and grep); tamper/garbage input rejected; size warning. Append to AI_USE.md. Reply <150 words.
