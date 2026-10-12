@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Plus, ShareNetwork, Printer } from "@phosphor-icons/react";
+import {
+  FirstAidKit,
+  IdentificationCard,
+  Pill,
+  Plus,
+  ShareNetwork,
+  Printer,
+} from "@phosphor-icons/react";
 import { useStore } from "../store/store";
 import { ageText } from "./format";
 import { Sheet } from "./Sheet";
@@ -28,14 +35,67 @@ export function People() {
           <ShareNetwork size={22} weight="duotone" aria-hidden="true" />
           {t("people.share")}
         </button>
-        <button type="button" className="btn btn-block" onClick={() => setNote(t("people.soon"))}>
-          <Printer size={22} weight="duotone" aria-hidden="true" />
-          {t("people.briefing")}
-        </button>
+        {homes[0] ? (
+          <Link to={`/briefing/${homes[0].id}`} className="btn btn-block">
+            <Printer size={22} weight="duotone" aria-hidden="true" />
+            {t("people.briefing")}
+          </Link>
+        ) : null}
         <p role="status" className="muted">
           {note}
         </p>
       </div>
+
+      <section aria-labelledby="pe">
+        <h2 id="pe" className="t-section section-head">
+          {t("people.emergencySection")}
+        </h2>
+        <ul className="rows">
+          {children.map((c) => (
+            <li key={`em-${c.id}`} className="row">
+              <Link to={`/emergency/${c.id}`} className="row-link">
+                <span className="row-icon">
+                  <IdentificationCard size={28} weight="duotone" aria-hidden="true" />
+                </span>
+                <span className="row-body">
+                  <span className="row-title">
+                    {t("people.emergencyCard", { name: c.nickname })}
+                  </span>
+                  <span className="row-sub">{t("people.emergencyCardSub")}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+          {homes.map((h) => (
+            <li key={`med-${h.id}`} className="row">
+              <Link to={`/medicine/${h.id}`} className="row-link">
+                <span className="row-icon">
+                  <Pill size={28} weight="duotone" aria-hidden="true" />
+                </span>
+                <span className="row-body">
+                  <span className="row-title">{t("people.medCheck", { home: h.name })}</span>
+                  <span className="row-sub">{t("people.medCheckSub")}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+          {homes.map((h) => (
+            <li key={`br-${h.id}`} className="row">
+              <Link to={`/briefing/${h.id}`} className="row-link">
+                <span className="row-icon">
+                  <FirstAidKit size={28} weight="duotone" aria-hidden="true" />
+                </span>
+                <span className="row-body">
+                  <span className="row-title">{t("people.briefingFor", { home: h.name })}</span>
+                  <span className="row-sub">{t("people.briefingSub")}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* T22 Part B slot: visit packs go here (a section like the one above). */}
 
       <section aria-labelledby="pc">
         <h2 id="pc" className="t-section section-head">

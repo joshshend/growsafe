@@ -2,9 +2,12 @@
 import { useEffect } from "react";
 import { HashRouter, Link, Navigate, Route, Routes, useParams } from "react-router-dom";
 import { useStore } from "../store/store";
+import { Briefing } from "./Briefing";
+import { EmergencyCard } from "./Emergency";
 import { ChildForm, HomeForm } from "./Forms";
 import { Help } from "./Help";
 import { Layout } from "./Layout";
+import { MedicineCheck } from "./MedicineCheck";
 import { Onboarding } from "./Onboarding";
 import { People } from "./People";
 import { RoomPage, Rooms } from "./Rooms";
@@ -66,6 +69,9 @@ export function App() {
           <Route path="weekend" element={<Weekend />} />
           <Route path="help" element={<Help />} />
           <Route path="people" element={<People />} />
+          <Route path="emergency/:childId" element={<EmergencyCard />} />
+          <Route path="briefing/:homeId" element={<Briefing />} />
+          <Route path="medicine/:homeId" element={<MedicineCheck />} />
           <Route path="settings" element={<Settings />} />
           <Route path="settings/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />

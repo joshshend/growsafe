@@ -1,0 +1,83 @@
+/* Emergency card, medicine check and sitter briefing (T6). Uses the GrowSafe tokens only. */
+.input-area {
+  min-height: 96px;
+  padding: 12px 14px;
+  resize: vertical;
+  font: inherit;
+  color: inherit;
+}
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-tile);
+  background: var(--surface);
+}
+.notice svg {
+  flex: none;
+  color: var(--action);
+}
+.audit-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.briefing-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.briefing-list {
+  margin: 0;
+  padding-left: 22px;
+}
+.briefing-list li + li {
+  margin-top: 6px;
+}
+.briefing-numbers {
+  padding: 14px 16px;
+  border: 2px solid var(--emergency);
+  border-radius: var(--r-tile);
+  font-weight: 600;
+}
+.print-only {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+  .topbar,
+  .tabbar,
+  .skip,
+  .toast,
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  html,
+  body,
+  .app {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .page {
+    max-width: none;
+    margin: 0;
+    padding: 0 !important;
+  }
+  .briefing-numbers {
+    border-color: #000;
+    break-inside: avoid;
+  }
+  .briefing-block {
+    break-inside: avoid;
+  }
+}
