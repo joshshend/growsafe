@@ -8,6 +8,7 @@ import { Ahead } from "./Ahead";
 import { ChildForm, HomeForm } from "./Forms";
 import { Help } from "./Help";
 import { Layout } from "./Layout";
+import { Merge } from "./Merge";
 import { MedicineCheck } from "./MedicineCheck";
 import { Onboarding } from "./Onboarding";
 import { People } from "./People";
@@ -15,6 +16,7 @@ import { RoomPage, Rooms } from "./Rooms";
 import { Privacy, Settings } from "./Settings";
 import { Today } from "./Today";
 import { useUi } from "./ui-state";
+import { Visit } from "./Visit";
 import { Weekend } from "./Weekend";
 import { Welcome } from "./Welcome";
 import { useT } from "./useT";
@@ -74,6 +76,8 @@ export function App() {
           <Route path="emergency/:childId" element={<EmergencyCard />} />
           <Route path="briefing/:homeId" element={<Briefing />} />
           <Route path="medicine/:homeId" element={<MedicineCheck />} />
+          <Route path="visit" element={<Visit />} />
+          <Route path="merge" element={<Merge />} />
           <Route path="settings" element={<Settings />} />
           <Route path="settings/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />

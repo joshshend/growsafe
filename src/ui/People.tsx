@@ -11,6 +11,7 @@ import {
 import { useStore } from "../store/store";
 import { ageText } from "./format";
 import { Sheet } from "./Sheet";
+import { VisitPacks } from "./VisitPacks";
 import { useT } from "./useT";
 
 export function People() {
@@ -95,7 +96,7 @@ export function People() {
         </ul>
       </section>
 
-      {/* T22 Part B slot: visit packs go here (a section like the one above). */}
+      <VisitPacks />
 
       <section aria-labelledby="pc">
         <h2 id="pc" className="t-section section-head">
