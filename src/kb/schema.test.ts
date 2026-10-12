@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import sample from "./data/tv-tip-over.json";
+import sample from "./data/tv-furniture-tip-over.json";
 import { validateEntries } from "./validate";
 import { ChildSchema, HazardEntrySchema, PlanSchema } from "./schema";
 
@@ -86,7 +86,13 @@ describe("schemas", () => {
       children: [{ id: "c1", nickname: "Sam", birth_month: 3, birth_year: 2025 }],
       homes: [{ id: "h1", name: "Home", rooms: ["kitchen"] }],
       tasks: [
-        { id: "t1", hazard_id: "tv-tip-over", home_id: "h1", room: "kitchen", status: "todo" },
+        {
+          id: "t1",
+          hazard_id: "tv-furniture-tip-over",
+          home_id: "h1",
+          room: "kitchen",
+          status: "todo",
+        },
       ],
     };
     expect(PlanSchema.safeParse(plan).success).toBe(true);
