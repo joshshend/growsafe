@@ -13,3 +13,11 @@ appliance_cord_hanging
 window_low_no_guard
 heavy_items_high_shelf
 toxic_plant_low
+power_strip_floor_reach
+pot_handle_outward
+hot_items_counter_edge
+bath_faucet_exposed
+car_seat_loose_install
+car_seat_harness_slack
+garage_chemicals_low
+garage_tools_reach

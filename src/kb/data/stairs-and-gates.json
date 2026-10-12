@@ -1,0 +1,117 @@
+{
+  "id": "stairs-and-gates",
+  "name": "Stairs and baby gates",
+  "rooms": ["stairs", "living_room"],
+  "stages": ["0-3m", "3-6m", "6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "0-3m": {
+      "score": 3,
+      "rationale": "Not mobile yet; the main risk is a fall while being carried on stairs."
+    },
+    "3-6m": {
+      "score": 3,
+      "rationale": "Still carried everywhere; one study found about a quarter of under-1 stair injuries happened while being carried."
+    },
+    "6-12m": {
+      "score": 5,
+      "rationale": "Crawling and pulling up begin; the same study found infants hurt on stairs were over 3 times as likely to be hospitalized."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "New walkers and climbers; the study counted over 93,000 stair injuries in children under 5 over 10 years."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Climbing is confident but balance and judgment are still developing; the evidence is not split by age so this is scored conservatively."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "Stairs are usually managed with supervision; evidence is not split by age, so this is scored conservatively."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "stair-related falls and injuries",
+      "age_band": "under 5 years",
+      "source": "other",
+      "year": "1999-2008",
+      "url": "https://www.nationwidechildrens.org/newsroom/news-releases/2012/03/new-study-examines-stair-related-injuries-among-children-in-the-united-states",
+      "note": "Nationwide Children's Hospital news release (Mar 12, 2012) on a Pediatrics study using CPSC NEISS data: more than 93,000 children under 5 treated in U.S. emergency departments for stair injuries from 1999 to 2008, about one every six minutes on average; one-fourth of injuries in infants under 1 happened while being carried on stairs. Verify against the Pediatrics article itself (the full paper was not opened)."
+    }
+  ],
+  "evidence_status": "verify",
+  "unlock_age_months": 0,
+  "detection_cues": ["stairs_no_gate"],
+  "why_it_matters": "Babies can be hurt on stairs while being carried, and crawlers and new walkers can tumble down them in seconds. A properly installed gate at the top and bottom reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Until a gate is up, keep the child off the stairs, hold their hand when they climb or descend, and keep stairs clear of clutter.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Install a gate at the bottom of the stairs, and a gate that screws into the wall at the top (not a pressure-fit or pet gate).",
+      "cost_usd_min": 30,
+      "cost_usd_max": 120,
+      "minutes": 45,
+      "tools": ["drill", "stud finder", "screwdriver"]
+    },
+    {
+      "order": 3,
+      "text": "Skip accordion-style and older V-shaped-opening gates; they can trap an arm, head or neck.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Keep stairs well lit and carry a baby with one hand free to hold the rail.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 15,
+      "minutes": 10,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 180,
+    "text": "Check that stair gates are still firmly latched and the wall mounts have not loosened."
+  },
+  "verify_rule": "A gate is fixed with screws at the top of every stairway the child can reach, latches closed, and does not move when pushed firmly.",
+  "blind_spots": [
+    "Whether a gate is screwed into a stud or only a pressure fit",
+    "Stairs in other parts of the house or at relatives' homes",
+    "How well the latch works"
+  ],
+  "citations": [
+    {
+      "title": "Home Safety: Tips for Families With Young Children",
+      "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/home-safety-heres-how.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Falls Prevention Tips",
+      "publisher": "Safe Kids Worldwide",
+      "url": "https://www.safekids.org/tip/falls-prevention-tips",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Childproofing Your Home - Several Safety Devices to Help Protect Your Children from Home Hazards",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/safety-education/safety-guides/kids-and-babies/Childproofing-Your-Home",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "New Study Examines Stair-Related Injuries Among Children in the United States",
+      "publisher": "Nationwide Children's Hospital",
+      "url": "https://www.nationwidechildrens.org/newsroom/news-releases/2012/03/new-study-examines-stair-related-injuries-among-children-in-the-united-states",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "stairs"
+}

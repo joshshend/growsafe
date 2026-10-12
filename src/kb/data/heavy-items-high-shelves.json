@@ -1,0 +1,93 @@
+{
+  "id": "heavy-items-high-shelves",
+  "name": "Heavy items on high shelves",
+  "rooms": ["living_room", "bedroom", "nursery", "kitchen"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 2,
+      "rationale": "Pulling up begins; a child can reach low shelves first. No age-split evidence, so scored conservatively."
+    },
+    "12-24m": {
+      "score": 4,
+      "rationale": "Climbing and pulling on shelves and furniture; AAP warns children can be seriously hurt pulling on heavy furniture."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Climbers use shelves as steps; scored conservatively."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "Climbing continues; scored conservatively."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "shelving and bookcase tip-over (related, not the same as items falling from shelves)",
+      "age_band": "children under 18",
+      "source": "CPSC",
+      "year": "2020-2022",
+      "url": "https://www.cpsc.gov/s3fs-public/2023_Annual_Tip_Over_Report_Posted_2024Feb_FINAL_0.pdf",
+      "note": "CPSC 2023 tip-over report (Feb 2024): of about 6,400 annual average ER-treated furniture tip-over injuries to children, 2020-2022, shelving and bookcases were about 1,000 (16%). This counts the furniture tipping, not objects falling off shelves, so it supports the topic only indirectly. No figure for items falling from high shelves was found."
+    }
+  ],
+  "evidence_status": "verify",
+  "unlock_age_months": 6,
+  "detection_cues": ["heavy_items_high_shelf"],
+  "why_it_matters": "Children pull and climb, and a heavy object pulled or knocked off a shelf can fall on them. Moving heavy items low and out of reach, and anchoring shelves, reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Move heavy and breakable items (computers, large books, glass) to lower, rear positions that a child cannot reach, or out of the room.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 15,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Put lightweight items on the shelves a child can reach and keep cords from lamps and devices out of reach.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Anchor bookcases and shelving to the wall with brackets or straps.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 25,
+      "minutes": 20,
+      "tools": ["drill", "stud finder"]
+    },
+    {
+      "order": 4,
+      "text": "Teach older children not to climb on shelves or use drawers as steps.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    }
+  ],
+  "verify_rule": "Nothing heavy sits on a shelf or surface a child can reach, and shelving is anchored to the wall.",
+  "blind_spots": [
+    "Weight of objects (a photo shows size, not weight)",
+    "Whether a shelf is anchored to a stud",
+    "Shelves in other rooms or relatives' homes"
+  ],
+  "citations": [
+    {
+      "title": "Home Safety: Tips for Families With Young Children",
+      "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/home-safety-heres-how.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Product Instability or Tip-Over Injuries and Fatalities Associated with Televisions, Furniture, and Appliances: 2023 Report",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/s3fs-public/2023_Annual_Tip_Over_Report_Posted_2024Feb_FINAL_0.pdf",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "shelf"
+}

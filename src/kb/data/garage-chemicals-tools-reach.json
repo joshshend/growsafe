@@ -1,0 +1,80 @@
+{
+  "id": "garage-chemicals-tools-reach",
+  "name": "Garage: chemicals and tools within reach",
+  "rooms": ["garage"],
+  "stages": ["12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "12-24m": {
+      "score": 4,
+      "rationale": "Toddlers wander into open garages and taste or grab what they find; no garage-specific figure was found, so scored conservatively."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Can open doors and reach shelves; scored conservatively."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "More awareness, still curious; scored conservatively."
+    }
+  },
+  "injury_evidence": [],
+  "evidence_status": "verify",
+  "unlock_age_months": 12,
+  "detection_cues": ["garage_chemicals_low", "garage_tools_reach"],
+  "why_it_matters": "Garages hold antifreeze, pesticides, paint and sharp or heavy tools, often at a child's height. Locking them up and keeping the door to the garage closed reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Keep the door from the house to the garage closed, and keep young children out unless an adult is with them.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 1,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Move chemicals (antifreeze, paint, pesticides, fuel) to a locked cabinet or high shelf, in their original containers, never in food or drink bottles.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 60,
+      "minutes": 30,
+      "tools": ["lock"]
+    },
+    {
+      "order": 3,
+      "text": "Store sharp and power tools in a locked toolbox or cabinet, with cords and batteries out of reach.",
+      "cost_usd_min": 15,
+      "cost_usd_max": 80,
+      "minutes": 20,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add a door lock or latch above the child's reach on the garage entry door.",
+      "cost_usd_min": 10,
+      "cost_usd_max": 30,
+      "minutes": 20,
+      "tools": ["drill"]
+    }
+  ],
+  "verify_rule": "Chemicals and tools in the garage are in a locked cabinet or above a child's reach, and the garage entry door stays closed or latched.",
+  "blind_spots": [
+    "What is inside closed containers or cabinets",
+    "Items stored in vehicles",
+    "Whether the garage door can be reached by a child"
+  ],
+  "citations": [
+    {
+      "title": "Prevention Tips",
+      "publisher": "Poison Help, Health Resources and Services Administration (HRSA)",
+      "url": "https://poisonhelp.hrsa.gov/what-you-can-do/prevention-tips",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Poison Prevention",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Poison-Prevention-Information-Center",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "tools"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "kitchen-hot-liquids-stove",
+  "name": "Kitchen: hot liquids and the stove",
+  "rooms": ["kitchen"],
+  "stages": ["0-3m", "3-6m", "6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "0-3m": {
+      "score": 3,
+      "rationale": "Held in arms near hot drinks and stove; one splash can scald, but evidence is not split by age so this is scored conservatively."
+    },
+    "3-6m": {
+      "score": 3,
+      "rationale": "Still mostly held; same risk of a hot drink spilled while holding the baby."
+    },
+    "6-12m": {
+      "score": 4,
+      "rationale": "Crawling and pulling up bring a child to pot handles and cord ends; Safe Kids says children 2 and younger face the greatest burn risk."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "Reaching and grabbing peak while the child is still in the highest-risk age group for burns (2 and under)."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Still able to reach counters and pot handles; evidence is not split by age so this is scored conservatively."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "Better understanding of hot, but still curious; scored conservatively."
+    }
+  },
+  "injury_evidence": [],
+  "evidence_status": "verify",
+  "unlock_age_months": 0,
+  "detection_cues": ["stove_knobs_front", "pot_handle_outward", "hot_items_counter_edge"],
+  "why_it_matters": "A single splash of hot coffee, soup or pot contents can scald a small child. Keeping hot things away from edges and little hands reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Cook on the back burners and turn pot handles inward.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 1,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Set a kid-free zone at least 3 feet from the cooking area, and do not carry or hold a baby while holding a hot drink or standing at the stove.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Keep hot food and drinks away from the edges of counters and tables, and stir and let microwaved food stand about two minutes before serving.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add stove knob covers if knobs are on the front, and an anti-tip bracket if the range is free-standing.",
+      "cost_usd_min": 8,
+      "cost_usd_max": 40,
+      "minutes": 30,
+      "tools": ["screwdriver"]
+    }
+  ],
+  "verify_rule": "Pot handles point inward, no hot items sit near counter edges, and a 3-foot kid-free zone is used while cooking.",
+  "blind_spots": [
+    "Behavior while cooking (a photo shows only a still moment)",
+    "Whether an anti-tip bracket is installed behind the range",
+    "Hot items brought in from other rooms"
+  ],
+  "citations": [
+    {
+      "title": "Burns and Scalds Prevention Tips",
+      "publisher": "Safe Kids Worldwide",
+      "url": "https://www.safekids.org/tip/burns-and-scalds-prevention-tips",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Burn Treatment & Prevention Tips for Families",
+      "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+      "url": "https://www.healthychildren.org/English/health-issues/injuries-emergencies/Pages/Treating-and-Preventing-Burns.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Burns and Scalds",
+      "publisher": "Safe Kids Worldwide",
+      "url": "https://www.safekids.org/safetytips/field_risks/burns-and-scalds",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Childproofing Your Home - Several Safety Devices to Help Protect Your Children from Home Hazards",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/safety-education/safety-guides/kids-and-babies/Childproofing-Your-Home",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "pot"
+}

@@ -1,0 +1,98 @@
+{
+  "id": "bathroom-hot-water-scalds",
+  "name": "Bathroom: hot water and scalds",
+  "rooms": ["bathroom"],
+  "stages": ["0-3m", "3-6m", "6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "0-3m": {
+      "score": 3,
+      "rationale": "Bathed by an adult; risk is mainly water that is too hot; no injury figure was found, so scored conservatively."
+    },
+    "3-6m": {
+      "score": 3,
+      "rationale": "Same bath routine; no injury figure was found, so scored conservatively."
+    },
+    "6-12m": {
+      "score": 4,
+      "rationale": "Sitting and reaching toward the tap; Safe Kids says children 2 and younger face the greatest burn risk."
+    },
+    "12-24m": {
+      "score": 4,
+      "rationale": "Can reach and turn taps; same age group at greatest burn risk."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Can climb into the tub and turn on the tap; scored conservatively."
+    },
+    "36-60m": {
+      "score": 2,
+      "rationale": "More awareness, usually supervised; scored conservatively."
+    }
+  },
+  "injury_evidence": [],
+  "evidence_status": "verify",
+  "unlock_age_months": 0,
+  "detection_cues": ["bath_faucet_exposed"],
+  "why_it_matters": "Tap water hotter than 120 degrees F can burn a child's skin quickly. Lowering the water heater setting and testing bath water reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Set the water heater so the hottest tap water is no more than 120 degrees F (49 C), and check with a thermometer.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 15,
+      "minutes": 15,
+      "tools": ["thermometer"]
+    },
+    {
+      "order": 2,
+      "text": "Before every bath, test the water with the inside of your wrist; it should feel warm, not hot.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 1,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Place the child facing away from the faucet so they cannot reach the hot tap, and stay within arm's reach.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 1,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Add a soft faucet cover so the tap is not a hot metal surface.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 15,
+      "minutes": 5,
+      "tools": []
+    }
+  ],
+  "verify_rule": "The hottest tap water reads 120 degrees F or lower, and the child always faces away from the faucet.",
+  "blind_spots": [
+    "Water heater setting and actual tap temperature",
+    "Supervision during bath time",
+    "Hot-water pipes or fixtures hidden from view"
+  ],
+  "citations": [
+    {
+      "title": "Burns and Scalds Prevention Tips",
+      "publisher": "Safe Kids Worldwide",
+      "url": "https://www.safekids.org/tip/burns-and-scalds-prevention-tips",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Burn Treatment & Prevention Tips for Families",
+      "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+      "url": "https://www.healthychildren.org/English/health-issues/injuries-emergencies/Pages/Treating-and-Preventing-Burns.aspx",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Childproofing Your Home - Several Safety Devices to Help Protect Your Children from Home Hazards",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/safety-education/safety-guides/kids-and-babies/Childproofing-Your-Home",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "bath"
+}

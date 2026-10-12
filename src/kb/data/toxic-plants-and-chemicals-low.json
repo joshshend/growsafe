@@ -1,0 +1,109 @@
+{
+  "id": "toxic-plants-and-chemicals-low",
+  "name": "Toxic plants and chemicals within reach",
+  "rooms": ["living_room", "kitchen", "bathroom", "bedroom"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 3,
+      "rationale": "Crawlers reach low cabinets and put things in their mouths; the CPSC figures cover all children under 5, so this is scored conservatively."
+    },
+    "12-24m": {
+      "score": 4,
+      "rationale": "Toddlers open cabinets and explore; the CPSC report counts about 62,600 ER-treated poisoning injuries in under-5s in 2021."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Still within the under-5 group counted by CPSC; no finer age split was read."
+    },
+    "36-60m": {
+      "score": 3,
+      "rationale": "Still in the under-5 group; scored conservatively."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "unintentional pediatric poisoning (all products; includes household chemicals)",
+      "age_band": "under 5 years",
+      "source": "CPSC",
+      "year": "2019-2021",
+      "url": "https://www.cpsc.gov/s3fs-public/Pediatric_Poisoning_Fatalities_Injuries_Report_2023_Final.pdf",
+      "note": "CPSC Annual Report on Pediatric Poisoning Fatalities and Injuries (Jan 2023): an estimated 62,600 ER-treated poisoning injuries to children under 5 in 2021 (61,500 in 2020; 67,500 in 2019) and 59 deaths in 2021. In 2021, bleach and laundry packets were about 3,000 each. The report has no plant category, so plant risk is supported only by Poison Help's advice, not by a figure. Report was prepared by staff and not reviewed by the Commission."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 6,
+  "detection_cues": ["cleaning_products_low", "toxic_plant_low"],
+  "why_it_matters": "Young children taste what they find, including cleaners, laundry packets and some houseplants. Locking chemicals up and keeping risky plants out of reach reduces the risk of poisoning.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Write the Poison Help number, 1-800-222-1222, on the fridge and save it in every caregiver's phone.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Move cleaners, laundry packets and other chemicals from low cabinets to a locked cabinet or high shelf, in their original containers.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 30,
+      "minutes": 20,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Add child-resistant latches to low cabinets; the caps alone are not enough.",
+      "cost_usd_min": 8,
+      "cost_usd_max": 30,
+      "minutes": 20,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 4,
+      "text": "Call Poison Help for a list of poisonous plants common in your area, then move those plants out of reach or give them away.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 10,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 90,
+    "text": "Check that cleaners, laundry products and plants are still out of reach."
+  },
+  "verify_rule": "Cleaners, chemicals and listed risky plants are locked up or out of reach, and the Poison Help number is posted.",
+  "blind_spots": [
+    "Plant species (a photo rarely identifies a plant reliably)",
+    "Products stored in unmarked containers",
+    "Items in purses, bags and other rooms"
+  ],
+  "citations": [
+    {
+      "title": "Prevention Tips",
+      "publisher": "Poison Help, Health Resources and Services Administration (HRSA)",
+      "url": "https://poisonhelp.hrsa.gov/what-you-can-do/prevention-tips",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Poison Prevention",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Poison-Prevention-Information-Center",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Annual Report on Pediatric Poisoning Fatalities and Injuries (January 2023)",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/s3fs-public/Pediatric_Poisoning_Fatalities_Injuries_Report_2023_Final.pdf",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Home Safety: Tips for Families With Young Children",
+      "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/home-safety-heres-how.aspx",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "plant"
+}

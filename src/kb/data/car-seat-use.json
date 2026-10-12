@@ -1,0 +1,127 @@
+{
+  "id": "car-seat-use",
+  "name": "Car seat use and installation",
+  "rooms": ["car"],
+  "stages": ["0-3m", "3-6m", "6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "0-3m": {
+      "score": 5,
+      "rationale": "Newborns ride rear-facing; NHTSA's 2011 study found 49% of seats had at least one misuse."
+    },
+    "3-6m": {
+      "score": 5,
+      "rationale": "Rear-facing seat required under age 1 per NHTSA; misuse rate was 49% overall."
+    },
+    "6-12m": {
+      "score": 5,
+      "rationale": "Still under 1, so NHTSA says always rear-facing; a loose install or low seat angle are the top misuses."
+    },
+    "12-24m": {
+      "score": 5,
+      "rationale": "Keep rear-facing as long as possible per NHTSA; the common errors are loose installation and slack harness."
+    },
+    "24-36m": {
+      "score": 5,
+      "rationale": "Forward-facing seats had the highest multiple-misuse share (31.3%) in NHTSA's 2011 study."
+    },
+    "36-60m": {
+      "score": 4,
+      "rationale": "Harness seat or booster by size; boosters had a lower multiple-misuse share (3.8%), but the lap belt across the belly is the top error."
+    }
+  },
+  "injury_evidence": [
+    {
+      "cause_category": "child restraint misuse",
+      "age_band": "children in car seats and boosters (study sample)",
+      "source": "other",
+      "year": "2011",
+      "url": "https://www.nhtsa.gov/document/additional-analysis-national-child-restraint-use-special-study-child-restraint-misuse",
+      "note": "NHTSA Research Note DOT HS 812 527 (July 2018), on the 2011 National Child Restraint Use Special Study: 49% (weighted) of 3,383 cases had at least one misuse. Top errors: loose installation, harness slack over 2 inches, and rear-facing seat angle too flat. Data are from 2011."
+    },
+    {
+      "cause_category": "unrestrained child passengers killed in crashes",
+      "age_band": "children (age band not stated on the page)",
+      "source": "other",
+      "year": "2024",
+      "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+      "note": "NHTSA car seat page states that 39% of children killed in car crashes in 2024 were unrestrained. Age range for 'children' was not given on the page."
+    }
+  ],
+  "evidence_status": "sourced",
+  "unlock_age_months": 0,
+  "detection_cues": ["car_seat_loose_install", "car_seat_harness_slack"],
+  "why_it_matters": "Car crashes are a leading cause of death for children, and a seat that is the wrong type or installed loosely protects less. The right seat, installed and used correctly, reduces the risk.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Use a rear-facing seat for every baby under 1, and keep toddlers rear-facing as long as possible, up to the seat's top height or weight limit.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 5,
+      "tools": []
+    },
+    {
+      "order": 2,
+      "text": "Read the seat and vehicle manuals, then install with the lower anchors or seat belt as directed. Use the top tether on forward-facing seats.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 30,
+      "tools": []
+    },
+    {
+      "order": 3,
+      "text": "Check the harness each ride and make sure it has no slack; loose harnesses were a common misuse in NHTSA's study.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 2,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "Move to a forward-facing harness seat, then a booster, only after the child outgrows the previous seat's limits; keep children in the back seat.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 300,
+      "minutes": 30,
+      "tools": []
+    },
+    {
+      "order": 5,
+      "text": "Have a certified child passenger safety technician check the installation, if one is available near you.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 0,
+      "minutes": 30,
+      "tools": []
+    }
+  ],
+  "reminder": {
+    "every_days": 90,
+    "text": "Check car seat fit: is the harness snug, is the install tight, and has your child reached the seat's height or weight limit?"
+  },
+  "verify_rule": "The seat matches the child's age and size, is installed tight per its manual, and the harness has no slack.",
+  "blind_spots": [
+    "Seat tightness and harness slack (hard to judge from a photo)",
+    "Expiration date and recall status",
+    "Whether the seat fits the vehicle"
+  ],
+  "citations": [
+    {
+      "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+      "publisher": "National Highway Traffic Safety Administration",
+      "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Additional Analysis of National Child Restraint Use Special Study: Child Restraint Misuse (DOT HS 812 527)",
+      "publisher": "National Highway Traffic Safety Administration",
+      "url": "https://www.nhtsa.gov/document/additional-analysis-national-child-restraint-use-special-study-child-restraint-misuse",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "NHTSA Highlights Importance of Car Seats and Child Passenger Safety",
+      "publisher": "National Highway Traffic Safety Administration",
+      "url": "https://www.nhtsa.gov/press-releases/nhtsa-highlights-importance-car-seats-and-child-passenger-safety",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "carseat"
+}

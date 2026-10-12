@@ -1,0 +1,84 @@
+{
+  "id": "outlets-cords-power-strips",
+  "name": "Outlets, cords and power strips",
+  "rooms": ["living_room", "bedroom", "nursery", "kitchen"],
+  "stages": ["6-12m", "12-24m", "24-36m", "36-60m"],
+  "severity": {
+    "6-12m": {
+      "score": 3,
+      "rationale": "Crawlers reach outlets and cords at floor level; no injury figure was found, so scored conservatively."
+    },
+    "12-24m": {
+      "score": 4,
+      "rationale": "Toddlers poke and chew at outlets and cords; no injury figure was found, so scored conservatively."
+    },
+    "24-36m": {
+      "score": 4,
+      "rationale": "Still exploring with hands and mouth; no injury figure was found, so scored conservatively."
+    },
+    "36-60m": {
+      "score": 2,
+      "rationale": "Curiosity declines for most children; no injury figure was found, so scored conservatively."
+    }
+  },
+  "injury_evidence": [],
+  "evidence_status": "verify",
+  "unlock_age_months": 6,
+  "detection_cues": ["uncovered_outlet", "appliance_cord_hanging", "power_strip_floor_reach"],
+  "why_it_matters": "Crawlers and toddlers put fingers and objects into outlets and chew on cords. Covers and tidy cords reduce the risk of shock and of pulling appliances down.",
+  "fix_steps": [
+    {
+      "order": 1,
+      "text": "Move cords behind furniture, and keep dangling appliance cords out of reach.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 10,
+      "minutes": 10,
+      "tools": ["cord clips"]
+    },
+    {
+      "order": 2,
+      "text": "Block outlets a child keeps going to with furniture, and put covers in unused outlets. Pick covers that are hard to pull out and too large to be a choking risk.",
+      "cost_usd_min": 3,
+      "cost_usd_max": 15,
+      "minutes": 15,
+      "tools": ["screwdriver"]
+    },
+    {
+      "order": 3,
+      "text": "Put power strips and plug-in chargers out of reach, for example in a closed box or behind a heavy piece of furniture.",
+      "cost_usd_min": 5,
+      "cost_usd_max": 25,
+      "minutes": 10,
+      "tools": []
+    },
+    {
+      "order": 4,
+      "text": "When replacing outlets, ask an electrician about tamper-resistant receptacles.",
+      "cost_usd_min": 0,
+      "cost_usd_max": 150,
+      "minutes": 60,
+      "tools": ["electrician"]
+    }
+  ],
+  "verify_rule": "Every outlet within a child's reach is covered or blocked, and no cord hangs where a child can grab it.",
+  "blind_spots": [
+    "Outlets behind furniture or in other rooms",
+    "Whether a cover is firmly seated",
+    "Damaged or frayed cords inside the wall or under rugs"
+  ],
+  "citations": [
+    {
+      "title": "Childproofing Your Home - Several Safety Devices to Help Protect Your Children from Home Hazards",
+      "publisher": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/safety-education/safety-guides/kids-and-babies/Childproofing-Your-Home",
+      "accessed": "2026-10-11"
+    },
+    {
+      "title": "Home Safety: Tips for Families With Young Children",
+      "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+      "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/home-safety-heres-how.aspx",
+      "accessed": "2026-10-11"
+    }
+  ],
+  "icon": "plug"
+}
