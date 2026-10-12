@@ -1,57 +1,33 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useStore } from "../store/store";
+import { HazardIcon } from "./icons";
 import { useT } from "./useT";
 
 export function Welcome() {
   const t = useT();
-  const hasChild = useStore((s) => s.children.length > 0);
-  const hasHome = useStore((s) => s.homes.length > 0);
   const loadDemo = useStore((s) => s.loadDemo);
-  if (hasChild && hasHome) return <Navigate to="/plan" replace />;
   return (
-    <div className="stack">
-      <div className="hero">
-        <div className="hero-mark" aria-hidden="true">
-          🧸
-        </div>
-        <h1>{t("welcome.title")}</h1>
-        <p className="lead">{t("welcome.lead")}</p>
+    <div className="welcome">
+      <div className="welcome-icons" aria-hidden="true">
+        <HazardIcon name="tv" size={44} />
+        <HazardIcon name="stairs" size={44} />
+        <HazardIcon name="pot" size={44} />
+        <HazardIcon name="pill" size={44} />
+        <HazardIcon name="plug" size={44} />
+        <HazardIcon name="bath" size={44} />
       </div>
-      <div className="card demo">
-        <button type="button" className="btn primary big" onClick={loadDemo}>
+      <div className="flow-s">
+        <h1 className="wordmark">{t("app.title")}</h1>
+        <p>{t("welcome.lead")}</p>
+      </div>
+      <div className="form-actions">
+        <Link to="/start" className="btn btn-primary btn-block">
+          {t("welcome.start")}
+        </Link>
+        <button type="button" className="btn btn-text btn-block" onClick={loadDemo}>
           {t("welcome.demo")}
         </button>
-        <p className="muted">{t("welcome.demoHint")}</p>
       </div>
-      <h2 className="divider">{t("welcome.or")}</h2>
-      <ul className="steps-list">
-        <li>
-          <Link to="/child/new" className="step-card">
-            <span className={`step-num${hasChild ? " ok" : ""}`} aria-hidden="true">
-              {hasChild ? "✓" : "1"}
-            </span>
-            <span>
-              <strong>{t("welcome.step1")}</strong>
-              <span className="muted block">
-                {hasChild ? t("welcome.stepDone") : t("welcome.step1Hint")}
-              </span>
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/home/new" className="step-card">
-            <span className={`step-num${hasHome ? " ok" : ""}`} aria-hidden="true">
-              {hasHome ? "✓" : "2"}
-            </span>
-            <span>
-              <strong>{t("welcome.step2")}</strong>
-              <span className="muted block">
-                {hasHome ? t("welcome.stepDone") : t("welcome.step2Hint")}
-              </span>
-            </span>
-          </Link>
-        </li>
-      </ul>
     </div>
   );
 }

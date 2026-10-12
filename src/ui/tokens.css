@@ -1,0 +1,83 @@
+/* Design tokens. Light is the default; dark is a warm charcoal variant (never navy). */
+:root {
+  --ground: #f4f5f7;
+  --surface: #ffffff;
+  --ink: #14213d;
+  --muted: #5b6575;
+  --line: #e3e6eb;
+  --control-line: #8a93a1;
+  --action: #c2410c;
+  --action-pressed: #9a3412;
+  --action-bright: #e8590c;
+  --on-action: #ffffff;
+  --done: #2f8f5b;
+  --done-text: #237a49;
+  --emergency: #c92a2a;
+  --on-emergency: #ffffff;
+  --scrim: rgba(20, 33, 61, 0.45);
+  --sheet-shadow: 0 -8px 32px rgba(20, 33, 61, 0.18);
+
+  --r-tile: 14px;
+  --r-control: 10px;
+  --r-round: 999px;
+
+  --fs-1: 34px;
+  --fs-2: 28px;
+  --fs-3: 22px;
+  --fs-4: 18px;
+  --fs-5: 16px;
+  --fs-body: 18px;
+
+  --tab-h: 56px;
+  --rail-w: 96px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+  color-scheme: light;
+}
+
+:root.large {
+  --fs-1: 38px;
+  --fs-2: 31px;
+  --fs-3: 25px;
+  --fs-4: 21px;
+  --fs-5: 18px;
+  --fs-body: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #17181b;
+    --surface: #202226;
+    --ink: #f2f3f5;
+    --muted: #a3a9b3;
+    --line: #34363b;
+    --control-line: #7b828d;
+    --action: #ff8a4c;
+    --action-pressed: #ffa070;
+    --action-bright: #ff8a4c;
+    --on-action: #17181b;
+    --done: #5cc48a;
+    --done-text: #5cc48a;
+    --scrim: rgba(0, 0, 0, 0.6);
+    --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #17181b;
+  --surface: #202226;
+  --ink: #f2f3f5;
+  --muted: #a3a9b3;
+  --line: #34363b;
+  --control-line: #7b828d;
+  --action: #ff8a4c;
+  --action-pressed: #ffa070;
+  --action-bright: #ff8a4c;
+  --on-action: #17181b;
+  --done: #5cc48a;
+  --done-text: #5cc48a;
+  --scrim: rgba(0, 0, 0, 0.6);
+  --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}

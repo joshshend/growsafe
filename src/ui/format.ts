@@ -13,16 +13,11 @@ export function costText(t: TFn, min: number, max: number): string {
 }
 
 export function ageText(t: TFn, child: Child, now: Date): string {
-  let months: number;
   try {
-    months = ageMonths(child, now);
+    return monthsText(t, ageMonths(child, now));
   } catch {
     return "";
   }
-  if (months < 24) return months === 1 ? t("age.months.one") : t("age.months", { n: months });
-  const y = Math.floor(months / 12);
-  const m = months % 12;
-  return m === 0 ? t("age.years", { y }) : t("age.yearsMonths", { y, m });
 }
 
 // Turns a ranking Reason (i18n key + params from src/plan) into a plain, friendly sentence.
@@ -61,23 +56,20 @@ export function localHazard(h: HazardEntry, lang: Lang): LocalHazard {
   return { name: h.name, why: h.why_it_matters, steps: steps.map((s) => s.text) };
 }
 
-const ICONS: Record<string, string> = {
-  bath: "🛁",
-  bathtub: "🛁",
-  battery: "🔋",
-  blocks: "🧩",
-  carseat: "🚗",
-  crib: "🛏️",
-  pill: "💊",
-  plant: "🪴",
-  plug: "🔌",
-  pool: "🏊",
-  pot: "🍳",
-  shelf: "📚",
-  spray: "🧴",
-  stairs: "🪜",
-  tools: "🧰",
-  tv: "📺",
-  window: "🪟",
-};
-export const iconFor = (key: string): string => ICONS[key] ?? "🛡️";
+export function taskTotals(h: HazardEntry): { min: number; max: number; minutes: number } {
+  return h.fix_steps.reduce(
+    (a, s) => ({
+      min: a.min + s.cost_usd_min,
+      max: a.max + s.cost_usd_max,
+      minutes: a.minutes + s.minutes,
+    }),
+    { min: 0, max: 0, minutes: 0 },
+  );
+}
+
+export function monthsText(t: TFn, months: number): string {
+  if (months < 24) return months === 1 ? t("age.months.one") : t("age.months", { n: months });
+  const y = Math.floor(months / 12);
+  const m = months % 12;
+  return m === 0 ? t("age.years", { y }) : t("age.yearsMonths", { y, m });
+}

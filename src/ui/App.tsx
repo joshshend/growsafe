@@ -1,25 +1,44 @@
 // Routes (HashRouter so static hosting and Capacitor both work). Copy must never claim a home is "safe".
-import { HashRouter, Link, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { HashRouter, Link, Navigate, Route, Routes, useParams } from "react-router-dom";
 import { useStore } from "../store/store";
-import { About } from "./About";
 import { ChildForm, HomeForm } from "./Forms";
+import { Help } from "./Help";
 import { Layout } from "./Layout";
-import { Plan } from "./Plan";
-import { RoomPage } from "./RoomPage";
-import { TaskPage } from "./TaskPage";
+import { Onboarding } from "./Onboarding";
+import { People } from "./People";
+import { RoomPage, Rooms } from "./Rooms";
+import { Privacy, Settings } from "./Settings";
+import { Today } from "./Today";
+import { useUi } from "./ui-state";
 import { Welcome } from "./Welcome";
 import { useT } from "./useT";
 
 function NotFound() {
   const t = useT();
   return (
-    <div className="stack">
-      <h1>{t("common.notFound")}</h1>
-      <Link className="btn primary" to="/">
+    <div className="flow">
+      <h1 className="t-title">{t("common.notFound")}</h1>
+      <Link className="btn btn-primary btn-block" to="/">
         {t("common.goHome")}
       </Link>
     </div>
   );
+}
+
+function Home() {
+  const hasFamily = useStore((s) => s.children.length > 0 && s.homes.length > 0);
+  return hasFamily ? <Today /> : <Welcome />;
+}
+
+// Old /task/:id links open the task sheet over Today.
+function TaskLink() {
+  const { id } = useParams();
+  const openTask = useUi((s) => s.openTask);
+  useEffect(() => {
+    if (id) openTask(id);
+  }, [id, openTask]);
+  return <Navigate to="/" replace />;
 }
 
 export function App() {
@@ -36,13 +55,17 @@ export function App() {
     <HashRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Welcome />} />
+          <Route index element={<Home />} />
+          <Route path="start" element={<Onboarding />} />
           <Route path="child/new" element={<ChildForm />} />
           <Route path="home/new" element={<HomeForm />} />
-          <Route path="plan" element={<Plan />} />
-          <Route path="task/:id" element={<TaskPage />} />
+          <Route path="rooms" element={<Rooms />} />
           <Route path="room/:homeId/:room" element={<RoomPage />} />
-          <Route path="about" element={<About />} />
+          <Route path="task/:id" element={<TaskLink />} />
+          <Route path="help" element={<Help />} />
+          <Route path="people" element={<People />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="settings/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

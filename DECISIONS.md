@@ -10,3 +10,9 @@
 - 2026-10-11 T8 eval harness: Python floor relaxed from 3.11 to 3.10 (Josh's Mac shell has 3.10.12; code is stdlib-only, nothing 3.11-specific). Coordinator-approved.
 - 2026-10-11 Architecture frozen in ARCHITECTURE.md: HashRouter, Zustand + idb-keyval, fflate for share links, Vercel for static host + the single photo proxy function. Briefs T3a/T3b/T4/T5/T6/T7/T9 written in tasks/.
 - 2026-10-11 Redesign (T5b): light-default consumer look (safety orange on cool grey, Atkinson Hyperlegible Next bundled locally, Phosphor duotone icons), bottom tabs (Today/Rooms/Help/People), 3-step onboarding, always-visible Poison Help button. Not-a-guarantee wording moves to task detail, results and Help (not every footer); this supersedes the "footer of every plan screen" rule in ARCHITECTURE.md.
+- 2026-10-11 T5b tokens changed: Action fill is #C2410C (pressed #9A3412) because white on #E8590C is only 3.58:1; #E8590C stays as --action-bright for large icons and the hero marker only.
+- 2026-10-11 T5b tokens changed: Done text/links use #237A49 (white on #2F8F5B is 4.04:1); #2F8F5B stays for filled checkmarks and the progress ring, where 3:1 is enough.
+- 2026-10-11 T5b tokens added: Muted ink in dark is #A3A9B3, line in dark #34363B, dark button text #17181B on #FF8A4C (7.6:1). Emergency stays #C92A2A with white text in both themes.
+- 2026-10-11 T5b: theme choice (Auto/Light/Dark) and the active child live in the UI layer (localStorage and a small UI store), so src/store is untouched. "Larger text" reuses the existing setting.
+- 2026-10-11 T5b: one bundled font (Atkinson Hyperlegible Next, latin 400/600/800 via @fontsource) and Phosphor duotone icons (@phosphor-icons/react); no network font requests.
+- 2026-10-11 T5b: at 900px and wider the bottom tabs become a left rail and the task sheet becomes a right-hand panel; below that it is a bottom sheet.
