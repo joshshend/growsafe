@@ -90,7 +90,11 @@ const rebuild = (
       hazards.has(t.hazard_id) &&
       s.homes.some((h) => h.id === t.home_id && h.rooms.includes(t.room)),
   );
-  const gearKept = keepGearTasks(s.tasks, s.gear ?? [], s.homes.map((h) => h.id));
+  const gearKept = keepGearTasks(
+    s.tasks,
+    s.gear ?? [],
+    s.homes.map((h) => h.id),
+  );
   return [...merged, ...kept, ...gearKept];
 };
 
