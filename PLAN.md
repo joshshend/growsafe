@@ -49,3 +49,14 @@ Honest read: ranked, age-staged hazard checklists with sharing already exist (Ma
 T20 Plan my weekend (time + budget optimizer). T21 Growth preview slider ("move the child forward, the plan changes"). T22 Visit pack + return link (accounts-free two-way sync with grandparents/sitters; replaces T19). Plus the published accuracy page (T14) as the trust differentiator. T23 recall/hand-me-down check is a supporting feature only.
 Cut to pay for it: T19 caregiver hub (folded into T22), all stretch items, on-device model, push notifications.
 Unverified until searched: that no competitor has T20, T21 or T22. Day-one competitor test (T15) must check.
+
+## Update 2026-10-12 (b): borrow list. Take good features from anyone, streamline them into one app
+Josh's call: novelty is not required; convenience and combination are. Sources (all read this session):
+- CareLoop (TX-37 2025 winner, roundrockisd.org + CAC site): many people in one place; schedules, info, alerts and resources consolidated; links to financial programs with the application forms; AI chatbot (REJECTED: chatbots answer this equally well, and liability).
+- CareTask (NH-02 2025): shared dashboards, reminders, real-time updates, senior-friendly oversized controls and sparse text.
+- CareCompanion (MA-05 2025): voice prompts, medication reminders, hands-free simple design.
+- SafeZone (TX-23 2025, a PWA): alerts + "locate help near you".
+- Baby Recall & Safety, Make Safe Happen, IKEA Safer Home, NestProof, BabyProof: recall feed + My Products + product checklists; calendar reminders; shopping list; age-based room lists; photo scan.
+What GrowSafe takes: multi-child multi-home hub (done: switcher + People); shared plan + return link (T7, T22); help and financial-assistance directory with apply links (T18); gear + recalls + product checklists (T23); reminders (.ics now, iOS local notifications in T17); easy mode + read aloud (T24); photo scan with verify (T9); medicine safety, emergency card, sitter briefing (T6); weekend planner (T20) and growth preview (T21) as the glue that makes it feel like one product.
+Rejected: AI chatbot, live sync, barcode scanning (CPSC cannot search by UPC), drills, vaccine and dose logs.
+Dispatch order now: T18, T21, T23, T24, T6 in parallel; then T22 Part B; then T9 after the Oct 13 bake-off; then T17 (iOS wrap with local notifications).

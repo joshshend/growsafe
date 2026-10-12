@@ -18,3 +18,4 @@
 - 2026-10-11 T5b: at 900px and wider the bottom tabs become a left rail and the task sheet becomes a right-hand panel; below that it is a bottom sheet.
 - 2026-10-12 App renamed to GrowSafe (was Kid-Proof). Storage keys and the .growsafe.json export extension renamed too. Note: the name contains 'safe'; copy must still never claim a home or room is safe.
 - 2026-10-12 Novelty: headline features are T20 (weekend planner), T21 (growth preview), T22 (visit pack + return link). T23 recall check is supporting, not a claim of novelty. T19 folded into T22. LiDAR measuring on iPhone 17 Pro considered and rejected for now (accuracy/liability, plugin risk).
+- 2026-10-12 Josh: novelty is not required; take the best features from competitors and past winners and streamline. Borrow list in PLAN.md. Per-feature i18n files in src/i18n/features/.
