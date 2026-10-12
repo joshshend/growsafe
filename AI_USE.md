@@ -1,0 +1,19 @@
+# AI use log
+
+Every file in this repo that an AI model wrote or edited. Updated per task.
+
+| File                                                       | Tool                           | What AI did                                                                            |
+| ---------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------- |
+| package.json                                               | Claude Haiku 5.5 (Claude Code) | Wrote dependency list and npm scripts from the T1 brief; reviewer to confirm versions. |
+| tsconfig.json                                              | Claude Haiku 5.5 (Claude Code) | Wrote TypeScript config.                                                               |
+| vite.config.ts                                             | Claude Haiku 5.5 (Claude Code) | Wrote Vite, PWA manifest, and Vitest config.                                           |
+| eslint.config.js                                           | Claude Haiku 5.5 (Claude Code) | Wrote lint config.                                                                     |
+| .prettierrc, .prettierignore, .gitignore                   | Claude Haiku 5.5 (Claude Code) | Wrote formatter and ignore config.                                                     |
+| index.html                                                 | Claude Haiku 5.5 (Claude Code) | Wrote app HTML shell.                                                                  |
+| src/main.tsx, src/index.css                                | Claude Haiku 5.5 (Claude Code) | Wrote entry point and base styles (colour tokens, dark mode, safe-area padding).       |
+| src/ui/App.tsx, src/ui/App.test.tsx                        | Claude Haiku 5.5 (Claude Code) | Wrote the placeholder shell screen and its test.                                       |
+| src/test-setup.ts                                          | Claude Haiku 5.5 (Claude Code) | Wrote test setup.                                                                      |
+| src/_/index.ts, src/ui/README.md, src/i18n/_.json          | Claude Haiku 5.5 (Claude Code) | Wrote folder placeholders.                                                             |
+| scripts/kb-validate.mjs, scripts/README.md, eval/README.md | Claude Haiku 5.5 (Claude Code) | Wrote the kb:validate stub and folder notes.                                           |
+| public/icon-192.png, public/icon-512.png                   | Claude Haiku 5.5 (Claude Code) | Generated plain placeholder icons (solid blue). Replace before submission.             |
+| README.md, AI_USE.md                                       | Claude Haiku 5.5 (Claude Code) | Wrote the README and this log.                                                         |

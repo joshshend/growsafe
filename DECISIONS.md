@@ -1,0 +1,9 @@
+# DECISIONS (newest last)
+- 2026-10-11 Platform: installable PWA (web), works on iPhone/Android/desktop. Not a native iOS app. (Verify CAC rules accept web apps.)
+- 2026-10-11 Firearm storage: OMITTED entirely (Josh).
+- 2026-10-11 Sharing: read-only link, no accounts, no backend. Plan is encoded in the URL fragment (#...) so it never reaches a server. Live sync and last-dose log are CUT.
+- 2026-10-11 Roles: Claude (planner) writes specs/reviews; cheaper coding agents implement; Josh reads and runs every change before merge.
+- 2026-10-11 Stack (default, change only if Josh objects): TypeScript, React, Vite, vite-plugin-pwa, Zod, Vitest, Playwright + axe.
+- 2026-10-11 iOS: build the web app first, then wrap it as a native iOS app with Capacitor and run it on Josh's iPhone 17 Pro from Xcode for the live demo (no App Store needed). Web/PWA stays the fallback and the shareable link. Verify CAC rules on what judges must be able to open.
+- 2026-10-11 Added "Help & Support" tab (Relink/CareLoop pattern): curated, verified, Texas-first resources incl. financial help for safety gear; caregiver-support links only (no screenings/advice). Cut to make room: vaccine keeper, last-dose log, well-child reminders.
+- 2026-10-11 Story: Josh's own reason + 5-8 caregiver interviews go in the video and write-up (both recent winners lead with research and a personal why).
