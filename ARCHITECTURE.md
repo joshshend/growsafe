@@ -43,7 +43,7 @@ Ranking score = severity(stage) * 10 + evidenceBoost (sourced=+3, verify=0) + un
 / onboarding or plan home | /child/new | /home/new | /plan (ranked, filter by home/room) | /task/:id | /room/:homeId/:room (checklist + scan) | /scan | /briefing/:homeId (printable) | /emergency/:childId | /help | /import (reads #data) | /accuracy | /about (privacy, AI use, limits)
 
 ## Copy and safety rules (enforced by tests/validator)
-No claim of safety; use "no hazards detected in this photo". Disclaimer + Poison Help (1-800-222-1222, tel: link) in footer of /plan, /scan, /briefing. No firearm content. No dosing. No analytics.
+No claim of safety; use "no hazards detected in this photo". Poison Help (1-800-222-1222, tel:) button always visible in the top bar; not-a-guarantee line in task detail, scan results, /briefing and Help (see DECISIONS 2026-10-11 redesign). No firearm content. No dosing. No analytics.
 
 ## Done-definition for every UI task
 Works at 375px width, tap targets >=44px, keyboard reachable, axe clean, English+Spanish keys present (Spanish may be placeholder until T11), no hard-coded strings.
