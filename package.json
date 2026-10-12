@@ -12,7 +12,8 @@
     "test": "vitest run --passWithNoTests",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
-    "kb:validate": "tsx scripts/validate-kb.ts"
+    "kb:validate": "tsx scripts/validate-kb.ts",
+    "plan:demo": "tsx scripts/print-plan.ts"
   },
   "dependencies": {
     "react": "18.3.1",

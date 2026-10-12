@@ -115,6 +115,7 @@ export const TaskSchema = z.object({
   hazard_id: z.string().min(1), // links to HazardEntry.id
   home_id: z.string().min(1), // which home
   room: RoomSchema, // which room
+  childIds: z.array(z.string()).default([]), // children this task protects (one task is shared across children)
   status: z.enum(["todo", "doing", "done"]), // progress
   owner: z.string().optional(), // who is doing it
   due: isoDate.optional(), // due date
