@@ -11,6 +11,7 @@ import { RoomPage, Rooms } from "./Rooms";
 import { Privacy, Settings } from "./Settings";
 import { Today } from "./Today";
 import { useUi } from "./ui-state";
+import { Weekend } from "./Weekend";
 import { Welcome } from "./Welcome";
 import { useT } from "./useT";
 
@@ -62,6 +63,7 @@ export function App() {
           <Route path="rooms" element={<Rooms />} />
           <Route path="room/:homeId/:room" element={<RoomPage />} />
           <Route path="task/:id" element={<TaskLink />} />
+          <Route path="weekend" element={<Weekend />} />
           <Route path="help" element={<Help />} />
           <Route path="people" element={<People />} />
           <Route path="settings" element={<Settings />} />

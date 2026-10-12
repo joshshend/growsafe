@@ -998,6 +998,48 @@
   color: var(--muted);
 }
 
+/* Plan my weekend (T20) */
+.wk-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-tile);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+}
+.wk-card:active {
+  border-color: var(--action);
+}
+.wk-card-icon {
+  flex: none;
+  color: var(--action-bright);
+}
+.wk-room {
+  margin: 16px 0 0;
+  font-size: var(--fs-5);
+  font-weight: 800;
+  color: var(--muted);
+}
+.wk-item .row {
+  border-bottom: 1px solid var(--line);
+}
+.wk-supplies {
+  margin: 0;
+  padding-left: 22px;
+}
+.wk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.wk-actions .btn {
+  flex: 1 1 160px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

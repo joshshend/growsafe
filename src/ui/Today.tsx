@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { CaretDown, CheckCircle, Clock, Coins } from "@phosphor-icons/react";
-import { Navigate } from "react-router-dom";
+import {
+  CalendarCheck,
+  CaretDown,
+  CaretRight,
+  CheckCircle,
+  Clock,
+  Coins,
+} from "@phosphor-icons/react";
+import { Link, Navigate } from "react-router-dom";
 import { loadKb } from "../kb";
 import { nextUnlocks } from "../plan";
 import { useStore } from "../store/store";
@@ -129,6 +136,19 @@ export function Today() {
               : t("today.nothingNext")}
           </p>
         </section>
+      )}
+
+      {open.length > 0 && (
+        <Link to="/weekend" className="wk-card">
+          <span className="wk-card-icon">
+            <CalendarCheck size={32} weight="duotone" aria-hidden="true" />
+          </span>
+          <span className="row-body">
+            <span className="row-sub">{t("weekend.card.title")}</span>
+            <span className="row-title">{t("weekend.card.body")}</span>
+          </span>
+          <CaretRight size={20} weight="bold" aria-hidden="true" />
+        </Link>
       )}
 
       {shownRest.length > 0 && (
