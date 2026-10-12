@@ -7,3 +7,4 @@
 - 2026-10-11 iOS: build the web app first, then wrap it as a native iOS app with Capacitor and run it on Josh's iPhone 17 Pro from Xcode for the live demo (no App Store needed). Web/PWA stays the fallback and the shareable link. Verify CAC rules on what judges must be able to open.
 - 2026-10-11 Added "Help & Support" tab (Relink/CareLoop pattern): curated, verified, Texas-first resources incl. financial help for safety gear; caregiver-support links only (no screenings/advice). Cut to make room: vaccine keeper, last-dose log, well-child reminders.
 - 2026-10-11 Story: Josh's own reason + 5-8 caregiver interviews go in the video and write-up (both recent winners lead with research and a personal why).
+- 2026-10-11 T8 eval harness: Python floor relaxed from 3.11 to 3.10 (Josh's Mac shell has 3.10.12; code is stdlib-only, nothing 3.11-specific). Coordinator-approved.
