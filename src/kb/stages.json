@@ -1,0 +1,74 @@
+[
+  {
+    "stage": "0-3m",
+    "explore": "Babies this age start to hold their heads up during tummy time, move both arms and both legs, and look at faces. Where they end up is still decided by the adults around them.",
+    "es": "Los bebés de esta edad empiezan a levantar la cabeza boca abajo, mueven los dos brazos y las dos piernas, y miran las caras. Los adultos que los rodean todavía deciden dónde están.",
+    "evidence_status": "verify",
+    "citation": {
+      "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/act-early/milestones/index.html",
+      "accessed": "2026-10-12"
+    }
+  },
+  {
+    "stage": "3-6m",
+    "explore": "Babies learn to push up onto their arms on their tummies, reach for toys, bring their hands to their mouths, and roll over. Many things they grab go straight to the mouth.",
+    "es": "Los bebés aprenden a apoyarse en los brazos boca abajo, alcanzan juguetes, se llevan las manos a la boca y se dan vuelta. Muchas cosas que agarran se van directo a la boca.",
+    "evidence_status": "verify",
+    "citation": {
+      "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/act-early/milestones/index.html",
+      "accessed": "2026-10-12"
+    }
+  },
+  {
+    "stage": "6-12m",
+    "explore": "Children sit up on their own, pass objects from hand to hand, and pick up small things between thumb and finger. Around 12 months many pull up to stand and walk while holding on to furniture.",
+    "es": "Los niños se sientan solos, pasan objetos de una mano a la otra y recogen cosas pequeñas con el pulgar y el dedo. Hacia los 12 meses muchos se paran agarrándose y caminan sujetándose de los muebles.",
+    "evidence_status": "verify",
+    "citation": {
+      "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/act-early/milestones/index.html",
+      "accessed": "2026-10-12"
+    }
+  },
+  {
+    "stage": "12-24m",
+    "explore": "Toddlers take their first steps, then walk without holding on, and begin to run and kick a ball. They feed themselves, scribble, and copy what adults do, like chores.",
+    "es": "Los niños pequeños dan sus primeros pasos, luego caminan sin agarrarse, y empiezan a correr y a patear una pelota. Comen solos, garabatean e imitan lo que hacen los adultos, como las tareas del hogar.",
+    "evidence_status": "verify",
+    "citation": {
+      "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/act-early/milestones/index.html",
+      "accessed": "2026-10-12"
+    }
+  },
+  {
+    "stage": "24-36m",
+    "explore": "Children run, kick a ball, walk up a few stairs, and put on some clothes by themselves. They use a fork and play pretend, so they want to do what they see grown-ups do.",
+    "es": "Los niños corren, patean una pelota, suben algunas escaleras y se ponen alguna ropa solos. Usan un tenedor y juegan a imitar, así que quieren hacer lo que ven hacer a los adultos.",
+    "evidence_status": "verify",
+    "citation": {
+      "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/act-early/milestones/index.html",
+      "accessed": "2026-10-12"
+    }
+  },
+  {
+    "stage": "36-60m",
+    "explore": "Children catch a large ball, hop on one foot, swing and climb, and pour water or serve food with an adult nearby. They take turns in games and want to do things on their own.",
+    "es": "Los niños atrapan una pelota grande, saltan en un pie, se columpian y trepan, y sirven agua o comida con un adulto cerca. Esperan su turno en los juegos y quieren hacer las cosas solos.",
+    "evidence_status": "verify",
+    "citation": {
+      "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/act-early/milestones/index.html",
+      "accessed": "2026-10-12"
+    }
+  }
+]

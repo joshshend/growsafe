@@ -200,6 +200,9 @@ export function Today() {
                 <TaskRow key={v.task.id} view={v} />
               ))}
             </ul>
+            <Link to="/ahead" className="btn btn-block">
+              {t("ahead.link")}
+            </Link>
           </div>
         </details>
       )}

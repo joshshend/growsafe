@@ -29,6 +29,7 @@ interface Actions {
   removeChild: (id: string) => void;
   addHome: (name: string, rooms: Room[]) => string;
   removeHome: (id: string) => void;
+  addTasks: (tasks: Task[]) => void;
   setStatus: (taskId: string, status: Task["status"]) => void;
   setOwner: (taskId: string, owner: string | undefined) => void;
   setDue: (taskId: string, due: string | undefined) => void;
@@ -53,8 +54,31 @@ export function newId(prefix: string): string {
   return `${prefix}_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
 }
 
-const rebuild = (s: Pick<PersistedState, "children" | "homes" | "tasks">, now = new Date()) =>
-  buildPlan(loadKb(), s.children, s.homes, now, s.tasks);
+// Rebuilds tasks for today's date. Tasks added early from the growth preview (T21) are kept as long
+// as their home, room, hazard and children still exist.
+const rebuild = (s: Pick<PersistedState, "children" | "homes" | "tasks">, now = new Date()) => {
+  const kb = loadKb();
+  const built = buildPlan(kb, s.children, s.homes, now, s.tasks);
+  const childIds = new Set(s.children.map((c) => c.id));
+  const prev = new Map(s.tasks.map((t) => [t.id, t]));
+  const merged = built.map((t) => {
+    const extra = (prev.get(t.id)?.childIds ?? []).filter(
+      (id) => childIds.has(id) && !t.childIds.includes(id),
+    );
+    return extra.length ? { ...t, childIds: [...t.childIds, ...extra] } : t;
+  });
+  const have = new Set(built.map((t) => t.id));
+  const hazards = new Set(kb.map((h) => h.id));
+  const kept = s.tasks.filter(
+    (t) =>
+      !have.has(t.id) &&
+      t.childIds.length > 0 &&
+      t.childIds.every((id) => childIds.has(id)) &&
+      hazards.has(t.hazard_id) &&
+      s.homes.some((h) => h.id === t.home_id && h.rooms.includes(t.room)),
+  );
+  return [...merged, ...kept];
+};
 
 // Birth month/year that makes a child `months` old today (birthday is assumed to be the 15th).
 export function birthFor(months: number, now: Date): { month: number; year: number } {
@@ -117,6 +141,20 @@ export const useStore = create<State>()((set, get) => ({
     const homes = get().homes.filter((h) => h.id !== id);
     set((s) => ({ homes, tasks: rebuild({ ...s, homes }) }));
   },
+
+  // Adds tasks early (growth preview). A task that exists gains the new children.
+  addTasks: (added) =>
+    set((s) => {
+      const byId = new Map(s.tasks.map((t) => [t.id, t]));
+      for (const a of added) {
+        const old = byId.get(a.id);
+        byId.set(
+          a.id,
+          old ? { ...old, childIds: Array.from(new Set([...old.childIds, ...a.childIds])) } : a,
+        );
+      }
+      return { tasks: [...byId.values()] };
+    }),
 
   setStatus: (taskId, status) =>
     set((s) => ({ tasks: s.tasks.map((t) => (t.id === taskId ? { ...t, status } : t)) })),

@@ -1,8 +1,9 @@
 // Derived views over the store (pure, no React): ranked task rows, groups and progress.
 import type { Child, HazardEntry, Room, Task } from "../kb/schema";
-import { rankHazards, type RankedHazard } from "../plan";
+import { rankWithLead, type RankedHazard } from "../plan";
 
 export type Group = "first" | "month" | "soon" | "done";
+const FAR_MONTHS = 72;
 export const FIRST_LIMIT = 5; // "Do first" shows at most this many open tasks
 
 export interface TaskView {
@@ -25,7 +26,8 @@ export function buildViews(
     let r = cache.get(key);
     if (!r) {
       try {
-        r = rankHazards(kb, child, now, { rooms: [room] });
+        // Long look-ahead so tasks added early from the growth preview still rank as "upcoming".
+        r = rankWithLead(kb, child, now, FAR_MONTHS, { rooms: [room] });
       } catch {
         r = [];
       }

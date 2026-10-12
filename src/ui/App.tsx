@@ -4,6 +4,7 @@ import { HashRouter, Link, Navigate, Route, Routes, useParams } from "react-rout
 import { useStore } from "../store/store";
 import { Briefing } from "./Briefing";
 import { EmergencyCard } from "./Emergency";
+import { Ahead } from "./Ahead";
 import { ChildForm, HomeForm } from "./Forms";
 import { Help } from "./Help";
 import { Layout } from "./Layout";
@@ -66,6 +67,7 @@ export function App() {
           <Route path="rooms" element={<Rooms />} />
           <Route path="room/:homeId/:room" element={<RoomPage />} />
           <Route path="task/:id" element={<TaskLink />} />
+          <Route path="ahead" element={<Ahead />} />
           <Route path="weekend" element={<Weekend />} />
           <Route path="help" element={<Help />} />
           <Route path="people" element={<People />} />

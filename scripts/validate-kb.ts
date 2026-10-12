@@ -2,6 +2,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateEntries } from "../src/kb/validate";
+import { stageNoteErrors } from "../src/kb/stages";
 
 const dir = join(import.meta.dirname, "..", "src", "kb", "data");
 const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
@@ -13,6 +14,13 @@ const items = files.map((file) => {
   }
 });
 const errors = validateEntries(items);
+try {
+  const stages: unknown = JSON.parse(readFileSync(join(dir, "..", "stages.json"), "utf8"));
+  for (const message of stageNoteErrors(stages))
+    errors.push({ file: "stages.json", id: "-", message });
+} catch (err) {
+  errors.push({ file: "stages.json", id: "-", message: String(err) });
+}
 if (errors.length) {
   for (const e of errors) console.error(`${e.file} [${e.id}]: ${e.message}`);
   console.error(`\nkb:validate FAILED: ${errors.length} error(s) in ${files.length} file(s).`);
