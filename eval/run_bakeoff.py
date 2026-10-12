@@ -27,14 +27,15 @@ import score
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAX_SIDE = 1568  # downscale long edge; cheaper, and models resize anyway
 
-# USD per 1M tokens (input, output). ESTIMATES: verify against current price pages.
+# USD per 1M tokens (input, output). ESTIMATES (old models): verify against current price pages before trusting the cost column.
+# Also try ANTHROPIC_MODEL=claude-haiku-5-5 for a cheaper run. Check OpenAI/Google model names in their docs and set OPENAI_MODEL / GOOGLE_MODEL.
 PRICES = {
     "anthropic": (3.0, 15.0),
     "openai": (2.5, 10.0),
     "google": (0.10, 0.40),
 }
 DEFAULT_MODELS = {
-    "anthropic": "claude-sonnet-4-5",
+    "anthropic": "claude-sonnet-5-5",
     "openai": "gpt-4o",
     "google": "gemini-2.0-flash",
 }
