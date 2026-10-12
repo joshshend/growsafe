@@ -1,0 +1,15 @@
+unanchored_tv
+unanchored_dresser
+blind_cord
+uncovered_outlet
+stairs_no_gate
+open_water_container
+cleaning_products_low
+medicine_within_reach
+small_objects_floor
+crib_loose_items
+stove_knobs_front
+appliance_cord_hanging
+window_low_no_guard
+heavy_items_high_shelf
+toxic_plant_low

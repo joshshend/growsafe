@@ -1,0 +1,3 @@
+# Pillow is optional at runtime (EXIF strip + resize); pytest is for tests.
+Pillow>=10
+pytest>=7

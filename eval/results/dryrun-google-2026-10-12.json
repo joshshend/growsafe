@@ -1,0 +1,677 @@
+{
+ "provider": "google",
+ "model": "dry-run-google",
+ "date": "2026-10-12",
+ "dry_run": true,
+ "prompt_sha256": "2363ba2abcdc",
+ "photos": [
+  {
+   "photo": "fake_00.jpg",
+   "split": "dev",
+   "truth": [
+    "blind_cord"
+   ],
+   "pred": [
+    {
+     "cue": "blind_cord",
+     "confidence": 0.75,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "small_objects_floor",
+     "confidence": 0.74,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.322,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_01.jpg",
+   "split": "dev",
+   "truth": [
+    "stove_knobs_front",
+    "unanchored_tv"
+   ],
+   "pred": [
+    {
+     "cue": "unanchored_tv",
+     "confidence": 0.91,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "blind_cord",
+     "confidence": 0.65,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.86,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.302,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_02.jpg",
+   "split": "test",
+   "truth": [],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.98,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "open_water_container",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.427,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_03.jpg",
+   "split": "dev",
+   "truth": [
+    "unanchored_dresser",
+    "open_water_container",
+    "crib_loose_items"
+   ],
+   "pred": [
+    {
+     "cue": "open_water_container",
+     "confidence": 0.83,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.74,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.109,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_04.jpg",
+   "split": "dev",
+   "truth": [],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.98,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "open_water_container",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.175,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_05.jpg",
+   "split": "test",
+   "truth": [
+    "uncovered_outlet",
+    "unanchored_tv",
+    "unanchored_dresser"
+   ],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.47,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "unanchored_dresser",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "appliance_cord_hanging",
+     "confidence": 0.95,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "window_low_no_guard",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.125,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_06.jpg",
+   "split": "dev",
+   "truth": [
+    "cleaning_products_low",
+    "unanchored_dresser"
+   ],
+   "pred": [
+    {
+     "cue": "cleaning_products_low",
+     "confidence": 0.71,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "unanchored_dresser",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 0.965,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_07.jpg",
+   "split": "dev",
+   "truth": [
+    "unanchored_dresser"
+   ],
+   "pred": [
+    {
+     "cue": "unanchored_dresser",
+     "confidence": 0.55,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 0.962,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_08.jpg",
+   "split": "test",
+   "truth": [
+    "cleaning_products_low",
+    "unanchored_tv",
+    "crib_loose_items"
+   ],
+   "pred": [
+    {
+     "cue": "cleaning_products_low",
+     "confidence": 0.72,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "unanchored_tv",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "stove_knobs_front",
+     "confidence": 0.65,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.43,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_09.jpg",
+   "split": "dev",
+   "truth": [],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.98,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "open_water_container",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.172,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_10.jpg",
+   "split": "dev",
+   "truth": [
+    "stove_knobs_front"
+   ],
+   "pred": [
+    {
+     "cue": "stove_knobs_front",
+     "confidence": 0.57,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.272,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_11.jpg",
+   "split": "test",
+   "truth": [
+    "unanchored_tv",
+    "crib_loose_items",
+    "heavy_items_high_shelf"
+   ],
+   "pred": [
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.81,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "heavy_items_high_shelf",
+     "confidence": 0.51,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.075,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_12.jpg",
+   "split": "dev",
+   "truth": [
+    "unanchored_tv",
+    "uncovered_outlet"
+   ],
+   "pred": [
+    {
+     "cue": "unanchored_tv",
+     "confidence": 0.5,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.76,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.227,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_13.jpg",
+   "split": "dev",
+   "truth": [],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.98,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "open_water_container",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.082,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_14.jpg",
+   "split": "test",
+   "truth": [
+    "heavy_items_high_shelf",
+    "blind_cord",
+    "stairs_no_gate"
+   ],
+   "pred": [
+    {
+     "cue": "heavy_items_high_shelf",
+     "confidence": 0.8,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "stairs_no_gate",
+     "confidence": 0.41,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.187,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_15.jpg",
+   "split": "dev",
+   "truth": [
+    "blind_cord",
+    "small_objects_floor"
+   ],
+   "pred": [
+    {
+     "cue": "blind_cord",
+     "confidence": 0.85,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "small_objects_floor",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "appliance_cord_hanging",
+     "confidence": 0.73,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.259,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_16.jpg",
+   "split": "dev",
+   "truth": [],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.98,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "open_water_container",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.375,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_17.jpg",
+   "split": "test",
+   "truth": [
+    "stairs_no_gate",
+    "small_objects_floor",
+    "stove_knobs_front"
+   ],
+   "pred": [
+    {
+     "cue": "stairs_no_gate",
+     "confidence": 0.52,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.223,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_18.jpg",
+   "split": "dev",
+   "truth": [
+    "unanchored_dresser"
+   ],
+   "pred": [
+    {
+     "cue": "unanchored_dresser",
+     "confidence": 0.55,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.125,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_19.jpg",
+   "split": "dev",
+   "truth": [
+    "crib_loose_items",
+    "stove_knobs_front",
+    "uncovered_outlet"
+   ],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.58,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.399,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_20.jpg",
+   "split": "test",
+   "truth": [
+    "unanchored_dresser"
+   ],
+   "pred": [
+    {
+     "cue": "unanchored_dresser",
+     "confidence": 0.55,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.036,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_21.jpg",
+   "split": "dev",
+   "truth": [
+    "appliance_cord_hanging",
+    "unanchored_dresser",
+    "crib_loose_items"
+   ],
+   "pred": [
+    {
+     "cue": "appliance_cord_hanging",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.95,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "stairs_no_gate",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.03,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_22.jpg",
+   "split": "dev",
+   "truth": [],
+   "pred": [
+    {
+     "cue": "uncovered_outlet",
+     "confidence": 0.98,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "open_water_container",
+     "confidence": 0.97,
+     "note": "canned dry-run output"
+    },
+    {
+     "cue": "crib_loose_items",
+     "confidence": 0.7,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.184,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_23.jpg",
+   "split": "test",
+   "truth": [
+    "uncovered_outlet",
+    "medicine_within_reach",
+    "stove_knobs_front"
+   ],
+   "pred": [],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 0.98,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_24.jpg",
+   "split": "dev",
+   "truth": [
+    "cleaning_products_low",
+    "window_low_no_guard",
+    "open_water_container"
+   ],
+   "pred": [],
+   "parse_failure": true,
+   "error": "invalid JSON: Expecting value: line 1 column 1 (char 0)",
+   "latency_s": 1.078,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_25.jpg",
+   "split": "dev",
+   "truth": [
+    "crib_loose_items",
+    "medicine_within_reach"
+   ],
+   "pred": [],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.385,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_26.jpg",
+   "split": "test",
+   "truth": [
+    "stairs_no_gate"
+   ],
+   "pred": [],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.066,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_27.jpg",
+   "split": "dev",
+   "truth": [
+    "window_low_no_guard"
+   ],
+   "pred": [],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.072,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_28.jpg",
+   "split": "dev",
+   "truth": [
+    "appliance_cord_hanging"
+   ],
+   "pred": [
+    {
+     "cue": "appliance_cord_hanging",
+     "confidence": 0.5,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 1.142,
+   "cost_usd": 0.000198
+  },
+  {
+   "photo": "fake_29.jpg",
+   "split": "test",
+   "truth": [
+    "unanchored_dresser"
+   ],
+   "pred": [
+    {
+     "cue": "unanchored_dresser",
+     "confidence": 0.55,
+     "note": "canned dry-run output"
+    }
+   ],
+   "parse_failure": false,
+   "error": null,
+   "latency_s": 0.968,
+   "cost_usd": 0.000198
+  }
+ ]
+}
