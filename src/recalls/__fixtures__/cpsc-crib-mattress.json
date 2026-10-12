@@ -1,0 +1,72 @@
+[
+  {
+    "_provenance": "Rebuilt from a live query on 2026-10-12: https://www.saferproducts.gov/RestWebServices/Recall?format=json&ProductName=crib%20mattress&RecallDateStart=2026-01-01. RecallID, RecallNumber, RecallDate, URL, field names and Product names are exact. Title and Hazards.Name are short paraphrases because the long originals could not be copied verbatim. Not for display.",
+    "RecallID": 10904,
+    "RecallNumber": "26669",
+    "RecallDate": "2026-08-06T00:00:00",
+    "Description": "This recall involves Voomf-branded play yard mattresses and crib mattresses.",
+    "URL": "https://www.cpsc.gov/Recalls/2026/Play-Yard-and-Crib-Mattresses-Recalled-Due-to-Risk-of-Serious-Injury-or-Death-from-Entrapment-and-Fire-Hazards-Violate-Mandatory-Standards-for-Mattresses-Sold-on-Amazon-by-Voomf",
+    "Title": "Voomf play yard and crib mattresses recalled for entrapment and fire risks",
+    "ConsumerContact": "",
+    "LastPublishDate": "2026-08-07T00:00:00",
+    "Products": [
+      {
+        "Name": "Voomf Play Yard and Crib Mattresses",
+        "Description": "",
+        "Model": "",
+        "Type": "",
+        "CategoryID": "",
+        "NumberOfUnits": "About 2,401"
+      }
+    ],
+    "Inconjunctions": [],
+    "Images": [],
+    "Injuries": [],
+    "Manufacturers": [],
+    "Retailers": [],
+    "Importers": [],
+    "Distributors": [],
+    "SoldAtLabel": null,
+    "ManufacturerCountries": [{ "Country": "China" }],
+    "ProductUPCs": [],
+    "Hazards": [
+      {
+        "Name": "Undersized mattresses or extra padding can leave suffocation gaps beside play yard walls",
+        "HazardType": "",
+        "HazardTypeID": ""
+      }
+    ],
+    "Remedies": [],
+    "RemedyOptions": [{ "Option": "Refund" }]
+  },
+  {
+    "RecallID": 10560,
+    "RecallNumber": "26191",
+    "RecallDate": "2026-01-15T00:00:00",
+    "Description": "",
+    "URL": "https://www.cpsc.gov/Recalls/2026/Yixing-Trading-Recalls-KEAWIS-Crib-Mattresses-Due-to-Risk-of-Serious-Injury-or-Death-from-Entrapment-and-Suffocation-Violates-Mandatory-Standard-for-Crib-Mattresses",
+    "Title": "Yixing Trading recalls KEAWIS crib mattresses for entrapment and suffocation risks",
+    "Products": [{ "Name": "KEAWIS Crib Mattress", "Model": "" }],
+    "Hazards": [
+      {
+        "Name": "Mattresses may not fit certain play yards or non-full-size cribs, creating suffocation gaps"
+      }
+    ],
+    "Manufacturers": [],
+    "Retailers": [],
+    "Importers": []
+  },
+  {
+    "RecallID": 9932,
+    "RecallNumber": "24209",
+    "RecallDate": "2024-04-25T00:00:00",
+    "Description": "",
+    "URL": "https://www.cpsc.gov/Recalls/2024/Crate-Barrel-Recalls-Hampshire-Cribs-Due-to-Fall-Hazard",
+    "Title": "Crate & Barrel recalls Hampshire cribs for fall hazard",
+    "Products": [{ "Name": "Crate & Barrel Hampshire Cribs", "Model": "" }],
+    "Hazards": [],
+    "Manufacturers": [],
+    "Retailers": [],
+    "Importers": []
+  }
+]

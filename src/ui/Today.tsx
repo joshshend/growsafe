@@ -19,6 +19,7 @@ import { ageMonthsSafe } from "./age";
 import { useEasy } from "./easy";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
+import { RecallBanner } from "../recalls/RecallBanner";
 
 const NEXT_LIMIT = 6;
 
@@ -76,6 +77,7 @@ export function Today() {
 
   return (
     <div className="flow">
+      <RecallBanner />
       <div className="today-head">
         <h1 className="t-title">{t("today.title", { name: child.nickname })}</h1>
         <Ring

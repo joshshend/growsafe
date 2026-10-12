@@ -2,6 +2,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateEntries } from "../src/kb/validate";
+import { checklistErrors } from "../src/recalls/gear";
 import { stageNoteErrors } from "../src/kb/stages";
 
 const dir = join(import.meta.dirname, "..", "src", "kb", "data");
@@ -20,6 +21,15 @@ try {
     errors.push({ file: "stages.json", id: "-", message });
 } catch (err) {
   errors.push({ file: "stages.json", id: "-", message: String(err) });
+}
+try {
+  const gear: unknown = JSON.parse(
+    readFileSync(join(dir, "..", "..", "recalls", "checklists.json"), "utf8"),
+  );
+  for (const message of checklistErrors(gear))
+    errors.push({ file: "recalls/checklists.json", id: "-", message });
+} catch (err) {
+  errors.push({ file: "recalls/checklists.json", id: "-", message: String(err) });
 }
 if (errors.length) {
   for (const e of errors) console.error(`${e.file} [${e.id}]: ${e.message}`);

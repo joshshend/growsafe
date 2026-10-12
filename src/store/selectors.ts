@@ -1,6 +1,7 @@
 // Derived views over the store (pure, no React): ranked task rows, groups and progress.
 import type { Child, HazardEntry, Room, Task } from "../kb/schema";
 import { rankWithLead, type RankedHazard } from "../plan";
+import { gearHazard } from "../recalls/gear";
 
 export type Group = "first" | "month" | "soon" | "done";
 const FAR_MONTHS = 72;
@@ -39,7 +40,7 @@ export function buildViews(
   let firstCount = 0;
   const views: TaskView[] = [];
   for (const task of input.tasks) {
-    const hazard = hazards.get(task.hazard_id);
+    const hazard = hazards.get(task.hazard_id) ?? gearHazard(task.hazard_id); // gear checklist tasks (T23)
     if (!hazard) continue;
     let ranked: RankedHazard | null = null;
     for (const id of task.childIds) {

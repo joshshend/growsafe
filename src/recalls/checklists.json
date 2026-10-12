@@ -1,0 +1,841 @@
+{
+  "version": 1,
+  "types": {
+    "crib": [
+      {
+        "id": "slats",
+        "title": "Crib slats too far apart",
+        "q": "Are the slats no more than 2-3/8 inches apart?",
+        "fix": "Measure the gaps between slats. If any gap is wider than 2-3/8 inches, stop using this crib and replace it.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "sides",
+        "title": "Crib has a drop side",
+        "q": "Does the crib have four sides that do not move (no drop side)?",
+        "fix": "Full-sized cribs should have four immovable sides. Replace a crib that has a drop side.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "mattress-fit",
+        "title": "Mattress does not fit snugly",
+        "q": "Does the mattress fit snugly, with no gaps that could trap an arm, leg or head?",
+        "fix": "Replace the mattress with one made for this crib so no gap is left at the sides.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "bedding",
+        "title": "Extras in the crib",
+        "q": "Is the crib free of bumpers, pillows and stuffed toys, with only a snugly fitted sheet in it?",
+        "fix": "Take bumpers, pillows and stuffed animals out. Leave only a snugly fitted sheet in the first year.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "sheet",
+        "title": "Loose crib sheet",
+        "q": "Is the fitted sheet snug enough that it will not slip off?",
+        "fix": "Switch to a fitted sheet made for this mattress size so it stays tight on all corners.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "mobile",
+        "title": "Mobile within reach",
+        "q": "Is any mobile hung out of reach, and taken down once the baby can sit up?",
+        "fix": "Move the mobile higher or take it down. Mobiles should come down once the baby can sit up.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "placement",
+        "title": "Crib placed near hazards",
+        "q": "Is the crib away from windows and at least an arm's length from dressers or tabletops?",
+        "fix": "Move the crib away from windows and at least an arm's length from dressers and tabletops. Take down picture frames and mirrors above it.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "height",
+        "title": "Mattress height not lowered",
+        "q": "Have you lowered the mattress as your baby has grown?",
+        "fix": "Lower the mattress. It should be at its lowest setting by the time your baby can sit or stand.",
+        "source": {
+          "title": "Suitable Sleeping Sites: Safe at Night & Naptime",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "bassinet": [
+      {
+        "id": "limits",
+        "title": "Bassinet limits not followed",
+        "q": "Is your baby within the maker's weight and age limits for this bassinet?",
+        "fix": "Check the label and manual for the limits. Move your baby to a crib once they reach them.",
+        "source": {
+          "title": "Cribs, Bassinets, & Pack and Plays",
+          "publisher": "State of Michigan (Michigan.gov)",
+          "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "stop-use",
+        "title": "Baby is outgrowing the bassinet",
+        "q": "Is your baby younger than about 5 months and not yet pushing up on hands and knees?",
+        "fix": "Stop using the bassinet by about 5 months, or once your baby can push up on hands and knees. Move to a crib.",
+        "source": {
+          "title": "CPSC Approves New Federal Safety Standard for Bassinets and Cradles",
+          "publisher": "U.S. Consumer Product Safety Commission",
+          "url": "https://www.cpsc.gov/content/cpsc-approves-new-federal-safety-standard-for-bassinets-and-cradles",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "own-mattress",
+        "title": "Wrong mattress in bassinet",
+        "q": "Is the mattress the one that came with the bassinet (or a replacement from the maker)?",
+        "fix": "Use only the mattress that came with the bassinet. Order a replacement from the manufacturer if it is lost or worn.",
+        "source": {
+          "title": "Cribs, Bassinets, & Pack and Plays",
+          "publisher": "State of Michigan (Michigan.gov)",
+          "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "no-extras",
+        "title": "Extra padding in bassinet",
+        "q": "Is the bassinet free of added pillows, cushions or mattress toppers?",
+        "fix": "Remove pillows, cushions and toppers from under and on top of the mattress. Memory foam toppers are not recommended for babies.",
+        "source": {
+          "title": "Cribs, Bassinets, & Pack and Plays",
+          "publisher": "State of Michigan (Michigan.gov)",
+          "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "standard-2013",
+        "title": "Bassinet may predate the federal standard",
+        "q": "Was the bassinet made in 2013 or later, after the federal standard for bassinets and cradles began?",
+        "fix": "Look for the manufacture date on the label. If it is older than 2013 or you cannot find it, consider replacing it.",
+        "source": {
+          "title": "Cribs, Bassinets, & Pack and Plays",
+          "publisher": "State of Michigan (Michigan.gov)",
+          "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "not-recalled",
+        "title": "Bassinet recall not checked",
+        "q": "Have you run a recall check on this bassinet?",
+        "fix": "Use the Check recalls button on this item, and do not use a recalled bassinet.",
+        "source": {
+          "title": "CPSC Approves New Federal Safety Standard for Bassinets and Cradles",
+          "publisher": "U.S. Consumer Product Safety Commission",
+          "url": "https://www.cpsc.gov/content/cpsc-approves-new-federal-safety-standard-for-bassinets-and-cradles",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "car_seat": [
+      {
+        "id": "rear-facing",
+        "title": "Child may be forward-facing too early",
+        "q": "Does your child ride rear-facing (children under age 1 should always ride rear-facing, and rear-facing is best for as long as the seat allows)?",
+        "fix": "Turn the seat to face the rear. NHTSA recommends keeping children rear-facing as long as possible.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "install",
+        "title": "Car seat installed with both anchors and belt",
+        "q": "Is the seat installed with either the lower anchors or the seat belt, never both?",
+        "fix": "Reinstall using the lower anchors or the vehicle seat belt, not both. Read the weight limit for the lower anchors on the seat's label.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "tether",
+        "title": "Tether not used",
+        "q": "If the seat faces forward, is the top tether attached?",
+        "fix": "Attach and tighten the top tether. NHTSA recommends always using a tether with a forward-facing seat.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "strap-height",
+        "title": "Harness straps at the wrong height",
+        "q": "Are the harness straps at or below the shoulders (rear-facing) or at or above the shoulders (forward-facing)?",
+        "fix": "Move the straps to the correct slot for the way the seat faces.",
+        "source": {
+          "title": "How To Use a Car Seat Harness",
+          "publisher": "NHTSA (copy hosted by Brown University Health)",
+          "url": "https://www.brownhealth.org/sites/default/files/2021-03/NHTSA-How-to-Use-Car-Seat-Harness.pdf",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "chest-clip",
+        "title": "Chest clip in the wrong place",
+        "q": "Is the chest clip at armpit level?",
+        "fix": "Slide the chest clip up to armpit level.",
+        "source": {
+          "title": "How To Use a Car Seat Harness",
+          "publisher": "NHTSA (copy hosted by Brown University Health)",
+          "url": "https://www.brownhealth.org/sites/default/files/2021-03/NHTSA-How-to-Use-Car-Seat-Harness.pdf",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "pinch",
+        "title": "Harness too loose",
+        "q": "Does the harness pass the pinch test (you cannot pinch webbing at the shoulder)?",
+        "fix": "Tighten the harness until your fingers slide off the webbing at the shoulder and you cannot pinch any.",
+        "source": {
+          "title": "How To Use a Car Seat Harness",
+          "publisher": "NHTSA (copy hosted by Brown University Health)",
+          "url": "https://www.brownhealth.org/sites/default/files/2021-03/NHTSA-How-to-Use-Car-Seat-Harness.pdf",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "registered",
+        "title": "Car seat not registered",
+        "q": "Is the seat registered with the manufacturer?",
+        "fix": "Register the seat with the manufacturer to get recall and safety notices. The NHTSA SaferCar app or email alerts also work.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "used-crash",
+        "title": "Used or crashed seat not checked",
+        "q": "If the seat is second-hand or was in a crash, have you used NHTSA's used-seat checklist and crash guidance?",
+        "fix": "Read NHTSA's used car seat checklist and its guidance on seats after a crash before using this seat.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "booster": [
+      {
+        "id": "outgrown",
+        "title": "Booster used too early",
+        "q": "Has your child outgrown the forward-facing harness seat?",
+        "fix": "A child who still fits the harness seat should stay in it. Move to a booster once the harness limits are outgrown.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "back-seat",
+        "title": "Booster in the front seat",
+        "q": "Does your child ride in the back seat?",
+        "fix": "Move the booster and your child to the back seat.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "lap-belt",
+        "title": "Lap belt across the stomach",
+        "q": "Does the lap belt lie across the upper thighs, not the stomach?",
+        "fix": "Re-route the belt so the lap belt lies low across the upper thighs.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "registered",
+        "title": "Booster not registered",
+        "q": "Is the booster registered with the manufacturer?",
+        "fix": "Register the seat with the manufacturer to receive recall notices.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "used-crash",
+        "title": "Used or crashed booster not checked",
+        "q": "If the booster is second-hand or was in a crash, have you used NHTSA's used-seat checklist and crash guidance?",
+        "fix": "Read NHTSA's used car seat checklist and its guidance on seats after a crash before using this booster.",
+        "source": {
+          "title": "Car Seat & Booster Seat Safety, Ratings, Guidelines",
+          "publisher": "NHTSA",
+          "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "high_chair": [
+      {
+        "id": "straps",
+        "title": "High chair straps not used",
+        "q": "Do you use the straps every time, including the crotch strap?",
+        "fix": "Buckle every strap, including the crotch strap, each time your child sits in the chair.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "standing",
+        "title": "Child stands in high chair",
+        "q": "Does your child stay seated, never standing in the chair?",
+        "fix": "Do not let your child stand in the high chair. Lift them out when they want to move.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "tipping",
+        "title": "High chair tips easily",
+        "q": "Is the chair stable, so it cannot be tipped over easily?",
+        "fix": "Test the chair by pushing on it. If it tips easily, stop using it and choose a more stable one.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "locks",
+        "title": "Folding locks not engaged",
+        "q": "If the chair folds, are the locks engaged every time you set it up?",
+        "fix": "Check that the folding locks click into place each time you open the chair.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "placement",
+        "title": "High chair next to counter or table",
+        "q": "Is the chair kept away from counters and tables that a child could push against?",
+        "fix": "Move the chair away from counters and tables so your child cannot push off and tip it.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "clip-on",
+        "title": "Clip-on chair not secure",
+        "q": "If you use a clip-on chair, does it lock onto a table that can hold your child's weight without tipping?",
+        "fix": "Use a model that locks onto the table, and make sure the table is steady and your child's feet cannot reach a table support.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "supervision",
+        "title": "Child left alone in high chair",
+        "q": "Is your child always watched while in the chair?",
+        "fix": "Stay with your young child while they are in the high chair, and keep older children from climbing on it.",
+        "source": {
+          "title": "6 Quick High Chair Safety Tips",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "stroller": [
+      {
+        "id": "brakes",
+        "title": "Stroller brakes",
+        "q": "Do the brakes work easily, and do you set them whenever the stroller is stopped?",
+        "fix": "Set the brakes every time you stop. Make sure your child cannot reach the release.",
+        "source": {
+          "title": "How to Choose a Safe Baby Stroller",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "harness",
+        "title": "Stroller harness not used",
+        "q": "Do you use a five-point harness on every ride?",
+        "fix": "Buckle the harness on every ride. For infants, rolled blankets on each side can limit slouching.",
+        "source": {
+          "title": "How to Choose a Safe Baby Stroller",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "bags",
+        "title": "Bags hung on handles",
+        "q": "Is the stroller free of bags hanging from the handles?",
+        "fix": "Take bags off the handles. If there is a basket, keep heavy items low and near the rear wheels.",
+        "source": {
+          "title": "How to Choose a Safe Baby Stroller",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "frame-lock",
+        "title": "Frame not locked open",
+        "q": "Do you lock the frame open before you put your child in, keeping them clear while folding?",
+        "fix": "Lock the frame open before seating your child, and keep your child away while folding or unfolding.",
+        "source": {
+          "title": "How to Choose a Safe Baby Stroller",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "toys",
+        "title": "Toys strung across stroller",
+        "q": "Are toys strung across the stroller secured, and removed once the baby can sit up?",
+        "fix": "Secure the toys, and remove them once your baby can sit up or rise onto hands and knees.",
+        "source": {
+          "title": "How to Choose a Safe Baby Stroller",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "unattended",
+        "title": "Child left alone in stroller",
+        "q": "Is your child never left alone in the stroller, and kept in sight if they fall asleep?",
+        "fix": "Keep your child in sight whenever they are in the stroller, including while asleep.",
+        "source": {
+          "title": "How to Choose a Safe Baby Stroller",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "play_yard": [
+      {
+        "id": "mesh",
+        "title": "Torn or large-holed mesh",
+        "q": "Is the mesh intact, with holes no larger than 1/4 inch?",
+        "fix": "Check the mesh for tears and for holes larger than 1/4 inch. Stop using a play yard with damaged mesh.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Playpens",
+          "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
+          "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "hinges",
+        "title": "Hinges and rails",
+        "q": "Are the hinges well protected, and do the top rails lock when raised?",
+        "fix": "Raise the rails until they lock. Stop using the play yard if the hinges or supports are damaged.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Playpens",
+          "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
+          "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "side-height",
+        "title": "Play yard sides too low",
+        "q": "Are the sides at least 20 inches high, measured from the floor of the play yard?",
+        "fix": "Measure from the floor of the play yard. If the sides are lower than 20 inches, choose a different play yard.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Playpens",
+          "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
+          "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "pad",
+        "title": "Wrong or stacked mattress pad",
+        "q": "Is there only one firm pad (about 1 inch thick), made for this play yard?",
+        "fix": "Use only the pad that came with the play yard, or a replacement from the maker. Never add a second pad or swap in one that may not fit.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Playpens",
+          "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
+          "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "mattress-maker",
+        "title": "Extra padding in play yard",
+        "q": "Is the play yard free of extra pillows, cushions or toppers?",
+        "fix": "Remove added padding. Use only the mattress made for this play yard.",
+        "source": {
+          "title": "Cribs, Bassinets, & Pack and Plays",
+          "publisher": "State of Michigan (Michigan.gov)",
+          "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "lowered-side",
+        "title": "Mesh side left lowered",
+        "q": "Are the side-lowering locks out of your baby's reach, and the side never left down with your baby inside?",
+        "fix": "Raise and lock the side before you step away. Keep the locks out of your baby's reach.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Playpens",
+          "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
+          "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "used",
+        "title": "Used play yard worn or diamond openings",
+        "q": "If it is used, is the floor free of wear and tear, and are there no large diamond-shaped openings?",
+        "fix": "Check the floor for wear and tear and avoid play yards with large diamond-shaped openings.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Playpens",
+          "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
+          "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "bouncer_swing": [
+      {
+        "id": "straps",
+        "title": "Swing straps not buckled",
+        "q": "Do you always buckle the straps, including shoulder straps when your baby sits up?",
+        "fix": "Buckle the straps every time your baby is in the seat.",
+        "source": {
+          "title": "Can Babies Sleep in a Swing? Safety Risks Explained",
+          "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
+          "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "surface",
+        "title": "Swing or bouncer on a raised surface",
+        "q": "Is the seat always on the floor, never on a crib, mattress or other raised surface?",
+        "fix": "Place the seat on the floor. The AAP advises against putting it on a crib, mattress or other raised surface.",
+        "source": {
+          "title": "Can Babies Sleep in a Swing? Safety Risks Explained",
+          "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
+          "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "angle",
+        "title": "Swing angle for a young baby",
+        "q": "If your baby is under 4 months, is the swing tilted to its flattest position?",
+        "fix": "Tilt the swing to its flattest position for babies under 4 months.",
+        "source": {
+          "title": "Can Babies Sleep in a Swing? Safety Risks Explained",
+          "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
+          "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "sleeping",
+        "title": "Baby sleeping in the seat",
+        "q": "If your baby falls asleep in it, do you move them to a crib or bassinet?",
+        "fix": "Move a sleeping baby to a crib or bassinet with a firm surface and nothing soft in it.",
+        "source": {
+          "title": "Can Babies Sleep in a Swing? Safety Risks Explained",
+          "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
+          "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "time",
+        "title": "Long stretches in the seat",
+        "q": "Do you limit the time your baby spends in the swing or bouncer, and watch them while they are in it?",
+        "fix": "Keep sessions short and stay close. The AAP says babies should not spend a long time in swings or similar equipment.",
+        "source": {
+          "title": "Can Babies Sleep in a Swing? Safety Risks Explained",
+          "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
+          "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "not-recalled",
+        "title": "Swing or bouncer recall not checked",
+        "q": "Have you run a recall check on this swing or bouncer?",
+        "fix": "Use the Check recalls button on this item, and stop using it if it matches a recall.",
+        "source": {
+          "title": "Can Babies Sleep in a Swing? Safety Risks Explained",
+          "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
+          "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "baby_gate": [
+      {
+        "id": "top-stairs",
+        "title": "Pressure gate at top of stairs",
+        "q": "If the gate is at the top of stairs, is it hardware-mounted to the door frame?",
+        "fix": "Use a hardware-mounted gate at the top of stairs. Pressure-mounted gates are for doorways and the bottom of stairs.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "swing-out",
+        "title": "Swing-out gate at top of stairs",
+        "q": "Is the gate free of a swing-out design at the top of stairs?",
+        "fix": "Swing-out gates should never go at the top of stairs. Replace it with a hardware-mounted gate that does not swing out.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "cert",
+        "title": "No safety certification label",
+        "q": "Does the gate carry an ASTM/JPMA certification label?",
+        "fix": "Look for the ASTM/JPMA certification on the label. If it is missing, choose a certified gate.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "accordion",
+        "title": "Old accordion gate",
+        "q": "Is the gate free of diamond-shaped openings with wide Vs at the top (old accordion style)?",
+        "fix": "Replace old accordion gates. The V-shaped openings can trap a baby's head.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "slats",
+        "title": "Gate bars too far apart",
+        "q": "Are the vertical bars or slats no more than 2-3/8 inches apart?",
+        "fix": "Measure the gaps between bars. If any gap is wider than 2-3/8 inches, replace the gate.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "floor-gap",
+        "title": "Gap under the gate",
+        "q": "Is the space under the gate no more than 1 to 2 inches?",
+        "fix": "Measure the gap at the floor. Adjust or replace the gate if it is larger than 1 to 2 inches.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "height",
+        "title": "Gate too short",
+        "q": "Is the gate at least three-quarters of your child's height?",
+        "fix": "Measure your child. Replace the gate if it is shorter than three-quarters of their height.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "climb",
+        "title": "Child can open or climb the gate",
+        "q": "Can your child not open or climb the gate?",
+        "fix": "If your child can open or climb the gate, take it down. Keep large toys away from the gate.",
+        "source": {
+          "title": "Choosing Safe Baby Products: Gates",
+          "publisher": "Nemours KidsHealth",
+          "url": "https://kidshealth.org/en/parents/products-gates.html",
+          "accessed": "2026-10-12"
+        }
+      }
+    ],
+    "changing_table": [
+      {
+        "id": "guardrail",
+        "title": "Changing table guardrail",
+        "q": "Does the table have a 2-inch guardrail on all four sides?",
+        "fix": "Replace the table or pad with one that has a 2-inch guardrail on all four sides.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "shape",
+        "title": "Flat changing surface",
+        "q": "Is the changing surface concave, with the centre slightly lower than the edges?",
+        "fix": "Use a contoured changing pad with the centre lower than the edges.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "strap",
+        "title": "Changing table strap not used",
+        "q": "Do you buckle the safety strap each time?",
+        "fix": "Buckle the strap each time. Do not rely on it alone.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "hand",
+        "title": "Hand off the baby",
+        "q": "Do you keep one hand on your baby at all times, even briefly?",
+        "fix": "Keep one hand on your baby the whole time, even when the strap is buckled.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "supplies",
+        "title": "Supplies out of reach",
+        "q": "Are diapering supplies within your reach but out of your baby's reach?",
+        "fix": "Rearrange supplies so you can reach them without letting go, and your baby cannot.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "powder",
+        "title": "Powder within reach",
+        "q": "Are powder containers kept away from your baby?",
+        "fix": "Store powder away from your baby. Inhaled powder can injure the lungs.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      },
+      {
+        "id": "diapers",
+        "title": "Diapers stored within reach",
+        "q": "Are disposable diapers stored out of reach, with worn diapers covered by clothing?",
+        "fix": "Store diapers out of reach, and cover a worn diaper with clothing so the plastic liner is not exposed.",
+        "source": {
+          "title": "Changing Table Safety",
+          "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
+          "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
+          "accessed": "2026-10-12"
+        }
+      }
+    ]
+  }
+}

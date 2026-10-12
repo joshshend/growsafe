@@ -5,6 +5,7 @@ import { progress } from "../store/selectors";
 import { RoomIcon } from "./icons";
 import { Ring, TaskRow, useChildViews } from "./parts";
 import { useT } from "./useT";
+import { GearSection } from "../recalls/GearSection";
 
 export function Rooms() {
   const t = useT();
@@ -43,6 +44,7 @@ export function Rooms() {
           </ul>
         </section>
       ))}
+      <GearSection />
       <Link to="/home/new" className="btn btn-block">
         <Plus size={20} weight="bold" aria-hidden="true" />
         {t("plan.addHome")}

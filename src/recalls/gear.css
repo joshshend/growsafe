@@ -1,0 +1,91 @@
+/* My gear (T23). Uses the shared design tokens only. */
+.gear-list {
+  border-top: 1px solid var(--line);
+}
+.gear-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.gear-item.is-target {
+  outline: 2px solid var(--action);
+  outline-offset: 4px;
+  border-radius: var(--r-control);
+}
+.gear-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.gear-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 800;
+}
+.gear-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1.5px solid var(--control-line);
+  border-radius: var(--r-round);
+  font-size: var(--fs-5);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.gear-chip.is-warn {
+  border-color: var(--emergency-text);
+  color: var(--emergency-text);
+}
+.gear-chip.is-ok {
+  border-color: var(--done-text);
+  color: var(--done-text);
+}
+.gear-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.gear-actions .btn {
+  flex: 1 1 140px;
+}
+.gear-banner {
+  border-color: var(--emergency-text);
+}
+.gear-banner .wk-card-icon {
+  color: var(--emergency-text);
+}
+.gear-q {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+}
+.gear-q legend {
+  padding: 0;
+  font-weight: 600;
+}
+.gear-src {
+  font-size: var(--fs-5);
+  color: var(--muted);
+}
+.gear-match {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.gear-match-title {
+  font-weight: 800;
+}
+.gear-note {
+  font-size: var(--fs-5);
+  color: var(--muted);
+}

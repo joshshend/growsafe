@@ -5,6 +5,8 @@ import { PlanSchema, type Child, type Home, type Room, type Task } from "../kb/s
 import { buildPlan } from "../plan";
 import type { Lang } from "../i18n/t";
 import { clearSaved, loadSaved, save } from "./persist";
+import { GearListSchema, type GearItem, type RecallMatch } from "../recalls/types";
+import { keepGearTasks, syncGearTasks } from "../recalls/gear";
 
 export const SCHEMA_VERSION = 1;
 
@@ -20,6 +22,7 @@ export interface PersistedState {
   tasks: Task[];
   owners: string[];
   emergencyCards: Record<string, EmergencyCard>; // device only, never put in share links
+  gear: GearItem[]; // My gear (T23); absent in older saves, which load as []
   settings: Settings;
   schemaVersion: number;
 }
@@ -29,6 +32,12 @@ interface Actions {
   removeChild: (id: string) => void;
   addHome: (name: string, rooms: Room[]) => string;
   removeHome: (id: string) => void;
+  addGear: (g: Omit<GearItem, "id">) => string;
+  updateGear: (id: string, patch: Partial<Omit<GearItem, "id">>) => void;
+  removeGear: (id: string) => void;
+  setGearAnswers: (id: string, answers: Record<string, "yes" | "no">) => void;
+  setGearRecalls: (id: string, checkedAt: string, matches: RecallMatch[]) => void;
+  dismissRecall: (gearId: string, recallId: string) => void;
   addTasks: (tasks: Task[]) => void;
   setStatus: (taskId: string, status: Task["status"]) => void;
   setOwner: (taskId: string, owner: string | undefined) => void;
@@ -45,6 +54,7 @@ const initial = (): PersistedState => ({
   tasks: [],
   owners: [],
   emergencyCards: {},
+  gear: [],
   settings: { lang: "en", largeText: false, perceptionConsent: false },
   schemaVersion: SCHEMA_VERSION,
 });
@@ -56,7 +66,10 @@ export function newId(prefix: string): string {
 
 // Rebuilds tasks for today's date. Tasks added early from the growth preview (T21) are kept as long
 // as their home, room, hazard and children still exist.
-const rebuild = (s: Pick<PersistedState, "children" | "homes" | "tasks">, now = new Date()) => {
+const rebuild = (
+  s: Pick<PersistedState, "children" | "homes" | "tasks"> & { gear?: GearItem[] },
+  now = new Date(),
+) => {
   const kb = loadKb();
   const built = buildPlan(kb, s.children, s.homes, now, s.tasks);
   const childIds = new Set(s.children.map((c) => c.id));
@@ -77,7 +90,8 @@ const rebuild = (s: Pick<PersistedState, "children" | "homes" | "tasks">, now = 
       hazards.has(t.hazard_id) &&
       s.homes.some((h) => h.id === t.home_id && h.rooms.includes(t.room)),
   );
-  return [...merged, ...kept];
+  const gearKept = keepGearTasks(s.tasks, s.gear ?? [], s.homes.map((h) => h.id));
+  return [...merged, ...kept, ...gearKept];
 };
 
 // Birth month/year that makes a child `months` old today (birthday is assumed to be the 15th).
@@ -100,10 +114,13 @@ export const useStore = create<State>()((set, get) => ({
       });
       if (plan.success) {
         const base = initial();
+        const gearParsed = GearListSchema.safeParse(raw.gear ?? []); // saves from before T23 have no gear
+        const gear = gearParsed.success ? gearParsed.data : [];
         set({
           ...plan.data,
+          gear,
           // A new month may have unlocked new risks, so rebuild on load (keeps progress).
-          tasks: rebuild(plan.data),
+          tasks: rebuild({ ...plan.data, gear }),
           owners: raw.owners ?? [],
           emergencyCards: raw.emergencyCards ?? {},
           settings: { ...base.settings, ...raw.settings },
@@ -139,8 +156,45 @@ export const useStore = create<State>()((set, get) => ({
 
   removeHome: (id) => {
     const homes = get().homes.filter((h) => h.id !== id);
-    set((s) => ({ homes, tasks: rebuild({ ...s, homes }) }));
+    const gear = get().gear.filter((g) => g.homeId !== id);
+    set((s) => ({ homes, gear, tasks: rebuild({ ...s, homes, gear }) }));
   },
+
+  addGear: (g) => {
+    const id = newId("g");
+    set((s) => ({ gear: [...s.gear, { ...g, id }] }));
+    return id;
+  },
+
+  updateGear: (id, patch) =>
+    set((s) => ({ gear: s.gear.map((g) => (g.id === id ? { ...g, ...patch } : g)) })),
+
+  removeGear: (id) =>
+    set((s) => {
+      const gear = s.gear.filter((g) => g.id !== id);
+      return { gear, tasks: syncGearTasks(s.tasks, gear, id) };
+    }),
+
+  // Saves checklist answers; each "no" becomes a normal task, a later "yes" removes it.
+  setGearAnswers: (id, answers) =>
+    set((s) => {
+      const gear = s.gear.map((g) => (g.id === id ? { ...g, answers } : g));
+      return { gear, tasks: syncGearTasks(s.tasks, gear, id) };
+    }),
+
+  setGearRecalls: (id, checkedAt, matches) =>
+    set((s) => ({
+      gear: s.gear.map((g) =>
+        g.id === id ? { ...g, lastChecked: checkedAt, recallMatches: matches } : g,
+      ),
+    })),
+
+  dismissRecall: (gearId, recallId) =>
+    set((s) => ({
+      gear: s.gear.map((g) =>
+        g.id === gearId ? { ...g, dismissed: [...new Set([...(g.dismissed ?? []), recallId])] } : g,
+      ),
+    })),
 
   // Adds tasks early (growth preview). A task that exists gains the new children.
   addTasks: (added) =>
@@ -228,6 +282,7 @@ const persistedKeys = [
   "tasks",
   "owners",
   "emergencyCards",
+  "gear",
   "settings",
   "schemaVersion",
 ] as const;
