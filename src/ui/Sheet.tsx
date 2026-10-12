@@ -11,10 +11,12 @@ export function Sheet({
   title,
   onClose,
   children,
+  footer,
 }: {
   title: string;
   onClose: () => void;
   children: ReactNode;
+  footer?: ReactNode;
 }) {
   const t = useT();
   const ref = useRef<HTMLDivElement>(null);
@@ -88,6 +90,7 @@ export function Sheet({
           </button>
         </div>
         <div className="sheet-body">{children}</div>
+        {footer && <div className="sheet-foot">{footer}</div>}
       </div>
     </>,
     document.body,

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import {
   CaretDown,
   GearSix,
@@ -88,14 +88,13 @@ export function Layout() {
               {child.nickname.trim().charAt(0).toUpperCase()}
             </span>
             <span className="switcher-name" aria-hidden="true">
-              {t("plan.childAge", { name: child.nickname, age: ageText(t, child, new Date()) })}
+              <span className="switcher-nick">{child.nickname}</span>
+              <span className="switcher-age">{ageText(t, child, new Date())}</span>
             </span>
             <CaretDown size={16} weight="bold" aria-hidden="true" />
           </button>
         ) : (
-          <Link to="/" className="switcher">
-            <span className="switcher-name t-strong">{t("app.title")}</span>
-          </Link>
+          <span />
         )}
         <div className="topbar-actions">
           <a className="poison" href={POISON_HREF} aria-label={t("poison.label")}>

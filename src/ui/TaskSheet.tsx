@@ -131,7 +131,32 @@ export function TaskSheet() {
 
   return (
     <>
-      <Sheet title={local.name} onClose={close}>
+      <Sheet
+        title={local.name}
+        onClose={close}
+        footer={
+          done ? (
+            <button
+              type="button"
+              className="btn btn-block"
+              onClick={() => setStatus(task.id, "todo")}
+            >
+              {t("task.markNotDone")}
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-primary btn-block"
+              onClick={() => {
+                setDone(task.id, true);
+                close();
+              }}
+            >
+              {t("task.markDone")}
+            </button>
+          )
+        }
+      >
         <div className="flow-s">
           <span className="meta-item muted">
             <RoomIcon room={task.room} size={22} />
@@ -160,27 +185,6 @@ export function TaskSheet() {
             </li>
           ))}
         </ol>
-
-        {done ? (
-          <button
-            type="button"
-            className="btn btn-block"
-            onClick={() => setStatus(task.id, "todo")}
-          >
-            {t("task.markNotDone")}
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="btn btn-primary btn-block"
-            onClick={() => {
-              setDone(task.id, true);
-              close();
-            }}
-          >
-            {t("task.markDone")}
-          </button>
-        )}
 
         <div>
           <button type="button" className="link-row" onClick={() => setAssigning(true)}>

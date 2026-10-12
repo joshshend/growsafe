@@ -137,6 +137,7 @@ export function TaskRow({ view, showRoom = true }: { view: TaskView; showRoom?: 
   const sub: string[] = [];
   if (showRoom) sub.push(t(`room.${task.room}`));
   if (task.status === "doing") sub.push(t("task.status.doing"));
+  sub.push(costText(t, totals.min, totals.max));
   return (
     <li className={`row${done ? " is-done" : ""}`}>
       <CheckButton
@@ -152,7 +153,6 @@ export function TaskRow({ view, showRoom = true }: { view: TaskView; showRoom?: 
           <span className="row-title">{name}</span>
           {sub.length > 0 && <span className="row-sub">{sub.join(", ")}</span>}
         </span>
-        <span className="row-end">{costText(t, totals.min, totals.max)}</span>
       </button>
     </li>
   );

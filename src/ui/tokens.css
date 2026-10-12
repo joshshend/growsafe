@@ -13,6 +13,7 @@
   --done: #2f8f5b;
   --done-text: #237a49;
   --emergency: #c92a2a;
+  --emergency-text: #c92a2a;
   --on-emergency: #ffffff;
   --scrim: rgba(20, 33, 61, 0.45);
   --sheet-shadow: 0 -8px 32px rgba(20, 33, 61, 0.18);
@@ -58,6 +59,7 @@
     --on-action: #17181b;
     --done: #5cc48a;
     --done-text: #5cc48a;
+    --emergency-text: #ff7a7a;
     --scrim: rgba(0, 0, 0, 0.6);
     --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
     color-scheme: dark;
@@ -77,6 +79,7 @@
   --on-action: #17181b;
   --done: #5cc48a;
   --done-text: #5cc48a;
+  --emergency-text: #ff7a7a;
   --scrim: rgba(0, 0, 0, 0.6);
   --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
   color-scheme: dark;
