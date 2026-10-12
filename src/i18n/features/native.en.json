@@ -1,0 +1,15 @@
+{
+  "remind.row": "Remind me",
+  "remind.rowSub": "Get a nudge to do this",
+  "remind.title": "Remind me",
+  "remind.tomorrow": "Tomorrow morning",
+  "remind.weekend": "This weekend",
+  "remind.custom": "Pick a date",
+  "remind.date": "Reminder date",
+  "remind.set": "Set reminder",
+  "remind.scheduled": "Reminder set for {when}",
+  "remind.ics": "Calendar file downloaded. Open it to add the reminder.",
+  "remind.denied": "Notifications are off. Turn them on for GrowSafe in Settings.",
+  "remind.pickDate": "Choose a date first",
+  "remind.notification": "Time to work on: {name}"
+}

@@ -14,9 +14,17 @@
     "format": "prettier --write .",
     "kb:validate": "tsx scripts/validate-kb.ts && tsx scripts/validate-help.ts",
     "plan:demo": "tsx scripts/print-plan.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "ios:sync": "npm run build && npx cap sync ios",
+    "ios:open": "npx cap open ios"
   },
   "dependencies": {
+    "@capacitor/camera": "8.2.5",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/haptics": "8.0.2",
+    "@capacitor/ios": "8.5.3",
+    "@capacitor/local-notifications": "8.3.1",
+    "@capacitor/share": "8.0.3",
     "@fontsource/atkinson-hyperlegible-next": "5.3.0",
     "@phosphor-icons/react": "2.1.10",
     "fflate": "0.8.2",
@@ -29,6 +37,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.1",
+    "@capacitor/cli": "8.5.3",
     "@eslint/js": "9.13.0",
     "@playwright/test": "1.48.2",
     "@testing-library/jest-dom": "6.6.3",

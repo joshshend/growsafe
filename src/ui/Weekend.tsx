@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { CalendarPlus, Check, Clock, Coins, Copy } from "@phosphor-icons/react";
 import { Link, Navigate } from "react-router-dom";
 import { buildIcs, nextSaturdayMorning } from "../ics/ics";
+import { downloadIcs } from "../native/reminder";
 import { loadKb } from "../kb";
 import { planWeekend, type WeekendPlan } from "../plan";
 import { useStore } from "../store/store";
@@ -54,17 +55,6 @@ function Chips<T extends string | number | null>({
       </div>
     </section>
   );
-}
-
-function download(name: string, text: string) {
-  const url = URL.createObjectURL(new Blob([text], { type: "text/calendar;charset=utf-8" }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 async function copyText(text: string): Promise<boolean> {
@@ -183,7 +173,7 @@ export function Weekend() {
       start: nextSaturdayMorning(new Date()),
       minutes: Math.max(30, plan.totalMinutes),
     });
-    download("growsafe-session.ics", ics);
+    downloadIcs("growsafe-session.ics", ics);
   };
 
   let lastRoom = "";

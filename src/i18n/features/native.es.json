@@ -1,0 +1,15 @@
+{
+  "remind.row": "Recordarme",
+  "remind.rowSub": "Recibe un aviso para hacerlo",
+  "remind.title": "Recordarme",
+  "remind.tomorrow": "Mañana por la mañana",
+  "remind.weekend": "Este fin de semana",
+  "remind.custom": "Elegir una fecha",
+  "remind.date": "Fecha del recordatorio",
+  "remind.set": "Crear recordatorio",
+  "remind.scheduled": "Recordatorio para {when}",
+  "remind.ics": "Se descargó el archivo de calendario. Ábrelo para agregar el recordatorio.",
+  "remind.denied": "Las notificaciones están desactivadas. Actívalas para GrowSafe en Ajustes.",
+  "remind.pickDate": "Primero elige una fecha",
+  "remind.notification": "Hora de trabajar en: {name}"
+}

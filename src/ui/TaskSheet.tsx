@@ -1,6 +1,7 @@
 // Task detail: bottom sheet on phones, side panel on wide screens.
 import { useState, type FormEvent } from "react";
 import { CaretDown, CaretRight, Clock, Coins } from "@phosphor-icons/react";
+import { remindMe, reminderDate, type ReminderChoice } from "../native/reminder";
 import { useStore } from "../store/store";
 import { costText, localHazard, reasonText, taskTotals } from "./format";
 import { useEasy } from "./easy";
@@ -28,6 +29,67 @@ function Disclosure({ title, children }: { title: string; children: React.ReactN
       </summary>
       <div className="disc-body">{children}</div>
     </details>
+  );
+}
+
+function RemindSheet({
+  taskId,
+  title,
+  onClose,
+}: {
+  taskId: string;
+  title: string;
+  onClose: () => void;
+}) {
+  const t = useT();
+  const lang = useLang();
+  const showToast = useUi((s) => s.showToast);
+  const [custom, setCustom] = useState("");
+  async function pick(choice: ReminderChoice) {
+    const date = reminderDate(choice, new Date(), custom);
+    if (!date) {
+      showToast({ message: t("remind.pickDate") });
+      return;
+    }
+    const text = t("remind.notification", { name: title });
+    const r = await remindMe({ taskId, title: text, description: text, date });
+    if (r === "scheduled") {
+      const when = date.toLocaleDateString(lang, {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+      });
+      showToast({ message: t("remind.scheduled", { when }) });
+    } else if (r === "denied") showToast({ message: t("remind.denied") });
+    else showToast({ message: t("remind.ics") });
+    onClose();
+  }
+  return (
+    <Sheet title={t("remind.title")} onClose={onClose}>
+      <button type="button" className="btn btn-block" onClick={() => void pick("tomorrow")}>
+        {t("remind.tomorrow")}
+      </button>
+      <button type="button" className="btn btn-block" onClick={() => void pick("weekend")}>
+        {t("remind.weekend")}
+      </button>
+      <div className="field">
+        <label className="field-label" htmlFor="remind-date">
+          {t("remind.date")}
+        </label>
+        <div className="form-row">
+          <input
+            id="remind-date"
+            type="date"
+            className="input"
+            value={custom}
+            onChange={(e) => setCustom(e.target.value)}
+          />
+          <button type="button" className="btn" onClick={() => void pick("custom")}>
+            {t("remind.set")}
+          </button>
+        </div>
+      </div>
+    </Sheet>
   );
 }
 
@@ -117,6 +179,7 @@ export function TaskSheet() {
   const setDone = useSetDone();
   const setStatus = useStore((s) => s.setStatus);
   const [assigning, setAssigning] = useState(false);
+  const [reminding, setReminding] = useState(false);
   const close = () => openTask(null);
   const view = views.find((v) => v.task.id === id);
 
@@ -206,6 +269,13 @@ export function TaskSheet() {
             </span>
             <CaretRight size={20} weight="bold" aria-hidden="true" />
           </button>
+          <button type="button" className="link-row" onClick={() => setReminding(true)}>
+            <span>
+              {t("remind.row")}
+              <span className="row-sub block">{t("remind.rowSub")}</span>
+            </span>
+            <CaretRight size={20} weight="bold" aria-hidden="true" />
+          </button>
           <Disclosure title={t("task.why")}>
             <p>{local.why}</p>
             {ranked && (
@@ -252,6 +322,9 @@ export function TaskSheet() {
         <p className="fine">{t("task.notGuarantee")}</p>
       </Sheet>
       {assigning && <AssignSheet taskId={task.id} onClose={() => setAssigning(false)} />}
+      {reminding && (
+        <RemindSheet taskId={task.id} title={local.name} onClose={() => setReminding(false)} />
+      )}
     </>
   );
 }

@@ -1,4 +1,5 @@
 // Shared UI pieces: ranked views for the active child, progress ring, severity, check button and task row.
+import { lightTap } from "../native/haptics";
 import { useMemo } from "react";
 import { Check, Info, Warning, WarningDiamond, WarningOctagon } from "@phosphor-icons/react";
 import { loadKb } from "../kb";
@@ -27,6 +28,7 @@ export function useSetDone() {
   const showToast = useUi((s) => s.showToast);
   return (taskId: string, done: boolean) => {
     setStatus(taskId, done ? "done" : "todo");
+    if (done) void lightTap();
     if (done) showToast({ message: t("toast.done"), undo: () => setStatus(taskId, "todo") });
     else showToast(null);
   };
