@@ -16,6 +16,7 @@ import { costText, localHazard, monthsText, taskTotals } from "./format";
 import { HazardIcon, RoomIcon } from "./icons";
 import { Ring, Severity, TaskRow, useChildViews } from "./parts";
 import { ageMonthsSafe } from "./age";
+import { useEasy } from "./easy";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 
@@ -29,6 +30,8 @@ export function Today() {
   const setStatus = useStore((s) => s.setStatus);
   const openTask = useUi((s) => s.openTask);
   const homes = useStore((s) => s.homes);
+  const easy = useEasy();
+  const [skip, setSkip] = useState(0);
 
   // Rows that were just ticked stay on screen for a moment so the checkmark can be seen.
   const [lingering, setLingering] = useState<string[]>([]);
@@ -54,8 +57,8 @@ export function Today() {
 
   if (!child) return <Navigate to="/" replace />;
 
-  const hero = open[0];
-  const rest = open.slice(1);
+  const hero = open.length ? open[easy ? skip % open.length : 0] : undefined;
+  const rest = easy ? [] : open.slice(1);
   const lingerViews = views.filter(
     (v) => lingering.includes(v.task.id) && v.task.status === "done",
   );
@@ -118,6 +121,25 @@ export function Today() {
           >
             {t(hero.task.status === "doing" ? "today.continue" : "today.start")}
           </button>
+          {easy && (
+            <div className="easy-actions">
+              <button
+                type="button"
+                className="btn btn-block"
+                onClick={() => {
+                  setStatus(hero.task.id, "done");
+                  setSkip(0);
+                }}
+              >
+                {t("easy.done")}
+              </button>
+              {open.length > 1 && (
+                <button type="button" className="btn btn-block" onClick={() => setSkip(skip + 1)}>
+                  {t("easy.next")}
+                </button>
+              )}
+            </div>
+          )}
         </section>
       ) : (
         <section className="done-state" aria-labelledby="done-title">
@@ -138,7 +160,7 @@ export function Today() {
         </section>
       )}
 
-      {open.length > 0 && (
+      {!easy && open.length > 0 && (
         <Link to="/weekend" className="wk-card">
           <span className="wk-card-icon">
             <CalendarCheck size={32} weight="duotone" aria-hidden="true" />
@@ -166,7 +188,7 @@ export function Today() {
         </section>
       )}
 
-      {soonViews.length > 0 && soonTaskMonths !== null && (
+      {!easy && soonViews.length > 0 && soonTaskMonths !== null && (
         <details className="disc">
           <summary className="disc-sum">
             <span>{t("today.comingUp", { age: monthsText(t, age + soonTaskMonths) })}</span>

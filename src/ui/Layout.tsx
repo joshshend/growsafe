@@ -13,6 +13,7 @@ import { useStore } from "../store/store";
 import { ageText } from "./format";
 import { ChildSwitcher } from "./ChildSwitcher";
 import { TaskSheet } from "./TaskSheet";
+import { useApplyEasy, useEasy } from "./easy";
 import { applyTheme, readTheme } from "./theme";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
@@ -60,6 +61,8 @@ export function Layout() {
   const setSwitcher = useUi((s) => s.setSwitcher);
   const switcherOpen = useUi((s) => s.switcherOpen);
   const openTaskId = useUi((s) => s.openTaskId);
+  const easy = useEasy();
+  useApplyEasy();
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -117,18 +120,22 @@ export function Layout() {
             <House size={26} weight="duotone" aria-hidden="true" />
             {t("nav.today")}
           </NavLink>
-          <NavLink to="/rooms" className="tab">
-            <SquaresFour size={26} weight="duotone" aria-hidden="true" />
-            {t("nav.rooms")}
-          </NavLink>
+          {!easy && (
+            <NavLink to="/rooms" className="tab">
+              <SquaresFour size={26} weight="duotone" aria-hidden="true" />
+              {t("nav.rooms")}
+            </NavLink>
+          )}
           <NavLink to="/help" className="tab">
             <Lifebuoy size={26} weight="duotone" aria-hidden="true" />
             {t("nav.help")}
           </NavLink>
-          <NavLink to="/people" className="tab">
-            <UsersThree size={26} weight="duotone" aria-hidden="true" />
-            {t("nav.people")}
-          </NavLink>
+          {!easy && (
+            <NavLink to="/people" className="tab">
+              <UsersThree size={26} weight="duotone" aria-hidden="true" />
+              {t("nav.people")}
+            </NavLink>
+          )}
         </nav>
       )}
       {hasFamily && switcherOpen && <ChildSwitcher />}

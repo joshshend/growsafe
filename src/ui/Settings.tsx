@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useStore } from "../store/store";
 import type { Lang } from "../i18n/t";
 import { Sheet } from "./Sheet";
+import { useEasyStore } from "./easy";
 import { readTheme, saveTheme, type Theme } from "./theme";
 import { useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
@@ -15,6 +16,8 @@ export function Settings() {
   const largeText = useStore((s) => s.settings.largeText);
   const setSettings = useStore((s) => s.setSettings);
   const reset = useStore((s) => s.reset);
+  const easy = useEasyStore((s) => s.easy);
+  const setEasy = useEasyStore((s) => s.setEasy);
   const [theme, setTheme] = useState<Theme>(readTheme);
   const [confirming, setConfirming] = useState(false);
   const langs: Lang[] = ["en", "es"];
@@ -51,6 +54,20 @@ export function Settings() {
             aria-checked={largeText}
             aria-labelledby="set-large"
             onClick={() => setSettings({ largeText: !largeText })}
+          />
+        </div>
+        <div className="setting">
+          <span id="set-easy">
+            {t("easy.setting")}
+            <span className="row-sub block">{t("easy.settingHint")}</span>
+          </span>
+          <button
+            type="button"
+            role="switch"
+            className="switch"
+            aria-checked={easy}
+            aria-labelledby="set-easy"
+            onClick={() => setEasy(!easy)}
           />
         </div>
         <div className="setting-stack" role="group" aria-labelledby="set-theme">

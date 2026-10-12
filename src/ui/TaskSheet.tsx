@@ -3,13 +3,23 @@ import { useState, type FormEvent } from "react";
 import { CaretDown, CaretRight, Clock, Coins } from "@phosphor-icons/react";
 import { useStore } from "../store/store";
 import { costText, localHazard, reasonText, taskTotals } from "./format";
+import { useEasy } from "./easy";
 import { RoomIcon } from "./icons";
+import { ReadAloudButton } from "./ReadAloudButton";
 import { Severity, useChildViews, useSetDone } from "./parts";
 import { Sheet } from "./Sheet";
 import { useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 
 function Disclosure({ title, children }: { title: string; children: React.ReactNode }) {
+  const easy = useEasy();
+  if (easy)
+    return (
+      <section className="disc-body">
+        <h3 className="t-strong">{title}</h3>
+        {children}
+      </section>
+    );
   return (
     <details className="disc">
       <summary className="disc-sum">
@@ -174,6 +184,8 @@ export function TaskSheet() {
             <Severity score={severity} />
           </div>
         </div>
+
+        <ReadAloudButton task={task} />
 
         <ol className="steps" aria-label={t("task.steps")}>
           {steps.map((s, i) => (

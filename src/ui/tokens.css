@@ -84,3 +84,39 @@
   --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
   color-scheme: dark;
 }
+
+/* Easy mode (T24): bigger type, 56px targets, high contrast. Set via data-easy on <html>. */
+:root {
+  --min-target: 44px;
+}
+:root[data-easy="on"] {
+  --min-target: 56px;
+  --fs-1: 40px;
+  --fs-2: 34px;
+  --fs-3: 28px;
+  --fs-4: 24px;
+  --fs-5: 22px;
+  --fs-body: 22px;
+  --ink: #000000;
+  --muted: #26303f;
+  --line: #5b6575;
+  --control-line: #14213d;
+  --action: #9a3412;
+  --action-pressed: #7c2d12;
+  --on-action: #ffffff;
+}
+:root[data-easy="on"] .btn,
+:root[data-easy="on"] .link-row,
+:root[data-easy="on"] .seg-btn,
+:root[data-easy="on"] .input,
+:root[data-easy="on"] .tab,
+:root[data-easy="on"] .icon-btn {
+  min-height: var(--min-target);
+}
+:root[data-easy="on"] .btn {
+  font-size: var(--fs-4);
+}
+:root[data-easy="on"] .easy-actions {
+  display: grid;
+  gap: 12px;
+}
