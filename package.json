@@ -12,7 +12,7 @@
     "test": "vitest run --passWithNoTests",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
-    "kb:validate": "tsx scripts/validate-kb.ts",
+    "kb:validate": "tsx scripts/validate-kb.ts && tsx scripts/validate-help.ts",
     "plan:demo": "tsx scripts/print-plan.ts",
     "test:e2e": "playwright test"
   },

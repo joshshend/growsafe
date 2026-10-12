@@ -1,8 +1,45 @@
-import { Phone } from "@phosphor-icons/react";
-import { useT } from "./useT";
+import { useMemo, useState } from "react";
+import { ArrowSquareOut, Phone } from "@phosphor-icons/react";
+import { helpResources } from "../help";
+import { listResources, parseZip, type ScopeFilter } from "../help/filter";
+import type { HelpEntry } from "../help/schema";
+import { useLang, useT } from "./useT";
+import "./help.css";
+
+const ZIP_KEY = "growsafe.helpZip";
+const SCOPES: ScopeFilter[] = ["all", "texas", "national"];
+
+// Zip is a per-device convenience: every storage call is guarded.
+function readZip(): string {
+  try {
+    return localStorage.getItem(ZIP_KEY) ?? "";
+  } catch {
+    return "";
+  }
+}
+function writeZip(v: string) {
+  try {
+    if (v) localStorage.setItem(ZIP_KEY, v);
+    else localStorage.removeItem(ZIP_KEY);
+  } catch {
+    /* storage unavailable: the field still works for this visit */
+  }
+}
 
 export function Help() {
   const t = useT();
+  const lang = useLang();
+  const [scope, setScope] = useState<ScopeFilter>("all");
+  const [zipText, setZipText] = useState(readZip);
+  const zip = parseZip(zipText);
+  const groups = useMemo(() => listResources(helpResources, { scope, zip }), [scope, zip]);
+
+  const onZip = (v: string) => {
+    const clean = v.replace(/\D/g, "").slice(0, 5);
+    setZipText(clean);
+    writeZip(parseZip(clean) ? clean : "");
+  };
+
   return (
     <div className="flow">
       <h1 className="t-title">{t("help.title")}</h1>
@@ -14,19 +51,125 @@ export function Help() {
         <p>{t("help.poisonText")}</p>
         <p className="muted">{t("help.call911")}</p>
       </div>
-      <section className="flow-s" aria-labelledby="help-gear">
-        <h2 id="help-gear" className="t-section">
-          {t("help.gearTitle")}
+
+      <section className="flow" aria-labelledby="help-list">
+        <h2 id="help-list" className="t-section">
+          {t("help.listTitle")}
         </h2>
-        <p className="muted">{t("help.soon")}</p>
+        <div className="help-filters">
+          <div role="group" aria-label={t("help.filterLabel")} className="toggle-chips">
+            {SCOPES.map((s) => (
+              <button
+                key={s}
+                type="button"
+                className="toggle-chip"
+                aria-pressed={scope === s}
+                onClick={() => setScope(s)}
+              >
+                {t(`help.scope.${s}`)}
+              </button>
+            ))}
+          </div>
+          <div className="field help-zip">
+            <label className="field-label" htmlFor="help-zip">
+              {t("help.zipLabel")}
+            </label>
+            <input
+              id="help-zip"
+              className="input"
+              inputMode="numeric"
+              autoComplete="postal-code"
+              maxLength={5}
+              value={zipText}
+              aria-describedby="help-zip-hint"
+              onChange={(e) => onZip(e.target.value)}
+            />
+            <span id="help-zip-hint" className="field-hint">
+              {zipText && !zip ? t("help.zipInvalid") : t("help.zipHint")}
+            </span>
+          </div>
+        </div>
+
+        {groups.length === 0 && <p className="muted">{t("help.empty")}</p>}
+        {groups.map((g) => (
+          <section
+            key={g.category}
+            className="help-group"
+            aria-labelledby={`help-cat-${g.category}`}
+          >
+            <h3 id={`help-cat-${g.category}`} className="t-strong">
+              {t(`help.cat.${g.category}`)}
+            </h3>
+            <ul className="help-list">
+              {g.entries.map((e) => (
+                <ResourceCard key={e.id} entry={e} lang={lang} />
+              ))}
+            </ul>
+          </section>
+        ))}
       </section>
-      <section className="flow-s" aria-labelledby="help-care">
-        <h2 id="help-care" className="t-section">
-          {t("help.careTitle")}
-        </h2>
-        <p className="muted">{t("help.soon")}</p>
-      </section>
+
+      <p className="fine">{t("help.footer")}</p>
       <p className="fine">{t("task.notGuarantee")}</p>
     </div>
+  );
+}
+
+function ResourceCard({ entry: e, lang }: { entry: HelpEntry; lang: "en" | "es" }) {
+  const t = useT();
+  const text = lang === "es" && e.es ? e.es : e;
+  const scopeKey = e.scope === "national" || e.scope === "texas" ? e.scope : "local";
+  const checked = e.verified && e.last_verified;
+  const date = checked
+    ? new Intl.DateTimeFormat(lang, { dateStyle: "medium", timeZone: "UTC" }).format(
+        new Date(`${e.last_verified}T00:00:00Z`),
+      )
+    : "";
+  return (
+    <li className={`help-card${checked ? "" : " is-unchecked"}`}>
+      <h4 className="help-card-title">{text.title}</h4>
+      <div className="help-chips">
+        <span className="fact">{t(`help.cost.${e.cost}`)}</span>
+        <span className="fact">{t(`help.scopeChip.${scopeKey}`)}</span>
+      </div>
+      <p>{text.what}</p>
+      <p className="muted">{text.who}</p>
+      <div className="help-actions">
+        <a
+          className={`btn${e.apply_url ? "" : " btn-primary"}`}
+          href={e.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t("help.openLabel", { title: text.title })}
+        >
+          <ArrowSquareOut size={20} aria-hidden="true" />
+          {t("help.open")}
+        </a>
+        {e.apply_url && (
+          <a
+            className="btn btn-primary"
+            href={e.apply_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("help.applyLabel", { title: text.title })}
+          >
+            {t("help.apply")}
+          </a>
+        )}
+        {e.phone && (
+          <a
+            className="btn"
+            href={e.phone.length <= 3 ? `tel:${e.phone}` : `tel:+${e.phone}`}
+            aria-label={t("help.callLabel", { title: text.title })}
+          >
+            <Phone size={20} aria-hidden="true" />
+            {t("help.call")}
+          </a>
+        )}
+      </div>
+      <p className="help-checked">
+        {checked ? t("help.checkedOn", { date }) : t("help.notChecked")}
+      </p>
+    </li>
   );
 }

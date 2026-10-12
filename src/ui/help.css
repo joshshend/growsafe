@@ -1,0 +1,55 @@
+/* Help & Support tab. Uses only tokens from tokens.css. */
+.help-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.help-zip {
+  max-width: 220px;
+}
+.help-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.help-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.help-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-tile);
+  background: var(--surface);
+}
+.help-card.is-unchecked {
+  border-style: dashed;
+}
+.help-card-title {
+  font-size: var(--fs-4);
+  font-weight: 800;
+}
+.help-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.help-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.help-actions .btn {
+  min-height: 48px;
+}
+.help-checked {
+  font-size: var(--fs-5);
+  color: var(--muted);
+}
