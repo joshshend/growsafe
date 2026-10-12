@@ -85,8 +85,8 @@ describe("codec", () => {
   const shared = redact(plan, NOW);
   it("round-trips data string and full link", () => {
     expect(decodePlan(encodePlan(shared))).toEqual(shared);
-    const url = shareUrl("https://kidproof.example/", shared);
-    expect(url.startsWith("https://kidproof.example/#/import?d=")).toBe(true);
+    const url = shareUrl("https://growsafe.example/", shared);
+    expect(url.startsWith("https://growsafe.example/#/import?d=")).toBe(true);
     expect(decodePlan(url)).toEqual(shared);
   });
   it("rejects garbage, tampering, empty input", () => {
@@ -122,7 +122,7 @@ describe("codec", () => {
 describe("file", () => {
   it("exports redacted and imports back", () => {
     const f = exportPlanFile(plan, NOW);
-    expect(f.name.endsWith(".kidproof.json")).toBe(true);
+    expect(f.name.endsWith(".growsafe.json")).toBe(true);
     expect(f.text).not.toMatch(/Quillfeather|Marigold|penicillin|2025-03-07/);
     expect(importPlanFile(f.text)).toEqual(redact(plan, NOW));
   });

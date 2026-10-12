@@ -1,4 +1,4 @@
-# Kid-Proof architecture (contracts every task builds against)
+# GrowSafe architecture (contracts every task builds against)
 
 ## Principles
 1. Knowledge base (KB) is the only source of advice. Vision/AI only reports cues; it never writes tips.

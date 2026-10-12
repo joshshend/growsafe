@@ -1,6 +1,6 @@
-# Kid-Proof
+# GrowSafe
 
-A free child-safety planner. Kid-Proof turns a child's age and each home's rooms into a ranked, step-by-step plan of hazards to fix, with the reason each one ranks first.
+A free child-safety planner. GrowSafe turns a child's age and each home's rooms into a ranked, step-by-step plan of hazards to fix, with the reason each one ranks first.
 
 ## Overview
 
@@ -45,4 +45,4 @@ Other modules:
 
 ## Not a guarantee
 
-Kid-Proof helps you find and fix common hazards. It is not a guarantee of safety, and it does not replace supervision, professional advice, or emergency care. In an emergency or suspected poisoning, call Poison Help at 1-800-222-1222 or 911.
+GrowSafe helps you find and fix common hazards. It is not a guarantee of safety, and it does not replace supervision, professional advice, or emergency care. In an emergency or suspected poisoning, call Poison Help at 1-800-222-1222 or 911.

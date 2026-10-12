@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 
 test("onboarding -> Today -> mark done -> reload persists", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1, name: "Kid-Proof" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "GrowSafe" })).toBeVisible();
   await page.getByRole("link", { name: "Get started" }).click();
   await page.getByLabel("First name or nickname").fill("Mia");
   const d = new Date();

@@ -1,6 +1,6 @@
 // Appearance choice (auto, light, dark). Kept in localStorage; every access is wrapped because storage can be blocked.
 export type Theme = "auto" | "light" | "dark";
-const KEY = "kidproof:theme";
+const KEY = "growsafe:theme";
 
 export function readTheme(): Theme {
   try {

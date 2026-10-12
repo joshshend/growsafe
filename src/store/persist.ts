@@ -1,7 +1,7 @@
 // Saves the plan to IndexedDB (idb-keyval). Every call is best-effort: a failure never breaks the app.
 import { get, set, del } from "idb-keyval";
 
-const KEY = "kidproof:state";
+const KEY = "growsafe:state";
 
 export async function loadSaved(): Promise<unknown> {
   try {

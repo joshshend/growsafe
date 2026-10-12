@@ -35,14 +35,14 @@ export function decodePlan(s: string): SharedPlan {
   try {
     json = strFromU8(inflateSync(fromBase64Url(data)));
   } catch {
-    throw new Error("Share data is corrupted or not a Kid-Proof link.");
+    throw new Error("Share data is corrupted or not a GrowSafe link.");
   }
   if (json.length > MAX_INFLATED_BYTES) throw new Error("Share data is too large.");
   let raw: unknown;
   try {
     raw = JSON.parse(json);
   } catch {
-    throw new Error("Share data is corrupted or not a Kid-Proof link.");
+    throw new Error("Share data is corrupted or not a GrowSafe link.");
   }
   const v = (raw as { v?: unknown } | null)?.v;
   if (v !== 1) throw new Error(`Unsupported share version: ${String(v)}.`);

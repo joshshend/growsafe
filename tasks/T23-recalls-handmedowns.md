@@ -1,0 +1,8 @@
+# T23 Hand-me-down and recall check (should-have; NOT a differentiator)
+Another app already offers recall checks (Baby Recall & Safety, 2026), so frame this as a useful part of the plan, never as new. Focus on what it uniquely fits here: borrowed and second-hand items in each home (crib at grandma's, used car seat).
+- "Things your child uses" per home: crib, bassinet, car seat, high chair, stroller, play yard, bouncer, gate. Fields: type, brand, model (optional), year (optional), second-hand toggle.
+- Recall lookup via the CPSC Recalls API (https://www.cpsc.gov/Recalls/CPSC-Recalls-Application-Program-Interface-API-Information ; REST, JSON via format=json; params include Title, ProductName, RecallDescription; read the Programmer's Guide for the full list). Call it from a tiny serverless proxy or directly from the client if CORS allows (test first); send only the product type + brand text, no identifiers. Cache results in IndexedDB; handle offline ("couldn't check, try again").
+- Results: show matching recalls (title, date, link to cpsc.gov) with plain wording "possible match: check the model number in the notice". Never state an item is fine. Link to the official recall page and SaferProducts.gov report page.
+- Car seat expiry: field for the date printed on the seat; the app shows "check the label" with the manufacturer rule (do not hard-code years; cite NHTSA/AAP page you can open, else mark verify).
+- Creates tasks via the normal task path (e.g. "Check the crib at Grandma's against recalls").
+Tests: lookup mocked; result parsing from a saved real API fixture; offline path. Reply <150 words.

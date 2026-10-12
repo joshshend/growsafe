@@ -1,0 +1,11 @@
+# T20 "Plan my weekend": time- and budget-constrained plan (headline feature)
+User picks "I have 90 minutes and $40" and GrowSafe chooses the set of tasks that removes the most risk within those limits, orders them for the walk-through, and gives a supplies list and total cost. Nothing else in this space does this (unverified; do not claim "first" in the UI).
+Read ARCHITECTURE.md, src/plan/*, src/kb/schema.ts, src/ui/*.
+Pure logic in src/plan/weekend.ts:
+- planWeekend({tasks, kb, minutes, budgetUsd|null, homeId?}) -> {chosen: Task[], skipped: Task[], totalMinutes, totalCostMin, totalCostMax, supplies: {name, count}[], leftoverMinutes}
+- Task value = its hazard's rank score (reuse rankHazards output; do not invent a new score). Task minutes = sum of fix_steps minutes; cost = midpoint of cost_usd_min/max summed (round to $1; report min/max too). Exact 0/1 knapsack with two constraints (DP over 5-minute and $5 units; n <= 80 so it is cheap). Ties: lower cost, then id. Only open tasks (todo/doing). Budget null = unlimited.
+- Ordering of chosen tasks for execution: group by room, rooms ordered by total value, within a room by value.
+- supplies: union of fix_steps tools[] across chosen tasks, de-duplicated and counted.
+Tests: matches brute force on 200 random small instances; never exceeds limits; budget 0 picks only $0 tasks; huge limits pick everything; deterministic; skipped lists the highest-value tasks that did not fit with reason ('time'|'cost').
+UI: route /weekend, entry card on Today ("Got an hour or two? Plan a safety session"). Step 1: choose time chips (30 min, 1 hr, 2 hr, half day) and budget chips ($0, $25, $50, $100, no limit) and home; result screen: the list in order with checkboxes (same state as normal tasks), totals, supplies list with a "Copy list" button (plain text), "Add to calendar" button that downloads an .ics (src/ics/ics.ts; one event, tasks in description, no network). Show one muted line: "Ranked by how serious each hazard is for [name]'s age. A priority order, not a prediction." Copy follows T5b rules (sentence case, plain words, never claim a home is safe).
+Done when typecheck, lint, tests pass; reply <150 words incl. how Josh tries it.

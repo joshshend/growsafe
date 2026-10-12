@@ -30,7 +30,7 @@ Settings: as above.
 1. "Who are we keeping safe?" nickname + birth month/year pickers (native selects). 2. "Where do they spend time?" toggle chips: My home (on by default), Grandparents', Sitter or daycare; can add more later. 3. Rooms for each home pre-selected by sensible defaults (living room, kitchen, bedroom or nursery, bathroom, stairs); one tap on "Looks right" to finish, "Edit rooms" optional. Then land on Today with a plan already built. First screen: a plain welcome with the app name, one sentence ("A ranked to-do list for your child's age and your home."), "Get started" and a quieter "See an example" (demo family). No mention of AI on this screen.
 
 ## Copy rules (rewrite src/i18n/en.json accordingly)
-Plain words a tired parent understands; active voice; buttons say what happens ("Mark done", "Add child"); errors say what went wrong and how to fix it, no apologies; no "Kid-Proof cannot..." boilerplate; never use the word "safe" as a claim; keep Spanish keys mirrored with the [ES] placeholder.
+Plain words a tired parent understands; active voice; buttons say what happens ("Mark done", "Add child"); errors say what went wrong and how to fix it, no apologies; no "GrowSafe cannot..." boilerplate; never use the word "safe" as a claim; keep Spanish keys mirrored with the [ES] placeholder.
 
 ## Quality floor
 375px first; 44px+ targets; visible keyboard focus ring (3px, action colour, 2px offset); screen-reader labels on icon-only buttons; sheets trap focus and close on Escape; contrast AA in both themes; all work with Larger text on.

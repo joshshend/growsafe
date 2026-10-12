@@ -1,4 +1,4 @@
-# Kid-Proof: execution plan (Oct 11 to Oct 26; submit Sat Oct 24)
+# GrowSafe: execution plan (Oct 11 to Oct 26; submit Sat Oct 24)
 
 ## Rules for every coding agent
 - Read DECISIONS.md and the task brief first. Do only that task. Small commits, short comments.
@@ -43,3 +43,9 @@ T18 Help & Support tab (Oct 15-20). Curated, verified entries with link + "last 
 T19 Caregiver hub (Oct 15-18). Multi-child, multi-home dashboard ("who's doing what across homes"), nudge list for overdue tasks, grandparent/sitter briefing. This is CareLoop's multi-patient idea applied to kids.
 Dropped: vaccine keeper, last-dose log, well-child reminders.
 Narrative work (Josh + me, Oct 12-20): state the personal why; interview 5-8 caregivers (what scared them, what they'd use); put quotes and numbers in the write-up and video. Both recent winners did this.
+
+## Update 2026-10-12: novelty plan (see DECISIONS)
+Honest read: ranked, age-staged hazard checklists with sharing already exist (Make Safe Happen, IKEA's old app), and recall checks plus checklists exist too (Baby Recall & Safety, 2026). Novelty has to come from behaviours, not topic. Headline features, each demoable in under 20 seconds:
+T20 Plan my weekend (time + budget optimizer). T21 Growth preview slider ("move the child forward, the plan changes"). T22 Visit pack + return link (accounts-free two-way sync with grandparents/sitters; replaces T19). Plus the published accuracy page (T14) as the trust differentiator. T23 recall/hand-me-down check is a supporting feature only.
+Cut to pay for it: T19 caregiver hub (folded into T22), all stretch items, on-device model, push notifications.
+Unverified until searched: that no competitor has T20, T21 or T22. Day-one competitor test (T15) must check.

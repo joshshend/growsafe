@@ -1,9 +1,9 @@
 {
-  "name": "kid-proof",
+  "name": "growsafe",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Kid-Proof: a free child-safety planner (installable web app).",
+  "description": "GrowSafe: a free child-safety planner (installable web app).",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

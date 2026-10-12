@@ -14,7 +14,7 @@ describe("App first screen", () => {
 
   it("welcomes a new user with the app name, two ways in, no AI mention and a Poison Help tel link", () => {
     render(<App />);
-    expect(screen.getByRole("heading", { level: 1, name: "Kid-Proof" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "GrowSafe" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Get started" })).toHaveAttribute("href", "#/start");
     expect(screen.getByRole("button", { name: "See an example" })).toBeInTheDocument();
     expect(screen.queryByText(/\bAI\b/)).not.toBeInTheDocument();
