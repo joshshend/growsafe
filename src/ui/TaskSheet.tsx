@@ -299,23 +299,29 @@ export function TaskSheet() {
             {ranked && (
               <ul className="bullets">
                 {ranked.reasons.map((r) => (
-                  <li key={r.kind}>{reasonText(t, r)}</li>
+                  <li key={r.kind}>
+                    {reasonText(
+                      t,
+                      r,
+                      r.kind === "severity" ? local.rationale(String(r.params.stage)) : undefined,
+                    )}
+                  </li>
                 ))}
               </ul>
             )}
           </Disclosure>
           <Disclosure title={t("task.check")}>
-            <p>{hazard.verify_rule}</p>
-            {hazard.reminder && (
+            <p>{local.verify}</p>
+            {local.reminder && (
               <p className="muted">
-                {t("task.reminder", { days: hazard.reminder.every_days })} {hazard.reminder.text}
+                {t("task.reminder", { days: hazard.reminder?.every_days ?? 0 })} {local.reminder}
               </p>
             )}
-            {hazard.blind_spots.length > 0 && (
+            {local.blindSpots.length > 0 && (
               <>
                 <p className="t-strong">{t("task.blind")}</p>
                 <ul className="bullets">
-                  {hazard.blind_spots.map((b) => (
+                  {local.blindSpots.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
                 </ul>

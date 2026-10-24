@@ -21,10 +21,14 @@ export function ageText(t: TFn, child: Child, now: Date): string {
 }
 
 // Turns a ranking Reason (i18n key + params from src/plan) into a plain, friendly sentence.
-export function reasonText(t: TFn, r: Reason): string {
+export function reasonText(t: TFn, r: Reason, rationale?: string): string {
   switch (r.kind) {
     case "severity":
-      return t(r.text, { ...r.params, stage: t(`stage.${String(r.params.stage)}`) });
+      return t(r.text, {
+        ...r.params,
+        ...(rationale ? { rationale } : {}),
+        stage: t(`stage.${String(r.params.stage)}`),
+      });
     case "unlock":
       return t(Number(r.params.months) === 1 ? `${r.text}.one` : r.text, r.params);
     case "cost": {
@@ -41,19 +45,38 @@ export interface LocalHazard {
   name: string;
   why: string;
   steps: string[];
+  verify: string;
+  reminder: string | null;
+  blindSpots: string[];
+  rationale: (stage: string) => string | undefined; // severity rationale for a stage
 }
 
-// Spanish text from the KB when a reviewed translation exists, otherwise English.
+// Spanish text from the KB when it exists (machine-translated until reviewed), otherwise English.
 export function localHazard(h: HazardEntry, lang: Lang): LocalHazard {
   const steps = [...h.fix_steps].sort((a, b) => a.order - b.order);
-  if (lang === "es" && h.es && h.es.name) {
+  const es = lang === "es" ? h.es : undefined;
+  if (es && es.name) {
     return {
-      name: h.es.name,
-      why: h.es.why_it_matters,
-      steps: steps.map((s, i) => h.es?.fix_steps_text[i] ?? s.text),
+      name: es.name,
+      why: es.why_it_matters || h.why_it_matters,
+      steps: steps.map((s, i) => es.fix_steps_text[i] || s.text),
+      verify: es.verify_rule || h.verify_rule,
+      reminder: h.reminder ? es.reminder_text || h.reminder.text : null,
+      blindSpots: h.blind_spots.map((b, i) => es.blind_spots[i] || b),
+      rationale: (stage) =>
+        es.severity_rationale[stage as keyof typeof es.severity_rationale] ??
+        h.severity[stage as keyof typeof h.severity]?.rationale,
     };
   }
-  return { name: h.name, why: h.why_it_matters, steps: steps.map((s) => s.text) };
+  return {
+    name: h.name,
+    why: h.why_it_matters,
+    steps: steps.map((s) => s.text),
+    verify: h.verify_rule,
+    reminder: h.reminder ? h.reminder.text : null,
+    blindSpots: h.blind_spots,
+    rationale: (stage) => h.severity[stage as keyof typeof h.severity]?.rationale,
+  };
 }
 
 export function taskTotals(h: HazardEntry): { min: number; max: number; minutes: number } {

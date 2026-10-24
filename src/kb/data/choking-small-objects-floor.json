@@ -93,5 +93,30 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "blocks"
+  "icon": "blocks",
+  "es": {
+    "name": "Asfixia: objetos pequeños en el piso",
+    "why_it_matters": "Los niños pequeños se llevan casi todo a la boca, y las monedas, los botones y otros objetos pequeños pueden bloquearles las vías respiratorias. Revisar el piso con regularidad, a la altura de los ojos del niño, reduce el riesgo.",
+    "fix_steps_text": [
+      "Agáchese a la altura de los ojos del niño y revise el piso y las superficies bajas en busca de monedas, botones, pastillas y otros objetos pequeños; recójalos.",
+      "Guarde los objetos pequeños, incluidas las pilas de botón y de moneda, en un recipiente cerrado o un cajón fuera de su alcance.",
+      "Use un bote de basura con tapa y seguro para niños para los objetos que podrían lastimarlos.",
+      "Pida a familiares y visitas que guarden monedas, joyas y objetos sueltos en bolsos o bolsillos, en un lugar alto."
+    ],
+    "blind_spots": [
+      "Objetos debajo de los muebles o entre los cojines del sillón",
+      "Cosas que traen las visitas o los hermanos mayores",
+      "Si un objeto es lo bastante pequeño como para provocar asfixia"
+    ],
+    "verify_rule": "El piso y las superficies bajas, a la altura de los ojos del niño, están libres de objetos pequeños, y los artículos pequeños se guardan fuera de su alcance.",
+    "reminder_text": "Haga un repaso rápido del piso, a la altura de los ojos del niño, en busca de objetos pequeños.",
+    "severity_rationale": {
+      "6-12m": "El CDC encontró que las visitas a urgencias por episodios de asfixia fueron más altas en bebés menores de 1 año (140.4 por cada 100,000 en 2001) y bajaron con la edad.",
+      "12-24m": "De 1 a 4 años es la etapa de llevarse todo a la boca; las monedas estuvieron presentes en el 18.2% de los episodios entre 1 y 4 años (CDC, 2001).",
+      "24-36m": "Sigue dentro del grupo de 1 a 4 años, donde la comida y los objetos causan la mayoría de los episodios; los datos del CDC no se desglosan más.",
+      "36-60m": "Según los datos del CDC, el riesgo baja con la edad, pero los objetos pequeños, como las monedas y las pilas, siguen importando; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

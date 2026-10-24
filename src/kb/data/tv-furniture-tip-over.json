@@ -109,5 +109,31 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "tv"
+  "icon": "tv",
+  "es": {
+    "name": "Vuelco de televisores y muebles",
+    "why_it_matters": "Los niños pequeños trepan y jalan las cómodas, los libreros y los televisores, y estos pueden caerles encima. Fijar los muebles y los televisores a la pared reduce el riesgo.",
+    "fix_steps_text": [
+      "Mueva los objetos más pesados a los estantes y cajones de abajo, y mantenga los juguetes y los controles remotos lejos de la parte de arriba de los muebles para que los niños no tengan motivo para trepar.",
+      "Si todavía no puede fijar un televisor, póngalo sobre una base firme y baja, empújelo hasta el fondo y mantenga sus cables fuera del alcance.",
+      "Fije a la pared con una correa o un soporte antivuelco cada cómoda, librero y otro mueble para guardar ropa, aunque sea viejo o lo haya comprado hace poco.",
+      "Monte los televisores de pantalla plana en la pared, o sujételos a su base con el método de anclaje que describe el fabricante.",
+      "Si usó un juego antivuelco retirado del mercado, comuníquese con la empresa del retiro para pedir un reemplazo gratis y cámbielo."
+    ],
+    "blind_spots": [
+      "En una foto no se ve si un anclaje está atornillado a un poste de la pared",
+      "Anclajes ocultos detrás de los muebles o dentro de los cajones",
+      "Muebles y televisores en otros cuartos o en casas de familiares"
+    ],
+    "verify_rule": "Todas las cómodas, libreros y bases de televisor están sujetos a la pared con correa o soporte, y al jalar suavemente la parte de arriba no se inclinan hacia adelante.",
+    "reminder_text": "Revise que los anclajes de la pared sigan firmes y que cualquier mueble o televisor nuevo esté fijado.",
+    "severity_rationale": {
+      "6-12m": "Las cifras de la CPSC no separan a los menores de 1 año; se calificó bajo hasta que empiezan a ponerse de pie y a trepar.",
+      "12-24m": "CPSC: el 55% de las muertes por vuelco de 2013 a julio de 2023 (todas las edades) involucró a niños de 1 a 3 años.",
+      "24-36m": "Sigue dentro del grupo de 1 a 3 años que la CPSC vincula con más de la mitad de las muertes por vuelco.",
+      "36-60m": "La CPSC cuenta a los menores de 18 años como el 71% de las muertes, pero no da un desglose después de los 3 años; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

@@ -119,5 +119,31 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "battery"
+  "icon": "battery",
+  "es": {
+    "name": "Pilas de botón e imanes pequeños",
+    "why_it_matters": "Las pilas de botón y los imanes que se tragan pueden causar lesiones internas graves en pocas horas y requieren atención de emergencia. Mantenerlos fuera de su alcance reduce el riesgo.",
+    "fix_steps_text": [
+      "Revise los juguetes y productos del hogar para ver si el compartimiento de las pilas se abre con facilidad, y mantenga esos artículos lejos de los niños pequeños.",
+      "Repare, reemplace o deseche cualquier producto con el compartimiento de las pilas dañado, y mantenga las pilas sueltas fuera de la vista y del alcance de los niños.",
+      "Saque de la casa los juegos de imanes de alta potencia, guarde los imanes pequeños justo después de usarlos y revise el piso por si quedó alguno.",
+      "Guarde los imanes pequeños o sueltos en un recipiente con llave, en un lugar alto o fuera de la vista.",
+      "Guarde en su teléfono el número de Poison Help (1-800-222-1222) y el de la Línea Nacional de Ingestión de Pilas (800-498-8666). Si sospecha que el niño se tragó una pila o un imán, vaya de inmediato a la sala de emergencias más cercana."
+    ],
+    "blind_spots": [
+      "No se ven las pilas dentro de aparatos cerrados ni los imanes dentro de juguetes",
+      "Artículos en bolsos, carteras y cajones",
+      "Las pilas de moneda o los imanes pequeños en el piso son difíciles de ver en una foto"
+    ],
+    "verify_rule": "Ningún producto del cuarto tiene el compartimiento de las pilas abierto o flojo, y los juegos de imanes y las pilas de repuesto están guardados o bajo llave, fuera de su alcance.",
+    "reminder_text": "Revise que los juguetes y aparatos no tengan compartimientos de pilas flojos, y que no haya imanes sueltos en el piso.",
+    "severity_rationale": {
+      "6-12m": "CPSC: una pila tragada puede quemar el esófago en tan solo dos horas; no se encontró un desglose por edad, así que se calificó con cautela.",
+      "12-24m": "Misma gravedad; la norma de pilas de la CPSC protege a niños de 6 años o menos, pero no da un desglose de edad más fino.",
+      "24-36m": "Misma gravedad y la misma limitación de edad que a los 12-24 meses.",
+      "36-60m": "Sigue dentro del grupo de 6 años o menos; no se encontró desglose por edad en las páginas consultadas."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

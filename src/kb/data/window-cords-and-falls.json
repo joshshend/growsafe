@@ -139,5 +139,33 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "window"
+  "icon": "window",
+  "es": {
+    "name": "Cordones de ventanas y caídas por ventanas",
+    "why_it_matters": "Los cordones colgantes de las persianas pueden estrangular a los niños pequeños, y las ventanas abiertas al alcance pueden causar caídas graves. Alejar los muebles, acortar los cordones y limitar cuánto se abren las ventanas reduce el riesgo.",
+    "fix_steps_text": [
+      "Aleje de las ventanas las cunas, las camas, las sillas y otros muebles en los que se pueda trepar.",
+      "Mantenga los cordones bien fuera de su alcance y lo más cortos posible, y abra las ventanas por arriba en lugar de por abajo cuando pueda.",
+      "Fije los cordones de lazo continuo a la pared o al piso con un dispositivo tensor, y ajuste los topes de los cordones interiores.",
+      "Pida un juego de reparación gratis al Window Covering Safety Council (800-506-4636 o windowcoverings.org); algunos juegos no arreglan un cordón colgante.",
+      "Instale topes en las ventanas para que se abran no más de cuatro pulgadas. No confíe en los mosquiteros para mantener adentro a un niño.",
+      "Instale protecciones en las ventanas que los adultos puedan abrir en caso de incendio; si renta, pida al propietario que lo haga.",
+      "Cambie las cortinas o persianas con cordón por otras sin cordón en los cuartos donde los niños pequeños duermen o juegan."
+    ],
+    "blind_spots": [
+      "El largo de los cordones y los cordones interiores detrás de las persianas",
+      "Si los topes o las protecciones de las ventanas realmente aguantan",
+      "Ventanas en otros cuartos y en casas de familiares"
+    ],
+    "verify_rule": "Las cortinas y persianas no tienen cordones al alcance, las ventanas se abren no más de cuatro pulgadas o tienen protecciones, y no hay muebles donde se pueda trepar debajo de ellas.",
+    "reminder_text": "Revise los cordones, los topes y las protecciones de las ventanas, y que no se hayan movido muebles debajo de una ventana.",
+    "severity_rationale": {
+      "6-12m": "Los datos de la CPSC sobre cordones abarcan a bebés y niños menores de 5 años sin desglose; se calificó más bajo antes de que empiecen a trepar.",
+      "12-24m": "CPSC: aproximadamente nueve niños menores de 5 años mueren cada año por los cordones de cortinas y persianas; los datos de caídas abarcan hasta los 12 años.",
+      "24-36m": "Mismo peligro de cordones en menores de 5 años; los niños pequeños trepan hasta las ventanas, y las caídas cuestan vidas en los datos de 12 años o menos.",
+      "36-60m": "Sigue siendo menor de 5 años para los cordones; no hay desglose por edad más fino para las caídas."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

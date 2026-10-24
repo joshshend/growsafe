@@ -105,5 +105,30 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "plant"
+  "icon": "plant",
+  "es": {
+    "name": "Plantas tóxicas y químicos al alcance",
+    "why_it_matters": "Los niños pequeños prueban lo que encuentran, incluidos los productos de limpieza, las cápsulas de detergente y algunas plantas de interior. Guardar los químicos bajo llave y mantener las plantas peligrosas fuera de su alcance reduce el riesgo de envenenamiento.",
+    "fix_steps_text": [
+      "Escriba el número de Poison Help, 1-800-222-1222, en el refrigerador y guárdelo en el teléfono de todas las personas que cuidan al niño.",
+      "Mueva los productos de limpieza, las cápsulas de detergente y otros químicos de los gabinetes bajos a un gabinete con llave o a un estante alto, en sus envases originales.",
+      "Ponga seguros a prueba de niños en los gabinetes bajos; las tapas por sí solas no bastan.",
+      "Llame a Poison Help para pedir una lista de plantas venenosas comunes en su zona, y luego ponga esas plantas fuera de su alcance o regálelas."
+    ],
+    "blind_spots": [
+      "La especie de las plantas (una foto rara vez identifica una planta con certeza)",
+      "Productos guardados en envases sin etiqueta",
+      "Artículos en bolsos, bolsas y otros cuartos"
+    ],
+    "verify_rule": "Los productos de limpieza, los químicos y las plantas peligrosas de la lista están bajo llave o fuera de su alcance, y el número de Poison Help está a la vista.",
+    "reminder_text": "Revise que los productos de limpieza, los de lavandería y las plantas sigan fuera del alcance de los niños.",
+    "severity_rationale": {
+      "6-12m": "Los bebés que gatean alcanzan los gabinetes bajos y se llevan cosas a la boca; las cifras de la CPSC abarcan a todos los niños menores de 5 años, así que se calificó con cautela.",
+      "12-24m": "Los niños pequeños abren gabinetes y exploran; el informe de la CPSC cuenta cerca de 62,600 lesiones por envenenamiento atendidas en urgencias en menores de 5 años en 2021.",
+      "24-36m": "Sigue dentro del grupo de menores de 5 años que cuenta la CPSC; no se leyó un desglose por edad más fino.",
+      "36-60m": "Sigue en el grupo de menores de 5 años; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

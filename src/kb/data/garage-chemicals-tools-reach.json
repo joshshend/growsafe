@@ -76,5 +76,28 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "tools"
+  "icon": "tools",
+  "es": {
+    "name": "Garaje: químicos y herramientas al alcance",
+    "why_it_matters": "Los garajes guardan anticongelante, pesticidas, pintura y herramientas filosas o pesadas, a menudo a la altura de un niño. Guardarlos bajo llave y mantener cerrada la puerta del garaje reduce el riesgo.",
+    "fix_steps_text": [
+      "Mantenga cerrada la puerta entre la casa y el garaje, y no deje entrar a los niños pequeños a menos que un adulto los acompañe.",
+      "Mueva los químicos (anticongelante, pintura, pesticidas, combustible) a un gabinete con llave o a un estante alto, en sus envases originales, nunca en botellas de comida o bebida.",
+      "Guarde las herramientas filosas y eléctricas en una caja o gabinete con llave, con los cables y las baterías fuera de su alcance.",
+      "Ponga un seguro o pestillo en la puerta de entrada al garaje, por encima del alcance del niño."
+    ],
+    "blind_spots": [
+      "Lo que hay dentro de recipientes o gabinetes cerrados",
+      "Artículos guardados en los vehículos",
+      "Si un niño puede alcanzar la puerta del garaje"
+    ],
+    "verify_rule": "Los químicos y las herramientas del garaje están en un gabinete con llave o por encima del alcance del niño, y la puerta de entrada al garaje permanece cerrada o con seguro.",
+    "severity_rationale": {
+      "12-24m": "Los niños pequeños se meten en garajes abiertos y prueban o agarran lo que encuentran; no se encontró una cifra específica del garaje, así que se calificó con cautela.",
+      "24-36m": "Puede abrir puertas y alcanzar estantes; se calificó con cautela.",
+      "36-60m": "Tiene más conciencia del peligro, pero sigue siendo curioso; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

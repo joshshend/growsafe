@@ -94,5 +94,31 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "bath"
+  "icon": "bath",
+  "es": {
+    "name": "Baño: agua caliente y quemaduras",
+    "why_it_matters": "El agua del grifo a más de 120 grados F puede quemar rápido la piel de un niño. Bajar la temperatura del calentador de agua y probar el agua del baño reduce el riesgo.",
+    "fix_steps_text": [
+      "Ajuste el calentador de agua para que el agua más caliente del grifo no pase de 120 grados F (49 °C), y compruébelo con un termómetro.",
+      "Antes de cada baño, pruebe el agua con la parte interior de la muñeca; debe sentirse tibia, no caliente.",
+      "Coloque al niño de espaldas a la llave para que no alcance el agua caliente, y manténgase siempre al alcance de su mano.",
+      "Ponga una cubierta blanda en la llave para que no sea una superficie de metal caliente."
+    ],
+    "blind_spots": [
+      "El ajuste del calentador de agua y la temperatura real del grifo",
+      "La supervisión durante el baño",
+      "Tuberías o llaves de agua caliente que no se ven"
+    ],
+    "verify_rule": "El agua más caliente del grifo marca 120 grados F o menos, y el niño siempre está de espaldas a la llave.",
+    "severity_rationale": {
+      "0-3m": "Un adulto baña al bebé; el riesgo es sobre todo el agua demasiado caliente. No se encontró una cifra de lesiones, así que se calificó con cautela.",
+      "3-6m": "Misma rutina de baño; no se encontró una cifra de lesiones, así que se calificó con cautela.",
+      "6-12m": "Se sienta y se estira hacia la llave; Safe Kids indica que los niños de 2 años o menos corren el mayor riesgo de quemaduras.",
+      "12-24m": "Alcanza y abre las llaves; es el mismo grupo de edad con mayor riesgo de quemaduras.",
+      "24-36m": "Puede subirse a la tina y abrir la llave; se calificó con cautela.",
+      "36-60m": "Tiene más conciencia del peligro y suele estar supervisado; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

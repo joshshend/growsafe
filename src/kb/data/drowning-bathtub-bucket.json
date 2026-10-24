@@ -135,5 +135,31 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "bathtub"
+  "icon": "bathtub",
+  "es": {
+    "name": "Ahogamiento en tinas, cubetas e inodoros",
+    "why_it_matters": "Un niño pequeño puede ahogarse en solo unas pulgadas de agua, de forma rápida y silenciosa. Mantenerse al alcance de su mano y vaciar los recipientes después de usarlos reduce el riesgo.",
+    "fix_steps_text": [
+      "Manténgase al alcance de su mano de un niño en el baño en todo momento. Si tiene que irse, aunque sea un momento, llévese al niño envuelto en una toalla.",
+      "Vacíe la tina justo después del baño y vacíe las cubetas, los baldes y otros recipientes con agua en cuanto termine de usarlos.",
+      "Guarde las cubetas y los recipientes donde el niño no los alcance, y mantenga cerradas las tapas de los inodoros.",
+      "Ponga un seguro en la tapa del inodoro si un niño pequeño puede levantarla.",
+      "No cuente con los asientos o aros de baño para evitar que un niño se ahogue; son ayudas para bañarlo y el adulto debe seguir al alcance de su mano."
+    ],
+    "blind_spots": [
+      "La supervisión de un adulto no se puede ver en una foto",
+      "El agua que queda en un recipiente fuera de la foto",
+      "Baños, cubetas y tinas en otras casas"
+    ],
+    "verify_rule": "La tina está vacía, las tapas de los inodoros están cerradas, y todas las cubetas y recipientes están vacíos y fuera del alcance del niño.",
+    "severity_rationale": {
+      "0-3m": "Los datos del CDC abarcan a todos los bebés menores de 1 año juntos, así que los primeros meses se calificaron con cautela.",
+      "3-6m": "CDC: el 75% de las muertes por ahogamiento en menores de 1 año (2018-2019) ocurrió en tinas de baño.",
+      "6-12m": "Misma proporción de tinas en menores de 1 año; a los bebés que ya se sientan a menudo se les pone en asientos de baño, que no previenen el ahogamiento.",
+      "12-24m": "El ahogamiento es la principal causa de muerte de 1 a 4 años, pero los datos del CDC sobre el lugar a esa edad apuntan sobre todo a las albercas.",
+      "24-36m": "Sigue dentro del grupo de 1 a 4 años; las fuentes consultadas no publican un desglose por tinas o cubetas."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

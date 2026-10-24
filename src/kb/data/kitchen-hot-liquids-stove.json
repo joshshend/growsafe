@@ -100,5 +100,31 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "pot"
+  "icon": "pot",
+  "es": {
+    "name": "Cocina: líquidos calientes y estufa",
+    "why_it_matters": "Una sola salpicadura de café, sopa o del contenido de una olla puede quemar a un niño pequeño. Mantener las cosas calientes lejos de los bordes y de las manos pequeñas reduce el riesgo.",
+    "fix_steps_text": [
+      "Cocine en los quemadores de atrás y gire los mangos de las ollas hacia adentro.",
+      "Marque una zona libre de niños de al menos 3 pies (1 m) alrededor del área de cocinar, y no cargue a un bebé mientras sostiene una bebida caliente ni cuando esté frente a la estufa.",
+      "Mantenga la comida y las bebidas calientes lejos de los bordes de las encimeras y las mesas, y revuelva la comida del microondas y déjela reposar unos dos minutos antes de servirla.",
+      "Ponga cubiertas en las perillas de la estufa si están al frente, y un soporte antivuelco si la estufa es independiente."
+    ],
+    "blind_spots": [
+      "El comportamiento mientras se cocina (una foto solo muestra un momento)",
+      "Si hay un soporte antivuelco instalado detrás de la estufa",
+      "Cosas calientes que se traen de otros cuartos"
+    ],
+    "verify_rule": "Los mangos de las ollas apuntan hacia adentro, no hay nada caliente cerca de los bordes de la encimera, y se usa una zona de 3 pies libre de niños mientras se cocina.",
+    "severity_rationale": {
+      "0-3m": "Lo cargan en brazos cerca de bebidas calientes y de la estufa; una salpicadura puede quemar, pero la evidencia no se desglosa por edad, así que se calificó con cautela.",
+      "3-6m": "Todavía lo cargan casi siempre; mismo riesgo de que se derrame una bebida caliente mientras se sostiene al bebé.",
+      "6-12m": "Al gatear y ponerse de pie llega a los mangos de las ollas y a los cables; Safe Kids indica que los niños de 2 años o menos corren el mayor riesgo de quemaduras.",
+      "12-24m": "Alcanzar y agarrar cosas llega a su punto máximo cuando el niño aún está en el grupo de edad de mayor riesgo de quemaduras (2 años o menos).",
+      "24-36m": "Todavía alcanza las encimeras y los mangos de las ollas; la evidencia no se desglosa por edad, así que se calificó con cautela.",
+      "36-60m": "Entiende mejor qué es caliente, pero sigue siendo curioso; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

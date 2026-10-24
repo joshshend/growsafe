@@ -117,5 +117,32 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "spray"
+  "icon": "spray",
+  "es": {
+    "name": "Cápsulas de detergente y productos de limpieza",
+    "why_it_matters": "Las cápsulas de detergente y los productos de limpieza pueden dañar gravemente a un niño que los muerde, los traga o los recibe en los ojos. Guardarlos bajo llave y en un lugar alto reduce el riesgo.",
+    "fix_steps_text": [
+      "Mueva las cápsulas de detergente, el detergente y los productos de limpieza a un gabinete alto, fuera de la vista y del alcance; no los deje sobre la lavadora o la secadora ni en los cajones de abajo.",
+      "Mantenga los productos en sus envases originales con etiqueta, bien cerrados, y deje las cápsulas en su envase original hasta justo antes de ponerlas en la máquina.",
+      "Mantenga cerrada la puerta del cuarto de lavado cuando no esté ahí, limpie los derrames de inmediato y nunca mezcle productos de limpieza.",
+      "Ponga un seguro o candado en el gabinete donde guarde estos productos.",
+      "Considere usar detergente líquido o en polvo tradicional en lugar de cápsulas de una sola carga mientras vivan en la casa, o la visiten, niños de 6 años o menos.",
+      "Guarde en su teléfono el número de Poison Help (1-800-222-1222) y llame si un niño recibe detergente en la boca o en los ojos."
+    ],
+    "blind_spots": [
+      "Productos dentro de gabinetes cerrados o en el garaje",
+      "Frascos de aerosol y artículos junto al fregadero que quedan fuera de la foto",
+      "Casas de familiares y de otras personas que cuidan al niño"
+    ],
+    "verify_rule": "Todas las cápsulas de detergente y los productos de limpieza están en un gabinete cerrado, alto o con llave, en sus envases originales y fuera del alcance de los niños.",
+    "reminder_text": "Revise que las cápsulas de detergente y los productos de limpieza estén de vuelta en el lugar alto y con llave.",
+    "severity_rationale": {
+      "6-12m": "Las fuentes no dan un desglose por edad dentro del grupo de 5 años o menos; los bebés que gatean alcanzan los gabinetes bajos, así que se calificó con un nivel moderado.",
+      "12-24m": "La AAP considera las cápsulas de detergente extremadamente tóxicas; no se encontraron datos de edad más finos, así que se calificó con cautela.",
+      "24-36m": "Misma toxicidad y misma limitación en los datos de edad.",
+      "36-60m": "Están incluidos en los reportes de los centros de control de envenenamientos para niños de 5 años o menos; los niños mayores pueden seguir las instrucciones de la etiqueta."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

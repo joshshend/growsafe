@@ -12,6 +12,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Barrotes de la cuna demasiado separados",
+          "q": "¿Los barrotes están separados por no más de 2-3/8 pulgadas?",
+          "fix": "Mida los espacios entre los barrotes. Si algún espacio es mayor de 2-3/8 pulgadas, deje de usar esta cuna y reemplácela."
         }
       },
       {
@@ -24,6 +29,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "La cuna tiene un lado abatible",
+          "q": "¿La cuna tiene cuatro lados que no se mueven (sin lado abatible)?",
+          "fix": "Las cunas de tamaño completo deben tener cuatro lados fijos. Reemplace una cuna que tenga un lado abatible."
         }
       },
       {
@@ -36,6 +46,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El colchón no queda ajustado",
+          "q": "¿El colchón queda ajustado, sin espacios donde puedan atorarse un brazo, una pierna o la cabeza?",
+          "fix": "Cambie el colchón por uno hecho para esta cuna, de modo que no queden espacios en los lados."
         }
       },
       {
@@ -48,6 +63,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Cosas extra en la cuna",
+          "q": "¿La cuna está libre de protectores, almohadas y peluches, y solo tiene una sábana bien ajustada?",
+          "fix": "Saque los protectores, las almohadas y los peluches. Deje solo una sábana bien ajustada durante el primer año."
         }
       },
       {
@@ -60,6 +80,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Sábana de la cuna floja",
+          "q": "¿La sábana ajustable queda lo bastante firme como para que no se salga?",
+          "fix": "Cambie a una sábana ajustable hecha para el tamaño de este colchón, de modo que quede tensa en todas las esquinas."
         }
       },
       {
@@ -72,6 +97,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Móvil al alcance del bebé",
+          "q": "¿Algún móvil cuelga fuera de su alcance y se quita cuando el bebé ya puede sentarse?",
+          "fix": "Cuelgue el móvil más arriba o quítelo. Los móviles deben quitarse cuando el bebé ya pueda sentarse."
         }
       },
       {
@@ -84,6 +114,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Cuna colocada cerca de peligros",
+          "q": "¿La cuna está lejos de las ventanas y al menos a un brazo de distancia de cómodas o mesas?",
+          "fix": "Aleje la cuna de las ventanas y al menos un brazo de distancia de las cómodas y las mesas. Quite los cuadros y espejos que estén encima."
         }
       },
       {
@@ -96,6 +131,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/suitable-sleeping-sites.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Colchón sin bajar",
+          "q": "¿Ha bajado el colchón a medida que su bebé ha crecido?",
+          "fix": "Baje el colchón. Debe estar en la posición más baja para cuando su bebé pueda sentarse o ponerse de pie."
         }
       }
     ],
@@ -110,6 +150,11 @@
           "publisher": "State of Michigan (Michigan.gov)",
           "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se respetan los límites del moisés",
+          "q": "¿Su bebé está dentro de los límites de peso y edad del fabricante para este moisés?",
+          "fix": "Revise la etiqueta y el manual para conocer los límites. Pase a su bebé a una cuna cuando los alcance."
         }
       },
       {
@@ -122,6 +167,11 @@
           "publisher": "U.S. Consumer Product Safety Commission",
           "url": "https://www.cpsc.gov/content/cpsc-approves-new-federal-safety-standard-for-bassinets-and-cradles",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El bebé ya es muy grande para el moisés",
+          "q": "¿Su bebé tiene menos de unos 5 meses y todavía no se apoya en las manos y las rodillas?",
+          "fix": "Deje de usar el moisés a los 5 meses aproximadamente, o cuando su bebé ya pueda apoyarse en las manos y las rodillas. Pase a una cuna."
         }
       },
       {
@@ -134,6 +184,11 @@
           "publisher": "State of Michigan (Michigan.gov)",
           "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Colchón equivocado en el moisés",
+          "q": "¿El colchón es el que venía con el moisés (o un repuesto del fabricante)?",
+          "fix": "Use solo el colchón que venía con el moisés. Pida un repuesto al fabricante si se perdió o está gastado."
         }
       },
       {
@@ -146,6 +201,11 @@
           "publisher": "State of Michigan (Michigan.gov)",
           "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Relleno extra en el moisés",
+          "q": "¿El moisés está libre de almohadas, cojines o colchonetas adicionales?",
+          "fix": "Quite las almohadas, los cojines y las colchonetas de debajo y de encima del colchón. No se recomiendan las colchonetas de espuma viscoelástica para bebés."
         }
       },
       {
@@ -158,6 +218,11 @@
           "publisher": "State of Michigan (Michigan.gov)",
           "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El moisés podría ser anterior a la norma federal",
+          "q": "¿El moisés se fabricó en 2013 o después, cuando entró en vigor la norma federal para moisés y cunas mecedoras?",
+          "fix": "Busque la fecha de fabricación en la etiqueta. Si es anterior a 2013 o no la encuentra, considere reemplazarlo."
         }
       },
       {
@@ -170,6 +235,11 @@
           "publisher": "U.S. Consumer Product Safety Commission",
           "url": "https://www.cpsc.gov/content/cpsc-approves-new-federal-safety-standard-for-bassinets-and-cradles",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se ha revisado si el moisés fue retirado del mercado",
+          "q": "¿Ya buscó si este moisés tiene retiros del mercado?",
+          "fix": "Use el botón Buscar retiros del mercado de este artículo, y no use un moisés retirado del mercado."
         }
       }
     ],
@@ -184,6 +254,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Es posible que el niño ya mire hacia adelante demasiado pronto",
+          "q": "¿Su hijo viaja mirando hacia atrás (los niños menores de 1 año siempre deben viajar mirando hacia atrás, y es lo mejor mientras la silla lo permita)?",
+          "fix": "Gire la silla para que mire hacia atrás. NHTSA recomienda mantener a los niños mirando hacia atrás el mayor tiempo posible."
         }
       },
       {
@@ -196,6 +271,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Silla instalada con los anclajes y con el cinturón",
+          "q": "¿La silla está instalada con los anclajes inferiores o con el cinturón de seguridad, pero nunca con ambos?",
+          "fix": "Vuelva a instalarla con los anclajes inferiores o con el cinturón de seguridad del vehículo, no con ambos. Lea en la etiqueta de la silla el límite de peso para los anclajes inferiores."
         }
       },
       {
@@ -208,6 +288,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se usa la correa superior",
+          "q": "Si la silla mira hacia adelante, ¿está sujeta la correa superior?",
+          "fix": "Sujete y apriete la correa superior. NHTSA recomienda usar siempre la correa superior con una silla que mira hacia adelante."
         }
       },
       {
@@ -220,6 +305,11 @@
           "publisher": "NHTSA (copy hosted by Brown University Health)",
           "url": "https://www.brownhealth.org/sites/default/files/2021-03/NHTSA-How-to-Use-Car-Seat-Harness.pdf",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Correas del arnés a la altura equivocada",
+          "q": "¿Las correas del arnés están a la altura de los hombros o por debajo (mirando hacia atrás), o a la altura de los hombros o por encima (mirando hacia adelante)?",
+          "fix": "Mueva las correas a la ranura correcta según hacia dónde mira la silla."
         }
       },
       {
@@ -232,6 +322,11 @@
           "publisher": "NHTSA (copy hosted by Brown University Health)",
           "url": "https://www.brownhealth.org/sites/default/files/2021-03/NHTSA-How-to-Use-Car-Seat-Harness.pdf",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Broche del pecho en el lugar equivocado",
+          "q": "¿El broche del pecho está a la altura de las axilas?",
+          "fix": "Suba el broche del pecho hasta la altura de las axilas."
         }
       },
       {
@@ -244,6 +339,11 @@
           "publisher": "NHTSA (copy hosted by Brown University Health)",
           "url": "https://www.brownhealth.org/sites/default/files/2021-03/NHTSA-How-to-Use-Car-Seat-Harness.pdf",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Arnés demasiado flojo",
+          "q": "¿El arnés pasa la prueba del pellizco (no se puede pellizcar la correa a la altura del hombro)?",
+          "fix": "Apriete el arnés hasta que los dedos resbalen sobre la correa a la altura del hombro y no pueda pellizcar nada."
         }
       },
       {
@@ -256,6 +356,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Silla de auto sin registrar",
+          "q": "¿La silla está registrada con el fabricante?",
+          "fix": "Registre la silla con el fabricante para recibir avisos de retiros del mercado y de seguridad. También sirven la app SaferCar de NHTSA o las alertas por correo electrónico."
         }
       },
       {
@@ -268,6 +373,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se revisó una silla usada o que sufrió un choque",
+          "q": "Si la silla es de segunda mano o estuvo en un choque, ¿usó la lista de revisión de sillas usadas de NHTSA y su guía sobre choques?",
+          "fix": "Lea la lista de revisión de sillas de auto usadas de NHTSA y su guía sobre las sillas después de un choque antes de usar esta silla."
         }
       }
     ],
@@ -282,6 +392,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Asiento elevador usado demasiado pronto",
+          "q": "¿Su hijo ya superó los límites de la silla con arnés que mira hacia adelante?",
+          "fix": "Un niño que todavía cabe en la silla con arnés debe seguir en ella. Pase a un asiento elevador cuando supere los límites del arnés."
         }
       },
       {
@@ -294,6 +409,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Asiento elevador en el asiento delantero",
+          "q": "¿Su hijo viaja en el asiento de atrás?",
+          "fix": "Pase el asiento elevador y a su hijo al asiento de atrás."
         }
       },
       {
@@ -306,6 +426,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Cinturón de regazo sobre el estómago",
+          "q": "¿El cinturón de regazo queda sobre la parte alta de los muslos y no sobre el estómago?",
+          "fix": "Cambie el recorrido del cinturón para que el de regazo quede bajo, sobre la parte alta de los muslos."
         }
       },
       {
@@ -318,6 +443,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Asiento elevador sin registrar",
+          "q": "¿El asiento elevador está registrado con el fabricante?",
+          "fix": "Registre el asiento con el fabricante para recibir avisos de retiros del mercado."
         }
       },
       {
@@ -330,6 +460,11 @@
           "publisher": "NHTSA",
           "url": "https://www.nhtsa.gov/vehicle-safety/car-seats-and-booster-seats",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se revisó un asiento elevador usado o que sufrió un choque",
+          "q": "Si el asiento elevador es de segunda mano o estuvo en un choque, ¿usó la lista de revisión de sillas usadas de NHTSA y su guía sobre choques?",
+          "fix": "Lea la lista de revisión de sillas de auto usadas de NHTSA y su guía sobre las sillas después de un choque antes de usar este asiento elevador."
         }
       }
     ],
@@ -344,6 +479,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se usan las correas de la periquera",
+          "q": "¿Usa las correas cada vez, incluida la correa de la entrepierna?",
+          "fix": "Abroche todas las correas, incluida la de la entrepierna, cada vez que su hijo se siente en la silla."
         }
       },
       {
@@ -356,6 +496,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El niño se para en la periquera",
+          "q": "¿Su hijo se queda sentado y nunca se para en la silla?",
+          "fix": "No deje que su hijo se pare en la periquera. Sáquelo cuando quiera moverse."
         }
       },
       {
@@ -368,6 +513,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "La periquera se vuelca con facilidad",
+          "q": "¿La silla es estable, de modo que no se vuelca con facilidad?",
+          "fix": "Pruebe la silla empujándola. Si se vuelca con facilidad, deje de usarla y elija una más estable."
         }
       },
       {
@@ -380,6 +530,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Seguros de plegado sin activar",
+          "q": "Si la silla se pliega, ¿están activados los seguros cada vez que la instala?",
+          "fix": "Compruebe que los seguros de plegado hagan clic y queden en su lugar cada vez que abra la silla."
         }
       },
       {
@@ -392,6 +547,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Periquera junto a una encimera o una mesa",
+          "q": "¿La silla está lejos de encimeras y mesas contra las que el niño podría empujarse?",
+          "fix": "Aleje la silla de las encimeras y las mesas para que su hijo no pueda empujarse y volcarla."
         }
       },
       {
@@ -404,6 +564,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Silla de sujeción a la mesa mal asegurada",
+          "q": "Si usa una silla que se sujeta a la mesa, ¿se fija a una mesa que aguanta el peso de su hijo sin volcarse?",
+          "fix": "Use un modelo que se fije a la mesa con seguro, y asegúrese de que la mesa esté firme y de que los pies de su hijo no alcancen un soporte de la mesa."
         }
       },
       {
@@ -416,6 +581,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/at-home/Pages/High-Chair-Safety-Tips.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Niño solo en la periquera",
+          "q": "¿Siempre vigila a su hijo mientras está en la silla?",
+          "fix": "Quédese con su hijo pequeño mientras está en la periquera, y no deje que los niños mayores trepen en ella."
         }
       }
     ],
@@ -430,6 +600,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Frenos de la carriola",
+          "q": "¿Los frenos funcionan con facilidad y los pone siempre que la carriola está detenida?",
+          "fix": "Ponga los frenos cada vez que se detenga. Asegúrese de que su hijo no alcance la palanca para soltarlos."
         }
       },
       {
@@ -442,6 +617,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se usa el arnés de la carriola",
+          "q": "¿Usa un arnés de cinco puntos en cada paseo?",
+          "fix": "Abroche el arnés en cada paseo. En el caso de los bebés, unas cobijas enrolladas a cada lado pueden evitar que se encorven."
         }
       },
       {
@@ -454,6 +634,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Bolsas colgadas de los manubrios",
+          "q": "¿La carriola está libre de bolsas colgadas de los manubrios?",
+          "fix": "Quite las bolsas de los manubrios. Si hay una canasta, ponga los objetos pesados abajo y cerca de las ruedas traseras."
         }
       },
       {
@@ -466,6 +651,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El armazón no está asegurado abierto",
+          "q": "¿Asegura el armazón abierto antes de sentar al niño, y lo mantiene alejado mientras la pliega?",
+          "fix": "Asegure el armazón abierto antes de sentar a su hijo, y manténgalo alejado mientras pliega o abre la carriola."
         }
       },
       {
@@ -478,6 +668,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Juguetes colgados a lo ancho de la carriola",
+          "q": "¿Los juguetes colgados a lo ancho de la carriola están bien sujetos, y se quitan cuando el bebé ya puede sentarse?",
+          "fix": "Sujete bien los juguetes y quítelos cuando su bebé ya pueda sentarse o apoyarse en las manos y las rodillas."
         }
       },
       {
@@ -490,6 +685,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://healthychildren.org/English/safety-prevention/on-the-go/Pages/How-to-Buy-a-Safe-Stroller.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Niño solo en la carriola",
+          "q": "¿Nunca deja solo a su hijo en la carriola y lo mantiene a la vista si se queda dormido?",
+          "fix": "Mantenga a su hijo a la vista siempre que esté en la carriola, incluso mientras duerme."
         }
       }
     ],
@@ -504,6 +704,11 @@
           "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
           "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Malla rota o con agujeros grandes",
+          "q": "¿La malla está intacta, con agujeros de no más de 1/4 de pulgada?",
+          "fix": "Revise que la malla no tenga rasgaduras ni agujeros mayores de 1/4 de pulgada. Deje de usar un corral con la malla dañada."
         }
       },
       {
@@ -516,6 +721,11 @@
           "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
           "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Bisagras y barandales",
+          "q": "¿Las bisagras están bien protegidas y los barandales superiores se aseguran al levantarlos?",
+          "fix": "Levante los barandales hasta que se aseguren. Deje de usar el corral si las bisagras o los soportes están dañados."
         }
       },
       {
@@ -528,6 +738,11 @@
           "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
           "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Lados del corral demasiado bajos",
+          "q": "¿Los lados miden al menos 20 pulgadas de alto, medidas desde el piso del corral?",
+          "fix": "Mida desde el piso del corral. Si los lados miden menos de 20 pulgadas, elija otro corral."
         }
       },
       {
@@ -540,6 +755,11 @@
           "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
           "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Colchoneta equivocada o apilada",
+          "q": "¿Hay una sola colchoneta firme (de aproximadamente 1 pulgada de grosor), hecha para este corral?",
+          "fix": "Use solo la colchoneta que venía con el corral, o un repuesto del fabricante. Nunca agregue una segunda colchoneta ni cambie por una que quizá no ajuste."
         }
       },
       {
@@ -552,6 +772,11 @@
           "publisher": "State of Michigan (Michigan.gov)",
           "url": "https://www.michigan.gov/mdhhs/safety-injury-prev/safe-sleep2/safe-sleep-for-your-baby/keep-your-baby-sleeping-safely/what-to-do-safe-sleep-spaces/cribs-bassinets-and-pack-and-plays",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Relleno extra en el corral",
+          "q": "¿El corral está libre de almohadas, cojines o colchonetas adicionales?",
+          "fix": "Quite el relleno que haya agregado. Use solo el colchón hecho para este corral."
         }
       },
       {
@@ -564,6 +789,11 @@
           "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
           "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Lado de malla dejado abajo",
+          "q": "¿Los seguros para bajar el lado están fuera del alcance de su bebé, y el lado nunca se deja abajo con el bebé adentro?",
+          "fix": "Levante el lado y asegúrelo antes de alejarse. Mantenga los seguros fuera del alcance de su bebé."
         }
       },
       {
@@ -576,6 +806,11 @@
           "publisher": "Nemours KidsHealth (copy hosted by Rady Children's Hospital)",
           "url": "https://www.kidshealth.org/RadyChildrens/en/parents/products-playpens.html?view=ptr",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Corral usado, desgastado o con aberturas en forma de rombo",
+          "q": "Si es usado, ¿el piso está libre de desgaste y no hay aberturas grandes en forma de rombo?",
+          "fix": "Revise que el piso no esté desgastado y evite los corrales con aberturas grandes en forma de rombo."
         }
       }
     ],
@@ -590,6 +825,11 @@
           "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
           "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Correas del columpio sin abrochar",
+          "q": "¿Siempre abrocha las correas, incluidas las de los hombros cuando su bebé se sienta?",
+          "fix": "Abroche las correas cada vez que su bebé esté en el asiento."
         }
       },
       {
@@ -602,6 +842,11 @@
           "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
           "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Columpio o mecedora sobre una superficie elevada",
+          "q": "¿El asiento siempre está en el piso, nunca sobre una cuna, un colchón u otra superficie elevada?",
+          "fix": "Ponga el asiento en el piso. La AAP aconseja no ponerlo sobre una cuna, un colchón u otra superficie elevada."
         }
       },
       {
@@ -614,6 +859,11 @@
           "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
           "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Ángulo del columpio para un bebé pequeño",
+          "q": "Si su bebé tiene menos de 4 meses, ¿el columpio está inclinado a su posición más plana?",
+          "fix": "Incline el columpio a su posición más plana para bebés menores de 4 meses."
         }
       },
       {
@@ -626,6 +876,11 @@
           "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
           "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El bebé duerme en el asiento",
+          "q": "Si su bebé se queda dormido en él, ¿lo pasa a una cuna o a un moisés?",
+          "fix": "Pase al bebé dormido a una cuna o a un moisés con una superficie firme y nada blando."
         }
       },
       {
@@ -638,6 +893,11 @@
           "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
           "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Periodos largos en el asiento",
+          "q": "¿Limita el tiempo que su bebé pasa en el columpio o la mecedora, y lo vigila mientras está en ella?",
+          "fix": "Haga sesiones cortas y quédese cerca. La AAP indica que los bebés no deben pasar mucho tiempo en columpios ni en equipos parecidos."
         }
       },
       {
@@ -650,6 +910,11 @@
           "publisher": "Sleep Foundation (reports AAP and CPSC guidance)",
           "url": "https://www.sleepfoundation.org/baby-sleep/can-babies-sleep-in-a-swing",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se ha revisado si el columpio o la mecedora fue retirado del mercado",
+          "q": "¿Ya buscó si este columpio o esta mecedora tiene retiros del mercado?",
+          "fix": "Use el botón Buscar retiros del mercado de este artículo, y deje de usarlo si coincide con un retiro."
         }
       }
     ],
@@ -664,6 +929,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Reja de presión en lo alto de las escaleras",
+          "q": "Si la reja está en lo alto de las escaleras, ¿está fijada con tornillos al marco de la puerta?",
+          "fix": "Use una reja fijada con tornillos en lo alto de las escaleras. Las rejas de presión son para puertas y para la parte de abajo de las escaleras."
         }
       },
       {
@@ -676,6 +946,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Reja que se abre hacia afuera en lo alto de las escaleras",
+          "q": "¿La reja está libre de un diseño que se abra hacia afuera en lo alto de las escaleras?",
+          "fix": "Las rejas que se abren hacia afuera nunca deben ir en lo alto de las escaleras. Cámbiela por una reja fijada con tornillos que no se abra hacia afuera."
         }
       },
       {
@@ -688,6 +963,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Sin etiqueta de certificación de seguridad",
+          "q": "¿La reja tiene una etiqueta de certificación ASTM/JPMA?",
+          "fix": "Busque la certificación ASTM/JPMA en la etiqueta. Si no la tiene, elija una reja certificada."
         }
       },
       {
@@ -700,6 +980,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Reja antigua de acordeón",
+          "q": "¿La reja está libre de aberturas en forma de rombo con V anchas arriba (el estilo antiguo de acordeón)?",
+          "fix": "Reemplace las rejas antiguas de acordeón. Las aberturas en forma de V pueden atrapar la cabeza de un bebé."
         }
       },
       {
@@ -712,6 +997,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Barrotes de la reja demasiado separados",
+          "q": "¿Los barrotes verticales están separados por no más de 2-3/8 pulgadas?",
+          "fix": "Mida los espacios entre los barrotes. Si algún espacio es mayor de 2-3/8 pulgadas, reemplace la reja."
         }
       },
       {
@@ -724,6 +1014,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Espacio debajo de la reja",
+          "q": "¿El espacio debajo de la reja es de no más de 1 a 2 pulgadas?",
+          "fix": "Mida el espacio a nivel del piso. Ajuste o reemplace la reja si es mayor de 1 a 2 pulgadas."
         }
       },
       {
@@ -736,6 +1031,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Reja demasiado baja",
+          "q": "¿La reja mide al menos tres cuartas partes de la estatura de su hijo?",
+          "fix": "Mida a su hijo. Reemplace la reja si es más baja que tres cuartas partes de su estatura."
         }
       },
       {
@@ -748,6 +1048,11 @@
           "publisher": "Nemours KidsHealth",
           "url": "https://kidshealth.org/en/parents/products-gates.html",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "El niño puede abrir la reja o trepar por ella",
+          "q": "¿Su hijo no puede abrir la reja ni trepar por ella?",
+          "fix": "Si su hijo puede abrir la reja o trepar por ella, quítela. Mantenga los juguetes grandes lejos de la reja."
         }
       }
     ],
@@ -762,6 +1067,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Barandal del cambiador",
+          "q": "¿La mesa tiene un barandal de 2 pulgadas en los cuatro lados?",
+          "fix": "Reemplace la mesa o la colchoneta por una que tenga un barandal de 2 pulgadas en los cuatro lados."
         }
       },
       {
@@ -774,6 +1084,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Superficie plana para cambiar al bebé",
+          "q": "¿La superficie es cóncava, con el centro un poco más bajo que los bordes?",
+          "fix": "Use una colchoneta para cambiar con contorno, con el centro más bajo que los bordes."
         }
       },
       {
@@ -786,6 +1101,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "No se usa la correa del cambiador",
+          "q": "¿Abrocha la correa de seguridad cada vez?",
+          "fix": "Abroche la correa cada vez. No dependa solo de ella."
         }
       },
       {
@@ -798,6 +1118,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Sin una mano sobre el bebé",
+          "q": "¿Mantiene una mano sobre su bebé en todo momento, aunque sea un instante?",
+          "fix": "Mantenga una mano sobre su bebé todo el tiempo, incluso con la correa abrochada."
         }
       },
       {
@@ -810,6 +1135,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Artículos fuera de su alcance",
+          "q": "¿Los artículos para cambiar pañales están a su alcance pero fuera del alcance de su bebé?",
+          "fix": "Acomode los artículos de modo que usted los alcance sin soltar al bebé, y su bebé no los alcance."
         }
       },
       {
@@ -822,6 +1152,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Talco al alcance",
+          "q": "¿Los envases de talco están lejos de su bebé?",
+          "fix": "Guarde el talco lejos de su bebé. Inhalar talco puede dañar los pulmones."
         }
       },
       {
@@ -834,6 +1169,11 @@
           "publisher": "American Academy of Pediatrics (HealthyChildren.org)",
           "url": "https://www.healthychildren.org/English/safety-prevention/at-home/Pages/Changing-Table-Safety.aspx",
           "accessed": "2026-10-12"
+        },
+        "es": {
+          "title": "Pañales guardados al alcance",
+          "q": "¿Los pañales desechables están guardados fuera de su alcance, y los pañales puestos están cubiertos con ropa?",
+          "fix": "Guarde los pañales fuera de su alcance y cubra con ropa el pañal que lleva puesto el bebé, para que no quede expuesto el forro de plástico."
         }
       }
     ]

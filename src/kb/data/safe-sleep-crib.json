@@ -101,5 +101,29 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "crib"
+  "icon": "crib",
+  "es": {
+    "name": "Entorno para dormir del bebé",
+    "why_it_matters": "La mayoría de las muertes de bebés relacionadas con el sueño ocurre en los primeros meses, y muchas involucran ropa de cama blanda o una superficie para dormir que no es una cuna. Una cuna o moisés vacío, con el bebé boca arriba, reduce el riesgo.",
+    "fix_steps_text": [
+      "Acueste al bebé boca arriba cada vez que duerma, incluso en las siestas.",
+      "Saque las cobijas, almohadas, protectores de cuna y peluches del área donde duerme.",
+      "Mantenga la cuna o el moisés en su cuarto, de preferencia al menos durante los primeros 6 meses, y no use sofás ni sillones para dormir.",
+      "Vista al bebé con un saco de dormir en lugar de usar cobijas sueltas, y evite los productos para dormir con peso.",
+      "Use un colchón firme y plano en una cuna aprobada, cubierto solo con una sábana ajustable; cambie lo que use si la superficie está blanda o la cuna está dañada."
+    ],
+    "blind_spots": [
+      "En una foto no se ve en qué posición se acuesta al bebé",
+      "Dónde duerme realmente el bebé por la noche, o en la guardería y en casas de familiares",
+      "Qué tan firme es el colchón y si la cuna cumple con las normas actuales"
+    ],
+    "verify_rule": "La cuna o el moisés solo tiene un colchón firme y plano con una sábana ajustable, sin protectores, cobijas, almohadas ni juguetes, y está en el cuarto de los padres.",
+    "severity_rationale": {
+      "0-3m": "CDC MMWR: el 66% de las muertes súbitas e inesperadas de bebés (2020-2024) ocurrió entre los 0 y 3 meses.",
+      "3-6m": "CDC MMWR: el 24% de estas muertes ocurrió entre los 4 y 6 meses.",
+      "6-12m": "CDC MMWR: el 10% ocurrió entre los 7 y 11 meses; el riesgo es mucho menor, pero no es cero."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

@@ -224,5 +224,6 @@
   "weekend.skip.cost": "Needs more budget",
   "weekend.rankNote": "Ranked by how serious each hazard is for {name}'s age. A priority order, not a prediction.",
   "weekend.change": "Change time or budget",
-  "weekend.backToday": "Back to Today"
+  "weekend.backToday": "Back to Today",
+  "i18n.aiNote": "Spanish text was translated with AI and has not been reviewed by a fluent speaker yet."
 }

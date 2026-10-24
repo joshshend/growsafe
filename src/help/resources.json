@@ -11,7 +11,12 @@
     "phone": "18002221222",
     "source_publisher": "Health Resources & Services Administration (HRSA)",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "Línea Poison Help (Control de Envenenamientos)",
+      "what": "Hable con un experto en envenenamientos si un niño tragó, inhaló o se untó en la piel algo dañino.",
+      "who": "Cualquier persona en Estados Unidos, a cualquier hora. Atienden también en español. Llame al 911 si no se puede despertar a un niño o si no respira."
+    }
   },
   {
     "id": "211-texas",
@@ -25,7 +30,12 @@
     "phone": "211",
     "source_publisher": "2-1-1 Texas (Texas Health and Human Services Commission)",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "2-1-1 Texas",
+      "what": "Una línea gratuita de información y referencias sobre alimentos, salud, vivienda y otras ayudas locales.",
+      "who": "Cualquier persona en Texas. El teléfono y el chat en vivo ofrecen atención en inglés y en español."
+    }
   },
   {
     "id": "texas-wic",
@@ -40,7 +50,12 @@
     "phone": "8009423678",
     "source_publisher": "Texas WIC",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "WIC de Texas",
+      "what": "Ayuda para comprar alimentos saludables, además de apoyo en nutrición, durante el embarazo y la primera infancia.",
+      "who": "Mujeres embarazadas o que amamantan y familias con niños menores de 5 años. Se aplican requisitos de elegibilidad."
+    }
   },
   {
     "id": "your-texas-benefits",
@@ -54,7 +69,12 @@
     "apply_url": "https://www.yourtexasbenefits.com/Learn/Home",
     "source_publisher": "YourTexasBenefits.com",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "YourTexasBenefits",
+      "what": "El sitio en línea del estado para solicitar beneficios de alimentos (SNAP), ayuda en efectivo (TANF), atención médica y WIC.",
+      "who": "Familias de Texas que podrían calificar para beneficios estatales. TANF es para familias con hijos de 18 años o menos."
+    }
   },
   {
     "id": "texas-chip-medicaid",
@@ -68,7 +88,12 @@
     "apply_url": "https://www.yourtexasbenefits.com/Learn/Home",
     "source_publisher": "Texas Health and Human Services",
     "last_verified": null,
-    "verified": false
+    "verified": false,
+    "es": {
+      "title": "Medicaid y CHIP para niños",
+      "what": "Cobertura de salud gratuita o de bajo costo para niños y adolescentes.",
+      "who": "Niños de Texas cuyas familias cumplen con las reglas de ingresos y de tamaño del hogar."
+    }
   },
   {
     "id": "safe-kids-car-seat",
@@ -81,7 +106,12 @@
     "url": "https://www.safekids.org/",
     "source_publisher": "Safe Kids Worldwide",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "Eventos y estaciones de revisión de sillas de auto",
+      "what": "Encuentre un evento o una estación de revisión de sillas de auto, con expertos locales que ayudan con la instalación.",
+      "who": "Cualquier persona que cuide niños y quiera que le revisen o le instalen bien la silla de auto."
+    }
   },
   {
     "id": "cribs-for-kids",
@@ -95,7 +125,12 @@
     "phone": "18887212742",
     "source_publisher": "Cribs for Kids",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "Cribs for Kids",
+      "what": "Cunas portátiles y educación sobre el sueño seguro para bebés cuyas familias no pueden pagar un lugar seguro para dormir.",
+      "who": "Familias que no pueden pagar un lugar seguro para que duerma el bebé. Use el buscador de socios del sitio o llame para preguntar por ayuda local."
+    }
   },
   {
     "id": "austin-free-smoke-alarms",
@@ -109,7 +144,12 @@
     "phone": "5129740299",
     "source_publisher": "Austin Fire Department",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "Alarmas de humo gratis (Austin)",
+      "what": "Los bomberos de Austin instalan gratis una alarma de humo y hacen una evaluación gratuita de los peligros del hogar.",
+      "who": "Residentes de Austin con necesidad que vivan en una casa de propiedad privada. Llame y deje su nombre, dirección y número de teléfono."
+    }
   },
   {
     "id": "psi-helpline",
@@ -123,7 +163,12 @@
     "phone": "18009444773",
     "source_publisher": "Postpartum Support International",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "Línea de ayuda de Postpartum Support International",
+      "what": "Una línea de ayuda para familias que enfrentan dificultades durante el embarazo y el posparto. No atiende emergencias.",
+      "who": "Padres y familias. Llame al 1-800-944-4773 (en español, oprima 1) o envíe un mensaje de texto con la palabra HELP al 800-944-4773; de 8 a. m. a 11 p. m., hora del Este."
+    }
   },
   {
     "id": "988-lifeline",
@@ -137,7 +182,12 @@
     "phone": "988",
     "source_publisher": "988 Suicide & Crisis Lifeline",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "988 Línea de Prevención del Suicidio y Crisis",
+      "what": "Apoyo emocional gratuito y confidencial por llamada, texto o chat para cualquier persona en dificultad, a cualquier hora.",
+      "who": "Cualquier persona, incluidas las que cuidan niños y están en crisis. Llame o envíe un texto al 988. Hay atención en español por texto y por chat."
+    }
   },
   {
     "id": "head-start",
@@ -151,7 +201,12 @@
     "phone": "18667636481",
     "source_publisher": "Head Start (U.S. Department of Health and Human Services)",
     "last_verified": "2026-10-12",
-    "verified": true
+    "verified": true,
+    "es": {
+      "title": "Head Start",
+      "what": "Programas de aprendizaje temprano para niños pequeños. Busque un centro por código postal, ciudad o estado.",
+      "who": "Familias con niños pequeños. Llame al 1-866-763-6481 para preguntar por los requisitos."
+    }
   },
   {
     "id": "texas-child-care-search",
@@ -164,7 +219,12 @@
     "url": "https://childcare.hhs.texas.gov/",
     "source_publisher": "Texas Health and Human Services",
     "last_verified": null,
-    "verified": false
+    "verified": false,
+    "es": {
+      "title": "Busque cuidado infantil con licencia en Texas",
+      "what": "Consulte proveedores de cuidado infantil en Texas.",
+      "who": "Padres de Texas que están eligiendo un proveedor de cuidado infantil."
+    }
   },
   {
     "id": "twc-child-care-help",
@@ -177,6 +237,11 @@
     "url": "https://www.twc.texas.gov/programs/child-care",
     "source_publisher": "Texas Workforce Commission",
     "last_verified": null,
-    "verified": false
+    "verified": false,
+    "es": {
+      "title": "Ayuda para pagar el cuidado infantil (Comisión de la Fuerza Laboral de Texas)",
+      "what": "Servicios estatales de cuidado infantil que pueden ayudar a las familias que trabajan a pagar el cuidado.",
+      "who": "Familias de Texas que necesitan cuidado infantil. Consulte la página para ver los requisitos."
+    }
   }
 ]

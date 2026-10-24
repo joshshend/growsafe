@@ -129,5 +129,32 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "pool"
+  "icon": "pool",
+  "es": {
+    "name": "Ahogamiento en albercas y jacuzzis",
+    "why_it_matters": "Las albercas y los jacuzzis son donde ocurre la mayoría de las muertes por ahogamiento de niños pequeños en los datos del CDC, y un niño puede llegar al agua en un instante. Las capas de protección, como cercas, puertas con pestillo, alarmas y un adulto vigilante, reducen el riesgo.",
+    "fix_steps_text": [
+      "Nombre a un adulto como \"Vigilante del agua\", que no use el teléfono ni tenga otras distracciones mientras haya un niño en el agua o cerca de ella.",
+      "Saque los juguetes del área de la alberca cuando no se use, ponga llave a las puertas que dan al agua y bloquee o quite las escaleras desmontables de la alberca.",
+      "Mantenga el jacuzzi o spa cubierto y con el cierre de la cubierta puesto cuando nadie lo esté usando.",
+      "Ponga alarmas en las puertas que se abren hacia el área de la alberca.",
+      "Rodee la alberca por los cuatro lados con una barrera de al menos 4 pies (1.2 m) de alto que la separe de la casa, con puertas que se cierren y se aseguren solas.",
+      "Mantenga a los niños lejos de los desagües y las aberturas, y pregunte a su servicio de albercas por tapas de desagüe que cumplan con las normas federales."
+    ],
+    "blind_spots": [
+      "La altura de la barrera y si la puerta se asegura sola",
+      "Las albercas de los vecinos y el agua abierta cerca de la casa",
+      "La supervisión de un adulto no se puede ver en una foto"
+    ],
+    "verify_rule": "La alberca está cercada por los cuatro lados con una barrera de al menos 4 pies de alto, las puertas se cierran y se aseguran solas, y la cubierta del spa tiene el cierre puesto.",
+    "reminder_text": "Pruebe que la puerta de la alberca se cierre y se asegure sola, y que las alarmas de las puertas funcionen.",
+    "severity_rationale": {
+      "6-12m": "CDC: las albercas fueron el 7% de las muertes por ahogamiento en menores de 1 año (2018-2019), muy por debajo de las tinas; se calificó más bajo.",
+      "12-24m": "CDC: el 59% de las muertes por ahogamiento de 1 a 4 años (2018-2019) ocurrió en albercas.",
+      "24-36m": "Mismo grupo de 1 a 4 años; la CPSC indica que casi el 80% de las víctimas de ahogamiento en albercas y spas menores de 15 años tiene menos de 5.",
+      "36-60m": "Sigue dentro del grupo de menores de 5 años que destaca la CPSC; las fallas en puertas y barreras siguen siendo la vía principal."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

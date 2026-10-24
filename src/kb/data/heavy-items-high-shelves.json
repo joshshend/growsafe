@@ -89,5 +89,29 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "shelf"
+  "icon": "shelf",
+  "es": {
+    "name": "Objetos pesados en estantes altos",
+    "why_it_matters": "Los niños jalan y trepan, y un objeto pesado que jalen o tiren de un estante puede caerles encima. Poner los objetos pesados abajo y fuera de su alcance, y fijar los estantes a la pared, reduce el riesgo.",
+    "fix_steps_text": [
+      "Mueva los objetos pesados y frágiles (computadoras, libros grandes, vidrio) a lugares más bajos y al fondo, donde el niño no los alcance, o sáquelos del cuarto.",
+      "Ponga objetos ligeros en los estantes que el niño alcanza, y mantenga fuera de su alcance los cables de lámparas y aparatos.",
+      "Fije los libreros y estantes a la pared con soportes o correas.",
+      "Enseñe a los niños mayores a no trepar por los estantes ni a usar los cajones como escalones."
+    ],
+    "blind_spots": [
+      "El peso de los objetos (una foto muestra el tamaño, no el peso)",
+      "Si un estante está fijado a un poste de la pared",
+      "Estantes en otros cuartos o en casas de familiares"
+    ],
+    "verify_rule": "No hay nada pesado en un estante o superficie que el niño alcance, y los estantes están fijados a la pared.",
+    "severity_rationale": {
+      "6-12m": "Empieza a ponerse de pie; primero alcanza los estantes bajos. No hay evidencia por edad, así que se calificó con cautela.",
+      "12-24m": "Trepa y jala los estantes y los muebles; la AAP advierte que los niños pueden lesionarse gravemente al jalar muebles pesados.",
+      "24-36m": "Los que trepan usan los estantes como escalones; se calificó con cautela.",
+      "36-60m": "Sigue trepando; se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

@@ -115,5 +115,31 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "pill"
+  "icon": "pill",
+  "es": {
+    "name": "Almacenamiento de medicinas, vitaminas y suplementos",
+    "why_it_matters": "Los niños pequeños, sobre todo de 1 y 2 años, se tragan las medicinas, vitaminas y gomitas que encuentran a su alcance. Guardarlas en un lugar alto y fuera de la vista reduce el riesgo.",
+    "fix_steps_text": [
+      "Guarde todas las medicinas, vitaminas y suplementos, incluidas las gomitas, después de cada uso; nunca los deje sobre una encimera ni junto a la cama.",
+      "Guárdelos en un lugar alto, donde los niños no los vean ni los alcancen, y vuelva a cerrar las tapas de seguridad cada vez, porque algunos niños aún pueden abrirlas.",
+      "Pida a las visitas que mantengan los bolsos, abrigos y bolsas que lleven medicinas en alto y fuera de la vista.",
+      "Agregue una caja con llave o un seguro de gabinete para las medicinas.",
+      "Guarde el número de Poison Help (1-800-222-1222) en todos los teléfonos y compártalo con las demás personas que cuidan al niño. Nunca le diga a un niño que la medicina es un dulce."
+    ],
+    "blind_spots": [
+      "Medicinas en bolsos, bolsas y bolsillos de abrigos",
+      "Artículos dentro de cajones o gabinetes cerrados",
+      "Casas de familiares y de otras personas que cuidan al niño"
+    ],
+    "verify_rule": "Ninguna medicina, vitamina o suplemento está a la vista ni al alcance de un niño en el cuarto, y cualquier lugar de almacenamiento con llave está cerrado.",
+    "reminder_text": "Revise las mesitas de noche, las encimeras y los bolsos de las visitas en busca de medicinas, vitaminas y gomitas.",
+    "severity_rationale": {
+      "6-12m": "Los bebés que gatean alcanzan lo que está abajo; el estudio vinculado al CDC encontró que la mayoría de las visitas fue a los 1-2 años, así que se calificó por debajo de esas edades.",
+      "12-24m": "Estudio de niños de 5 años o menos: el 67.4% de las visitas a urgencias por medicinas sin supervisión (2017-2020) fue de niños de 1 a 2 años.",
+      "24-36m": "Sigue dentro del grupo de 1 a 2 años que representó la mayoría de las visitas.",
+      "36-60m": "Menos visitas quedan fuera de los 1 a 2 años, pero las visitas por melatonina se concentraron en los 3 a 5 años (52.4%) en el informe del CDC."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

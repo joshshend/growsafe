@@ -287,6 +287,7 @@ function ChecklistSheet({ gearId, onClose }: { gearId: string; onClose: () => vo
   const g = useStore((s) => s.gear.find((x) => x.id === gearId));
   const setAnswers = useStore((s) => s.setGearAnswers);
   const showToast = useUi((s) => s.showToast);
+  const lang = useLang();
   const [answers, setLocal] = useState<Record<string, "yes" | "no">>(g?.answers ?? {});
   if (!g) return null;
   const items = checklistFor(g.type);
@@ -323,7 +324,7 @@ function ChecklistSheet({ gearId, onClose }: { gearId: string; onClose: () => vo
       )}
       {items.map((it) => (
         <fieldset key={it.id} className="gear-q">
-          <legend>{it.q}</legend>
+          <legend>{lang === "es" && it.es ? it.es.q : it.q}</legend>
           <div className="seg">
             {(["yes", "no"] as const).map((a) => (
               <button

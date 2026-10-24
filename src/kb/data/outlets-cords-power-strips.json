@@ -80,5 +80,29 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "plug"
+  "icon": "plug",
+  "es": {
+    "name": "Enchufes, cables y regletas",
+    "why_it_matters": "Los bebés que gatean y los niños pequeños meten los dedos y objetos en los enchufes y muerden los cables. Las cubiertas y los cables ordenados reducen el riesgo de descarga eléctrica y de que se caigan aparatos al jalarlos.",
+    "fix_steps_text": [
+      "Pase los cables por detrás de los muebles y mantenga fuera de su alcance los cables de aparatos que cuelgan.",
+      "Bloquee con muebles los enchufes a los que el niño siempre se acerca, y ponga cubiertas en los enchufes sin usar. Elija cubiertas difíciles de sacar y demasiado grandes para provocar asfixia.",
+      "Ponga las regletas y los cargadores enchufados fuera de su alcance, por ejemplo en una caja cerrada o detrás de un mueble pesado.",
+      "Cuando cambie los enchufes, pregunte a un electricista por los receptáculos resistentes a la manipulación."
+    ],
+    "blind_spots": [
+      "Enchufes detrás de muebles o en otros cuartos",
+      "Si una cubierta está bien colocada",
+      "Cables dañados o pelados dentro de la pared o debajo de los tapetes"
+    ],
+    "verify_rule": "Todos los enchufes al alcance de un niño están cubiertos o bloqueados, y no hay cables colgando donde un niño pueda agarrarlos.",
+    "severity_rationale": {
+      "6-12m": "Los bebés que gatean alcanzan los enchufes y los cables a nivel del piso; no se encontró una cifra de lesiones, así que se calificó con cautela.",
+      "12-24m": "Los niños pequeños meten los dedos y muerden los enchufes y los cables; no se encontró una cifra de lesiones, así que se calificó con cautela.",
+      "24-36m": "Sigue explorando con las manos y la boca; no se encontró una cifra de lesiones, así que se calificó con cautela.",
+      "36-60m": "La curiosidad disminuye en la mayoría de los niños; no se encontró una cifra de lesiones, así que se calificó con cautela."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

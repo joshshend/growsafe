@@ -123,5 +123,33 @@
       "accessed": "2026-10-11"
     }
   ],
-  "icon": "carseat"
+  "icon": "carseat",
+  "es": {
+    "name": "Uso e instalación de la silla de auto",
+    "why_it_matters": "Los choques de auto son una de las principales causas de muerte en niños, y una silla de tipo equivocado o mal instalada protege menos. La silla correcta, bien instalada y bien usada, reduce el riesgo.",
+    "fix_steps_text": [
+      "Use una silla mirando hacia atrás para todo bebé menor de 1 año, y mantenga a los niños pequeños mirando hacia atrás el mayor tiempo posible, hasta el límite máximo de altura o peso de la silla.",
+      "Lea los manuales de la silla y del vehículo, y luego instale la silla con los anclajes inferiores o con el cinturón de seguridad, según las instrucciones. Use la correa superior en las sillas que miran hacia adelante.",
+      "Revise el arnés en cada viaje y asegúrese de que no tenga holgura; los arneses flojos fueron un mal uso común en el estudio de NHTSA.",
+      "Pase a una silla con arnés que mira hacia adelante, y luego a un asiento elevador, solo cuando el niño supere los límites de la silla anterior; mantenga a los niños en el asiento de atrás.",
+      "Pida a un técnico certificado en seguridad de pasajeros infantiles que revise la instalación, si hay uno cerca de usted."
+    ],
+    "blind_spots": [
+      "Qué tan firme está la silla y la holgura del arnés (difícil de juzgar en una foto)",
+      "La fecha de vencimiento y si hay retiros del mercado",
+      "Si la silla es adecuada para el vehículo"
+    ],
+    "verify_rule": "La silla corresponde a la edad y el tamaño del niño, está instalada firme según su manual, y el arnés no tiene holgura.",
+    "reminder_text": "Revise el ajuste de la silla de auto: ¿está ajustado el arnés, está firme la instalación y su hijo alcanzó el límite de altura o peso de la silla?",
+    "severity_rationale": {
+      "0-3m": "Los recién nacidos viajan mirando hacia atrás; el estudio de NHTSA de 2011 encontró que el 49% de las sillas tenía al menos un mal uso.",
+      "3-6m": "NHTSA exige una silla mirando hacia atrás para menores de 1 año; la tasa de mal uso fue del 49% en general.",
+      "6-12m": "Todavía es menor de 1 año, así que NHTSA indica que siempre debe ir mirando hacia atrás; una instalación floja o un ángulo bajo de la silla son los malos usos principales.",
+      "12-24m": "Según NHTSA, mantenga al niño mirando hacia atrás el mayor tiempo posible; los errores comunes son la instalación floja y el arnés con holgura.",
+      "24-36m": "Las sillas que miran hacia adelante tuvieron la mayor proporción de malos usos múltiples (31.3%) en el estudio de NHTSA de 2011.",
+      "36-60m": "Silla con arnés o asiento elevador según el tamaño; los asientos elevadores tuvieron una proporción menor de malos usos múltiples (3.8%), pero el error principal es el cinturón de regazo sobre la barriga."
+    },
+    "reviewed_by": "machine translation, not yet reviewed by a fluent speaker",
+    "reviewed_on": null
+  }
 }

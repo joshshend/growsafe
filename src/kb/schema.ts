@@ -57,8 +57,12 @@ export const SpanishSchema = z.object({
   name: z.string(), // translated name
   why_it_matters: z.string(), // translated explanation
   fix_steps_text: z.array(z.string()), // translated step texts, same order as fix_steps
-  reviewed_by: z.string(), // fluent reviewer's name
-  reviewed_on: isoDate, // review date
+  blind_spots: z.array(z.string()), // translated blind_spots, same order
+  verify_rule: z.string(), // translated verify_rule
+  reminder_text: z.string().optional(), // translated reminder.text (when the entry has a reminder)
+  severity_rationale: z.record(StageSchema, z.string()), // translated severity[stage].rationale
+  reviewed_by: z.string(), // fluent reviewer's name, or "machine translation, not yet reviewed by a fluent speaker"
+  reviewed_on: isoDate.nullable(), // review date; null until a fluent speaker has reviewed it
 });
 
 export const HazardEntrySchema = z
@@ -79,7 +83,7 @@ export const HazardEntrySchema = z
     blind_spots: z.array(z.string()), // things a photo cannot show
     citations: z.array(CitationSchema).min(1), // sources, at least one
     icon: z.string().min(1), // icon key for the UI
-    es: SpanishSchema.optional(), // reviewed Spanish text
+    es: SpanishSchema.optional(), // Spanish text (machine-translated until reviewed_on is set)
   })
   .superRefine((e, ctx) => {
     if (e.evidence_status === "sourced" && e.injury_evidence.length === 0) {

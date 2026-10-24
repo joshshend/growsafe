@@ -11,6 +11,9 @@ export const ChecklistItemSchema = z.object({
   title: z.string().min(1), // short task name shown in the plan
   q: z.string().min(1), // yes/no question; "yes" is the good answer
   fix: z.string().min(1), // what to do when the answer is "no"
+  es: z
+    .object({ title: z.string().min(1), q: z.string().min(1), fix: z.string().min(1) })
+    .optional(), // Spanish (machine-translated)
   source: z.object({
     title: z.string().min(1),
     publisher: z.string().min(1),
@@ -100,6 +103,19 @@ export function gearHazard(hazardId: string): HazardEntry | null {
     blind_spots: [],
     citations: [{ ...item.source }],
     icon: kind.icon,
+    es: item.es && {
+      name: item.es.title,
+      why_it_matters: `Pregunta de la lista: ${item.es.q}`,
+      fix_steps_text: [item.es.fix],
+      blind_spots: [],
+      verify_rule:
+        "Responda que sí a esta pregunta en la lista de revisión del equipo después de hacer el cambio.",
+      severity_rationale: Object.fromEntries(
+        STAGES.map((s) => [s, "De su lista de revisión del equipo."]),
+      ) as Record<(typeof STAGES)[number], string>,
+      reviewed_by: "machine translation, not yet reviewed by a fluent speaker",
+      reviewed_on: null,
+    },
   };
 }
 

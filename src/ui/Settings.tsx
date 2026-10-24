@@ -44,6 +44,7 @@ export function Settings() {
               </button>
             ))}
           </div>
+          <p className="fine">{t("i18n.aiNote")}</p>
         </div>
         <div className="setting">
           <span id="set-large">{t("settings.largeText")}</span>
@@ -138,7 +139,7 @@ export function Privacy() {
         <li>{t("privacy.1")}</li>
         <li>{t("privacy.2")}</li>
         <li>{t("privacy.3")}</li>
-        <li>{t("privacy.4")}</li>
+        <li>{t("i18n.aiNote")}</li>
       </ul>
       <details className="disc">
         <summary className="disc-sum">{t("privacy.aiTitle")}</summary>
