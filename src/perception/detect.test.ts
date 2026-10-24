@@ -121,13 +121,31 @@ describe("handler", () => {
     expect(cross.status).toBe(403);
     const same = await POST(req(good, { origin: "https://growsafe.test" }), { env, fetch: f });
     expect(same.status).toBe(200);
-    const get = await POST(new Request("https://growsafe.test/api/detect"), { env, fetch: f });
-    expect(get.status).toBe(405);
+    const put = await POST(new Request("https://growsafe.test/api/detect", { method: "PUT" }), {
+      env,
+      fetch: f,
+    });
+    expect(put.status).toBe(405);
   });
   it("caps findings at 12", () => {
     const cues = Array.from({ length: 20 }, (_, i) => `c${i}`);
     const out = parseFindings(JSON.stringify(cues.map((cue) => ({ cue, confidence: 0.9 }))), cues);
     expect(out).toHaveLength(12);
+  });
+});
+
+describe("status check", () => {
+  it("GET reports the provider without calling it, or 503 without a key", async () => {
+    const f = vi.fn();
+    const url = "https://growsafe.test/api/detect";
+    const ok = await POST(new Request(url), {
+      env: { ANTHROPIC_API_KEY: "a" },
+      fetch: f as unknown as typeof fetch,
+    });
+    expect(ok.status).toBe(200);
+    expect(ok.headers.get("X-Provider")).toBe("anthropic");
+    expect((await POST(new Request(url), { env: {} })).status).toBe(503);
+    expect(f).not.toHaveBeenCalled();
   });
 });
 

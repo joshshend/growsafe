@@ -192,6 +192,12 @@ export function parseFindings(text: string, allowed: string[]) {
 export async function POST(request: Request, deps: DetectDeps = {}): Promise<Response> {
   const env = deps.env ?? process.env;
   const now = (deps.now ?? Date.now)();
+  const provider = pickProvider(env);
+  // GET is a free status check for the app: is a provider configured, and which one. It never calls a provider.
+  if (request.method === "GET")
+    return provider
+      ? json(200, { available: true, provider: provider.name }, { "X-Provider": provider.name })
+      : fail(503, "no_provider");
   if (request.method !== "POST") return fail(405, "method_not_allowed");
 
   // Same-origin only: no CORS headers are ever sent, and a cross-site browser request is refused.
@@ -206,7 +212,6 @@ export async function POST(request: Request, deps: DetectDeps = {}): Promise<Res
     if (!same) return fail(403, "forbidden");
   }
 
-  const provider = pickProvider(env);
   if (!provider) return fail(503, "no_provider");
 
   let body: z.infer<typeof BodySchema>;
