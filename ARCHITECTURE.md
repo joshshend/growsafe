@@ -1,5 +1,8 @@
 # GrowSafe architecture (contracts every task builds against)
 
+> Status note (2026-10-24): the hosted photo-scan path described below (hosted.ts, faces.ts, exif.ts, the photo proxy, /accuracy) was cut before submission. Perception is the guided room check: the user taps what they see (src/perception/guided.ts), and the same findings -> tasks code applies. The eval/ folder holds an unused early bake-off harness. The only serverless function is api/recalls.ts (recall lookup forwarder).
+
+
 ## Principles
 1. Knowledge base (KB) is the only source of advice. Vision/AI only reports cues; it never writes tips.
 2. Everything runs on the device: no accounts, no backend except one stateless photo proxy (T9).
