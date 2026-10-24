@@ -15,6 +15,7 @@ import {
 import { useStore } from "../store/store";
 import { localHazard } from "./format";
 import { HazardIcon } from "./icons";
+import { PhotoScan } from "./PhotoScan";
 import { useChildViews, useSetDone } from "./parts";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
@@ -196,6 +197,16 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
         <h1 className="t-title">{t(recheck ? "scan.recheck.title" : "scan.title")}</h1>
         <p className="muted">{t(recheck ? "scan.recheck.intro" : "scan.intro")}</p>
       </div>
+
+      {cues.length > 0 && (
+        <PhotoScan
+          offered={cues.map((c) => c.cue)}
+          mode={recheck ? "recheck" : "scan"}
+          onApply={(sel) =>
+            setTicked((cur) => (recheck ? new Set(sel) : new Set([...cur, ...sel])))
+          }
+        />
+      )}
 
       {!recheck && (
         <div className="scan-pick">

@@ -48,7 +48,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: false, // registered from src/main.tsx so the native app can skip it
-      includeAssets: ["icon-192.png", "icon-512.png"],
+      includeAssets: ["icon-192.png", "icon-512.png", "demo/sample-room.svg"],
       manifest: {
         name: "GrowSafe",
         short_name: "GrowSafe",
