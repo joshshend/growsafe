@@ -16,6 +16,7 @@ Common childhood injuries (falls, drowning, poisoning, burns, choking, furniture
 - **Plan my weekend.** Picks the highest-ranked open tasks that fit the time and budget you give it, and exports a calendar (.ics) file.
 - **Growth preview.** Shows what becomes a risk in the coming months, so you can act before the next stage, and lets you add those tasks early.
 - **Visit pack and return link.** Send a short pack of tasks for another home (a grandparent's house, for example) as a link. The helper ticks off what they did and sends a reply link back; the replies merge into your plan after you confirm.
+- **Room check, with an optional photo.** Tap what you see in a room and the knowledge base turns it into tasks. If the deployment has an AI key set, you can instead scan one photo: a hosted vision model only reports which listed cues it can see, you untick anything wrong, and the same knowledge base creates the tasks. If the photo path fails for any reason, the tap list is still there. A photo can miss things, and nothing flagged does not mean a room is safe.
 - **Medicine check, emergency card, sitter briefing.** A guided check of medicine and chemical storage; an emergency card (allergies, contacts, etc.) that stays on the device; a printable briefing for a sitter. There is no dosing information.
 - **Gear and recall check.** List the gear you own (crib, car seat, stroller and similar) with product checklists. The app looks up the CPSC recall database and shows possible matches. Brand matching happens on the device and the model number on the recall notice decides; a lack of match does not mean a product is fine.
 - **Help and Support directory.** Curated, Texas-first resources, including help paying for safety gear, filterable and ordered by zip code.
@@ -28,7 +29,7 @@ Common childhood injuries (falls, drowning, poisoning, burns, choking, furniture
 - **The knowledge base is the only source of advice.** Each hazard is one JSON file in `src/kb/data/`, validated by a Zod schema (`src/kb/schema.ts`) and by `npm run kb:validate`. An entry has a source URL and access date, severity by age stage with rationale, fix steps, a verification rule and its blind spots. The UI renders KB content; it does not generate advice.
 - **Pure logic modules with tests.** `src/plan` (stage, ranking, plan building, unlocks, weekend planner, growth preview) and `src/share` (redaction, link codec, visit pack and reply merge) have no React imports and are unit tested with Vitest. `npm run plan:demo` prints a plan from the terminal.
 - **No accounts and no backend.** Data is stored on the device (IndexedDB via idb-keyval). Shared links carry their data in the URL fragment (after `#`), which browsers do not send to servers. Plans are redacted to an allow-list before encoding and compressed with deflate.
-- **One small exception.** `api/recalls.ts` is a stateless Vercel function that forwards the search text of a recall lookup to the CPSC API so a browser CORS rule cannot block it. It stores and logs nothing. The app tries the forwarder first and then CPSC directly.
+- **Two small serverless functions.** `api/detect.ts` is the photo-scan proxy described under Privacy; it keeps its API key in an environment variable. `api/recalls.ts` is a stateless Vercel function that forwards the search text of a recall lookup to the CPSC API so a browser CORS rule cannot block it. It stores and logs nothing. The app tries the forwarder first and then CPSC directly.
 - **Stack.** React 18, TypeScript, Vite, vite-plugin-pwa, React Router (HashRouter, so any static host works), Zustand, Zod, fflate, Vitest, Playwright with axe. Capacitor config for an optional iOS wrapper is in the repo (`docs/IOS.md`); the web app is the primary build.
 
 ## Privacy
@@ -37,7 +38,8 @@ Common childhood injuries (falls, drowning, poisoning, burns, choking, furniture
 - Everything you enter stays on your device unless you choose to send a link or file.
 - Links carry data in the URL fragment. Full names, exact birth dates, addresses and emergency card data are not included in links.
 - The emergency card is stored on the device only and is never put in a link.
-- The only network calls are to the CPSC recall API (search text only, optionally through the forwarder above) and the page and assets themselves.
+- Photo scan is off unless the server has a key, and asks for your agreement before the first photo. The photo is resized and re-drawn in your browser (which removes EXIF and location data), sent through `api/detect.ts` to Google's Gemini or Anthropic's Claude (whichever key the deployment uses), and is not saved or logged by GrowSafe. The provider receives the image under its own terms, which GrowSafe does not control; do not send photos with children or personal documents. The proxy limits each IP to 20 scans an hour and the deployment to a daily cap.
+- The only other network calls are to the CPSC recall API (search text only, optionally through the forwarder above) and the page and assets themselves.
 
 ## Accuracy and limits
 

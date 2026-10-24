@@ -1,6 +1,6 @@
 # GrowSafe architecture (contracts every task builds against)
 
-> Status note (2026-10-24): the hosted photo-scan path described below (hosted.ts, faces.ts, exif.ts, the photo proxy, /accuracy) was cut before submission. Perception is the guided room check: the user taps what they see (src/perception/guided.ts), and the same findings -> tasks code applies. The eval/ folder holds an unused early bake-off harness. The only serverless function is api/recalls.ts (recall lookup forwarder).
+> Status note (2026-10-24, evening): the photo scan is BACK, layered over the guided room check. src/perception now has hosted.ts, exif.ts, quality.ts, faces.ts and scan.ts, and api/detect.ts is the proxy (GEMINI_API_KEY or ANTHROPIC_API_KEY; with no key the photo option is hidden). Any failure falls back to the tap list (src/perception/guided.ts); findings -> tasks is the same code. The bake-off and /accuracy page stay cut. Serverless functions: api/detect.ts and api/recalls.ts.
 
 
 ## Principles

@@ -44,3 +44,15 @@ This variable only matters for links made inside a native build, but set it so l
 5. Turn Airplane Mode off.
 
 If a new version does not appear after a deploy, close and reopen the app twice; the service worker updates in the background.
+
+## 6. Turn on photo scan (optional)
+
+Photo scan needs one API key on the server. Without a key the photo option does not appear and nothing else changes.
+
+1. Get a key: Google AI Studio (Gemini) or the Anthropic Console (Claude).
+2. In the Vercel project, Settings, Environment Variables, add `GEMINI_API_KEY` or `ANTHROPIC_API_KEY` (not both; Gemini wins if both are set) for Production and Preview. Never prefix it with `VITE_`.
+3. Optional: `GEMINI_MODEL` (default `gemini-3.8-flash`), `ANTHROPIC_MODEL` (default `claude-haiku-5-5`; `claude-sonnet-5-5` is stronger), `DAILY_CAP` (default 300 scans a day across all users).
+4. Redeploy (Deployments, latest, Redeploy). Keys are read when the function starts.
+5. To test locally, copy `.env.example` to `.env.local`, fill in one key, and run `npm run dev`. `/api/detect` is served by a dev middleware using the same handler. `.env.local` is git-ignored.
+
+Check the model name on https://ai.google.dev/models before the demo; if it has been retired, set `GEMINI_MODEL`.
