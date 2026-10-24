@@ -4,6 +4,7 @@ import {
   CaretDown,
   CaretRight,
   CheckCircle,
+  ClipboardText,
   Clock,
   Coins,
 } from "@phosphor-icons/react";
@@ -161,6 +162,17 @@ export function Today() {
           </p>
         </section>
       )}
+
+      <Link to="/scan" className="wk-card">
+        <span className="wk-card-icon">
+          <ClipboardText size={32} weight="duotone" aria-hidden="true" />
+        </span>
+        <span className="row-body">
+          <span className="row-sub">{t("scan.cta.todaySub")}</span>
+          <span className="row-title">{t("scan.cta.today")}</span>
+        </span>
+        <CaretRight size={20} weight="bold" aria-hidden="true" />
+      </Link>
 
       {!easy && open.length > 0 && (
         <Link to="/weekend" className="wk-card">

@@ -92,6 +92,9 @@ export function RoomPage() {
           showCount
         />
       </div>
+      <Link to={`/scan?home=${home.id}&room=${room}`} className="btn btn-block">
+        {t("scan.cta")}
+      </Link>
       {mine.length === 0 && <p className="muted">{t("room.empty")}</p>}
       {open.length > 0 && (
         <section aria-labelledby="open">

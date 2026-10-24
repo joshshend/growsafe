@@ -13,6 +13,7 @@ import { MedicineCheck } from "./MedicineCheck";
 import { Onboarding } from "./Onboarding";
 import { People } from "./People";
 import { RoomPage, Rooms } from "./Rooms";
+import { Scan } from "./Scan";
 import { Privacy, Settings } from "./Settings";
 import { Today } from "./Today";
 import { useUi } from "./ui-state";
@@ -68,6 +69,7 @@ export function App() {
           <Route path="home/new" element={<HomeForm />} />
           <Route path="rooms" element={<Rooms />} />
           <Route path="room/:homeId/:room" element={<RoomPage />} />
+          <Route path="scan" element={<Scan />} />
           <Route path="task/:id" element={<TaskLink />} />
           <Route path="ahead" element={<Ahead />} />
           <Route path="weekend" element={<Weekend />} />

@@ -1,5 +1,6 @@
 // Task detail: bottom sheet on phones, side panel on wide screens.
 import { useState, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { CaretDown, CaretRight, Clock, Coins } from "@phosphor-icons/react";
 import { remindMe, reminderDate, type ReminderChoice } from "../native/reminder";
 import { useStore } from "../store/store";
@@ -178,6 +179,7 @@ export function TaskSheet() {
   const homes = useStore((s) => s.homes);
   const setDone = useSetDone();
   const setStatus = useStore((s) => s.setStatus);
+  const navigate = useNavigate();
   const [assigning, setAssigning] = useState(false);
   const [reminding, setReminding] = useState(false);
   const close = () => openTask(null);
@@ -276,6 +278,22 @@ export function TaskSheet() {
             </span>
             <CaretRight size={20} weight="bold" aria-hidden="true" />
           </button>
+          {hazard.detection_cues.length > 0 && home && (
+            <button
+              type="button"
+              className="link-row"
+              onClick={() => {
+                close();
+                navigate(`/scan?home=${task.home_id}&room=${task.room}&task=${task.id}`);
+              }}
+            >
+              <span>
+                {t("scan.recheck.row")}
+                <span className="row-sub block">{t("scan.recheck.rowSub")}</span>
+              </span>
+              <CaretRight size={20} weight="bold" aria-hidden="true" />
+            </button>
+          )}
           <Disclosure title={t("task.why")}>
             <p>{local.why}</p>
             {ranked && (
