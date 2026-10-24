@@ -4,7 +4,7 @@ Submit by Sun night. Monday morning is buffer only. Third-party summaries say: s
 
 ## Cuts (decided; do not reopen)
 
-- Hosted AI photo scan, bake-off, accuracy page: CUT. Replaced by a guided room check (tap what you see). No API keys needed. Do not mention photo scanning anywhere in the app, README or video.
+- (REVERSED Sat 6:40 PM by Josh: the photo scan is back, built on top of the guided room check with automatic fallback to it. Freeze rule: if it is not stable by Sun 12 PM it ships behind a hidden flag and the video does not show it.) Bake-off and accuracy page: still CUT. Replaced by a guided room check (tap what you see). No API keys needed. Do not mention photo scanning anywhere in the app, README or video.
 - Native iOS build (Capacitor): OPTIONAL, only if everything else is done Sunday 4 PM. Demo is recorded from the deployed web app installed to the iPhone home screen.
 - Remaining stretch items: cut. Feature freeze is NOW; from here only bugs, copy, polish, video.
 
