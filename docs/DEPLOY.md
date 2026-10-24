@@ -13,8 +13,7 @@ git remote add origin https://github.com/<your-username>/growsafe.git
 git push -u origin main
 ```
 
-If your branch is not called `main`, check with `git branch --show-current` and use that name.
-3. Open the repo page logged out (private window) to confirm it is public and shows the README.
+If your branch is not called `main`, check with `git branch --show-current` and use that name. 3. Open the repo page logged out (private window) to confirm it is public and shows the README.
 
 ## 2. Deploy on Vercel
 
