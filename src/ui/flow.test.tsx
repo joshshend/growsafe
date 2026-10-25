@@ -42,7 +42,7 @@ describe("core flow (jsdom stand-in for the browser smoke test)", () => {
     expect(screen.getByText("Room 1 of 5")).toBeInTheDocument();
     // Tap one thing in the first room, skip the other four.
     const chips = within(screen.getByRole("group", { name: "Things in this room" })).getAllByRole(
-      "button",
+      "checkbox",
     );
     fireEvent.click(chips[0]!);
     fireEvent.click(screen.getByRole("button", { name: "Add these and continue" }));

@@ -1,0 +1,124 @@
+/* Tap list rows: hairline-separated like the task rows, left aligned, text wraps naturally.
+   A ticked row gets the drawn tick and a quiet pencil-yellow edge. Tokens only, so dark and easy mode follow. */
+.cue-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.cue-group {
+  min-width: 0;
+}
+.cue-group-name {
+  margin: 0 0 4px;
+  overflow-wrap: anywhere;
+}
+.cue-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.cue-row {
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 0 0 0 var(--action);
+}
+.cue-row.is-on {
+  box-shadow: inset 4px 0 0 var(--action);
+  background: var(--surface);
+}
+.cue-label {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 8px 14px 14px;
+  text-align: left;
+  cursor: pointer;
+}
+:root[data-easy="on"] .cue-label {
+  min-height: 64px;
+}
+.cue-text {
+  flex: 1;
+  min-width: 0;
+  padding-top: max(0px, calc((28px - var(--gs-lh-2)) / 2));
+  font: 500 var(--gs-fs-2) / var(--gs-lh-2) var(--font-body);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.cue-row.is-on .cue-text {
+  font-weight: 700;
+}
+.cue-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.cue-box {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--surface);
+}
+.cue-tick {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+  transition: stroke-dashoffset var(--dur-tick) var(--ease-pencil);
+}
+.cue-row.is-on .cue-box {
+  border-color: var(--ink);
+  background: var(--ground);
+  box-shadow: 3px 3px 0 var(--fill);
+}
+.cue-row.is-on .cue-tick {
+  stroke-dashoffset: 0;
+}
+.cue-input:focus-visible ~ .cue-box {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Bottom bar. Sticky inside the page flow: pinned above the tab bar (or the screen edge on
+   onboarding) until the end of the content, where it just sits in place. */
+.action-bar {
+  position: sticky;
+  bottom: calc(var(--tab-h) + var(--safe-b));
+  z-index: 10;
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 12px var(--gutter);
+  background: var(--ground);
+  border-top: 1px solid var(--line);
+}
+.page-bare .action-bar {
+  bottom: 0;
+  padding-bottom: calc(12px + var(--safe-b));
+}
+@media (min-width: 900px) {
+  .action-bar {
+    bottom: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cue-tick {
+    transition: none;
+  }
+}

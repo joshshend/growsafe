@@ -3,12 +3,13 @@ import { useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { loadKb } from "../kb";
 import type { Room, Task } from "../kb/schema";
-import { cuesForRoom, findingsFromTaps, verifyFix, type RoomCue } from "../perception";
+import { cuesForRoom, findingsFromTaps, verifyFix } from "../perception";
 import { useStore } from "../store/store";
 import { isChecked, prefillCues } from "../plan/roomCheck";
 import { localHazard } from "./format";
+import { ActionBar, CueList } from "./CueList";
 import { PhotoScan } from "./PhotoScan";
-import { BackLink, Tick, useChildViews, useSetDone } from "./parts";
+import { BackLink, useChildViews, useSetDone } from "./parts";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 import "./scan.css";
@@ -182,12 +183,6 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
   }
 
   const visible = showAll || recheck ? cues : cues.slice(0, LIMIT);
-  const groups: { id: string; items: RoomCue[] }[] = [];
-  for (const c of visible) {
-    const g = groups.find((x) => x.id === c.hazardId);
-    if (g) g.items.push(c);
-    else groups.push({ id: c.hazardId, items: [c] });
-  }
   const n = ticked.size;
 
   return (
@@ -259,33 +254,14 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
       {cues.length === 0 ? (
         <p className="muted">{t("scan.none", { name: child.nickname })}</p>
       ) : (
-        <div className="flow-s" role="group" aria-label={t("scan.listLabel")}>
-          {groups.map((g) => (
-            <section key={g.id}>
-              <h2 className="lbl scan-group">{hazardName(g.id)}</h2>
-              <ul className="rows">
-                {g.items.map((c) => {
-                  const on = ticked.has(c.cue);
-                  return (
-                    <li key={c.cue} className="row">
-                      <label className={`scan-row${on ? " is-on" : ""}`}>
-                        <input
-                          type="checkbox"
-                          className="scan-input"
-                          checked={on}
-                          onChange={() => toggle(c.cue)}
-                        />
-                        <span className="scan-box" aria-hidden="true">
-                          <Tick className="scan-tick" />
-                        </span>
-                        <span className="row-title">{t(`cue.${c.cue}`)}</span>
-                      </label>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          ))}
+        <div className="flow-s">
+          <CueList
+            cues={visible}
+            ticked={ticked}
+            onToggle={toggle}
+            groupName={hazardName}
+            label={t("scan.listLabel")}
+          />
           {!recheck && cues.length > LIMIT && (
             <button
               type="button"
@@ -299,18 +275,20 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
       )}
 
       {!recheck && n === 0 && cues.length > 0 && <p className="fine">{t("scan.noneTicked")}</p>}
-      {recheck ? (
-        <button type="button" className="btn btn-primary btn-block" onClick={finishRecheck}>
-          {t("scan.recheck.update")}
-        </button>
-      ) : (
-        <button type="button" className="btn btn-primary btn-block" onClick={finishAdd}>
-          {n === 0
-            ? t(isChecked(home, room) ? "scan.finish" : "rooms.nothingNeeds")
-            : t(n === 1 ? "scan.addN.one" : "scan.addN.other", { n })}
-        </button>
-      )}
       <p className="scan-note">{t("scan.disclaimer")}</p>
+      <ActionBar>
+        {recheck ? (
+          <button type="button" className="btn btn-primary btn-block" onClick={finishRecheck}>
+            {t("scan.recheck.update")}
+          </button>
+        ) : (
+          <button type="button" className="btn btn-primary btn-block" onClick={finishAdd}>
+            {n === 0
+              ? t(isChecked(home, room) ? "scan.finish" : "rooms.nothingNeeds")
+              : t(n === 1 ? "scan.addN.one" : "scan.addN.other", { n })}
+          </button>
+        )}
+      </ActionBar>
     </div>
   );
 }

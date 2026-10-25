@@ -1,10 +1,12 @@
 // "What's in each room?" (onboarding step 4): one room at a time, tap what is there.
 // Nothing is assumed: only the taps become tasks. A skipped room stays "Not checked yet".
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import type { Room } from "../kb/schema";
 import type { RoomCue } from "../perception";
-import { Tick } from "./parts";
-import { useT } from "./useT";
+import { loadKb } from "../kb";
+import { ActionBar, CueList } from "./CueList";
+import { localHazard } from "./format";
+import { useLang, useT } from "./useT";
 
 const LIMIT = 12;
 
@@ -23,6 +25,12 @@ export interface RoomSetupProps {
 
 export function RoomSetup(p: RoomSetupProps) {
   const t = useT();
+  const lang = useLang();
+  const kb = useMemo(() => loadKb(), []);
+  const hazardName = (id: string) => {
+    const h = kb.find((x) => x.id === id);
+    return h ? localHazard(h, lang).name : id;
+  };
   const heading = useRef<HTMLHeadingElement>(null);
   const [ticked, setTicked] = useState<Set<string>>(() => new Set(p.initial));
   const [all, setAll] = useState(false);
@@ -52,42 +60,32 @@ export function RoomSetup(p: RoomSetupProps) {
       {p.cues.length === 0 ? (
         <p className="muted">{t("onboard.setup.noCues")}</p>
       ) : (
-        <div className="toggle-chips" role="group" aria-label={t("onboard.setup.groupLabel")}>
-          {shown.map((c) => (
-            <button
-              key={c.cue}
-              type="button"
-              className="toggle-chip"
-              aria-pressed={ticked.has(c.cue)}
-              onClick={() => toggle(c.cue)}
-            >
-              <span className="toggle-chip-mark" aria-hidden="true">
-                <Tick />
-              </span>
-              {t(`cue.${c.cue}`)}
-            </button>
-          ))}
-        </div>
+        <CueList
+          cues={shown}
+          ticked={ticked}
+          onToggle={toggle}
+          groupName={hazardName}
+          label={t("onboard.setup.groupLabel")}
+        />
       )}
       {p.cues.length > LIMIT && (
         <button type="button" className="btn btn-secondary btn-block" onClick={() => setAll(!all)}>
           {t(all ? "scan.showLess" : "scan.showMore")}
         </button>
       )}
+      <p className="fine">{t("onboard.setup.later")}</p>
+      <ActionBar>
+        <button
+          type="button"
+          className="btn btn-primary btn-block"
+          onClick={() => p.onTaps([...ticked])}
+        >
+          {n > 0
+            ? t(p.last ? "onboard.setup.finish" : "onboard.setup.next")
+            : t("onboard.setup.nothing")}
+        </button>
+      </ActionBar>
       <div className="form-actions">
-        {n > 0 ? (
-          <button
-            type="button"
-            className="btn btn-primary btn-block"
-            onClick={() => p.onTaps([...ticked])}
-          >
-            {t(p.last ? "onboard.setup.finish" : "onboard.setup.next")}
-          </button>
-        ) : (
-          <button type="button" className="btn btn-primary btn-block" onClick={() => p.onTaps([])}>
-            {t("onboard.setup.nothing")}
-          </button>
-        )}
         <button type="button" className="btn btn-secondary btn-block" onClick={p.onSkip}>
           {t("onboard.setup.skip")}
         </button>
@@ -95,7 +93,6 @@ export function RoomSetup(p: RoomSetupProps) {
           {t("common.back")}
         </button>
       </div>
-      <p className="fine">{t("onboard.setup.later")}</p>
     </div>
   );
 }
