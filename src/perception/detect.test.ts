@@ -191,3 +191,22 @@ describe("limits", () => {
     expect(f).not.toHaveBeenCalled();
   });
 });
+
+describe("blank env values from a copied .env.example", () => {
+  it("treats blank DAILY_CAP, GEMINI_MODEL and ANTHROPIC_KEY as unset", async () => {
+    const g = gemini("[]");
+    const res = await POST(req(good), {
+      env: {
+        GEMINI_API_KEY: "gk",
+        GEMINI_MODEL: "",
+        DAILY_CAP: "",
+        ANTHROPIC_API_KEY: "",
+        ANTHROPIC_MODEL: "",
+      },
+      fetch: g,
+    });
+    expect(res.status).toBe(200);
+    const [url] = (g as unknown as ReturnType<typeof vi.fn>).mock.calls[0] as [string];
+    expect(url).toContain("/models/gemini-");
+  });
+});

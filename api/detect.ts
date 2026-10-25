@@ -232,7 +232,9 @@ export async function POST(request: Request, deps: DetectDeps = {}): Promise<Res
     dayKey = today;
     dayCount = 0;
   }
-  const cap = Number(env.DAILY_CAP ?? 300);
+  // A blank DAILY_CAP (e.g. copied from .env.example) means "use the default", not zero.
+  const capRaw = (env.DAILY_CAP ?? "").trim();
+  const cap = capRaw === "" ? 300 : Number(capRaw);
   if (dayCount >= (Number.isFinite(cap) && cap >= 0 ? cap : 300)) return fail(429, "daily_cap");
   recent.push(now);
   hits.set(ip, recent);
