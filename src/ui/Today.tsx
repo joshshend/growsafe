@@ -15,6 +15,7 @@ import { useStore } from "../store/store";
 import { progress } from "../store/selectors";
 import { costText, localHazard, monthsText, taskTotals } from "./format";
 import { HazardIcon, RoomIcon } from "./icons";
+import { Wordmark } from "./Logo";
 import { Ring, Severity, TaskRow, useChildViews } from "./parts";
 import { ageMonthsSafe } from "./age";
 import { useEasy } from "./easy";
@@ -79,6 +80,9 @@ export function Today() {
   return (
     <div className="flow">
       <RecallBanner />
+      <div className="brand-row">
+        <Wordmark text={t("app.title")} />
+      </div>
       <div className="today-head">
         <h1 className="t-title">{t("today.title", { name: child.nickname })}</h1>
         <Ring

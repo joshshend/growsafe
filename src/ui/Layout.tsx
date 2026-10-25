@@ -13,6 +13,7 @@ import { useStore } from "../store/store";
 import { ageText } from "./format";
 import { ChildSwitcher } from "./ChildSwitcher";
 import { TaskSheet } from "./TaskSheet";
+import { IllustrationDefs } from "./illustrations";
 import { useApplyEasy, useEasy } from "./easy";
 import { applyTheme, readTheme } from "./theme";
 import { useActiveChild, useUi } from "./ui-state";
@@ -72,6 +73,7 @@ export function Layout() {
 
   return (
     <div className="app">
+      <IllustrationDefs />
       <a className="skip" href="#main">
         {t("nav.skip")}
       </a>

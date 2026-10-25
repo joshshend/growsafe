@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useStore } from "../store/store";
-import { HazardIcon } from "./icons";
+import { Wordmark } from "./Logo";
+import { EmptyDoorframe } from "./illustrations";
 import { useT } from "./useT";
 
 export function Welcome() {
@@ -8,16 +9,11 @@ export function Welcome() {
   const loadDemo = useStore((s) => s.loadDemo);
   return (
     <div className="welcome">
-      <div className="welcome-icons" aria-hidden="true">
-        <HazardIcon name="tv" size={44} />
-        <HazardIcon name="stairs" size={44} />
-        <HazardIcon name="pot" size={44} />
-        <HazardIcon name="pill" size={44} />
-        <HazardIcon name="plug" size={44} />
-        <HazardIcon name="bath" size={44} />
+      <div className="welcome-art">
+        <EmptyDoorframe decorative />
       </div>
       <div className="flow-s">
-        <h1 className="wordmark">{t("app.title")}</h1>
+        <Wordmark text={t("app.title")} as="h1" large />
         <p>{t("welcome.lead")}</p>
       </div>
       <div className="form-actions">
