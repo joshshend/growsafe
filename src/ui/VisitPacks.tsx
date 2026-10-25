@@ -98,7 +98,7 @@ function SendSheet({ home, onClose }: { home: Home; onClose: () => void }) {
       )}
       <div className="form-actions">
         <button type="button" className="btn btn-primary btn-block" onClick={() => void send()}>
-          <PaperPlaneTilt size={22} weight="duotone" aria-hidden="true" />
+          <PaperPlaneTilt size={22} weight="regular" aria-hidden="true" />
           {t("visit.sendLink")}
         </button>
         <p role="status" className="muted">
@@ -145,7 +145,7 @@ export function VisitPacks() {
         {homes.map((h) => (
           <li key={h.id} className="row">
             <button type="button" className="btn btn-block" onClick={() => setSending(h)}>
-              <PaperPlaneTilt size={22} weight="duotone" aria-hidden="true" />
+              <PaperPlaneTilt size={22} weight="regular" aria-hidden="true" />
               {t("visit.sendFor", { home: h.name })}
             </button>
           </li>

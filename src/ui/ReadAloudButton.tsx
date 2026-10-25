@@ -28,7 +28,7 @@ export function ReadAloudButton({ task }: { task: Task }) {
       {playing ? (
         <Stop size={22} weight="fill" aria-hidden="true" />
       ) : (
-        <SpeakerHigh size={22} weight="duotone" aria-hidden="true" />
+        <SpeakerHigh size={22} weight="regular" aria-hidden="true" />
       )}
       {playing ? t("easy.stop") : t("easy.read")}
     </button>

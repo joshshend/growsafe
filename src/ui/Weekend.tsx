@@ -186,11 +186,11 @@ export function Weekend() {
           <div className="chips-line" aria-label={t("weekend.totals")}>
             <span className="fact">{t("weekend.count", { n: views.length })}</span>
             <span className="fact">
-              <Clock size={20} weight="duotone" aria-hidden="true" />
+              <Clock size={20} weight="regular" aria-hidden="true" />
               {t("task.minutes", { n: plan.totalMinutes })}
             </span>
             <span className="fact">
-              <Coins size={20} weight="duotone" aria-hidden="true" />
+              <Coins size={20} weight="regular" aria-hidden="true" />
               {costLine}
             </span>
           </div>
@@ -257,11 +257,11 @@ export function Weekend() {
             )}
             <div className="wk-actions">
               <button type="button" className="btn" onClick={onCopy}>
-                <Copy size={20} weight="duotone" aria-hidden="true" />
+                <Copy size={20} weight="regular" aria-hidden="true" />
                 {t("weekend.copy")}
               </button>
               <button type="button" className="btn" onClick={onCalendar}>
-                <CalendarPlus size={20} weight="duotone" aria-hidden="true" />
+                <CalendarPlus size={20} weight="regular" aria-hidden="true" />
                 {t("weekend.calendar")}
               </button>
             </div>

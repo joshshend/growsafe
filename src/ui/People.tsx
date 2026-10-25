@@ -33,12 +33,12 @@ export function People() {
           className="btn btn-primary btn-block"
           onClick={() => setNote(t("people.soon"))}
         >
-          <ShareNetwork size={22} weight="duotone" aria-hidden="true" />
+          <ShareNetwork size={22} weight="regular" aria-hidden="true" />
           {t("people.share")}
         </button>
         {homes[0] ? (
           <Link to={`/briefing/${homes[0].id}`} className="btn btn-block">
-            <Printer size={22} weight="duotone" aria-hidden="true" />
+            <Printer size={22} weight="regular" aria-hidden="true" />
             {t("people.briefing")}
           </Link>
         ) : null}
@@ -56,7 +56,7 @@ export function People() {
             <li key={`em-${c.id}`} className="row">
               <Link to={`/emergency/${c.id}`} className="row-link">
                 <span className="row-icon">
-                  <IdentificationCard size={28} weight="duotone" aria-hidden="true" />
+                  <IdentificationCard size={28} weight="regular" aria-hidden="true" />
                 </span>
                 <span className="row-body">
                   <span className="row-title">
@@ -71,7 +71,7 @@ export function People() {
             <li key={`med-${h.id}`} className="row">
               <Link to={`/medicine/${h.id}`} className="row-link">
                 <span className="row-icon">
-                  <Pill size={28} weight="duotone" aria-hidden="true" />
+                  <Pill size={28} weight="regular" aria-hidden="true" />
                 </span>
                 <span className="row-body">
                   <span className="row-title">{t("people.medCheck", { home: h.name })}</span>
@@ -84,7 +84,7 @@ export function People() {
             <li key={`br-${h.id}`} className="row">
               <Link to={`/briefing/${h.id}`} className="row-link">
                 <span className="row-icon">
-                  <FirstAidKit size={28} weight="duotone" aria-hidden="true" />
+                  <FirstAidKit size={28} weight="regular" aria-hidden="true" />
                 </span>
                 <span className="row-body">
                   <span className="row-title">{t("people.briefingFor", { home: h.name })}</span>

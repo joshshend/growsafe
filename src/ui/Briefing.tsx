@@ -133,7 +133,7 @@ export function Briefing() {
         </button>
         {withCard && <p className="muted">{t("brief.cardNote")}</p>}
         <button type="button" className="btn btn-primary btn-block" onClick={() => window.print()}>
-          <Printer size={22} weight="duotone" aria-hidden="true" />
+          <Printer size={22} weight="regular" aria-hidden="true" />
           {t("brief.print")}
         </button>
       </div>

@@ -126,7 +126,7 @@ export function EmergencyCard() {
     <form className="flow" onSubmit={submit} noValidate>
       <h1 className="t-title">{t("em.title", { name: child.nickname })}</h1>
       <p className="notice">
-        <LockSimple size={24} weight="duotone" aria-hidden="true" />
+        <LockSimple size={24} weight="regular" aria-hidden="true" />
         <span>{t("em.local")}</span>
       </p>
       {loaded && (
