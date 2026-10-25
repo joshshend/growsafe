@@ -4,7 +4,8 @@
 @import "@fontsource/atkinson-hyperlegible-next/latin-600.css";
 @import "@fontsource/atkinson-hyperlegible-next/latin-700.css";
 @import "@fontsource/atkinson-hyperlegible-next/latin-800.css";
-@import "@fontsource/young-serif/latin-400.css";
+@import "@fontsource/barlow-semi-condensed/latin-600.css";
+@import "@fontsource/barlow-semi-condensed/latin-700.css";
 
 /* Element defaults use :where() so they never outrank a component class. */
 :where(*, *::before, *::after) {
@@ -29,7 +30,7 @@
 }
 :where(h1, h2, h3) {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.15;
   text-wrap: balance;
 }
@@ -87,15 +88,15 @@
 
 /* Type. Design names first (d = display serif, t = body, lbl = small caps-free label). */
 .d5 {
-  font: 400 var(--gs-fs-5) / var(--gs-lh-5) var(--font-display);
+  font: 700 var(--gs-fs-5) / var(--gs-lh-5) var(--font-display);
   letter-spacing: -0.01em;
 }
 .d4 {
-  font: 400 var(--gs-fs-4) / var(--gs-lh-4) var(--font-display);
+  font: 700 var(--gs-fs-4) / var(--gs-lh-4) var(--font-display);
   letter-spacing: -0.01em;
 }
 .d3 {
-  font: 400 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
+  font: 700 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
 }
 .t2 {
   font: 400 var(--gs-fs-2) / var(--gs-lh-2) var(--font-body);
@@ -113,15 +114,15 @@
 }
 /* Older names, now drawn in the new faces and sizes. */
 .t-display {
-  font: 400 var(--gs-fs-5) / var(--gs-lh-5) var(--font-display);
+  font: 700 var(--gs-fs-5) / var(--gs-lh-5) var(--font-display);
   letter-spacing: -0.01em;
 }
 .t-title {
-  font: 400 var(--gs-fs-4) / var(--gs-lh-4) var(--font-display);
+  font: 700 var(--gs-fs-4) / var(--gs-lh-4) var(--font-display);
   letter-spacing: -0.01em;
 }
 .t-section {
-  font: 400 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
+  font: 700 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
 }
 .t-strong {
   font: 700 var(--gs-fs-2) / var(--gs-lh-2) var(--font-body);
@@ -211,7 +212,7 @@
 
 /* Logo (src/ui/Logo.tsx) */
 .wm {
-  font: 400 22px / 1 var(--font-display);
+  font: 700 22px / 1 var(--font-display);
   letter-spacing: -0.01em;
   display: inline-flex;
   align-items: center;
@@ -970,7 +971,7 @@
 }
 .sheet-title {
   margin-top: 2px;
-  font: 400 var(--gs-fs-4) / var(--gs-lh-4) var(--font-display);
+  font: 700 var(--gs-fs-4) / var(--gs-lh-4) var(--font-display);
   letter-spacing: -0.01em;
 }
 .sheet-body {
@@ -1081,7 +1082,7 @@
   top: 8px;
   width: 22px;
   text-align: center;
-  font: 400 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
+  font: 700 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
 }
 .step-note {
   font-size: var(--gs-fs-1);

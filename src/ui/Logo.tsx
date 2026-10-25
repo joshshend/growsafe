@@ -30,7 +30,7 @@ export function Mark({ size = 30, className }: { size?: number; className?: stri
   );
 }
 
-// Mark plus the name in Young Serif. Pass the name from i18n (app.title). Use as="h1" where it is the page heading.
+// Mark plus the name in Barlow Semi Condensed. Pass the name from i18n (app.title). Use as="h1" where it is the page heading.
 export function Wordmark({
   text,
   as: Tag = "span",
