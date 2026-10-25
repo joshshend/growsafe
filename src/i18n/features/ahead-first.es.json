@@ -4,7 +4,7 @@
   "today.ahead.new": "Nuevo para entonces: {names}.",
   "today.ahead.newMore": "Nuevo para entonces: {names} y {n} más.",
   "today.ahead.none": "No se agrega nada nuevo al plan para entonces.",
-  "today.ahead.pace": "Cada niño va a su propio ritmo. Estas son edades típicas, no un calendario.",
+  "today.ahead.pace": "Edades típicas, no un calendario.",
   "today.ahead.source": "Fuente: hitos del desarrollo de los CDC",
   "today.ahead.unverified": "Aún no revisado por una persona.",
   "today.soonTasks": "Tareas agregadas con anticipación, desde los {age}"

@@ -40,3 +40,28 @@ export function comingUp(
     return { checkpoint, monthsAway: to - age, hazards };
   });
 }
+
+export interface StripPick {
+  checkpoint: Checkpoint;
+  // Every hazard that starts between today and this checkpoint, highest priority first. Empty means milestone only.
+  hazards: RankedHazard[];
+}
+
+// The one checkpoint the Today strip shows: the first that brings hazards, with everything new by then;
+// if none within the window does, the nearest checkpoint with its milestone line only.
+export function stripPick(
+  kb: HazardEntry[],
+  checkpoints: Checkpoint[],
+  child: Child,
+  now: Date,
+): StripPick | null {
+  const lines = comingUp(kb, checkpoints, child, now);
+  if (lines.length === 0) return null;
+  const at = lines.findIndex((l) => l.hazards.length > 0);
+  if (at < 0) return { checkpoint: lines[0].checkpoint, hazards: [] };
+  const hazards = lines
+    .slice(0, at + 1)
+    .flatMap((l) => l.hazards)
+    .sort((a, b) => b.score - a.score || a.hazard.id.localeCompare(b.hazard.id));
+  return { checkpoint: lines[at].checkpoint, hazards };
+}

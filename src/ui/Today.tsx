@@ -5,7 +5,7 @@ import "./ahead.css";
 import { loadKb } from "../kb";
 import { loadMilestones, loadStageNotes } from "../kb/stages";
 import { nextUnlocks } from "../plan";
-import { comingUp } from "../plan/comingUp";
+import { stripPick } from "../plan/comingUp";
 import { useStore } from "../store/store";
 import { anyChecked, firstUnchecked, isChecked } from "../plan/roomCheck";
 import { progress } from "../store/selectors";
@@ -23,18 +23,18 @@ import { RecallBanner } from "../recalls/RecallBanner";
 import { DemoBanner } from "./DemoBanner";
 
 const NEXT_LIMIT = 6;
-const STRIP_HAZARDS = 3; // hazard names named per line before "and N more"
+const STRIP_HAZARDS = 2; // hazard names named before "and N more"
 
 // The strip must never take Today down: a bad birth date or a bad stage file just hides it.
 function safeComingUp(
   kb: ReturnType<typeof loadKb>,
-  child: Parameters<typeof comingUp>[2],
+  child: Parameters<typeof stripPick>[2],
   now: Date,
 ) {
   try {
-    return comingUp(kb, loadMilestones(), child, now);
+    return stripPick(kb, loadMilestones(), child, now);
   } catch {
-    return [];
+    return null;
   }
 }
 
@@ -132,7 +132,7 @@ export function Today() {
     .sort((a, b) => (a.ranked?.unlocksInMonths ?? 99) - (b.ranked?.unlocksInMonths ?? 99));
   const soonTaskMonths = soonViews[0]?.ranked?.unlocksInMonths ?? null;
   const age = ageMonthsSafe(child, now);
-  const strip = easy ? [] : safeComingUp(kb, child, now);
+  const strip = easy ? null : safeComingUp(kb, child, now);
   const stripNotes = loadStageNotes();
 
   const heroLocal = hero ? localHazard(hero.hazard, lang) : null;
@@ -154,52 +154,46 @@ export function Today() {
         <ChildChip />
       </div>
 
-      {strip.length > 0 && (
+      {strip && (
         <section className="ahead-strip" aria-labelledby="ahead-strip-h">
           <h2 id="ahead-strip-h" className="lbl">
             {t("today.ahead.title", { name: child.nickname })}
           </h2>
-          <ul className="ahead-strip-list">
-            {strip.map((l) => {
-              const names = l.hazards.map((r) => localHazard(r.hazard, lang).name);
+          <p className="t1">
+            <span className="t2b">
+              {t("today.ahead.around", { age: monthsText(t, strip.checkpoint.months) })}
+            </span>{" "}
+            {lang === "es" ? strip.checkpoint.es : strip.checkpoint.en}.
+          </p>
+          {strip.hazards.length > 0 &&
+            (() => {
+              const names = strip.hazards.map((r) => localHazard(r.hazard, lang).name);
               const shown = names.slice(0, STRIP_HAZARDS).join("; ");
               const more = names.length - STRIP_HAZARDS;
               return (
-                <li key={l.checkpoint.months} className="ahead-strip-item">
-                  <p className="t1">
-                    <span className="t2b">
-                      {t("today.ahead.around", { age: monthsText(t, l.checkpoint.months) })}
-                    </span>{" "}
-                    {lang === "es" ? l.checkpoint.es : l.checkpoint.en}.
-                  </p>
-                  {names.length > 0 ? (
-                    <p className="t1 muted">
-                      {more > 0
-                        ? t("today.ahead.newMore", { names: shown, n: more })
-                        : t("today.ahead.new", { names: shown })}
-                    </p>
-                  ) : null}
-                </li>
+                <p className="t1 muted">
+                  {more > 0
+                    ? t("today.ahead.newMore", { names: shown, n: more })
+                    : t("today.ahead.new", { names: shown })}
+                </p>
               );
-            })}
-          </ul>
+            })()}
+          <p className="ahead-strip-foot">
+            <Link to="/ahead" className="ahead-strip-more">
+              {t("ahead.link")}
+            </Link>
+          </p>
           <p className="fine">
             {t("today.ahead.pace")}{" "}
             <a
-              href={
-                stripNotes.get(strip[0].checkpoint.stage)?.citation.url ?? strip[0].checkpoint.url
-              }
+              href={stripNotes.get(strip.checkpoint.stage)?.citation.url ?? strip.checkpoint.url}
               target="_blank"
               rel="noopener noreferrer"
             >
               {t("today.ahead.source")}
             </a>
-            {strip.some((l) => l.checkpoint.evidence_status === "verify") &&
-              ` ${t("today.ahead.unverified")}`}
+            {strip.checkpoint.evidence_status === "verify" && ` ${t("today.ahead.unverified")}`}
           </p>
-          <Link to="/ahead" className="btn btn-secondary btn-block">
-            {t("ahead.link")}
-          </Link>
         </section>
       )}
 

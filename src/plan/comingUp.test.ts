@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { loadKb } from "../kb";
 import { loadMilestones } from "../kb/stages";
-import { comingUp } from "./comingUp";
+import { comingUp, stripPick } from "./comingUp";
 import { childAged, NOW } from "./fixtures";
 
 const kb = loadKb();
@@ -43,5 +43,48 @@ describe("comingUp", () => {
     const lines = comingUp(kb, cps, childAged("a", 13), NOW);
     expect(lines[0].checkpoint.months).toBe(15);
     expect(lines[0].hazards).toEqual([]);
+  });
+});
+
+describe("stripPick", () => {
+  it("at 9 months picks 12 months with everything new by then", () => {
+    const pick = stripPick(kb, cps, childAged("a", 9), NOW);
+    expect(pick?.checkpoint.months).toBe(12);
+    expect(pick?.hazards.map((r) => r.hazard.id)).toContain("garage-chemicals-tools-reach");
+  });
+
+  it("skips checkpoints that bring nothing and folds earlier hazards into the pick", () => {
+    for (const months of [0, 1, 3, 4, 5, 7, 9, 11, 12, 13, 14, 15]) {
+      const child = childAged("a", months);
+      const lines = comingUp(kb, cps, child, NOW);
+      const pick = stripPick(kb, cps, child, NOW);
+      const at = lines.findIndex((l) => l.hazards.length > 0);
+      if (at < 0) {
+        expect(pick?.hazards ?? []).toEqual([]);
+        expect(pick?.checkpoint.months).toBe(lines[0]?.checkpoint.months);
+      } else {
+        expect(pick?.checkpoint.months).toBe(lines[at].checkpoint.months);
+        const ids = lines.slice(0, at + 1).flatMap((l) => l.hazards.map((r) => r.hazard.id));
+        expect(pick?.hazards.map((r) => r.hazard.id).sort()).toEqual([...ids].sort());
+      }
+    }
+  });
+
+  it("shows the nearest checkpoint, milestone only, when none in the window brings hazards", () => {
+    const quiet = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 24, 30, 36, 48]
+      .map((m) => childAged("a", m))
+      .find(
+        (c) =>
+          comingUp(kb, cps, c, NOW).length > 0 &&
+          comingUp(kb, cps, c, NOW).every((l) => l.hazards.length === 0),
+      );
+    if (!quiet) return; // the KB may always have something in range
+    const pick = stripPick(kb, cps, quiet, NOW);
+    expect(pick?.hazards).toEqual([]);
+    expect(pick?.checkpoint.months).toBe(comingUp(kb, cps, quiet, NOW)[0].checkpoint.months);
+  });
+
+  it("is null when there is no checkpoint in the window", () => {
+    expect(stripPick(kb, cps, childAged("a", 62), NOW)).toBeNull();
   });
 });

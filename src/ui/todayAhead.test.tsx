@@ -21,6 +21,10 @@ describe("Today: coming up strip", () => {
     expect(within(strip).getByText("Around 12 months:")).toBeInTheDocument();
     expect(within(strip).getByText(/pulling up to stand/)).toBeInTheDocument();
     expect(within(strip).getByText(/New by then: .*Garage/)).toBeInTheDocument();
+    // One checkpoint only: the 15 and 18 month lines are gone.
+    expect(within(strip).queryByText("Around 15 months:")).toBeNull();
+    expect(within(strip).queryByText("Around 18 months:")).toBeNull();
+    expect(strip.textContent).not.toMatch(/ and \d+ more.*New by then/);
     expect(within(strip).getByRole("link", { name: "See the next 18 months" })).toHaveAttribute(
       "href",
       "#/ahead",

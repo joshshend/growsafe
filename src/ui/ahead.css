@@ -115,22 +115,34 @@
   background: var(--ink);
 }
 
-/* "Coming up" strip at the top of Today */
+/* "Coming up" strip at the top of Today: one checkpoint, kept short so "Right now" stays on the first screen. */
 .ahead-strip {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-bottom: 16px;
+  gap: 1px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
-.ahead-strip-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style: none;
+.ahead-strip-foot {
   margin: 0;
-  padding: 0;
 }
-.ahead-strip-item p + p {
-  margin-top: 2px;
+.ahead-strip-more {
+  display: inline-block;
+  padding: 3px 0;
+  font-size: var(--gs-fs-2);
+  color: var(--action-ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Today keeps its first screen for the task in front of you. */
+.flow.today {
+  gap: 14px;
+}
+.flow.today .hero {
+  gap: 6px;
+}
+.flow.today .hero-actions {
+  margin-top: 6px;
 }
