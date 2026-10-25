@@ -7,20 +7,9 @@ import { useT } from "./useT";
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"])';
 
-export function Sheet({
-  title,
-  onClose,
-  children,
-  footer,
-}: {
-  title: string;
-  onClose: () => void;
-  children: ReactNode;
-  footer?: ReactNode;
-}) {
-  const t = useT();
+// Focus handling shared by every modal: focus moves in, Tab stays inside, Escape closes, focus goes back on close.
+export function useModalDialog(onClose: () => void) {
   const ref = useRef<HTMLDivElement>(null);
-  const titleId = useId();
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
 
@@ -30,7 +19,7 @@ export function Sheet({
     const body = document.body;
     const overflow = body.style.overflow;
     body.style.overflow = "hidden";
-    // Focus the sheet itself so screen readers read the title first and the page behind stays unreachable.
+    // Focus the dialog itself so screen readers read the title first and the page behind stays unreachable.
     node?.focus();
     return () => {
       body.style.overflow = overflow;
@@ -63,6 +52,26 @@ export function Sheet({
       first.focus();
     }
   }
+  return { ref, onKeyDown };
+}
+
+export function Sheet({
+  title,
+  eyebrow,
+  onClose,
+  children,
+  footer,
+}: {
+  title: string;
+  /** Small line above the title (the task sheet puts room, time and cost here). */
+  eyebrow?: ReactNode;
+  onClose: () => void;
+  children: ReactNode;
+  footer?: ReactNode;
+}) {
+  const t = useT();
+  const titleId = useId();
+  const { ref, onKeyDown } = useModalDialog(onClose);
 
   return createPortal(
     <>
@@ -77,9 +86,12 @@ export function Sheet({
         onKeyDown={onKeyDown}
       >
         <div className="sheet-head">
-          <h2 id={titleId} className="sheet-title">
-            {title}
-          </h2>
+          <div className="sheet-heading">
+            {eyebrow && <p className="sheet-eyebrow">{eyebrow}</p>}
+            <h2 id={titleId} className="sheet-title">
+              {title}
+            </h2>
+          </div>
           <button
             type="button"
             className="icon-btn"

@@ -1,19 +1,13 @@
 import { useEffect } from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import {
-  CaretDown,
-  GearSix,
-  House,
-  Lifebuoy,
-  Phone,
-  SquaresFour,
-  UsersThree,
-} from "@phosphor-icons/react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { GearSix, Phone } from "@phosphor-icons/react";
 import { useStore } from "../store/store";
-import { ageText } from "./format";
+import { ChildChip } from "./ChildChip";
 import { ChildSwitcher } from "./ChildSwitcher";
 import { TaskSheet } from "./TaskSheet";
 import { IllustrationDefs } from "./illustrations";
+import { Wordmark } from "./Logo";
+import { RoomDone } from "./RoomDone";
 import { useApplyEasy, useEasy } from "./easy";
 import { applyTheme, readTheme } from "./theme";
 import { useActiveChild, useUi } from "./ui-state";
@@ -34,6 +28,9 @@ function Toaster() {
     <div role="status" aria-live="polite">
       {toast && (
         <div className="toast">
+          <svg viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M4 11.5l5 5L18.5 5" />
+          </svg>
           <span>{toast.message}</span>
           {toast.undo && (
             <button
@@ -53,16 +50,39 @@ function Toaster() {
   );
 }
 
+// Tab icons from docs/design/Today.dc.html: plain pencil strokes, no fills.
+const TAB_ICONS = {
+  today: "M6 3v18M6 8h9M6 13h12M6 18h7",
+  rooms: "M6 21V4h12v17M3 21h18M14.5 13v.01",
+  help: "M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 17v.01",
+  people: "M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6M17 14c2.6 0 4.5 1.9 4.5 5",
+} as const;
+
+function TabIcon({ name }: { name: keyof typeof TAB_ICONS }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      {name === "help" && <circle cx="12" cy="12" r="9" />}
+      {name === "people" && (
+        <>
+          <circle cx="9" cy="8" r="3.2" />
+          <circle cx="17" cy="9" r="2.4" />
+        </>
+      )}
+      <path d={TAB_ICONS[name]} />
+    </svg>
+  );
+}
+
 export function Layout() {
   const t = useT();
   const lang = useLang();
   const largeText = useStore((s) => s.settings.largeText);
   const hasFamily = useStore((s) => s.children.length > 0 && s.homes.length > 0);
   const child = useActiveChild();
-  const setSwitcher = useUi((s) => s.setSwitcher);
   const switcherOpen = useUi((s) => s.switcherOpen);
   const openTaskId = useUi((s) => s.openTaskId);
   const easy = useEasy();
+  const onToday = useLocation().pathname === "/";
   useApplyEasy();
 
   useEffect(() => {
@@ -71,6 +91,9 @@ export function Layout() {
   }, [lang, largeText]);
   useEffect(() => applyTheme(readTheme()), []);
 
+  // The wordmark leads on Today and before there is a plan; elsewhere the child chip does.
+  const brand = onToday || !hasFamily || !child;
+
   return (
     <div className="app">
       <IllustrationDefs />
@@ -78,37 +101,15 @@ export function Layout() {
         {t("nav.skip")}
       </a>
       <header className="topbar">
-        {hasFamily && child ? (
-          <button
-            type="button"
-            className="switcher"
-            aria-haspopup="dialog"
-            aria-label={t("switcher.label", {
-              name: child.nickname,
-              age: ageText(t, child, new Date()),
-            })}
-            onClick={() => setSwitcher(true)}
-          >
-            <span className="avatar" aria-hidden="true">
-              {child.nickname.trim().charAt(0).toUpperCase()}
-            </span>
-            <span className="switcher-name" aria-hidden="true">
-              <span className="switcher-nick">{child.nickname}</span>
-              <span className="switcher-age">{ageText(t, child, new Date())}</span>
-            </span>
-            <CaretDown size={16} weight="bold" aria-hidden="true" />
-          </button>
-        ) : (
-          <span />
-        )}
+        {brand ? <Wordmark text={t("app.title")} /> : <ChildChip />}
         <div className="topbar-actions">
           <a className="poison" href={POISON_HREF} aria-label={t("poison.label")}>
-            <Phone size={22} weight="fill" aria-hidden="true" />
+            <Phone size={20} weight="fill" aria-hidden="true" />
             <span aria-hidden="true">{t("poison.short")}</span>
           </a>
           {hasFamily && (
             <NavLink to="/settings" className="icon-btn" aria-label={t("nav.settings")}>
-              <GearSix size={26} weight="duotone" aria-hidden="true" />
+              <GearSix size={26} weight="regular" aria-hidden="true" />
             </NavLink>
           )}
         </div>
@@ -119,22 +120,22 @@ export function Layout() {
       {hasFamily && (
         <nav className="tabbar" aria-label={t("nav.main")}>
           <NavLink to="/" end className="tab">
-            <House size={26} weight="duotone" aria-hidden="true" />
+            <TabIcon name="today" />
             {t("nav.today")}
           </NavLink>
           {!easy && (
             <NavLink to="/rooms" className="tab">
-              <SquaresFour size={26} weight="duotone" aria-hidden="true" />
+              <TabIcon name="rooms" />
               {t("nav.rooms")}
             </NavLink>
           )}
           <NavLink to="/help" className="tab">
-            <Lifebuoy size={26} weight="duotone" aria-hidden="true" />
+            <TabIcon name="help" />
             {t("nav.help")}
           </NavLink>
           {!easy && (
             <NavLink to="/people" className="tab">
-              <UsersThree size={26} weight="duotone" aria-hidden="true" />
+              <TabIcon name="people" />
               {t("nav.people")}
             </NavLink>
           )}
@@ -142,6 +143,7 @@ export function Layout() {
       )}
       {hasFamily && switcherOpen && <ChildSwitcher />}
       {hasFamily && openTaskId && <TaskSheet />}
+      {hasFamily && <RoomDone />}
       <Toaster />
     </div>
   );

@@ -1,12 +1,11 @@
-// Shared UI pieces: ranked views for the active child, progress ring, severity, check button and task row.
+// Shared UI pieces: ranked views for the active child, severity, check button and task row.
 import { lightTap } from "../native/haptics";
 import { useMemo } from "react";
-import { Info, Warning, WarningDiamond, WarningOctagon } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 import { loadKb } from "../kb";
 import { useStore } from "../store/store";
 import { buildViews, type TaskView } from "../store/selectors";
 import { costText, localHazard, taskTotals } from "./format";
-import { HazardIcon } from "./icons";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 
@@ -34,72 +33,36 @@ export function useSetDone() {
   };
 }
 
-export function Ring({
-  done,
-  total,
-  size = 56,
-  stroke = 6,
-  label,
-  showCount = false,
-}: {
-  done: number;
-  total: number;
-  size?: number;
-  stroke?: number;
-  label?: string;
-  showCount?: boolean;
-}) {
-  const r = (size - stroke) / 2;
-  const c = 2 * Math.PI * r;
-  const frac = total === 0 ? 0 : done / total;
-  const props = label
-    ? {
-        role: "progressbar" as const,
-        "aria-label": label,
-        "aria-valuemin": 0,
-        "aria-valuemax": total,
-        "aria-valuenow": done,
-      }
-    : { "aria-hidden": true as const };
-  return (
-    <div className="ring" style={{ width: size, height: size }} {...props}>
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
-        <circle
-          className="ring-track"
-          cx={size / 2}
-          cy={size / 2}
-          r={r}
-          fill="none"
-          strokeWidth={stroke}
-        />
-        <circle
-          className="ring-fill"
-          cx={size / 2}
-          cy={size / 2}
-          r={r}
-          fill="none"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          strokeDasharray={c}
-          strokeDashoffset={c * (1 - frac)}
-        />
-      </svg>
-      {showCount && <span className="ring-label">{`${done}/${total}`}</span>}
-    </div>
-  );
-}
-
-// Severity is always an icon plus a word, never colour alone.
+// Severity is always a word, never colour or an icon alone. Quiet text; the full phrase is the accessible name.
 export function Severity({ score }: { score: number }) {
   const t = useT();
   const s = Math.min(5, Math.max(1, Math.round(score)));
   const word = t(`sev.${s}`);
-  const Icon = s >= 5 ? WarningOctagon : s === 4 ? WarningDiamond : s === 3 ? Warning : Info;
   return (
-    <span className="hero-sev" aria-label={t("sev.label", { word })}>
-      <Icon size={20} weight="duotone" aria-hidden="true" />
-      <span aria-hidden="true">{word}</span>
+    <span className="sev" aria-label={t("sev.label", { word })}>
+      <span aria-hidden="true">{t("sev.label", { word })}</span>
     </span>
+  );
+}
+
+// "< Rooms": the plain back link at the top of a detail page.
+export function BackLink({ to, children }: { to: string; children: React.ReactNode }) {
+  return (
+    <Link to={to} className="back">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+        <path d="M14 5l-7 7 7 7" />
+      </svg>
+      {children}
+    </Link>
+  );
+}
+
+// The drawn tick used by every check box (path from docs/design/gs.css .tk).
+export function Tick({ className = "check-tick" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+      <path d="M4 11.5l5 5L18.5 5" />
+    </svg>
   );
 }
 
@@ -121,9 +84,7 @@ export function CheckButton({
       onClick={onToggle}
     >
       <span className="check-mark" aria-hidden="true">
-        <svg className="check-tick" viewBox="0 0 22 22" aria-hidden="true">
-          <path d="M4 11.5l5 5L18.5 5" />
-        </svg>
+        <Tick />
       </span>
     </button>
   );
@@ -138,10 +99,14 @@ export function TaskRow({ view, showRoom = true }: { view: TaskView; showRoom?: 
   const name = localHazard(hazard, lang).name;
   const done = task.status === "done";
   const totals = taskTotals(hazard);
+  // Finished rows are just the name. Open rows: "Nursery · 15 min" (or "15 min · $8 to $20" inside a room).
   const sub: string[] = [];
-  if (showRoom) sub.push(t(`room.${task.room}`));
-  if (task.status === "doing") sub.push(t("task.status.doing"));
-  sub.push(costText(t, totals.min, totals.max));
+  if (!done) {
+    if (showRoom) sub.push(t(`room.${task.room}`));
+    if (task.status === "doing") sub.push(t("task.status.doing"));
+    sub.push(t("task.minutes", { n: totals.minutes }));
+    if (!showRoom) sub.push(costText(t, totals.min, totals.max));
+  }
   return (
     <li className={`row${done ? " is-done" : ""}`}>
       <CheckButton
@@ -150,12 +115,9 @@ export function TaskRow({ view, showRoom = true }: { view: TaskView; showRoom?: 
         onToggle={() => setDone(task.id, !done)}
       />
       <button type="button" className="row-link" onClick={() => openTask(task.id)}>
-        <span className="row-icon">
-          <HazardIcon name={hazard.icon} size={28} />
-        </span>
         <span className="row-body">
           <span className="row-title">{name}</span>
-          {sub.length > 0 && <span className="row-sub">{sub.join(", ")}</span>}
+          {sub.length > 0 && <span className="row-sub">{sub.join(" · ")}</span>}
         </span>
       </button>
     </li>

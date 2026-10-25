@@ -1,7 +1,8 @@
-import { Check, Plus } from "@phosphor-icons/react";
+import { Plus } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store/store";
 import { ageText } from "./format";
+import { Tick } from "./parts";
 import { Sheet } from "./Sheet";
 import { useActiveChild, useUi } from "./ui-state";
 import { useT } from "./useT";
@@ -29,21 +30,18 @@ export function ChildSwitcher() {
                 close();
               }}
             >
-              <span className="avatar" aria-hidden="true">
-                {c.nickname.trim().charAt(0).toUpperCase()}
-              </span>
               <span className="row-body">
                 <span className="row-title">{c.nickname}</span>
                 <span className="row-sub">{ageText(t, c, now)}</span>
               </span>
-              {active?.id === c.id && <Check size={24} weight="bold" aria-hidden="true" />}
+              {active?.id === c.id && <Tick className="row-tick" />}
             </button>
           </li>
         ))}
       </ul>
       <button
         type="button"
-        className="btn btn-block"
+        className="btn btn-secondary btn-block"
         onClick={() => {
           close();
           nav("/child/new");
