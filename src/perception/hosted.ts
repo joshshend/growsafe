@@ -4,7 +4,7 @@ import { FindingSchema, type Finding } from "../kb/schema";
 import { DetectError, type PerceptionProvider } from "./provider";
 
 export const DETECT_URL = "/api/detect";
-export const TIMEOUT_MS = 15_000;
+export const TIMEOUT_MS = 50_000;
 
 export type ProviderName = "gemini" | "anthropic";
 export type ProviderStatus = ProviderName | "none" | "offline";

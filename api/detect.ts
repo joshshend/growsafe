@@ -24,7 +24,7 @@ const MAX_FINDINGS = 12;
 const MIN_CONFIDENCE = 0.5;
 const PER_IP_LIMIT = 20;
 const HOUR_MS = 60 * 60 * 1000;
-const PROVIDER_TIMEOUT_MS = 12_000;
+const PROVIDER_TIMEOUT_MS = 22_000;
 
 const BodySchema = z.object({
   image: z
