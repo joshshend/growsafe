@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { fitSize, stripAndResize } from "./exif";
 import { assessPixels } from "./quality";
-import { HostedProvider, providerStatus } from "./hosted";
+import { HostedProvider, TIMEOUT_MS, providerStatus } from "./hosted";
 import { DetectError } from "./provider";
 import { PhotoError, mayScan, sampleFindings, scanPhoto } from "./scan";
 
@@ -105,7 +105,7 @@ describe("HostedProvider", () => {
     const p = new HostedProvider(impl as unknown as typeof fetch);
     await expect(p.detect(img, ["a"])).rejects.toMatchObject({ code });
   });
-  it("times out after 15 s", async () => {
+  it("times out after the client limit", async () => {
     vi.useFakeTimers();
     const f = vi.fn(
       (_u: string, init: RequestInit) =>
@@ -114,7 +114,7 @@ describe("HostedProvider", () => {
         ),
     ) as unknown as typeof fetch;
     const done = new HostedProvider(f).detect(img, ["a"]).catch((e: DetectError) => e.code);
-    await vi.advanceTimersByTimeAsync(15_001);
+    await vi.advanceTimersByTimeAsync(TIMEOUT_MS + 1);
     expect(await done).toBe("timeout");
     vi.useRealTimers();
   });
