@@ -44,6 +44,7 @@ export const FixStepSchema = z.object({
   cost_usd_max: z.number().min(0), // high estimate of cost
   minutes: z.number().min(0), // time the step takes
   tools: z.array(z.string()), // tools needed (may be empty)
+  optional: z.boolean().optional(), // true = conditional or alternative step; left out of time/cost totals (absent = false)
 });
 
 export const CitationSchema = z.object({

@@ -9,7 +9,7 @@ import { comingUp } from "../plan/comingUp";
 import { useStore } from "../store/store";
 import { anyChecked, firstUnchecked, isChecked } from "../plan/roomCheck";
 import { progress } from "../store/selectors";
-import { costText, localHazard, monthsText, taskTotals } from "./format";
+import { costText, durationText, localHazard, monthsText, taskTotals } from "./format";
 import { ChildChip } from "./ChildChip";
 import { DoneDoorframe } from "./illustrations";
 import { TaskRow, useChildViews } from "./parts";
@@ -213,7 +213,7 @@ export function Today() {
           <p className="t1 muted">
             {[
               heroWhere,
-              t("task.minutes", { n: heroTotals.minutes }),
+              durationText(t, heroTotals.minutes),
               costText(t, heroTotals.min, heroTotals.max),
             ].join(" · ")}
           </p>

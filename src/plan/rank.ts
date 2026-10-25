@@ -28,12 +28,12 @@ const SEVERITY_WEIGHT = 10;
 const SOURCED_BOOST = 3;
 const UNLOCK_BOOST = 5;
 
-// Cheapest total cost of doing every fix step (used for tie-breaks).
+// Cheapest total cost of doing every required fix step (optional steps are left out) (used for tie-breaks).
 export function minCost(h: HazardEntry): number {
-  return h.fix_steps.reduce((sum, s) => sum + s.cost_usd_min, 0);
+  return h.fix_steps.reduce((sum, s) => sum + (s.optional ? 0 : s.cost_usd_min), 0);
 }
 function maxCost(h: HazardEntry): number {
-  return h.fix_steps.reduce((sum, s) => sum + s.cost_usd_max, 0);
+  return h.fix_steps.reduce((sum, s) => sum + (s.optional ? 0 : s.cost_usd_max), 0);
 }
 
 // Same as rankHazards but with a custom look-ahead window (nextUnlocks uses this).

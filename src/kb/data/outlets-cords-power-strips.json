@@ -53,6 +53,7 @@
     },
     {
       "order": 4,
+      "optional": true,
       "text": "When replacing outlets, ask an electrician about tamper-resistant receptacles.",
       "cost_usd_min": 0,
       "cost_usd_max": 150,

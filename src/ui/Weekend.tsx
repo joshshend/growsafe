@@ -8,7 +8,7 @@ import { loadKb } from "../kb";
 import { planWeekend, type WeekendPlan } from "../plan";
 import { useStore } from "../store/store";
 import { buildViews } from "../store/selectors";
-import { costText, localHazard, taskTotals } from "./format";
+import { costText, durationText, localHazard, taskTotals } from "./format";
 import { HazardIcon } from "./icons";
 import { CheckButton, useSetDone } from "./parts";
 import { useActiveChild, useUi } from "./ui-state";
@@ -187,7 +187,7 @@ export function Weekend() {
             <span className="fact">{t("weekend.count", { n: views.length })}</span>
             <span className="fact">
               <Clock size={20} weight="regular" aria-hidden="true" />
-              {t("task.minutes", { n: plan.totalMinutes })}
+              {durationText(t, plan.totalMinutes)}
             </span>
             <span className="fact">
               <Coins size={20} weight="regular" aria-hidden="true" />
@@ -226,8 +226,7 @@ export function Weekend() {
                       <span className="row-body">
                         <span className="row-title">{name}</span>
                         <span className="row-sub">
-                          {t("task.minutes", { n: totals.minutes })},{" "}
-                          {costText(t, totals.min, totals.max)}
+                          {durationText(t, totals.minutes)}, {costText(t, totals.min, totals.max)}
                         </span>
                       </span>
                     </button>
@@ -323,7 +322,7 @@ function buildListText(
   plan.chosen.forEach((task, i) => {
     lines.push(`${i + 1}. ${nameOf(task.hazard_id)} (${t(`room.${task.room}`)})`);
   });
-  lines.push("", `${t("task.minutes", { n: plan.totalMinutes })}, ${costLine}`);
+  lines.push("", `${durationText(t, plan.totalMinutes)}, ${costLine}`);
   if (plan.supplies.length > 0) {
     lines.push("", `${t("weekend.supplies")}:`);
     for (const s of plan.supplies) lines.push(`- ${s.name}`);

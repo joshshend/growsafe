@@ -54,6 +54,7 @@
     },
     {
       "order": 2,
+      "optional": true,
       "text": "If a TV cannot be anchored yet, put it on a sturdy, low base, push it as far back as it will go, and keep its cords out of reach.",
       "cost_usd_min": 0,
       "cost_usd_max": 0,
@@ -78,6 +79,7 @@
     },
     {
       "order": 5,
+      "optional": true,
       "text": "If you used a recalled anti-tip kit, contact the recall firm for a free replacement and swap it in.",
       "cost_usd_min": 0,
       "cost_usd_max": 0,

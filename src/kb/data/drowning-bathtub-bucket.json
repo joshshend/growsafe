@@ -82,6 +82,7 @@
     },
     {
       "order": 4,
+      "optional": true,
       "text": "Add a toilet lid lock if a toddler can lift the lid.",
       "cost_usd_min": 5,
       "cost_usd_max": 15,

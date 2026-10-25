@@ -1,0 +1,6 @@
+{
+  "dur.min": "unos {n} min",
+  "dur.hr": "unos {h} h",
+  "dur.hrMin": "unos {h} h {m} min",
+  "task.optionalStep": "Solo si corresponde"
+}

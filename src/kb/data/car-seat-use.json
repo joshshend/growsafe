@@ -78,6 +78,7 @@
     },
     {
       "order": 4,
+      "optional": true,
       "text": "Move to a forward-facing harness seat, then a booster, only after the child outgrows the previous seat's limits; keep children in the back seat.",
       "cost_usd_min": 0,
       "cost_usd_max": 300,
@@ -86,6 +87,7 @@
     },
     {
       "order": 5,
+      "optional": true,
       "text": "Have a certified child passenger safety technician check the installation, if one is available near you.",
       "cost_usd_min": 0,
       "cost_usd_max": 0,

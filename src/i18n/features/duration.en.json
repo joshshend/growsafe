@@ -1,0 +1,6 @@
+{
+  "dur.min": "about {n} min",
+  "dur.hr": "about {h} hr",
+  "dur.hrMin": "about {h} hr {m} min",
+  "task.optionalStep": "Only if this applies"
+}

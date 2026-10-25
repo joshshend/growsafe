@@ -61,6 +61,7 @@
     },
     {
       "order": 4,
+      "optional": true,
       "text": "Add stove knob covers if knobs are on the front, and an anti-tip bracket if the range is free-standing.",
       "cost_usd_min": 8,
       "cost_usd_max": 40,

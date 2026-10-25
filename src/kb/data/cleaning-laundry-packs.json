@@ -78,6 +78,7 @@
     },
     {
       "order": 5,
+      "optional": true,
       "text": "Consider traditional liquid or powder detergent instead of single-load packets while children 6 or younger live in or visit the home.",
       "cost_usd_min": 0,
       "cost_usd_max": 10,

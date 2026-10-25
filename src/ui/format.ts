@@ -79,15 +79,28 @@ export function localHazard(h: HazardEntry, lang: Lang): LocalHazard {
   };
 }
 
+// Time and cost of the required steps only; optional (conditional or alternative) steps are left out.
 export function taskTotals(h: HazardEntry): { min: number; max: number; minutes: number } {
   return h.fix_steps.reduce(
-    (a, s) => ({
-      min: a.min + s.cost_usd_min,
-      max: a.max + s.cost_usd_max,
-      minutes: a.minutes + s.minutes,
-    }),
+    (a, s) =>
+      s.optional
+        ? a
+        : {
+            min: a.min + s.cost_usd_min,
+            max: a.max + s.cost_usd_max,
+            minutes: a.minutes + s.minutes,
+          },
     { min: 0, max: 0, minutes: 0 },
   );
+}
+
+// "about 25 min" under an hour, "about 1 hr 30 min" from an hour up. Rounded to 5 minutes (at least 5).
+export function durationText(t: TFn, minutes: number): string {
+  const m = Math.max(5, Math.round(minutes / 5) * 5);
+  if (m < 60) return t("dur.min", { n: m });
+  const h = Math.floor(m / 60);
+  const r = m % 60;
+  return r === 0 ? t("dur.hr", { h }) : t("dur.hrMin", { h, m: r });
 }
 
 export function monthsText(t: TFn, months: number): string {

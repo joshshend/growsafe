@@ -47,6 +47,7 @@ export function taskEffort(h: HazardEntry): Effort {
   let costMin = 0;
   let costMax = 0;
   for (const s of h.fix_steps) {
+    if (s.optional) continue; // conditional or alternative steps do not count toward the plan
     minutes += s.minutes;
     costMin += s.cost_usd_min;
     costMax += s.cost_usd_max;
@@ -208,7 +209,7 @@ export function suppliesFor(hazards: HazardEntry[]): SupplyItem[] {
   for (const h of hazards) {
     const seen = new Set<string>();
     for (const s of h.fix_steps)
-      for (const raw of s.tools) {
+      for (const raw of s.optional ? [] : s.tools) {
         const name = raw.trim();
         const key = name.toLowerCase();
         if (!name || seen.has(key)) continue;

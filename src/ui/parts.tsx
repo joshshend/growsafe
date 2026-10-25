@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { loadKb } from "../kb";
 import { useStore } from "../store/store";
 import { buildViews, type TaskView } from "../store/selectors";
-import { costText, localHazard, taskTotals } from "./format";
+import { costText, durationText, localHazard, taskTotals } from "./format";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 
@@ -104,7 +104,7 @@ export function TaskRow({ view, showRoom = true }: { view: TaskView; showRoom?: 
   if (!done) {
     if (showRoom) sub.push(t(`room.${task.room}`));
     if (task.status === "doing") sub.push(t("task.status.doing"));
-    sub.push(t("task.minutes", { n: totals.minutes }));
+    sub.push(durationText(t, totals.minutes));
     if (!showRoom) sub.push(costText(t, totals.min, totals.max));
   }
   return (

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import type { HazardEntry, Room, Task } from "../kb/schema";
 import { NOW, childAged, hz } from "./fixtures";
+import { loadKb } from "../kb";
+import { useStore } from "../store/store";
 import { planWeekend, suppliesFor, taskEffort } from "./weekend";
 
 const child = childAged("c", 9);
@@ -219,3 +221,78 @@ function valueOf(h: HazardEntry, t: Task): number {
     rankHazards([h], child, NOW, { rooms: [t.room] }).find((r) => r.hazard.id === h.id)?.score ?? 0,
   );
 }
+
+describe("optional steps", () => {
+  it("leave effort, cost and supplies alone", () => {
+    const h = hazard("a", { minutes: 10, min: 5, max: 10, tools: ["Drill"] });
+    h.fix_steps.push({
+      order: 2,
+      text: "If x, do y",
+      cost_usd_min: 20,
+      cost_usd_max: 90,
+      minutes: 60,
+      tools: ["Saw"],
+      optional: true,
+    });
+    expect(taskEffort(h)).toEqual({ minutes: 10, cost: 8, costMin: 5, costMax: 10 });
+    expect(suppliesFor([h])).toEqual([{ name: "Drill", count: 1 }]);
+  });
+
+  it("are marked in the real KB, and no hazard is only optional steps", () => {
+    const kb = loadKb();
+    for (const h of kb) expect(h.fix_steps.some((s) => !s.optional)).toBe(true);
+    const tv = kb.find((h) => h.id === "tv-furniture-tip-over")!;
+    expect(tv.fix_steps.filter((s) => s.optional).map((s) => s.order)).toEqual([2, 5]);
+    expect(taskEffort(tv)).toMatchObject({ minutes: 100, costMin: 25, costMax: 125 });
+  });
+});
+
+describe("planWeekend on the sample family", () => {
+  const kb = loadKb();
+  useStore.getState().loadDemo();
+  const { children, tasks } = useStore.getState();
+  const open = (c: (typeof children)[number]) =>
+    tasks.filter((t) => t.childIds.includes(c.id) && t.status !== "done");
+  const plan = (c: (typeof children)[number], minutes: number, budgetUsd: number | null) =>
+    planWeekend({
+      tasks: tasks.filter((t) => t.childIds.length === 0 || t.childIds.includes(c.id)),
+      kb,
+      minutes,
+      budgetUsd,
+      children: [c],
+      now: new Date(),
+    });
+
+  it("sees every open task for each child", () => {
+    for (const c of children) {
+      const p = plan(c, 60, 50);
+      expect(p.chosen.length + p.skipped.length).toBe(open(c).length);
+      expect(open(c).length).toBeGreaterThan(30);
+    }
+  });
+
+  it("fills one hour and $50 with several short tasks, within the limits", () => {
+    for (const c of children) {
+      const p = plan(c, 60, 50);
+      expect(p.chosen.length).toBeGreaterThanOrEqual(3);
+      expect(p.totalMinutes).toBeLessThanOrEqual(60);
+      expect(p.totalCost).toBeLessThanOrEqual(50);
+      // short tasks, not one long job
+      for (const t of p.chosen)
+        expect(taskEffort(kb.find((h) => h.id === t.hazard_id)!).minutes).toBeLessThanOrEqual(45);
+    }
+  });
+
+  it("fills two hours and $100 with at least five tasks", () => {
+    for (const c of children) {
+      const p = plan(c, 120, 100);
+      expect(p.chosen.length).toBeGreaterThanOrEqual(5);
+      expect(p.totalMinutes).toBeLessThanOrEqual(120);
+      expect(p.totalCost).toBeLessThanOrEqual(100);
+    }
+  });
+
+  it("finds something at 30 minutes and $25", () => {
+    expect(plan(children[0]!, 30, 25).chosen.length).toBeGreaterThanOrEqual(2);
+  });
+});

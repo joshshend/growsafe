@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CaretDown } from "@phosphor-icons/react";
 import { remindMe, reminderDate, type ReminderChoice } from "../native/reminder";
 import { useStore } from "../store/store";
-import { costText, localHazard, reasonText, taskTotals } from "./format";
+import { costText, durationText, localHazard, reasonText, taskTotals } from "./format";
 import { useEasy } from "./easy";
 import { ReadAloudButton } from "./ReadAloudButton";
 import { Severity, useChildViews, useSetDone } from "./parts";
@@ -198,7 +198,7 @@ export function TaskSheet() {
   const home = homes.find((h) => h.id === task.home_id);
   const steps = [...hazard.fix_steps].sort((a, b) => a.order - b.order);
   const totals = taskTotals(hazard);
-  const tools = Array.from(new Set(steps.flatMap((s) => s.tools)));
+  const tools = Array.from(new Set(steps.flatMap((s) => (s.optional ? [] : s.tools))));
   const done = task.status === "done";
   const assignText = [task.owner, task.due ? t("task.due", { date: task.due }) : ""]
     .filter(Boolean)
@@ -210,7 +210,7 @@ export function TaskSheet() {
       : t(`room.${task.room}`);
   const eyebrow = [
     where,
-    t("task.minutes", { n: totals.minutes }),
+    durationText(t, totals.minutes),
     costText(t, totals.min, totals.max),
   ].join(" · ");
 
@@ -288,6 +288,7 @@ export function TaskSheet() {
           <ol className="steps" aria-label={t("task.steps")}>
             {steps.map((s, i) => (
               <li key={s.order} className="step">
+                {s.optional && <p className="step-note">{t("task.optionalStep")}</p>}
                 <p className="t2">{local.steps[i]}</p>
                 {s.tools.length > 0 && (
                   <p className="step-note">{t("task.needs", { tools: s.tools.join(", ") })}</p>
