@@ -1,47 +1,69 @@
-/* Photo scan (layered over the room check). Shared tokens only. */
+/* Photo scan (layered over the room check). Shared tokens only. No boxes: it reads as part of the page. */
 .photo {
   display: grid;
   gap: 12px;
-  padding: 16px;
-  border: 1px solid var(--line, var(--control-line));
-  border-radius: var(--r-card, 12px);
 }
 .photo-actions {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.photo-actions .btn-quiet {
+  align-self: center;
 }
 .photo-msg {
   margin: 0;
   font-weight: 700;
 }
-.photo-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.photo-figure {
   margin: 0;
-  padding: 0;
-  list-style: none;
+}
+.photo-figure-small {
+  width: min(180px, 60%);
+}
+/* Pencil trace, bordered like a photo print */
+.photo-frame {
+  height: 140px;
+  padding: 6px 0;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-tile);
+  background: var(--surface);
+}
+.photo-frame .il {
+  width: 100%;
+  height: 100%;
 }
 .photo-chip {
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 2px solid var(--control-line);
-  border-radius: 999px;
-  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 60px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
   color: inherit;
   font: inherit;
-  cursor: pointer;
+  text-align: left;
 }
-.photo-chip[aria-pressed="true"] {
-  background: var(--action);
-  border-color: var(--edge);
-  color: var(--on-action);
+.photo-chip .row-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.photo-chip[aria-pressed="true"] .check-mark {
+  border-color: var(--ink);
+  background: var(--ground);
+  box-shadow: 3px 3px 0 var(--fill);
+}
+.photo-chip[aria-pressed="true"] .check-tick {
+  stroke-dashoffset: 0;
+}
+.photo-chip[aria-pressed="false"] .row-title {
+  color: var(--muted);
 }
 .photo-badge {
   justify-self: start;
-  padding: 2px 10px;
-  border: 1px solid var(--control-line);
-  border-radius: 999px;
-  font-size: var(--fs-5);
-  font-weight: 800;
+  font: 700 var(--gs-fs-1) / var(--gs-lh-1) var(--font-body);
+  color: var(--muted);
+  letter-spacing: 0.02em;
 }

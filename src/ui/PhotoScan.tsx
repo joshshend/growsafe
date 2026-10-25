@@ -6,6 +6,8 @@ import { HostedProvider, providerStatus, type ProviderStatus } from "../percepti
 import { DetectError } from "../perception/provider";
 import { PhotoError, mayScan, sampleFindings, scanPhoto } from "../perception/scan";
 import { useStore } from "../store/store";
+import { ScanTrace } from "./illustrations";
+import { Tick } from "./parts";
 import { useLang, useT } from "./useT";
 import "./photo.css";
 
@@ -120,7 +122,7 @@ export function PhotoScan({
     const body = name ? `photo.consent.${name}` : "photo.consent.generic";
     return (
       <section className="photo" aria-labelledby="photo-consent">
-        <h2 id="photo-consent" className="t-section">
+        <h2 id="photo-consent" className="d3">
           {t("photo.consent.title")}
         </h2>
         <p>{t(body)}</p>
@@ -128,7 +130,11 @@ export function PhotoScan({
           <button type="button" className="btn btn-primary btn-block" onClick={agree}>
             {t("photo.consent.agree")}
           </button>
-          <button type="button" className="btn btn-block" onClick={() => setView("idle")}>
+          <button
+            type="button"
+            className="btn btn-secondary btn-block"
+            onClick={() => setView("idle")}
+          >
             {t("photo.consent.decline")}
           </button>
         </div>
@@ -148,24 +154,34 @@ export function PhotoScan({
     return (
       <section className="photo" aria-labelledby="photo-review">
         {sample && <span className="photo-badge">{t("photo.sampleLabel")}</span>}
-        <h2 id="photo-review" className="t-section">
+        <h2 id="photo-review" className="d3">
           {t("photo.review.title")}
         </h2>
+        {(sample || found.length === 0) && (
+          <figure className="photo-figure">
+            <div className="photo-frame">
+              <ScanTrace decorative />
+            </div>
+          </figure>
+        )}
         {found.length === 0 ? (
           <p className="photo-msg">{t("photo.review.none")}</p>
         ) : view === "review" ? (
           <>
-            <p className="muted">{t("photo.review.hint")}</p>
-            <ul className="photo-chips">
+            <p className="t2">{t("photo.review.hint")}</p>
+            <ul className="rows">
               {found.map((cue) => (
-                <li key={cue}>
+                <li key={cue} className="row">
                   <button
                     type="button"
                     className="photo-chip"
                     aria-pressed={picked.has(cue)}
                     onClick={() => toggle(cue)}
                   >
-                    {t(`cue.${cue}`)}
+                    <span className="check-mark" aria-hidden="true">
+                      <Tick />
+                    </span>
+                    <span className="row-title">{t(`cue.${cue}`)}</span>
                   </button>
                 </li>
               ))}
@@ -185,16 +201,26 @@ export function PhotoScan({
         ) : (
           <p className="photo-msg">{t("photo.applied")}</p>
         )}
-        <button type="button" className="btn btn-block" onClick={() => setView("idle")}>
-          {t("photo.useTapList")}
-        </button>
+        <div className="photo-actions">
+          {!sample && (
+            <button type="button" className="btn btn-quiet" onClick={() => start("photo")}>
+              {t("photo.retake")}
+            </button>
+          )}
+          <button type="button" className="btn btn-quiet" onClick={() => setView("idle")}>
+            {t("photo.useTapList")}
+          </button>
+        </div>
       </section>
     );
   }
 
   return (
     <section className="photo" aria-label={t("photo.scan")}>
-      <p className="muted">
+      <div className="photo-figure photo-figure-small">
+        <ScanTrace decorative />
+      </div>
+      <p className="t2 muted">
         {faceDetectorAvailable() ? t("photo.hint") : `${t("photo.hint")} ${t("photo.noFaceApi")}`}
       </p>
       {msg && (
@@ -203,10 +229,14 @@ export function PhotoScan({
         </p>
       )}
       <div className="photo-actions">
-        <button type="button" className="btn btn-block" onClick={() => start("photo")}>
+        <button
+          type="button"
+          className="btn btn-secondary btn-block"
+          onClick={() => start("photo")}
+        >
           {t(mode === "recheck" ? "photo.recheck" : "photo.scan")}
         </button>
-        <button type="button" className="btn btn-block" onClick={() => start("sample")}>
+        <button type="button" className="btn btn-quiet" onClick={() => start("sample")}>
           {t("photo.sample")}
         </button>
       </div>

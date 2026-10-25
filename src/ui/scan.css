@@ -1,23 +1,25 @@
-/* Room check (T9-lite). Uses the shared tokens only. */
+/* Room check. Uses the shared tokens only. Rows match the task rows: a paper box that gets a drawn tick. */
 .scan-pick {
   display: grid;
   gap: 12px;
 }
 .scan-group {
-  margin: 8px 0 4px;
-  font-size: var(--fs-5);
-  font-weight: 800;
-  color: var(--muted);
+  margin: 8px 0 0;
+  overflow-wrap: anywhere;
 }
 .scan-row {
   position: relative;
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-height: 64px;
-  padding: 8px 0;
+  gap: 14px;
+  min-height: 60px;
+  padding: 6px 0;
   cursor: pointer;
+}
+.scan-row .row-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 :root[data-easy="on"] .scan-row {
   min-height: 72px;
@@ -37,23 +39,29 @@
   flex: none;
   width: 28px;
   height: 28px;
-  border: 2px solid var(--control-line);
-  border-radius: var(--r-control);
-  color: var(--on-action);
-  transition:
-    background-color 150ms ease,
-    border-color 150ms ease;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--surface);
 }
 .scan-tick {
-  transform: scale(0);
-  transition: transform 150ms ease;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+  transition: stroke-dashoffset var(--dur-tick) var(--ease-pencil);
 }
 .scan-row.is-on .scan-box {
-  background: var(--action);
-  border-color: var(--edge);
+  border-color: var(--ink);
+  background: var(--ground);
+  box-shadow: 3px 3px 0 var(--fill);
 }
 .scan-row.is-on .scan-tick {
-  transform: scale(1);
+  stroke-dashoffset: 0;
 }
 .scan-input:focus-visible ~ .scan-box {
   outline: 3px solid var(--ink);
@@ -61,12 +69,10 @@
 }
 .scan-note {
   margin: 0;
-  font-size: var(--fs-5);
-  font-weight: 600;
+  font: 400 var(--gs-fs-1) / var(--gs-lh-1) var(--font-body);
   color: var(--muted);
 }
 @media (prefers-reduced-motion: reduce) {
-  .scan-box,
   .scan-tick {
     transition: none;
   }

@@ -1,6 +1,5 @@
 // Room check (T9-lite): tick what you see in a room; the knowledge base turns it into tasks. No AI involved.
 import { useMemo, useState } from "react";
-import { CaretLeft, CaretRight, Check } from "@phosphor-icons/react";
 import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { loadKb } from "../kb";
 import type { Room, Task } from "../kb/schema";
@@ -9,14 +8,12 @@ import {
   findingsFromTaps,
   findingsToTasks,
   verifyFix,
-  CUE_ICON,
   type RoomCue,
 } from "../perception";
 import { useStore } from "../store/store";
 import { localHazard } from "./format";
-import { HazardIcon } from "./icons";
 import { PhotoScan } from "./PhotoScan";
-import { useChildViews, useSetDone } from "./parts";
+import { BackLink, Tick, useChildViews, useSetDone } from "./parts";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 import "./scan.css";
@@ -130,7 +127,7 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
     const existing = result.added.length - result.fresh;
     return (
       <div className="flow">
-        <h1 className="t-title">
+        <h1 className="d4">
           {result.fresh === 0
             ? t("scan.result.zero")
             : t(result.fresh === 1 ? "scan.result.one" : "scan.result.other", { n: result.fresh })}
@@ -138,20 +135,16 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
         {existing > 0 && <p className="muted">{t("scan.result.existing", { n: existing })}</p>}
         {rows.length > 0 && (
           <section aria-labelledby="scan-tasks">
-            <h2 id="scan-tasks" className="t-section section-head">
+            <h2 id="scan-tasks" className="lbl">
               {t("scan.result.tasks")}
             </h2>
             <ul className="rows">
               {rows.map((v) => (
                 <li key={v.task.id} className="row">
                   <Link to={`/task/${v.task.id}`} className="row-link">
-                    <span className="row-icon">
-                      <HazardIcon name={v.hazard.icon} size={28} />
-                    </span>
                     <span className="row-body">
                       <span className="row-title">{localHazard(v.hazard, lang).name}</span>
                     </span>
-                    <CaretRight size={20} weight="bold" aria-hidden="true" />
                   </Link>
                 </li>
               ))}
@@ -160,7 +153,7 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
         )}
         {result.blind.length > 0 && (
           <section aria-labelledby="scan-blind" className="flow-s">
-            <h2 id="scan-blind" className="t-section">
+            <h2 id="scan-blind" className="lbl">
               {t("scan.blind.title")}
             </h2>
             <ul className="bullets">
@@ -189,13 +182,10 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
 
   return (
     <div className="flow">
-      <Link to={`/room/${home.id}/${room}`} className="back">
-        <CaretLeft size={20} weight="bold" aria-hidden="true" />
-        {t(`room.${room}`)}
-      </Link>
+      <BackLink to={`/room/${home.id}/${room}`}>{t(`room.${room}`)}</BackLink>
       <div className="flow-s">
-        <h1 className="t-title">{t(recheck ? "scan.recheck.title" : "scan.title")}</h1>
-        <p className="muted">{t(recheck ? "scan.recheck.intro" : "scan.intro")}</p>
+        <h1 className="d4">{t(recheck ? "scan.recheck.title" : "scan.title")}</h1>
+        <p className="t2 muted">{t(recheck ? "scan.recheck.intro" : "scan.intro")}</p>
       </div>
 
       {cues.length > 0 && (
@@ -262,7 +252,7 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
         <div className="flow-s" role="group" aria-label={t("scan.listLabel")}>
           {groups.map((g) => (
             <section key={g.id}>
-              <h2 className="scan-group">{hazardName(g.id)}</h2>
+              <h2 className="lbl scan-group">{hazardName(g.id)}</h2>
               <ul className="rows">
                 {g.items.map((c) => {
                   const on = ticked.has(c.cue);
@@ -276,10 +266,7 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
                           onChange={() => toggle(c.cue)}
                         />
                         <span className="scan-box" aria-hidden="true">
-                          <Check className="scan-tick" size={18} weight="bold" />
-                        </span>
-                        <span className="row-icon">
-                          <HazardIcon name={CUE_ICON[c.cue] ?? ""} size={28} />
+                          <Tick className="scan-tick" />
                         </span>
                         <span className="row-title">{t(`cue.${c.cue}`)}</span>
                       </label>
@@ -290,7 +277,11 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
             </section>
           ))}
           {!recheck && cues.length > LIMIT && (
-            <button type="button" className="btn btn-block" onClick={() => setShowAll(!showAll)}>
+            <button
+              type="button"
+              className="btn btn-secondary btn-block"
+              onClick={() => setShowAll(!showAll)}
+            >
               {t(showAll ? "scan.showLess" : "scan.showMore")}
             </button>
           )}
