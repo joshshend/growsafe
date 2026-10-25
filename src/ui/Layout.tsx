@@ -107,7 +107,12 @@ export function Layout() {
           {showEmergency && (
             <Link className="poison" to="/help" aria-label={t("nav.emergencyLabel")}>
               <Siren size={20} weight="fill" aria-hidden="true" />
-              <span aria-hidden="true">{t("nav.emergency")}</span>
+              <span className="poison-long" aria-hidden="true">
+                {t("nav.emergency")}
+              </span>
+              <span className="poison-short" aria-hidden="true">
+                {t("nav.emergencyShort")}
+              </span>
             </Link>
           )}
           {hasFamily && (

@@ -174,7 +174,7 @@
   top: 0;
   z-index: 20;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* one row at every width: a long name truncates instead of pushing the buttons down */
   align-items: center;
   justify-content: space-between;
   gap: 0 8px;
@@ -185,9 +185,15 @@
 }
 .topbar-actions {
   display: flex;
+  flex: none;
   align-items: center;
   gap: 4px;
   margin-left: auto;
+}
+.topbar > .chip-who,
+.topbar > .wm {
+  flex: 0 1 auto;
+  min-width: 0;
 }
 .page {
   width: 100%;
@@ -223,13 +229,25 @@
   font-size: 28px;
 }
 
-/* Child chip: "Mia · 10 months". Wraps rather than cutting a long name. */
+/* Child chip: "Mia · 10 months". Truncates with an ellipsis in the top bar (the full text is the accessible
+   name); on Today, where there is room, it wraps instead. */
 .chip-who {
   max-width: 100%;
+  min-width: 0;
   padding: 6px 14px;
   font-size: var(--gs-fs-1);
   line-height: var(--gs-lh-1);
   text-align: left;
+}
+.chip-who > span {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.today-who .chip-who > span {
+  white-space: normal;
   overflow-wrap: anywhere;
 }
 .today-who {
@@ -241,7 +259,7 @@
   align-items: center;
   gap: 6px;
   min-height: var(--hit);
-  padding: 0 14px;
+  padding: 0 12px;
   border: 1.5px solid var(--emergency);
   border-radius: var(--r-tile);
   background: var(--emergency);
@@ -250,8 +268,21 @@
   font-size: var(--gs-fs-1);
   text-decoration: none;
   white-space: nowrap;
+  flex: none;
+}
+.poison .poison-long {
+  display: none;
+}
+@media (min-width: 420px) {
+  .poison .poison-short {
+    display: none;
+  }
+  .poison .poison-long {
+    display: inline;
+  }
 }
 .icon-btn {
+  flex: none;
   display: inline-grid;
   place-items: center;
   width: var(--hit);
@@ -859,6 +890,19 @@
 }
 .room-home {
   margin-bottom: 4px;
+}
+.room-li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.room-li .room-row {
+  border-bottom: 0;
+}
+.room-li .room-check {
+  align-self: flex-start;
+  margin-bottom: 12px;
 }
 .scan-card {
   display: flex;
