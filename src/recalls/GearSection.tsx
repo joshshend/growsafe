@@ -1,6 +1,6 @@
 // "Gear" section of the Rooms tab: list, add sheet, checklist sheet and recall results sheet.
 import { useEffect, useId, useState, type FormEvent } from "react";
-import { CheckCircle, Plus, Warning } from "@phosphor-icons/react";
+import { Plus } from "@phosphor-icons/react";
 import { useSearchParams } from "react-router-dom";
 import { useStore } from "../store/store";
 import { Sheet } from "../ui/Sheet";
@@ -44,7 +44,7 @@ export function GearSection() {
   return (
     <section className="flow-s" aria-labelledby="gear-h">
       <div className="section-head">
-        <h2 id="gear-h" className="t-section">
+        <h2 id="gear-h" className="d3">
           {t("gear.title")}
         </h2>
       </div>
@@ -62,13 +62,9 @@ export function GearSection() {
                   <span className="gear-name">{name}</span>
                   {g.secondHand && <span className="gear-chip">{t("gear.secondHandTag")}</span>}
                   {flagged ? (
-                    <span className="gear-chip is-warn">
-                      <Warning size={18} weight="duotone" aria-hidden="true" />
-                      {t("gear.status.possible")}
-                    </span>
+                    <span className="gear-chip is-warn">{t("gear.status.possible")}</span>
                   ) : g.lastChecked ? (
                     <span className="gear-chip is-ok">
-                      <CheckCircle size={18} weight="duotone" aria-hidden="true" />
                       {t("gear.status.checked", { date: dateText(g.lastChecked, lang) })}
                     </span>
                   ) : (

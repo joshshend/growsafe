@@ -1,42 +1,68 @@
-import { CaretLeft, Plus } from "@phosphor-icons/react";
+import { Plus } from "@phosphor-icons/react";
 import { Link, useParams } from "react-router-dom";
 import { useStore } from "../store/store";
 import { progress } from "../store/selectors";
-import { RoomIcon } from "./icons";
-import { Ring, TaskRow, useChildViews } from "./parts";
-import { useT } from "./useT";
+import { ageText, localHazard, taskTotals } from "./format";
+import { RoomIllustration } from "./illustrations";
+import { BackLink, TaskRow, useChildViews } from "./parts";
+import { ProgressMarks } from "./ProgressMarks";
+import { useActiveChild } from "./ui-state";
+import { useLang, useT } from "./useT";
 import { GearSection } from "../recalls/GearSection";
 
 export function Rooms() {
   const t = useT();
+  const lang = useLang();
   const homes = useStore((s) => s.homes);
+  const child = useActiveChild();
   const views = useChildViews();
+  const all = progress(views);
   return (
     <div className="flow">
-      <h1 className="t-title">{t("rooms.title")}</h1>
+      <div>
+        <h1 className="d4">{t("rooms.title")}</h1>
+        {child && (
+          <p className="t2 muted">
+            {t("plan.childAge", { name: child.nickname, age: ageText(t, child, new Date()) })}
+            {" · "}
+            {t("plan.progress", all)}
+          </p>
+        )}
+      </div>
       {homes.map((h) => (
-        <section key={h.id} className="flow-s" aria-labelledby={`home-${h.id}`}>
+        <section key={h.id} aria-labelledby={`home-${h.id}`}>
           {homes.length > 1 && (
-            <h2 id={`home-${h.id}`} className="t-section">
+            <h2 id={`home-${h.id}`} className="lbl room-home">
               {h.name}
             </h2>
           )}
-          <ul className="tiles">
+          <ul className="rows">
             {h.rooms.map((r) => {
-              const p = progress(views.filter((v) => v.task.home_id === h.id && v.task.room === r));
+              const mine = views.filter((v) => v.task.home_id === h.id && v.task.room === r);
+              const p = progress(mine);
+              const label = t(`room.${r}`);
+              const nextUp = mine.find((v) => v.task.status !== "done");
+              const sub =
+                p.total === 0
+                  ? t("room.empty")
+                  : [
+                      t("plan.progress", p),
+                      nextUp
+                        ? t("rooms.next", { name: localHazard(nextUp.hazard, lang).name })
+                        : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" · ");
               return (
-                <li key={r} className="tiles-item">
-                  <Link to={`/room/${h.id}/${r}`} className="tile">
-                    <span className="tile-icon">
-                      <RoomIcon room={r} size={36} />
+                <li key={r}>
+                  <Link to={`/room/${h.id}/${r}`} className="row room-row">
+                    <span className="row-main">
+                      <span className="d3">{label}</span>
+                      <span className="row-sub">{sub}</span>
                     </span>
-                    <span className="tile-ring">
-                      <Ring done={p.done} total={p.total} size={28} stroke={4} />
-                    </span>
-                    <span>
-                      <span className="tile-name block">{t(`room.${r}`)}</span>
-                      <span className="tile-count">{t("plan.progress", p)}</span>
-                    </span>
+                    {p.total > 0 && (
+                      <ProgressMarks decorative done={p.done} total={p.total} label={label} />
+                    )}
                   </Link>
                 </li>
               );
@@ -44,8 +70,17 @@ export function Rooms() {
           </ul>
         </section>
       ))}
+      <div className="card scan-card">
+        <div className="scan-card-text">
+          <p className="t2b">{t("scan.cta.today")}</p>
+          <p className="t1 muted">{t("scan.cta.todaySub")}</p>
+        </div>
+        <Link to="/scan" className="btn btn-secondary">
+          {t("scan.cta.button")}
+        </Link>
+      </div>
       <GearSection />
-      <Link to="/home/new" className="btn btn-block">
+      <Link to="/home/new" className="btn btn-secondary btn-block">
         <Plus size={20} weight="bold" aria-hidden="true" />
         {t("plan.addHome")}
       </Link>
@@ -61,7 +96,7 @@ export function RoomPage() {
   if (!home || !room || !(home.rooms as string[]).includes(room)) {
     return (
       <div className="flow">
-        <h1 className="t-title">{t("room.notFound")}</h1>
+        <h1 className="d4">{t("room.notFound")}</h1>
         <Link className="btn btn-primary btn-block" to="/rooms">
           {t("room.backToRooms")}
         </Link>
@@ -73,32 +108,30 @@ export function RoomPage() {
   const done = mine.filter((v) => v.task.status === "done");
   const p = progress(mine);
   const label = t(`room.${room}`);
+  const minutesLeft = open.reduce((sum, v) => sum + taskTotals(v.hazard).minutes, 0);
   return (
-    <div className="flow">
-      <Link to="/rooms" className="back">
-        <CaretLeft size={20} weight="bold" aria-hidden="true" />
-        {t("rooms.title")}
-      </Link>
-      <div className="today-head">
-        <div className="flow-s">
-          <h1 className="t-title">{label}</h1>
-          <p className="muted">{home.name}</p>
+    <div className="flow room-page">
+      <BackLink to="/rooms">{t("rooms.title")}</BackLink>
+      <div className="room-head">
+        <div className="room-head-text">
+          <h1 className="d4">{label}</h1>
+          <p className="t2">{t("plan.progress", p)}</p>
+          {minutesLeft > 0 && (
+            <p className="t1 muted">{t("room.minutesLeft", { n: minutesLeft })}</p>
+          )}
+          <p className="t1 muted">{home.name}</p>
         </div>
-        <Ring
-          done={p.done}
-          total={p.total}
-          size={64}
-          label={t("room.progressLabel", { room: label })}
-          showCount
-        />
+        <div className="room-head-art">
+          <RoomIllustration room={room} decorative />
+        </div>
       </div>
-      <Link to={`/scan?home=${home.id}&room=${room}`} className="btn btn-block">
+      <Link to={`/scan?home=${home.id}&room=${room}`} className="btn btn-secondary btn-block">
         {t("scan.cta")}
       </Link>
       {mine.length === 0 && <p className="muted">{t("room.empty")}</p>}
       {open.length > 0 && (
         <section aria-labelledby="open">
-          <h2 id="open" className="t-section section-head">
+          <h2 id="open" className="lbl">
             {t("room.checklist")}
           </h2>
           <ul className="rows">
@@ -110,7 +143,7 @@ export function RoomPage() {
       )}
       {done.length > 0 && (
         <section aria-labelledby="dn">
-          <h2 id="dn" className="t-section section-head">
+          <h2 id="dn" className="lbl">
             {t("group.done")}
           </h2>
           <ul className="rows">
