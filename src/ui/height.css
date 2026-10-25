@@ -1,0 +1,87 @@
+/* Height tracker ("doorframe"). Colours come from tokens only. */
+.hf-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  margin: 0 auto;
+  color: var(--ink);
+}
+.hf-wrap {
+  padding: 12px 8px 4px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-tile);
+  background: var(--surface);
+}
+.hf-jamb,
+.hf-floor,
+.hf-pencil {
+  fill: none;
+  stroke: var(--ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hf-jamb {
+  stroke-width: 6;
+}
+.hf-floor {
+  stroke-width: 4;
+}
+.hf-pencil {
+  stroke-width: 4.6;
+}
+.hf-yellow {
+  fill: none;
+  stroke: var(--action);
+  stroke-width: 11;
+  stroke-linecap: round;
+}
+.hf-notch,
+.hf-leader {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.hf-ruler {
+  fill: var(--muted);
+  font: 400 12px var(--font-body);
+}
+.hf-label {
+  fill: var(--ink);
+  font: 400 14px var(--font-body);
+}
+.hf-val {
+  font-weight: 700;
+}
+.hf-date {
+  fill: var(--muted);
+}
+.hf-label.is-new .hf-date {
+  fill: var(--ink);
+}
+.hf-empty {
+  padding: 8px 12px 16px;
+  text-align: center;
+}
+.hf-grew {
+  font: 700 var(--gs-fs-3) / var(--gs-lh-3) var(--font-display);
+}
+.hf-pick {
+  margin: 0;
+}
+.hf-unit {
+  max-width: 160px;
+}
+.hf-row-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.hf-row-actions {
+  display: flex;
+  flex: none;
+}
+.hf-note {
+  overflow-wrap: anywhere;
+}

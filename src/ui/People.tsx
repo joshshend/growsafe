@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   FirstAidKit,
   IdentificationCard,
+  Ruler,
   Pill,
   Plus,
   ShareNetwork,
@@ -63,6 +64,19 @@ export function People() {
                     {t("people.emergencyCard", { name: c.nickname })}
                   </span>
                   <span className="row-sub">{t("people.emergencyCardSub")}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+          {children.map((c) => (
+            <li key={`ht-${c.id}`} className="row">
+              <Link to={`/height/${c.id}`} className="row-link">
+                <span className="row-icon">
+                  <Ruler size={28} weight="regular" aria-hidden="true" />
+                </span>
+                <span className="row-body">
+                  <span className="row-title">{t("height.row.title", { name: c.nickname })}</span>
+                  <span className="row-sub">{t("height.row.sub")}</span>
                 </span>
               </Link>
             </li>

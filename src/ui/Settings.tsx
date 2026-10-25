@@ -7,6 +7,7 @@ import { Sheet } from "./Sheet";
 import { useEasyStore } from "./easy";
 import { readTheme, saveTheme, type Theme } from "./theme";
 import { useUi } from "./ui-state";
+import { useHeights } from "../height/store";
 import { useLang, useT } from "./useT";
 
 export function Settings() {
@@ -16,6 +17,7 @@ export function Settings() {
   const largeText = useStore((s) => s.settings.largeText);
   const setSettings = useStore((s) => s.setSettings);
   const reset = useStore((s) => s.reset);
+  const resetHeights = useHeights((s) => s.reset);
   const easy = useEasyStore((s) => s.easy);
   const setEasy = useEasyStore((s) => s.setEasy);
   const [theme, setTheme] = useState<Theme>(readTheme);
@@ -92,6 +94,10 @@ export function Settings() {
             ))}
           </div>
         </div>
+        <Link to="/height" className="link-row">
+          {t("height.settings")}
+          <CaretRight size={20} weight="bold" aria-hidden="true" />
+        </Link>
         <Link to="/settings/privacy" className="link-row">
           {t("settings.privacy")}
           <CaretRight size={20} weight="bold" aria-hidden="true" />
@@ -109,6 +115,7 @@ export function Settings() {
               className="btn btn-secondary btn-block"
               onClick={() => {
                 reset();
+                resetHeights();
                 useUi.setState({ activeChildId: null, openTaskId: null, switcherOpen: false });
                 setConfirming(false);
                 nav("/", { replace: true });

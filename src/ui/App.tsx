@@ -6,6 +6,7 @@ import { Briefing } from "./Briefing";
 import { EmergencyCard } from "./Emergency";
 import { Ahead } from "./Ahead";
 import { ChildForm, HomeForm } from "./Forms";
+import { Height } from "./Height";
 import { Help } from "./Help";
 import { Layout } from "./Layout";
 import { Merge } from "./Merge";
@@ -80,6 +81,7 @@ export function App() {
           <Route path="medicine/:homeId" element={<MedicineCheck />} />
           <Route path="visit" element={<Visit />} />
           <Route path="merge" element={<Merge />} />
+          <Route path="height/:childId?" element={<Height />} />
           <Route path="settings" element={<Settings />} />
           <Route path="settings/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
