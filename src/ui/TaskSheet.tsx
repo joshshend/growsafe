@@ -1,12 +1,11 @@
 // Task detail: bottom sheet on phones, side panel on wide screens.
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { CaretDown, CaretRight, Clock, Coins } from "@phosphor-icons/react";
+import { CaretDown } from "@phosphor-icons/react";
 import { remindMe, reminderDate, type ReminderChoice } from "../native/reminder";
 import { useStore } from "../store/store";
 import { costText, localHazard, reasonText, taskTotals } from "./format";
 import { useEasy } from "./easy";
-import { RoomIcon } from "./icons";
 import { ReadAloudButton } from "./ReadAloudButton";
 import { Severity, useChildViews, useSetDone } from "./parts";
 import { Sheet } from "./Sheet";
@@ -18,7 +17,7 @@ function Disclosure({ title, children }: { title: string; children: React.ReactN
   if (easy)
     return (
       <section className="disc-body">
-        <h3 className="t-strong">{title}</h3>
+        <h3 className="lbl">{title}</h3>
         {children}
       </section>
     );
@@ -199,69 +198,104 @@ export function TaskSheet() {
   const home = homes.find((h) => h.id === task.home_id);
   const steps = [...hazard.fix_steps].sort((a, b) => a.order - b.order);
   const totals = taskTotals(hazard);
+  const tools = Array.from(new Set(steps.flatMap((s) => s.tools)));
   const done = task.status === "done";
   const assignText = [task.owner, task.due ? t("task.due", { date: task.due }) : ""]
     .filter(Boolean)
     .join(", ");
+  // "Living room · 10 min · $10 to $25" (the home's name only when there is more than one home).
+  const where =
+    homes.length > 1
+      ? t("task.where", { room: t(`room.${task.room}`), home: home?.name ?? "" })
+      : t(`room.${task.room}`);
+  const eyebrow = [
+    where,
+    t("task.minutes", { n: totals.minutes }),
+    costText(t, totals.min, totals.max),
+  ].join(" · ");
 
   return (
     <>
       <Sheet
         title={local.name}
+        eyebrow={eyebrow}
         onClose={close}
         footer={
-          done ? (
-            <button
-              type="button"
-              className="btn btn-block"
-              onClick={() => setStatus(task.id, "todo")}
-            >
-              {t("task.markNotDone")}
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="btn btn-primary btn-block"
-              onClick={() => {
-                setDone(task.id, true);
-                close();
-              }}
-            >
-              {t("task.markDone")}
-            </button>
-          )
+          <div className="sheet-actions">
+            {done ? (
+              <button
+                type="button"
+                className="btn btn-secondary btn-block"
+                onClick={() => setStatus(task.id, "todo")}
+              >
+                {t("task.markNotDone")}
+              </button>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-block"
+                  onClick={() => {
+                    setDone(task.id, true);
+                    close();
+                  }}
+                >
+                  <svg className="btn-tick" viewBox="0 0 22 22" aria-hidden="true">
+                    <path d="M4 11.5l5 5L18.5 5" />
+                  </svg>
+                  {t("task.markDone")}
+                </button>
+                <button type="button" className="btn btn-quiet" onClick={close}>
+                  {t("task.notTonight")}
+                </button>
+              </>
+            )}
+          </div>
         }
       >
-        <div className="flow-s">
-          <span className="meta-item muted">
-            <RoomIcon room={task.room} size={22} />
-            {t("task.where", { room: t(`room.${task.room}`), home: home?.name ?? "" })}
-          </span>
-          <div className="chips-line">
-            <span className="fact">
-              <Clock size={20} weight="duotone" aria-hidden="true" />
-              {t("task.minutes", { n: totals.minutes })}
-            </span>
-            <span className="fact">
-              <Coins size={20} weight="duotone" aria-hidden="true" />
-              {costText(t, totals.min, totals.max)}
-            </span>
-            <Severity score={severity} />
-          </div>
-        </div>
+        <Severity score={severity} />
 
-        <ReadAloudButton task={task} />
+        <section className="sheet-sec">
+          <h3 className="lbl">{t("task.why")}</h3>
+          <p className="t2">{local.why}</p>
+          {ranked && (
+            <Disclosure title={t("task.rank")}>
+              <ul className="bullets">
+                {ranked.reasons.map((r) => (
+                  <li key={r.kind}>
+                    {reasonText(
+                      t,
+                      r,
+                      r.kind === "severity" ? local.rationale(String(r.params.stage)) : undefined,
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </Disclosure>
+          )}
+        </section>
 
-        <ol className="steps" aria-label={t("task.steps")}>
-          {steps.map((s, i) => (
-            <li key={s.order} className="step">
-              <p>{local.steps[i]}</p>
-              {s.tools.length > 0 && (
-                <p className="step-note">{t("task.needs", { tools: s.tools.join(", ") })}</p>
-              )}
-            </li>
-          ))}
-        </ol>
+        {tools.length > 0 && (
+          <section className="sheet-sec">
+            <h3 className="lbl">{t("task.need")}</h3>
+            <p className="t2">{tools.join(", ")}</p>
+          </section>
+        )}
+
+        <section className="sheet-sec">
+          <h3 className="lbl">{t("task.steps")}</h3>
+          <ReadAloudButton task={task} />
+          <ol className="steps" aria-label={t("task.steps")}>
+            {steps.map((s, i) => (
+              <li key={s.order} className="step">
+                <p className="t2">{local.steps[i]}</p>
+                {s.tools.length > 0 && (
+                  <p className="step-note">{t("task.needs", { tools: s.tools.join(", ") })}</p>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
 
         <div>
           <button type="button" className="link-row" onClick={() => setAssigning(true)}>
@@ -269,14 +303,12 @@ export function TaskSheet() {
               {t("task.assign")}
               <span className="row-sub block">{assignText || t("task.notAssigned")}</span>
             </span>
-            <CaretRight size={20} weight="bold" aria-hidden="true" />
           </button>
           <button type="button" className="link-row" onClick={() => setReminding(true)}>
             <span>
               {t("remind.row")}
               <span className="row-sub block">{t("remind.rowSub")}</span>
             </span>
-            <CaretRight size={20} weight="bold" aria-hidden="true" />
           </button>
           {hazard.detection_cues.length > 0 && home && (
             <button
@@ -291,25 +323,8 @@ export function TaskSheet() {
                 {t("scan.recheck.row")}
                 <span className="row-sub block">{t("scan.recheck.rowSub")}</span>
               </span>
-              <CaretRight size={20} weight="bold" aria-hidden="true" />
             </button>
           )}
-          <Disclosure title={t("task.why")}>
-            <p>{local.why}</p>
-            {ranked && (
-              <ul className="bullets">
-                {ranked.reasons.map((r) => (
-                  <li key={r.kind}>
-                    {reasonText(
-                      t,
-                      r,
-                      r.kind === "severity" ? local.rationale(String(r.params.stage)) : undefined,
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </Disclosure>
           <Disclosure title={t("task.check")}>
             <p>{local.verify}</p>
             {local.reminder && (
