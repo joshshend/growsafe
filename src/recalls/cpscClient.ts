@@ -9,6 +9,13 @@ export const DIRECT_URL = "https://www.saferproducts.gov/RestWebServices/Recall"
 export const PROXY_URL = "/api/recalls"; // api/recalls.ts: forwards only the search text
 export const RECHECK_MS = 24 * 60 * 60 * 1000; // re-check on app open at most once a day
 const MAX_MATCHES = 10;
+const FETCH_TIMEOUT_MS = 15000; // a hung request must not stall "Check all"
+
+function timeoutSignal(ms: number): AbortSignal | undefined {
+  return typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function"
+    ? AbortSignal.timeout(ms)
+    : undefined;
+}
 
 const Named = z.array(z.object({ Name: z.string().nullish() }).passthrough()).nullish();
 const RecordSchema = z
@@ -127,7 +134,8 @@ export type RecallOutcome =
 
 // Searches every term for the gear type and keeps matches for the brand. Any failure -> { ok: false }.
 export async function checkRecalls(q: GearQuery, deps: ClientDeps = {}): Promise<RecallOutcome> {
-  const f: Fetcher = deps.fetchImpl ?? ((u) => fetch(u));
+  const f: Fetcher =
+    deps.fetchImpl ?? ((u) => fetch(u, { signal: timeoutSignal(FETCH_TIMEOUT_MS) }));
   try {
     const all: CpscRecall[] = [];
     for (const term of kindOf(q.type).terms) all.push(...(await fetchTerm(term, f)));

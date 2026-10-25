@@ -37,6 +37,10 @@ export const GearItemSchema = z.object({
   year: z.number().int().min(1950).max(2100).optional(),
   secondHand: z.boolean(),
   labelDate: z.string().optional(), // free text: the date printed on the label (car seats)
+  expires: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional(), // car seats: expiry date from the label, YYYY-MM-DD, typed by the person
   lastChecked: z.string().optional(), // ISO time of the last successful recall check
   recallMatches: z.array(RecallMatchSchema).optional(), // result of that check ([] = nothing found)
   dismissed: z.array(z.string()).optional(), // recall ids the user marked "not my product"

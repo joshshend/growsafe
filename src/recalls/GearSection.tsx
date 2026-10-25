@@ -1,5 +1,5 @@
 // "Gear" section of the Rooms tab: list, add sheet, checklist sheet and recall results sheet.
-import { useEffect, useId, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { Plus } from "@phosphor-icons/react";
 import { useSearchParams } from "react-router-dom";
 import { useStore } from "../store/store";
@@ -8,6 +8,7 @@ import { useUi } from "../ui/ui-state";
 import { useLang, useT, type TFn } from "../ui/useT";
 import { SAFERPRODUCTS_URL } from "./cpscClient";
 import { checklistFor } from "./gear";
+import { expiryStatus, NHTSA_LABEL_URL, NHTSA_RECALLS_URL, type Expiry } from "./expiry";
 import { GEAR_KINDS } from "./products";
 import { activeMatches, type GearItem, type GearType } from "./types";
 import { useRecallCheck } from "./useRecallCheck";
@@ -20,15 +21,105 @@ function dateText(iso: string, lang: string): string {
 const gearName = (t: TFn, g: Pick<GearItem, "brand" | "type">) =>
   t("gear.name", { brand: g.brand, type: t(`gear.type.${g.type}`) });
 
-export function GearSection() {
+const isSeat = (type: GearType) => type === "car_seat" || type === "booster";
+
+function expiryText(t: TFn, e: Expiry): string {
+  if (e.kind === "expired") return t("gear.expiry.expired");
+  if (e.kind === "soon") return t("gear.expiry.soon");
+  return e.months === 1 ? t("gear.expiry.month") : t("gear.expiry.months", { n: e.months });
+}
+
+// One plain line per product: what the last recall check found, or that it has not been run.
+function StatusLine({ g, failed }: { g: GearItem; failed: boolean }) {
   const t = useT();
   const lang = useLang();
+  const matches = activeMatches(g);
+  if (matches.length > 0) {
+    const first = matches[0];
+    return (
+      <p className="gear-status is-warn">
+        {matches.length > 1
+          ? t("gear.line.possibleMore", { title: first.title, n: matches.length - 1 })
+          : t("gear.line.possible", { title: first.title })}{" "}
+        <a href={first.url} target="_blank" rel="noopener noreferrer">
+          {t("gear.line.open")}
+        </a>
+        {failed && <span className="gear-note">{` ${t("gear.line.failedSaved")}`}</span>}
+      </p>
+    );
+  }
+  if (g.lastChecked) {
+    return (
+      <p className="gear-status">
+        {t("gear.line.clear", { date: dateText(g.lastChecked, lang) })}
+        {failed && <span className="gear-note">{` ${t("gear.line.failedSaved")}`}</span>}
+      </p>
+    );
+  }
+  return <p className="gear-status">{failed ? t("gear.line.failed") : t("gear.line.never")}</p>;
+}
+
+function SeatExpiry({ g, name }: { g: GearItem; name: string }) {
+  const t = useT();
+  const uid = useId();
+  const updateGear = useStore((s) => s.updateGear);
+  const status = expiryStatus(g.expires, new Date());
+  return (
+    <div className="gear-expiry">
+      <label className="field-label" htmlFor={`${uid}-exp`}>
+        {t("gear.expires")}
+      </label>
+      <input
+        id={`${uid}-exp`}
+        type="date"
+        className="input"
+        aria-label={t("gear.expiresField", { name })}
+        value={g.expires ?? ""}
+        onChange={(e) => updateGear(g.id, { expires: e.target.value || undefined })}
+      />
+      {status && (
+        <p className={`gear-status${status.kind === "expired" ? " is-warn" : ""}`}>
+          {expiryText(t, status)}
+        </p>
+      )}
+      <p className="gear-note">{t("gear.expiresNote")}</p>
+      <p className="gear-note">
+        <a href={NHTSA_LABEL_URL} target="_blank" rel="noopener noreferrer">
+          {t("gear.nhtsaLabel")}
+        </a>
+      </p>
+      <p className="gear-note">
+        <a href={NHTSA_RECALLS_URL} target="_blank" rel="noopener noreferrer">
+          {t("gear.nhtsaRecalls")}
+        </a>
+      </p>
+    </div>
+  );
+}
+
+type Sweep = { n: number; total: number } | null;
+
+export function GearSection() {
+  const t = useT();
   const homes = useStore((s) => s.homes);
   const gear = useStore((s) => s.gear);
   const removeGear = useStore((s) => s.removeGear);
   const [adding, setAdding] = useState(false);
   const [list, setList] = useState<string | null>(null);
   const [recalls, setRecalls] = useState<{ id: string; run: boolean } | null>(null);
+  const check = useRecallCheck();
+  const [sweep, setSweep] = useState<Sweep>(null); // "Check all" progress while it runs
+  const [sweepDone, setSweepDone] = useState<{ n: number; total: number; failed: number } | null>(
+    null,
+  );
+  const [failed, setFailed] = useState<string[]>([]); // items whose last attempt could not reach CPSC
+  const alive = useRef(true);
+  useEffect(() => {
+    alive.current = true;
+    return () => {
+      alive.current = false;
+    };
+  }, []);
   const [params, setParams] = useSearchParams();
   const target = params.get("gear");
 
@@ -39,6 +130,30 @@ export function GearSection() {
       setParams({}, { replace: true });
     }
   }, [target, gear, setParams]);
+
+  // Runs the same recall check as the per-item button, one item at a time. A failure on one item
+  // never stops the others and never throws.
+  async function checkAll() {
+    const ids = useStore.getState().gear.map((g) => g.id);
+    setSweepDone(null);
+    setFailed([]);
+    let ok = 0;
+    const bad: string[] = [];
+    for (let i = 0; i < ids.length; i++) {
+      if (alive.current) setSweep({ n: i + 1, total: ids.length });
+      try {
+        const out = await check(ids[i]);
+        if (out && out.ok) ok++;
+        else if (out) bad.push(ids[i]);
+      } catch {
+        bad.push(ids[i]);
+      }
+    }
+    if (!alive.current) return;
+    setSweep(null);
+    setFailed(bad);
+    setSweepDone({ n: ok, total: ids.length, failed: bad.length });
+  }
 
   if (homes.length === 0) return null;
   return (
@@ -55,22 +170,14 @@ export function GearSection() {
         <ul className="gear-list">
           {gear.map((g) => {
             const name = gearName(t, g);
-            const flagged = activeMatches(g).length > 0;
             return (
               <li key={g.id} className={`gear-item${target === g.id ? " is-target" : ""}`}>
                 <div className="gear-head">
                   <span className="gear-name">{name}</span>
                   {g.secondHand && <span className="gear-chip">{t("gear.secondHandTag")}</span>}
-                  {flagged ? (
-                    <span className="gear-chip is-warn">{t("gear.status.possible")}</span>
-                  ) : g.lastChecked ? (
-                    <span className="gear-chip is-ok">
-                      {t("gear.status.checked", { date: dateText(g.lastChecked, lang) })}
-                    </span>
-                  ) : (
-                    <span className="gear-chip">{t("gear.status.none")}</span>
-                  )}
                 </div>
+                <StatusLine g={g} failed={failed.includes(g.id)} />
+                {isSeat(g.type) && <SeatExpiry g={g} name={name} />}
                 <div className="gear-actions">
                   <button type="button" className="btn" onClick={() => setList(g.id)}>
                     {t("gear.runChecklist")}
@@ -95,6 +202,28 @@ export function GearSection() {
             );
           })}
         </ul>
+      )}
+      {gear.length > 0 && (
+        <div className="flow-s">
+          <button
+            type="button"
+            className="btn btn-block"
+            disabled={sweep !== null}
+            onClick={() => void checkAll()}
+          >
+            {sweep ? t("gear.checkAllProgress", sweep) : t("gear.checkAll")}
+          </button>
+          <p role="status" aria-live="polite" className="gear-note">
+            {sweepDone &&
+              [
+                t("gear.checkAllDone", { n: sweepDone.n, total: sweepDone.total }),
+                sweepDone.failed > 0 ? t("gear.checkAllFailed", { n: sweepDone.failed }) : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+          </p>
+          <p className="gear-note">{t("gear.checkAllNote")}</p>
+        </div>
       )}
       <button type="button" className="btn btn-block" onClick={() => setAdding(true)}>
         <Plus size={20} weight="bold" aria-hidden="true" />
@@ -121,8 +250,9 @@ function AddGearSheet({ onClose }: { onClose: () => void }) {
   const [year, setYear] = useState("");
   const [secondHand, setSecondHand] = useState(false);
   const [labelDate, setLabelDate] = useState("");
+  const [expires, setExpires] = useState("");
   const [error, setError] = useState("");
-  const seat = type === "car_seat" || type === "booster";
+  const seat = isSeat(type);
 
   function submit(e: FormEvent) {
     e.preventDefault();
@@ -136,6 +266,7 @@ function AddGearSheet({ onClose }: { onClose: () => void }) {
       ...(model.trim() && { model: model.trim() }),
       ...(Number.isInteger(y) && y >= 1950 && y <= 2100 && { year: y }),
       ...(seat && labelDate.trim() && { labelDate: labelDate.trim() }),
+      ...(seat && /^\d{4}-\d{2}-\d{2}$/.test(expires) && { expires }),
     });
     onClose();
   }
@@ -248,6 +379,24 @@ function AddGearSheet({ onClose }: { onClose: () => void }) {
             ))}
           </div>
         </fieldset>
+        {seat && (
+          <div className="field">
+            <label className="field-label" htmlFor={`${uid}-exp`}>
+              {t("gear.expires")}
+            </label>
+            <input
+              id={`${uid}-exp`}
+              type="date"
+              className="input"
+              value={expires}
+              aria-describedby={`${uid}-exp-hint`}
+              onChange={(e) => setExpires(e.target.value)}
+            />
+            <span id={`${uid}-exp-hint`} className="field-hint">
+              {t("gear.expiresNote")}
+            </span>
+          </div>
+        )}
         {seat && (
           <div className="field">
             <label className="field-label" htmlFor={`${uid}-label`}>

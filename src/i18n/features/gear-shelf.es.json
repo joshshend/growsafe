@@ -1,0 +1,23 @@
+{
+  "gear.line.clear": "No se encontró ningún retiro (revisado el {date})",
+  "gear.line.possible": "Posible retiro del mercado: {title}",
+  "gear.line.possibleMore": "Posible retiro del mercado: {title} y {n} más",
+  "gear.line.open": "Abrir el aviso de la CPSC",
+  "gear.line.never": "Aún no revisado",
+  "gear.line.failed": "No se pudo revisar ahora",
+  "gear.line.failedSaved": "No se pudo revisar ahora. Se muestra el último resultado.",
+  "gear.checkAll": "Revisar todo",
+  "gear.checkAllProgress": "Revisando {n} de {total}...",
+  "gear.checkAllDone": "Revisados {n} de {total}.",
+  "gear.checkAllFailed": "No se pudieron revisar {n} ahora. Intente de nuevo más tarde.",
+  "gear.checkAllNote": "Busca en la lista de retiros de la CPSC por marca y tipo de producto. Puede pasar por alto un retiro, así que mire también en el sitio del fabricante.",
+  "gear.expires": "Vence (opcional)",
+  "gear.expiresField": "Fecha de vencimiento de {name}",
+  "gear.expiresNote": "Mire la etiqueta de su asiento: los fabricantes fijan la fecha de vencimiento.",
+  "gear.expiry.months": "Vence en {n} meses",
+  "gear.expiry.month": "Vence en 1 mes",
+  "gear.expiry.soon": "Vence en menos de un mes",
+  "gear.expiry.expired": "Vencido",
+  "gear.nhtsaLabel": "NHTSA: cómo encontrar la fecha y el número de modelo en la etiqueta del asiento",
+  "gear.nhtsaRecalls": "Los retiros de asientos de seguridad los publica la NHTSA. Busque allí también."
+}

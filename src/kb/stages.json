@@ -1,74 +1,158 @@
 [
   {
     "stage": "0-3m",
-    "explore": "Babies this age start to hold their heads up during tummy time, move both arms and both legs, and look at faces. Where they end up is still decided by the adults around them.",
-    "es": "Los bebés de esta edad empiezan a levantar la cabeza boca abajo, mueven los dos brazos y las dos piernas, y miran las caras. Los adultos que los rodean todavía deciden dónde están.",
-    "evidence_status": "verify",
+    "explore": "Babies this age start to hold their heads up during tummy time, move both arms and both legs, and watch you as you move. Where they end up is still decided by the adults around them.",
+    "es": "Los bebés de esta edad empiezan a levantar la cabeza boca abajo, mueven los dos brazos y las dos piernas, y siguen con la mirada lo que usted hace. Los adultos que los rodean todavía deciden dónde están.",
+    "evidence_status": "sourced",
     "citation": {
       "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
       "publisher": "CDC",
       "url": "https://www.cdc.gov/act-early/milestones/index.html",
-      "accessed": "2026-10-12"
-    }
+      "accessed": "2026-10-24"
+    },
+    "milestones": [
+      {
+        "months": 2,
+        "url": "https://www.cdc.gov/act-early/milestones/2-months.html",
+        "en": "holding the head up on the tummy, moving both arms and both legs",
+        "es": "levantar la cabeza boca abajo, mover los dos brazos y las dos piernas"
+      }
+    ]
   },
   {
     "stage": "3-6m",
-    "explore": "Babies learn to push up onto their arms on their tummies, reach for toys, bring their hands to their mouths, and roll over. Many things they grab go straight to the mouth.",
-    "es": "Los bebés aprenden a apoyarse en los brazos boca abajo, alcanzan juguetes, se llevan las manos a la boca y se dan vuelta. Muchas cosas que agarran se van directo a la boca.",
-    "evidence_status": "verify",
+    "explore": "Babies push up onto their elbows and then onto straight arms on their tummies, reach for toys, bring their hands to their mouths, and roll from tummy to back. They put things in their mouths to explore them.",
+    "es": "Los bebés se apoyan en los codos y luego en los brazos estirados boca abajo, alcanzan juguetes, se llevan las manos a la boca y se dan vuelta de la barriga a la espalda. Se llevan cosas a la boca para explorarlas.",
+    "evidence_status": "sourced",
     "citation": {
       "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
       "publisher": "CDC",
       "url": "https://www.cdc.gov/act-early/milestones/index.html",
-      "accessed": "2026-10-12"
-    }
+      "accessed": "2026-10-24"
+    },
+    "milestones": [
+      {
+        "months": 4,
+        "url": "https://www.cdc.gov/act-early/milestones/4-months.html",
+        "en": "pushing up onto the elbows on the tummy, bringing hands to the mouth",
+        "es": "apoyarse en los codos boca abajo, llevarse las manos a la boca"
+      }
+    ]
   },
   {
     "stage": "6-12m",
-    "explore": "Children sit up on their own, pass objects from hand to hand, and pick up small things between thumb and finger. Around 12 months many pull up to stand and walk while holding on to furniture.",
-    "es": "Los niños se sientan solos, pasan objetos de una mano a la otra y recogen cosas pequeñas con el pulgar y el dedo. Hacia los 12 meses muchos se paran agarrándose y caminan sujetándose de los muebles.",
-    "evidence_status": "verify",
+    "explore": "Children sit without support, move things from one hand to the other, and pick up small things between thumb and pointer finger. Around 12 months many pull up to stand and walk while holding on to furniture.",
+    "es": "Los niños se sientan sin apoyo, pasan objetos de una mano a la otra y recogen cosas pequeñas con el pulgar y el índice. Hacia los 12 meses muchos se paran agarrándose y caminan sujetándose de los muebles.",
+    "evidence_status": "sourced",
     "citation": {
       "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
       "publisher": "CDC",
       "url": "https://www.cdc.gov/act-early/milestones/index.html",
-      "accessed": "2026-10-12"
-    }
+      "accessed": "2026-10-24"
+    },
+    "milestones": [
+      {
+        "months": 6,
+        "url": "https://www.cdc.gov/act-early/milestones/6-months.html",
+        "en": "rolling from tummy to back, reaching for toys, putting things in the mouth",
+        "es": "darse vuelta de la barriga a la espalda, alcanzar juguetes, llevarse cosas a la boca"
+      },
+      {
+        "months": 9,
+        "url": "https://www.cdc.gov/act-early/milestones/9-months.html",
+        "en": "sitting without support, moving things from hand to hand",
+        "es": "sentarse sin apoyo, pasar cosas de una mano a la otra"
+      }
+    ]
   },
   {
     "stage": "12-24m",
-    "explore": "Toddlers take their first steps, then walk without holding on, and begin to run and kick a ball. They feed themselves, scribble, and copy what adults do, like chores.",
-    "es": "Los niños pequeños dan sus primeros pasos, luego caminan sin agarrarse, y empiezan a correr y a patear una pelota. Comen solos, garabatean e imitan lo que hacen los adultos, como las tareas del hogar.",
-    "evidence_status": "verify",
+    "explore": "Toddlers take a few steps on their own, then walk without holding on, and climb on and off a couch or chair without help. They feed themselves with their fingers, scribble, and copy chores like sweeping.",
+    "es": "Los niños pequeños dan unos pasos solos, luego caminan sin agarrarse y se suben y bajan del sofá o de una silla sin ayuda. Comen solos con los dedos, garabatean e imitan tareas del hogar como barrer.",
+    "evidence_status": "sourced",
     "citation": {
       "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
       "publisher": "CDC",
       "url": "https://www.cdc.gov/act-early/milestones/index.html",
-      "accessed": "2026-10-12"
-    }
+      "accessed": "2026-10-24"
+    },
+    "milestones": [
+      {
+        "months": 12,
+        "url": "https://www.cdc.gov/act-early/milestones/1-year.html",
+        "en": "pulling up to stand, walking while holding on to furniture",
+        "es": "pararse agarrándose, caminar sujetándose de los muebles"
+      },
+      {
+        "months": 15,
+        "url": "https://www.cdc.gov/act-early/milestones/15-months.html",
+        "en": "taking a few steps alone, picking up food with fingers to feed themselves",
+        "es": "dar unos pasos solos, comer con los dedos"
+      },
+      {
+        "months": 18,
+        "url": "https://www.cdc.gov/act-early/milestones/18-months.html",
+        "en": "walking without holding on, climbing on and off a couch or chair",
+        "es": "caminar sin agarrarse, subirse y bajarse del sofá o de una silla"
+      }
+    ]
   },
   {
     "stage": "24-36m",
-    "explore": "Children run, kick a ball, walk up a few stairs, and put on some clothes by themselves. They use a fork and play pretend, so they want to do what they see grown-ups do.",
-    "es": "Los niños corren, patean una pelota, suben algunas escaleras y se ponen alguna ropa solos. Usan un tenedor y juegan a imitar, así que quieren hacer lo que ven hacer a los adultos.",
-    "evidence_status": "verify",
+    "explore": "Children run, kick a ball, walk up a few stairs, and turn doorknobs or unscrew lids. They take some clothes off and put some on, use a fork, and play pretend, like feeding a block to a doll.",
+    "es": "Los niños corren, patean una pelota, suben algunas escaleras y giran perillas o destapan frascos. Se quitan y se ponen alguna ropa, usan un tenedor y juegan a imitar, por ejemplo dándole de comer un bloque a una muñeca.",
+    "evidence_status": "sourced",
     "citation": {
       "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
       "publisher": "CDC",
       "url": "https://www.cdc.gov/act-early/milestones/index.html",
-      "accessed": "2026-10-12"
-    }
+      "accessed": "2026-10-24"
+    },
+    "milestones": [
+      {
+        "months": 24,
+        "url": "https://www.cdc.gov/act-early/milestones/2-years.html",
+        "en": "running, kicking a ball, walking up a few stairs",
+        "es": "correr, patear una pelota, subir algunas escaleras"
+      },
+      {
+        "months": 30,
+        "url": "https://www.cdc.gov/act-early/milestones/30-months.html",
+        "en": "turning doorknobs and unscrewing lids, jumping with both feet",
+        "es": "girar perillas y destapar frascos, saltar con los dos pies"
+      }
+    ]
   },
   {
     "stage": "36-60m",
-    "explore": "Children catch a large ball, hop on one foot, swing and climb, and pour water or serve food with an adult nearby. They take turns in games and want to do things on their own.",
-    "es": "Los niños atrapan una pelota grande, saltan en un pie, se columpian y trepan, y sirven agua o comida con un adulto cerca. Esperan su turno en los juegos y quieren hacer las cosas solos.",
-    "evidence_status": "verify",
+    "explore": "Children catch a large ball, hop on one foot, and pour water or serve themselves food with an adult nearby. They follow rules or take turns in games and do simple chores at home.",
+    "es": "Los niños atrapan una pelota grande, saltan en un pie y sirven agua o comida con un adulto cerca. Siguen las reglas o esperan su turno en los juegos y hacen tareas sencillas en casa.",
+    "evidence_status": "sourced",
     "citation": {
       "title": "CDC's Developmental Milestones (Learn the Signs. Act Early.)",
       "publisher": "CDC",
       "url": "https://www.cdc.gov/act-early/milestones/index.html",
-      "accessed": "2026-10-12"
-    }
+      "accessed": "2026-10-24"
+    },
+    "milestones": [
+      {
+        "months": 36,
+        "url": "https://www.cdc.gov/act-early/milestones/3-years.html",
+        "en": "using a fork, putting on some clothes, drawing a circle",
+        "es": "usar un tenedor, ponerse alguna ropa, dibujar un círculo"
+      },
+      {
+        "months": 48,
+        "url": "https://www.cdc.gov/act-early/milestones/4-years.html",
+        "en": "catching a large ball, pouring water or serving food with an adult nearby",
+        "es": "atrapar una pelota grande, servir agua o comida con un adulto cerca"
+      },
+      {
+        "months": 60,
+        "url": "https://www.cdc.gov/act-early/milestones/5-years.html",
+        "en": "hopping on one foot, taking turns in games",
+        "es": "saltar en un pie, esperar su turno en los juegos"
+      }
+    ]
   }
 ]

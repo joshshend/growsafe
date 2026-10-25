@@ -1,0 +1,11 @@
+{
+  "today.ahead.title": "Coming up for {name}",
+  "today.ahead.around": "Around {age}:",
+  "today.ahead.new": "New by then: {names}.",
+  "today.ahead.newMore": "New by then: {names} and {n} more.",
+  "today.ahead.none": "Nothing new is added to the plan by then.",
+  "today.ahead.pace": "Children move at their own pace. These are typical ages, not a schedule.",
+  "today.ahead.source": "Source: CDC milestones",
+  "today.ahead.unverified": "Not yet re-checked by a person.",
+  "today.soonTasks": "Tasks added early, from {age}"
+}

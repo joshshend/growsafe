@@ -114,3 +114,23 @@
   border-radius: 2px;
   background: var(--ink);
 }
+
+/* "Coming up" strip at the top of Today */
+.ahead-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.ahead-strip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ahead-strip-item p + p {
+  margin-top: 2px;
+}

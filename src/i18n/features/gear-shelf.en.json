@@ -1,0 +1,23 @@
+{
+  "gear.line.clear": "No recall found (checked {date})",
+  "gear.line.possible": "Possible recall: {title}",
+  "gear.line.possibleMore": "Possible recall: {title} and {n} more",
+  "gear.line.open": "Open the CPSC notice",
+  "gear.line.never": "Not checked yet",
+  "gear.line.failed": "Couldn't check right now",
+  "gear.line.failedSaved": "Couldn't check right now. Showing the last result.",
+  "gear.checkAll": "Check all",
+  "gear.checkAllProgress": "Checking {n} of {total}...",
+  "gear.checkAllDone": "Checked {n} of {total}.",
+  "gear.checkAllFailed": "{n} couldn't be checked right now. Try again later.",
+  "gear.checkAllNote": "Searches the CPSC recall list by brand and product type. It can miss a recall, so also look on the maker's website.",
+  "gear.expires": "Expires (optional)",
+  "gear.expiresField": "Expiry date for {name}",
+  "gear.expiresNote": "Check the label on your seat: manufacturers set the expiry date.",
+  "gear.expiry.months": "Expires in {n} months",
+  "gear.expiry.month": "Expires in 1 month",
+  "gear.expiry.soon": "Expires within a month",
+  "gear.expiry.expired": "Expired",
+  "gear.nhtsaLabel": "NHTSA: finding the date and model number on a seat's label",
+  "gear.nhtsaRecalls": "Car seat recalls are listed by NHTSA. Search there too."
+}
