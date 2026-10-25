@@ -78,7 +78,8 @@
       "cost_usd_min": 0,
       "cost_usd_max": 300,
       "minutes": 30,
-      "tools": ["screwdriver"]
+      "tools": ["screwdriver"],
+      "optional": true
     }
   ],
   "verify_rule": "The crib or bassinet holds only a firm flat mattress with a fitted sheet, with no bumpers, blankets, pillows or toys, and it is in the parents' room.",

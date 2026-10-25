@@ -50,7 +50,8 @@
       "cost_usd_min": 0,
       "cost_usd_max": 0,
       "minutes": 5,
-      "tools": []
+      "tools": [],
+      "optional": true
     },
     {
       "order": 2,
