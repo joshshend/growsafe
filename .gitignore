@@ -11,3 +11,4 @@ coverage
 ios/App/Pods
 ios/App/build
 .env.local
+docs/SUBMISSION.md
