@@ -14,8 +14,14 @@ describe("App first screen", () => {
 
   it("welcomes a new user with the app name, two ways in, no AI mention and a Poison Help tel link", () => {
     render(<App />);
-    expect(screen.getByRole("heading", { level: 1, name: "GrowSafe" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Get started" })).toHaveAttribute("href", "#/start");
+    expect(
+      screen.getByRole("heading", { level: 1, name: "A safer home, one small fix at a time." }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByText("GrowSafe").length).toBeGreaterThan(0);
+    expect(screen.getByRole("link", { name: "Show me the first fix" })).toHaveAttribute(
+      "href",
+      "#/start",
+    );
     expect(screen.getByRole("button", { name: "See an example" })).toBeInTheDocument();
     expect(screen.queryByText(/\bAI\b/)).not.toBeInTheDocument();
     const link = screen.getByRole("link", { name: /Poison Help, 1-800-222-1222/ });

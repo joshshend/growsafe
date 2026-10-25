@@ -4,7 +4,7 @@
   "easy.stop": "Stop reading",
   "easy.setting": "Easy mode",
   "easy.settingHint": "Bigger text and buttons, one task at a time.",
-  "easy.done": "Done",
-  "easy.next": "Next",
+  "easy.done": "Mark as done",
+  "easy.next": "Show me a different one",
   "easy.start": "Start"
 }

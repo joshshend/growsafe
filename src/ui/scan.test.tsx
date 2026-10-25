@@ -20,7 +20,7 @@ describe("room check", () => {
     const boxes = screen.getAllByRole("checkbox");
     expect(boxes.length).toBeGreaterThan(1);
     fireEvent.click(boxes[0]!);
-    fireEvent.click(screen.getByRole("button", { name: "Add 1 thing to my plan" }));
+    fireEvent.click(screen.getByRole("button", { name: "Add 1 to my list" }));
     expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(
       /added to your plan|Nothing added/,
     );

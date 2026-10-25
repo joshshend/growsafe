@@ -4,7 +4,7 @@
   "easy.stop": "Dejar de leer",
   "easy.setting": "Modo fácil",
   "easy.settingHint": "Texto y botones más grandes, una tarea a la vez.",
-  "easy.done": "Listo",
-  "easy.next": "Siguiente",
+  "easy.done": "Marcar como hecha",
+  "easy.next": "Muéstreme otra",
   "easy.start": "Empezar"
 }

@@ -46,15 +46,16 @@ describe("easy mode", () => {
     expect(document.documentElement.hasAttribute("data-easy")).toBe(false);
     expect(readEasy()).toBe(false);
   });
-  it("sets 56px targets and 22px type in CSS tokens", async () => {
+  it("sets 56px targets and the larger type scale in CSS tokens", async () => {
     const fsName: string = "node:fs";
     const fs = (await import(/* @vite-ignore */ fsName)) as {
       readFileSync: (p: string, e: string) => string;
     };
     const css = fs.readFileSync("src/ui/tokens.css", "utf8");
-    const block = css.match(/:root\[data-easy="on"\] \{([^}]*)\}/)![1]!;
-    expect(block).toMatch(/--min-target:\s*56px/);
-    expect(block).toMatch(/--fs-body:\s*22px/);
+    // The design's [data-scale="easy"] and the app's data-easy="on" share one block of tokens.
+    const block = css.match(/:root\[data-easy="on"\],\s*\[data-scale="easy"\] \{([^}]*)\}/)![1]!;
+    expect(block).toMatch(/--hit:\s*56px/);
+    expect(block).toMatch(/--gs-fs-2:\s*20px/);
     expect(css).toMatch(/\[data-easy="on"\] \.btn[^{]*\{[^}]*min-height:\s*var\(--min-target\)/);
   });
 });
