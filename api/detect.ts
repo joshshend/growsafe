@@ -121,7 +121,7 @@ async function providerFailure(res: Response): Promise<string> {
   return `provider status ${res.status}: ${body}`;
 }
 
-async function callProvider(
+async function callProviderOnce(
   p: { name: ProviderName; key: string; model: string },
   image: string,
   prompt: string,
@@ -267,5 +267,25 @@ export async function POST(request: Request, deps: DetectDeps = {}): Promise<Res
     );
   } catch {
     return json(502, { error: "bad_output" satisfies DetectErrorCode }, headers);
+  }
+}
+
+// Gemini is sometimes overloaded (503) or rate-limited (429). Retry once on a second model before giving up.
+const FALLBACK_GEMINI_MODEL = "gemini-3.6-flash";
+async function callProvider(
+  p: { name: ProviderName; key: string; model: string },
+  image: string,
+  prompt: string,
+  doFetch: typeof fetch,
+  fallbackModel = FALLBACK_GEMINI_MODEL,
+): Promise<string> {
+  try {
+    return await callProviderOnce(p, image, prompt, doFetch);
+  } catch (err) {
+    const retryable =
+      err instanceof Error && /provider status (429|500|502|503|504|404)/.test(err.message);
+    if (p.name !== "gemini" || !retryable || fallbackModel === p.model) throw err;
+    console.error("[detect] retrying on", fallbackModel);
+    return callProviderOnce({ ...p, model: fallbackModel }, image, prompt, doFetch);
   }
 }
