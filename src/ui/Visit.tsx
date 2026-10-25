@@ -2,7 +2,6 @@
 // phone. The helper ticks items, then sends a tiny reply link back. Nothing is uploaded.
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { PaperPlaneTilt, Printer, TextAa } from "@phosphor-icons/react";
 import { loadKb } from "../kb";
 import { ReplySchema, decodeVisitPack, replyUrl } from "../share/visit";
 import {
@@ -17,6 +16,7 @@ import {
 import { appBase, shareLink, type ShareResult } from "../visit/share";
 import { helperKey, loadKey, saveKey } from "../visit/storage";
 import { useStore } from "../store/store";
+import { Tick } from "./parts";
 import { useEasy, useEasyStore } from "./easy";
 import { localHazard } from "./format";
 import { useLang, useT } from "./useT";
@@ -108,46 +108,59 @@ export function Visit() {
   }
 
   return (
-    <div className="flow visit">
-      <h1 className="t-title">{t("visit.title", { from: pack.from, home: pack.homeName })}</h1>
-      <p>{t("visit.intro", { stage: t(`stage.${pack.ageBand}`) })}</p>
-      <p className="muted">{t("visit.private")}</p>
+    <div className="flow visit" data-scale="easy">
+      <div className="flow-s">
+        <h1 className="d4">{t("visit.title", { from: pack.from, home: pack.homeName })}</h1>
+        <p className="t2">{t("visit.intro", { stage: t(`stage.${pack.ageBand}`) })}</p>
+        <p className="t1 muted">{t("visit.private")}</p>
+      </div>
 
       {!easy && (
-        <button type="button" className="btn btn-block no-print" onClick={() => setEasy(true)}>
-          <TextAa size={22} weight="duotone" aria-hidden="true" />
+        <button
+          type="button"
+          className="btn btn-secondary btn-block no-print"
+          onClick={() => setEasy(true)}
+        >
           {t("visit.easyOffer")}
         </button>
       )}
 
-      <p role="status" className="t-strong">
-        {t("visit.progress", { done, total })}
-      </p>
-      <ul className="rows visit-list">
-        {state.tasks.map((task) => {
-          const meta = pack.tasks.find((p) => p.id === task.id);
-          if (!meta) return null;
-          return (
-            <li
-              key={task.id}
-              className={`row visit-row${task.status === "done" ? " is-done" : ""}`}
-            >
-              <label className="visit-label">
-                <input
-                  type="checkbox"
-                  className="visit-box"
-                  checked={task.status === "done"}
-                  onChange={(e) => update(tick(state, task.id, e.target.checked, Date.now()))}
-                />
-                <span className="row-body">
-                  <span className="row-title">{title(meta.hazardId)}</span>
-                  <span className="row-sub">{t(`room.${meta.room}`)}</span>
-                </span>
-              </label>
-            </li>
-          );
-        })}
-      </ul>
+      <div>
+        <p role="status" className="lbl">
+          {t("visit.progress", { done, total })}
+        </p>
+        <ol className="rows visit-list">
+          {state.tasks.map((task, i) => {
+            const meta = pack.tasks.find((p) => p.id === task.id);
+            if (!meta) return null;
+            return (
+              <li
+                key={task.id}
+                className={`row visit-row${task.status === "done" ? " is-done" : ""}`}
+              >
+                <label className="visit-label">
+                  <span className="visit-n" aria-hidden="true">
+                    {i + 1}
+                  </span>
+                  <span className="row-body">
+                    <span className="row-title">{title(meta.hazardId)}</span>
+                    <span className="row-sub">{t(`room.${meta.room}`)}</span>
+                  </span>
+                  <input
+                    type="checkbox"
+                    className="visit-box"
+                    checked={task.status === "done"}
+                    onChange={(e) => update(tick(state, task.id, e.target.checked, Date.now()))}
+                  />
+                  <span className="check-mark" aria-hidden="true">
+                    <Tick />
+                  </span>
+                </label>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
 
       <div className="field no-print">
         <label className="field-label" htmlFor="visit-by">
@@ -179,11 +192,10 @@ export function Visit() {
           disabled={changed === 0}
           onClick={() => void sendBack()}
         >
-          <PaperPlaneTilt size={26} weight="duotone" aria-hidden="true" />
           {t("visit.send")}
         </button>
-        {changed === 0 && <p className="muted">{t("visit.sendHint")}</p>}
-        <p role="status" className="muted">
+        {changed === 0 && <p className="t1 muted">{t("visit.sendHint")}</p>}
+        <p role="status" className="t1 muted">
           {result === "shared" && t("visit.sent")}
           {result === "copied" && t("visit.copied")}
           {result === "manual" && t("visit.manual")}
@@ -197,17 +209,36 @@ export function Visit() {
             onFocus={(e) => e.currentTarget.select()}
           />
         )}
-        <button type="button" className="btn btn-block" onClick={() => window.print()}>
-          <Printer size={22} weight="duotone" aria-hidden="true" />
+        <button
+          type="button"
+          className="btn btn-secondary btn-block"
+          onClick={() => window.print()}
+        >
           {t("visit.print")}
         </button>
         {localHome && (
-          <Link to={`/briefing/${localHome.id}`} className="btn btn-block">
+          <Link to={`/briefing/${localHome.id}`} className="btn btn-secondary btn-block">
             {t("visit.briefing")}
           </Link>
         )}
       </div>
-      <p className="fine">{t("task.notGuarantee")}</p>
+
+      <div className="visit-foot">
+        <a
+          className="btn btn-danger btn-block btn-tall no-print"
+          href="tel:+18002221222"
+          aria-label={t("poison.label")}
+        >
+          <span className="t2b" aria-hidden="true">
+            {t("poison.call")}
+          </span>
+          <span className="d3" aria-hidden="true">
+            {t("poison.number")}
+          </span>
+        </a>
+        <p className="t1 muted visit-sent">{t("visit.sentBy", { from: pack.from })}</p>
+        <p className="fine">{t("task.notGuarantee")}</p>
+      </div>
     </div>
   );
 }

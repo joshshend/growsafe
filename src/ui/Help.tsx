@@ -42,18 +42,32 @@ export function Help() {
 
   return (
     <div className="flow">
-      <h1 className="t-title">{t("help.title")}</h1>
-      <div className="flow-s">
-        <a className="poison-big" href="tel:+18002221222" aria-label={t("poison.label")}>
-          <Phone size={32} weight="fill" aria-hidden="true" />
-          <span aria-hidden="true">{t("poison.number")}</span>
+      <h1 className="d4">{t("help.title")}</h1>
+      <div className="help-emergency">
+        <p className="lbl">{t("help.swallowed")}</p>
+        <a
+          className="btn btn-danger btn-block btn-tall"
+          href="tel:+18002221222"
+          aria-label={t("poison.label")}
+        >
+          <span className="t2b" aria-hidden="true">
+            {t("poison.call")}
+          </span>
+          <span className="d3" aria-hidden="true">
+            {t("poison.number")}
+          </span>
         </a>
-        <p>{t("help.poisonText")}</p>
-        <p className="muted">{t("help.call911")}</p>
+        <p className="t1 muted">{t("help.poisonText")}</p>
+        <p className="t2 help-911-text">{t("help.call911")}</p>
+        <a className="btn btn-danger-line btn-block" href="tel:911">
+          {t("help.call911Btn")}
+        </a>
       </div>
 
+      <hr className="hr" />
+
       <section className="flow" aria-labelledby="help-list">
-        <h2 id="help-list" className="t-section">
+        <h2 id="help-list" className="lbl">
           {t("help.listTitle")}
         </h2>
         <div className="help-filters">
@@ -97,7 +111,7 @@ export function Help() {
             className="help-group"
             aria-labelledby={`help-cat-${g.category}`}
           >
-            <h3 id={`help-cat-${g.category}`} className="t-strong">
+            <h3 id={`help-cat-${g.category}`} className="t2b">
               {t(`help.cat.${g.category}`)}
             </h3>
             <ul className="help-list">
@@ -127,16 +141,15 @@ function ResourceCard({ entry: e, lang }: { entry: HelpEntry; lang: "en" | "es" 
     : "";
   return (
     <li className={`help-card${checked ? "" : " is-unchecked"}`}>
-      <h4 className="help-card-title">{text.title}</h4>
-      <div className="help-chips">
-        <span className="fact">{t(`help.cost.${e.cost}`)}</span>
-        <span className="fact">{t(`help.scopeChip.${scopeKey}`)}</span>
-      </div>
-      <p>{text.what}</p>
-      <p className="muted">{text.who}</p>
+      <h4 className="row-title help-card-title">{text.title}</h4>
+      <p className="row-sub">
+        {t(`help.cost.${e.cost}`)} · {t(`help.scopeChip.${scopeKey}`)}
+      </p>
+      <p className="t2">{text.what}</p>
+      <p className="t1 muted">{text.who}</p>
       <div className="help-actions">
         <a
-          className={`btn${e.apply_url ? "" : " btn-primary"}`}
+          className={`btn${e.apply_url ? " btn-secondary" : " btn-primary"}`}
           href={e.url}
           target="_blank"
           rel="noopener noreferrer"
@@ -158,7 +171,7 @@ function ResourceCard({ entry: e, lang }: { entry: HelpEntry; lang: "en" | "es" 
         )}
         {e.phone && (
           <a
-            className="btn"
+            className="btn btn-secondary"
             href={e.phone.length <= 3 ? `tel:${e.phone}` : `tel:+${e.phone}`}
             aria-label={t("help.callLabel", { title: text.title })}
           >
@@ -167,7 +180,7 @@ function ResourceCard({ entry: e, lang }: { entry: HelpEntry; lang: "en" | "es" 
           </a>
         )}
       </div>
-      <p className="help-checked">
+      <p className="t1 muted help-checked">
         {checked ? t("help.checkedOn", { date }) : t("help.notChecked")}
       </p>
     </li>
