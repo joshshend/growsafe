@@ -282,10 +282,21 @@ async function callProvider(
   try {
     return await callProviderOnce(p, image, prompt, doFetch);
   } catch (err) {
-    const retryable =
-      err instanceof Error && /provider status (429|500|502|503|504|404)/.test(err.message);
-    if (p.name !== "gemini" || !retryable || fallbackModel === p.model) throw err;
-    console.error("[detect] retrying on", fallbackModel);
-    return callProviderOnce({ ...p, model: fallbackModel }, image, prompt, doFetch);
+    const retryable = (e: unknown) =>
+      e instanceof Error && /provider status (429|500|502|503|504|404)/.test(e.message);
+    if (p.name !== "gemini" || !retryable(err)) throw err;
+    // Overloaded: pause briefly, try the same model once more, then the fallback model.
+    console.error(
+      "[detect] retrying after",
+      err instanceof Error ? err.message.slice(0, 40) : "error",
+    );
+    await new Promise((r) => setTimeout(r, 1200));
+    try {
+      return await callProviderOnce(p, image, prompt, doFetch);
+    } catch (err2) {
+      if (!retryable(err2) || fallbackModel === p.model) throw err2;
+      console.error("[detect] retrying on", fallbackModel);
+      return callProviderOnce({ ...p, model: fallbackModel }, image, prompt, doFetch);
+    }
   }
 }
