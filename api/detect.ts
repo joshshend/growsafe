@@ -110,6 +110,17 @@ export function buildPrompt(cues: string[]): string {
   ].join("\n");
 }
 
+// Provider's own error text (status + first 300 chars), for the server log only. Never contains the image or the key.
+async function providerFailure(res: Response): Promise<string> {
+  let body = "";
+  try {
+    body = (await res.text()).slice(0, 300);
+  } catch {
+    /* ignore */
+  }
+  return `provider status ${res.status}: ${body}`;
+}
+
 async function callProvider(
   p: { name: ProviderName; key: string; model: string },
   image: string,
@@ -133,7 +144,7 @@ async function callProvider(
         generationConfig: { temperature: 0, responseMimeType: "application/json" },
       }),
     });
-    if (!res.ok) throw new Error("provider status");
+    if (!res.ok) throw new Error(await providerFailure(res));
     const data = (await res.json()) as {
       candidates?: { content?: { parts?: { text?: string }[] } }[];
     };
@@ -162,7 +173,7 @@ async function callProvider(
       ],
     }),
   });
-  if (!res.ok) throw new Error("provider status");
+  if (!res.ok) throw new Error(await providerFailure(res));
   const data = (await res.json()) as { content?: { type: string; text?: string }[] };
   return (data.content ?? []).map((x) => (x.type === "text" ? (x.text ?? "") : "")).join("");
 }
@@ -244,7 +255,8 @@ export async function POST(request: Request, deps: DetectDeps = {}): Promise<Res
   let text: string;
   try {
     text = await callProvider(provider, body.image, buildPrompt(body.cues), deps.fetch ?? fetch);
-  } catch {
+  } catch (err) {
+    console.error("[detect] provider error:", err instanceof Error ? err.message : "unknown");
     return json(502, { error: "provider_error" satisfies DetectErrorCode }, headers);
   }
   try {
