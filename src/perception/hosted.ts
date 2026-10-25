@@ -37,13 +37,15 @@ const ResponseSchema = z.object({ findings: z.array(FindingSchema) });
 
 export class HostedProvider implements PerceptionProvider {
   provider: ProviderName | null = null; // set from X-Provider after a successful call
-  constructor(private f: typeof fetch = fetch) {}
+  // Wrap the global fetch: browsers throw "Illegal invocation" if window.fetch is called as a method of another object.
+  constructor(private f: typeof fetch = (input, init) => fetch(input, init)) {}
 
   async detect(img: Blob, cues: string[], lang: "en" | "es" = "en"): Promise<Finding[]> {
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
     try {
-      const res = await this.f(DETECT_URL, {
+      const call = this.f;
+      const res = await call(DETECT_URL, {
         method: "POST",
         signal: ctl.signal,
         cache: "no-store",

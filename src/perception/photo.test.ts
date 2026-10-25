@@ -149,3 +149,28 @@ describe("scanPhoto and consent", () => {
     expect(sampleFindings(["p", "q", "r"]).map((f) => f.cue)).toEqual(["p", "q"]);
   });
 });
+
+describe("HostedProvider default fetch", () => {
+  it("calls the global fetch without binding it to the provider (browsers throw Illegal invocation otherwise)", async () => {
+    const real = globalThis.fetch;
+    let seenThis: unknown = "unset";
+    globalThis.fetch = function (this: unknown) {
+      seenThis = this;
+      if (this !== undefined && this !== globalThis) throw new TypeError("Illegal invocation");
+      return Promise.resolve(
+        new Response(JSON.stringify({ findings: [] }), {
+          headers: { "X-Provider": "gemini", "Content-Type": "application/json" },
+        }),
+      );
+    } as typeof fetch;
+    try {
+      const out = await new HostedProvider().detect(new Blob(["x"], { type: "image/jpeg" }), [
+        "unanchored_tv",
+      ]);
+      expect(out).toEqual([]);
+      expect(seenThis === undefined || seenThis === globalThis).toBe(true);
+    } finally {
+      globalThis.fetch = real;
+    }
+  });
+});
