@@ -210,3 +210,12 @@ describe("blank env values from a copied .env.example", () => {
     expect(url).toContain("/models/gemini-");
   });
 });
+
+describe("Vercel method exports", () => {
+  it("exports a GET handler that answers the status check", async () => {
+    const mod = await import("../../api/detect");
+    expect(typeof mod.GET).toBe("function");
+    const res = await mod.GET(new Request("https://x.test/api/detect"));
+    expect([200, 503]).toContain(res.status);
+  });
+});

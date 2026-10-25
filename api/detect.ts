@@ -300,3 +300,8 @@ async function callProvider(
     }
   }
 }
+
+// Vercel routes each HTTP method to its own export. GET is the free "is a provider configured?" status check.
+export function GET(request: Request): Promise<Response> {
+  return POST(request);
+}
