@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useStore } from "../store/store";
-import { Wordmark } from "./Logo";
 import { EmptyDoorframe } from "./illustrations";
 import { useT } from "./useT";
 
@@ -13,16 +12,17 @@ export function Welcome() {
         <EmptyDoorframe decorative />
       </div>
       <div className="flow-s">
-        <Wordmark text={t("app.title")} as="h1" large />
-        <p>{t("welcome.lead")}</p>
+        <h1 className="d4">{t("welcome.title")}</h1>
+        <p className="t2 muted">{t("welcome.lead")}</p>
       </div>
       <div className="form-actions">
         <Link to="/start" className="btn btn-primary btn-block">
           {t("welcome.start")}
         </Link>
-        <button type="button" className="btn btn-text btn-block" onClick={loadDemo}>
+        <button type="button" className="btn btn-quiet btn-block" onClick={loadDemo}>
           {t("welcome.demo")}
         </button>
+        <p className="t1 muted welcome-free">{t("welcome.free")}</p>
       </div>
     </div>
   );

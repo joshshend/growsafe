@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Check } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 import { ROOMS, type Room } from "../kb/schema";
 import { useStore } from "../store/store";
+import { Tick } from "./parts";
 import { useUi } from "./ui-state";
 import { useT } from "./useT";
 
@@ -105,7 +105,7 @@ export function Onboarding() {
     return (
       <form className="flow" onSubmit={next1} noValidate>
         <div className="flow-s">
-          <p className="step-label">{t("onboard.step", { n: 1 })}</p>
+          <p className="lbl">{t("onboard.step", { n: 1 })}</p>
           <h1 ref={heading} tabIndex={-1} className="t-title">
             {t("onboard.who")}
           </h1>
@@ -184,11 +184,11 @@ export function Onboarding() {
     return (
       <div className="flow">
         <div className="flow-s">
-          <p className="step-label">{t("onboard.step", { n: 2 })}</p>
+          <p className="lbl">{t("onboard.step", { n: 2 })}</p>
           <h1 ref={heading} tabIndex={-1} className="t-title">
             {t("onboard.where", { name: name.trim() })}
           </h1>
-          <p className="muted">{t("onboard.whereHint")}</p>
+          <p className="t2 muted">{t("onboard.whereHint")}</p>
         </div>
         <div
           className="toggle-chips"
@@ -204,7 +204,7 @@ export function Onboarding() {
               onClick={() => toggleHome(k)}
             >
               <span className="toggle-chip-mark" aria-hidden="true">
-                {picked.includes(k) && <Check size={14} weight="bold" />}
+                <Tick />
               </span>
               {t(`onboard.home.${k}`)}
             </button>
@@ -228,11 +228,11 @@ export function Onboarding() {
   return (
     <div className="flow">
       <div className="flow-s">
-        <p className="step-label">{t("onboard.step", { n: 3 })}</p>
+        <p className="lbl">{t("onboard.step", { n: 3 })}</p>
         <h1 ref={heading} tabIndex={-1} className="t-title">
           {t("onboard.rooms")}
         </h1>
-        <p className="muted">{t("onboard.roomsHint")}</p>
+        <p className="t2 muted">{t("onboard.roomsHint")}</p>
       </div>
       <div className="room-plan">
         {HOME_KEYS.filter((k) => picked.includes(k)).map((k) => (
@@ -249,7 +249,7 @@ export function Onboarding() {
                     onClick={() => toggleRoom(k, r)}
                   >
                     <span className="toggle-chip-mark" aria-hidden="true">
-                      {rooms[k].includes(r) && <Check size={14} weight="bold" />}
+                      <Tick />
                     </span>
                     {t(`room.${r}`)}
                   </button>
@@ -275,7 +275,11 @@ export function Onboarding() {
           {t("onboard.looksRight")}
         </button>
         {!editing && (
-          <button type="button" className="btn btn-block" onClick={() => setEditing(true)}>
+          <button
+            type="button"
+            className="btn btn-secondary btn-block"
+            onClick={() => setEditing(true)}
+          >
             {t("onboard.editRooms")}
           </button>
         )}

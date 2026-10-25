@@ -12,7 +12,7 @@ function clean(s: string): string {
     .trim();
 }
 
-function firstSentence(s: string): string {
+export function firstSentence(s: string): string {
   const m = clean(s).match(/^.*?[.!?](?=\s|$)/);
   return m ? m[0] : clean(s);
 }

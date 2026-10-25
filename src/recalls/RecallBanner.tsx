@@ -1,6 +1,5 @@
 // One row at the top of Today when any gear has a possible recall match, plus the once-a-day re-check.
 import { useEffect } from "react";
-import { CaretRight, WarningDiamond } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { useStore } from "../store/store";
 import { useT } from "../ui/useT";
@@ -34,10 +33,7 @@ export function RecallBanner() {
   if (!first) return null;
   const name = t("gear.name", { brand: first.brand, type: t(`gear.type.${first.type}`) });
   return (
-    <Link to={`/rooms?gear=${first.id}`} className="wk-card gear-banner">
-      <span className="wk-card-icon">
-        <WarningDiamond size={32} weight="duotone" aria-hidden="true" />
-      </span>
+    <Link to={`/rooms?gear=${first.id}`} className="row gear-banner">
       <span className="row-body">
         <span className="row-title">
           {flagged.length > 1
@@ -46,7 +42,6 @@ export function RecallBanner() {
         </span>
         <span className="row-sub">{t("gear.possibleMatch")}</span>
       </span>
-      <CaretRight size={20} weight="bold" aria-hidden="true" />
     </Link>
   );
 }
