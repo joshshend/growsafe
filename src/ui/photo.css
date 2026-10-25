@@ -67,3 +67,88 @@
   color: var(--muted);
   letter-spacing: 0.02em;
 }
+
+/* Review photo with pencil boxes. The photo is the person's own, in memory only. */
+.photo-shot {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+.photo-shot-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-tile);
+  background: var(--well);
+}
+.photo-shot-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.photo-hl rect {
+  fill: none;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: opacity 0.2s ease;
+}
+.photo-hl-g {
+  stroke: var(--ink);
+  stroke-width: 6px;
+  opacity: 0.8;
+}
+.photo-hl-y {
+  stroke: var(--action);
+  stroke-width: 3.5px;
+}
+.photo-hl.is-active .photo-hl-g {
+  stroke-width: 8px;
+}
+.photo-hl.is-active .photo-hl-y {
+  stroke-width: 5px;
+}
+.photo-hl.is-off {
+  opacity: 0.18;
+}
+.photo-tag,
+.photo-num {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-round);
+  background: var(--action);
+  color: var(--on-action);
+  font: 700 13px / 1 var(--font-body);
+}
+.photo-tag {
+  position: absolute;
+  transform: translate(-30%, -30%);
+  transition: opacity 0.2s ease;
+}
+.photo-tag.is-active {
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.photo-tag.is-off {
+  opacity: 0.25;
+}
+.photo-num {
+  flex: none;
+  margin-left: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-hl rect,
+  .photo-tag {
+    transition: none;
+  }
+}

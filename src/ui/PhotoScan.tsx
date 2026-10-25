@@ -1,5 +1,6 @@
 // Photo option for the room check. Any failure ends in a plain line; the tap list below always works.
 import { useEffect, useRef, useState } from "react";
+import { boxRect, type PhotoFinding } from "../perception/box";
 import { takePhoto } from "../native/camera";
 import { faceDetectorAvailable } from "../perception/faces";
 import { HostedProvider, providerStatus, type ProviderStatus } from "../perception/hosted";
@@ -31,11 +32,38 @@ export function PhotoScan({
   const [status, setStatus] = useState<ProviderStatus | "checking">("checking");
   const [view, setView] = useState<View>("idle");
   const [msg, setMsg] = useState<string | null>(null);
-  const [found, setFound] = useState<string[]>([]);
+  const [found, setFound] = useState<PhotoFinding[]>([]);
+  const [shot, setShot] = useState<string | null>(null); // object URL of the photo, in memory only
+  const [dims, setDims] = useState<{ w: number; h: number } | null>(null);
+  const [active, setActive] = useState<string | null>(null);
   const [picked, setPicked] = useState<Set<string>>(new Set());
   const [sample, setSample] = useState(false);
   const pending = useRef<Kind>("photo");
   const provider = useRef(new HostedProvider());
+
+  // The photo lives only as an object URL for this screen. It is revoked when replaced, cleared or unmounted.
+  const shotUrl = useRef<string | null>(null);
+  function setPhoto(blob: Blob | null) {
+    if (shotUrl.current) URL.revokeObjectURL(shotUrl.current);
+    shotUrl.current = null;
+    setDims(null);
+    setActive(null);
+    if (blob && typeof URL.createObjectURL === "function") {
+      try {
+        shotUrl.current = URL.createObjectURL(blob);
+      } catch {
+        shotUrl.current = null;
+      }
+    }
+    setShot(shotUrl.current);
+  }
+  useEffect(
+    () => () => {
+      if (shotUrl.current) URL.revokeObjectURL(shotUrl.current);
+      shotUrl.current = null;
+    },
+    [],
+  );
 
   useEffect(() => {
     let live = true;
@@ -61,21 +89,25 @@ export function PhotoScan({
     void run(pending.current);
   }
 
-  function showFound(cues: string[], isSample: boolean) {
+  function showFound(list: PhotoFinding[], isSample: boolean, photo: Blob | null) {
     setSample(isSample);
-    setFound(cues);
-    setPicked(new Set(cues));
+    setFound(list);
+    setPicked(new Set(list.map((f) => f.cue)));
+    setPhoto(photo);
     setView("review");
   }
 
   async function run(kind: Kind) {
     setView("busy");
+    setPhoto(null);
     const isSample = kind === "sample";
+    let sampleBlob: Blob | null = null;
     try {
       let blob: Blob | null;
       if (isSample) {
         try {
           blob = await (await fetch(SAMPLE_URL)).blob();
+          sampleBlob = blob;
         } catch {
           blob = null;
         }
@@ -87,18 +119,15 @@ export function PhotoScan({
         }
       }
       if (!blob) throw new DetectError("offline");
-      const findings = await scanPhoto(blob, offered, provider.current, lang);
-      showFound(
-        findings.map((f) => f.cue),
-        false,
-      );
+      let prepared: Blob | null = null;
+      const findings = await scanPhoto(blob, offered, provider.current, lang, (j) => {
+        prepared = j;
+      });
+      showFound(findings, false, prepared);
     } catch (e) {
       if (isSample) {
         // The sample must never dead-end: fall back to a canned, clearly labelled result.
-        showFound(
-          sampleFindings(offered).map((f) => f.cue),
-          true,
-        );
+        showFound(sampleFindings(offered), true, sampleBlob);
       } else if (e instanceof PhotoError) {
         setMsg(t(`photo.issue.${e.issue}`));
         setView("idle");
@@ -110,13 +139,15 @@ export function PhotoScan({
     }
   }
 
-  const toggle = (cue: string) =>
+  const toggle = (cue: string) => {
+    setActive(cue);
     setPicked((cur) => {
       const next = new Set(cur);
       if (next.has(cue)) next.delete(cue);
       else next.add(cue);
       return next;
     });
+  };
 
   if (view === "consent") {
     const body = name ? `photo.consent.${name}` : "photo.consent.generic";
@@ -133,7 +164,10 @@ export function PhotoScan({
           <button
             type="button"
             className="btn btn-secondary btn-block"
-            onClick={() => setView("idle")}
+            onClick={() => {
+              setPhoto(null);
+              setView("idle");
+            }}
           >
             {t("photo.consent.decline")}
           </button>
@@ -151,18 +185,84 @@ export function PhotoScan({
   }
 
   if (view === "review" || view === "applied") {
+    // Findings with a valid box get a number, shared by the tag on the photo and the row below it.
+    let n = 0;
+    const numbered = found.filter((f) => f.box).map((f) => ({ ...f, n: ++n }));
+    const numOf = new Map(numbered.map((f) => [f.cue, f.n]));
     return (
       <section className="photo" aria-labelledby="photo-review">
         {sample && <span className="photo-badge">{t("photo.sampleLabel")}</span>}
         <h2 id="photo-review" className="d3">
           {t("photo.review.title")}
         </h2>
-        {(sample || found.length === 0) && (
-          <figure className="photo-figure">
-            <div className="photo-frame">
-              <ScanTrace decorative />
+        {shot && view === "review" ? (
+          <figure className="photo-shot">
+            <div className="photo-shot-wrap">
+              <img
+                src={shot}
+                alt={
+                  numbered.length
+                    ? t("photo.shot.alt", {
+                        list: numbered.map((f) => `${f.n}. ${t(`cue.${f.cue}`)}`).join("; "),
+                      })
+                    : t("photo.shot.altPlain")
+                }
+                onLoad={(e) =>
+                  setDims({
+                    w: e.currentTarget.naturalWidth || 1,
+                    h: e.currentTarget.naturalHeight || 1,
+                  })
+                }
+              />
+              {dims && numbered.length > 0 && (
+                <svg
+                  className="photo-overlay"
+                  viewBox={`0 0 ${dims.w} ${dims.h}`}
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  {numbered.map((f) => {
+                    const r = boxRect(f.box!);
+                    const x = (r.x / 1000) * dims.w;
+                    const y = (r.y / 1000) * dims.h;
+                    const w = (r.w / 1000) * dims.w;
+                    const h = (r.h / 1000) * dims.h;
+                    const rx = Math.min(w, h) * 0.18;
+                    return (
+                      <g
+                        key={f.cue}
+                        className={`photo-hl${picked.has(f.cue) ? "" : " is-off"}${active === f.cue ? " is-active" : ""}`}
+                      >
+                        <rect className="photo-hl-g" x={x} y={y} width={w} height={h} rx={rx} />
+                        <rect className="photo-hl-y" x={x} y={y} width={w} height={h} rx={rx} />
+                      </g>
+                    );
+                  })}
+                </svg>
+              )}
+              {dims &&
+                numbered.map((f) => (
+                  <span
+                    key={f.cue}
+                    aria-hidden="true"
+                    className={`photo-tag${picked.has(f.cue) ? "" : " is-off"}${active === f.cue ? " is-active" : ""}`}
+                    style={{ left: `${f.box![1] / 10}%`, top: `${f.box![0] / 10}%` }}
+                  >
+                    {f.n}
+                  </span>
+                ))}
             </div>
+            {sample && <figcaption className="fine">{t("photo.sampleNote")}</figcaption>}
           </figure>
+        ) : (
+          (sample || found.length === 0) && (
+            <figure className="photo-figure">
+              <div className="photo-frame">
+                <ScanTrace decorative />
+              </div>
+            </figure>
+          )
         )}
         {found.length === 0 ? (
           <p className="photo-msg">{t("photo.review.none")}</p>
@@ -170,7 +270,7 @@ export function PhotoScan({
           <>
             <p className="t2">{t("photo.review.hint")}</p>
             <ul className="rows">
-              {found.map((cue) => (
+              {found.map(({ cue }) => (
                 <li key={cue} className="row">
                   <button
                     type="button"
@@ -182,16 +282,21 @@ export function PhotoScan({
                       <Tick />
                     </span>
                     <span className="row-title">{t(`cue.${cue}`)}</span>
+                    {numOf.has(cue) && shot && (
+                      <span className="photo-num" aria-hidden="true">
+                        {numOf.get(cue)}
+                      </span>
+                    )}
                   </button>
                 </li>
               ))}
             </ul>
-            {sample && <p className="fine">{t("photo.sampleNote")}</p>}
+            {sample && !shot && <p className="fine">{t("photo.sampleNote")}</p>}
             <button
               type="button"
               className="btn btn-primary btn-block"
               onClick={() => {
-                onApply([...picked]);
+                onApply(found.map((f) => f.cue).filter((c) => picked.has(c)));
                 setView("applied");
               }}
             >
@@ -207,7 +312,14 @@ export function PhotoScan({
               {t("photo.retake")}
             </button>
           )}
-          <button type="button" className="btn btn-quiet" onClick={() => setView("idle")}>
+          <button
+            type="button"
+            className="btn btn-quiet"
+            onClick={() => {
+              setPhoto(null);
+              setView("idle");
+            }}
+          >
             {t("photo.useTapList")}
           </button>
         </div>

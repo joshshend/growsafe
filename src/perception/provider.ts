@@ -1,9 +1,9 @@
 // The seam between the app and any photo-reading service. A provider only reports cues it can see;
 // the knowledge base (findingsToTasks) decides what that means.
-import type { Finding } from "../kb/schema";
+import type { PhotoFinding } from "./box";
 
 export interface PerceptionProvider {
-  detect(img: Blob, cues: string[], lang?: "en" | "es"): Promise<Finding[]>;
+  detect(img: Blob, cues: string[], lang?: "en" | "es"): Promise<PhotoFinding[]>;
 }
 
 export type DetectFailure =

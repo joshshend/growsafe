@@ -39,11 +39,28 @@ const BodySchema = z.object({
   lang: z.enum(["en", "es"]).default("en"),
 });
 
+// box = [ymin, xmin, ymax, xmax], integers 0-1000 (Gemini's normalized box format). Kept loose here so a bad box
+// never rejects the whole answer; parseBox below drops just the box.
 const ModelItemSchema = z.object({
   cue: z.string(),
   confidence: z.number().min(0).max(1),
   note: z.string().optional(),
+  box: z.unknown().optional(),
 });
+const MAX_BOX_AREA = 0.9;
+const BoxSchema = z
+  .tuple([z.number(), z.number(), z.number(), z.number()])
+  .transform((b) => b.map((n) => Math.round(n)) as [number, number, number, number])
+  .refine(([y0, x0, y1, x1]) => {
+    const inRange = [y0, x0, y1, x1].every((n) => n >= 0 && n <= 1000);
+    return inRange && y0 < y1 && x0 < x1 && ((y1 - y0) * (x1 - x0)) / 1_000_000 <= MAX_BOX_AREA;
+  });
+export type Box = [number, number, number, number];
+// Valid box or undefined. An invalid box is dropped; the finding stays.
+export function parseBox(raw: unknown): Box | undefined {
+  const r = BoxSchema.safeParse(raw);
+  return r.success ? (r.data as Box) : undefined;
+}
 const ModelOutputSchema = z.array(ModelItemSchema);
 
 export interface DetectDeps {
@@ -103,10 +120,11 @@ export function buildPrompt(cues: string[]): string {
     "- Do NOT say or imply that anything is safe, fine, or free of hazards.",
     "- If the image is not a room or contains any person, return [].",
     "- If you see none of the allowed cues, return an empty JSON array: []",
-    '- Output ONLY a JSON array, no prose, no code fences. Each item has exactly these keys: "cue" (one allowed cue string), "confidence" (a number from 0 to 1), "note" (a short phrase, max 15 words, saying what you see and where).',
+    '- Output ONLY a JSON array, no prose, no code fences. Each item has these keys: "cue" (one allowed cue string), "confidence" (a number from 0 to 1), "note" (a short phrase, max 15 words, saying what you see and where), and "box".',
+    '- "box" is the tight bounding box of the visible cue as [ymin, xmin, ymax, xmax], four integers from 0 to 1000 relative to the whole image (0,0 is the top-left corner, 1000,1000 the bottom-right). Include "box" whenever you can locate the cue; leave the key out if you cannot. Never box the whole image.',
     "- Report each cue at most once.",
     "",
-    'Example output: [{"cue": "blind_cord", "confidence": 0.8, "note": "looped cord hanging beside the left window"}]',
+    'Example output: [{"cue": "blind_cord", "confidence": 0.8, "note": "looped cord hanging beside the left window", "box": [120, 40, 520, 110]}]',
   ].join("\n");
 }
 
@@ -188,13 +206,17 @@ export function parseFindings(text: string, allowed: string[]) {
   const items = ModelOutputSchema.parse(raw);
   const ok = new Set(allowed);
   const seen = new Set<string>();
-  const out: { cue: string; confidence: number; note?: string }[] = [];
+  const out: { cue: string; confidence: number; note?: string; box?: Box }[] = [];
   for (const it of items) {
     if (!ok.has(it.cue) || it.confidence < MIN_CONFIDENCE || seen.has(it.cue)) continue;
     seen.add(it.cue);
-    out.push(
-      it.note ? { ...it, note: it.note.slice(0, 120) } : { cue: it.cue, confidence: it.confidence },
-    );
+    const box = parseBox(it.box);
+    out.push({
+      cue: it.cue,
+      confidence: it.confidence,
+      ...(it.note ? { note: it.note.slice(0, 120) } : {}),
+      ...(box ? { box } : {}),
+    });
     if (out.length >= MAX_FINDINGS) break;
   }
   return out;

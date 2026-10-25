@@ -30,5 +30,7 @@
   "photo.fail.rate_limited": "Demasiados escaneos desde este dispositivo por ahora. Usa la lista de abajo.",
   "photo.fail.daily_cap": "Se agotaron los escaneos gratuitos de hoy. Usa la lista de abajo.",
   "photo.fail.provider_error": "El servicio de fotos tuvo un problema. Usa la lista de abajo.",
-  "photo.fail.bad_output": "No pudimos entender la respuesta. Usa la lista de abajo."
+  "photo.fail.bad_output": "No pudimos entender la respuesta. Usa la lista de abajo.",
+  "photo.shot.alt": "Tu foto con los puntos marcados: {list}.",
+  "photo.shot.altPlain": "Tu foto. No hay nada marcado."
 }

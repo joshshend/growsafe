@@ -30,5 +30,7 @@
   "photo.fail.rate_limited": "Too many scans from this device for now. Use the tap list below.",
   "photo.fail.daily_cap": "The free scans for today are used up. Use the tap list below.",
   "photo.fail.provider_error": "The photo service had a problem. Use the tap list below.",
-  "photo.fail.bad_output": "We could not make sense of the answer. Use the tap list below."
+  "photo.fail.bad_output": "We could not make sense of the answer. Use the tap list below.",
+  "photo.shot.alt": "Your photo with spots marked: {list}.",
+  "photo.shot.altPlain": "Your photo. Nothing is marked on it."
 }

@@ -1,6 +1,6 @@
 // Calls our own /api/detect proxy. The photo goes to the model provider through it and is not stored by GrowSafe.
 import { z } from "zod";
-import { FindingSchema, type Finding } from "../kb/schema";
+import { PhotoFindingSchema, type PhotoFinding } from "./box";
 import { DetectError, type PerceptionProvider } from "./provider";
 
 export const DETECT_URL = "/api/detect";
@@ -33,14 +33,14 @@ export function blobToBase64(b: Blob): Promise<string> {
   });
 }
 
-const ResponseSchema = z.object({ findings: z.array(FindingSchema) });
+const ResponseSchema = z.object({ findings: z.array(PhotoFindingSchema) });
 
 export class HostedProvider implements PerceptionProvider {
   provider: ProviderName | null = null; // set from X-Provider after a successful call
   // Wrap the global fetch: browsers throw "Illegal invocation" if window.fetch is called as a method of another object.
   constructor(private f: typeof fetch = (input, init) => fetch(input, init)) {}
 
-  async detect(img: Blob, cues: string[], lang: "en" | "es" = "en"): Promise<Finding[]> {
+  async detect(img: Blob, cues: string[], lang: "en" | "es" = "en"): Promise<PhotoFinding[]> {
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
     try {

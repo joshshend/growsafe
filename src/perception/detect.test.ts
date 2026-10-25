@@ -134,6 +134,46 @@ describe("handler", () => {
   });
 });
 
+describe("boxes", () => {
+  const C = ["blind_cord", "uncovered_outlet"];
+  const one = (box: unknown) =>
+    parseFindings(JSON.stringify([{ cue: "blind_cord", confidence: 0.9, box }]), C);
+  it("keeps a valid box [ymin,xmin,ymax,xmax] and rounds decimals", () => {
+    expect(one([100, 200, 400, 300])).toEqual([
+      { cue: "blind_cord", confidence: 0.9, box: [100, 200, 400, 300] },
+    ]);
+    expect(one([100.4, 200.6, 400, 300])[0]!.box).toEqual([100, 201, 400, 300]);
+  });
+  it("a finding without a box has no box key", () => {
+    expect("box" in parseFindings('[{"cue":"blind_cord","confidence":0.9}]', C)[0]!).toBe(false);
+  });
+  it.each([
+    ["wrong length", [1, 2, 3]],
+    ["not numbers", ["a", 1, 2, 3]],
+    ["negative", [-5, 10, 100, 100]],
+    ["over 1000", [0, 0, 1001, 100]],
+    ["min equals max", [100, 100, 100, 300]],
+    ["inverted", [400, 100, 100, 300]],
+    ["whole image", [0, 0, 1000, 1000]],
+    ["over 90% of the image", [20, 20, 980, 980]],
+    ["object", { ymin: 1 }],
+    ["null", null],
+  ])("drops an invalid box but keeps the finding (%s)", (_n, box) => {
+    expect(one(box)).toEqual([{ cue: "blind_cord", confidence: 0.9 }]);
+  });
+  it("flows through the handler and the prompt asks for boxes", async () => {
+    const f = gemini(JSON.stringify([{ cue: "blind_cord", confidence: 0.9, box: [1, 2, 30, 40] }]));
+    const res = await POST(req(good), { env: { GEMINI_API_KEY: "k" }, fetch: f });
+    expect((await res.json()).findings[0].box).toEqual([1, 2, 30, 40]);
+    const body = JSON.parse(
+      ((f as unknown as ReturnType<typeof vi.fn>).mock.calls[0] as [string, RequestInit])[1]
+        .body as string,
+    );
+    expect(body.contents[0].parts[0].text).toContain("[ymin, xmin, ymax, xmax]");
+    expect(body.generationConfig).toEqual({ temperature: 0, responseMimeType: "application/json" });
+  });
+});
+
 describe("status check", () => {
   it("GET reports the provider without calling it, or 503 without a key", async () => {
     const f = vi.fn();
