@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="gs phone" data-theme="{{theme}}" data-scale="{{scale}}">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+<g id="f-empty"><rect x="44" y="12" width="72" height="92" rx="1"></rect><rect x="108" y="94" width="38" height="8" rx="1"></rect><path d="M146 94l9 4-9 4z"></path></g>
+<symbol id="gs-mark" viewBox="0 0 64 64"><path d="M21.5 21C31 20.4 40 21.3 50 20.5" style="stroke:var(--action)" stroke-width="10" fill="none" stroke-linecap="round" transform="translate(2 3.5)"></path><g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round"><path d="M21 7C20 24 22 40 21 57"></path><path d="M21.5 47C27 46.6 33 47.4 38 46.8"></path><path d="M21.5 34C29 33.5 36 34.4 44 33.7"></path><path d="M21.5 21C31 20.4 40 21.3 50 20.5"></path></g></symbol>
+</defs></svg>
+<div class="safe-t"></div>
+
+<div class="pad" style="display:flex;align-items:center;min-height:44px">
+<span class="wm"><svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><use href="#gs-mark"></use></svg>GrowSafe</span>
+</div>
+
+<main class="scroll pad" style="padding-top:6px;display:flex;flex-direction:column">
+<div style="width:200px;margin-left:-4px">
+<svg class="il" viewBox="0 0 160 120" role="img" aria-label="Pencil drawing of an empty doorframe with a pencil on the floor and a dotted line where the first mark will go">
+<use class="fl" href="#f-empty" transform="translate(5 4)"></use>
+<g class="ln" style="filter:url(#wob)"><use href="#f-empty"></use><path d="M8 104H152M52 104V20H108V104"></path><path class="dash" d="M44 78h16"></path><path d="M114 94v8"></path></g>
+</svg>
+</div>
+
+<h1 class="d4" style="margin-top:10px">A safer home, one small fix at a time.</h1>
+<p class="t2 muted" style="margin-top:8px">Tell us how old your child is. We’ll show you the one thing to do first, then the next.</p>
+
+<div class="field" style="margin-top:18px">
+<label for="nm">Child’s first name (optional)</label>
+<input class="input" id="nm" type="text" value="Mia">
+</div>
+<div class="field" style="margin-top:12px">
+<label for="age">How old is your child?</label>
+<input class="input" id="age" type="text" value="10 months">
+<span class="help">The plan changes as they grow. You can update this any time.</span>
+</div>
+</main>
+
+<div class="pad" style="padding-top:8px;display:flex;flex-direction:column;gap:8px">
+<a class="btn btn-primary btn-block" href="{{hToday}}">Show me the first fix</a>
+<p class="t1 muted" style="text-align:center">Free. No account, no email.</p>
+</div>
+<div class="safe-b"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"easy":{"editor":"boolean","default":false},"$preview":{"width":375,"height":812}}'>
+class Component extends DCLogic {
+renderVals() {
+const dark = (this.props.theme || 'light') === 'dark';
+return {
+theme: dark ? 'dark' : 'light',
+scale: this.props.easy ? 'easy' : 'normal',
+hToday: 'Today' + (dark ? '-dark' : '') + '.dc.html'
+};
+}
+}
+</script>
+</body>
+</html>

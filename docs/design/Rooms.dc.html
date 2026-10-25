@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rooms</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="gs phone" data-theme="{{theme}}" data-scale="{{scale}}">
+<div class="safe-t"></div>
+
+<main class="scroll pad" style="padding-top:16px;display:flex;flex-direction:column">
+<h1 class="d4">Rooms</h1>
+<p class="t2 muted" style="margin-top:2px">Mia, 10 months · 9 of 24 done</p>
+
+<div style="margin-top:16px">
+<a class="row" href="#living" style="min-height:76px">
+<div class="row-main"><div class="d3">Living room</div><div class="row-sub">2 of 5 done · next: anchor the TV</div></div>
+<span class="pm" role="img" aria-label="2 of 5 marks"><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i></span>
+</a>
+<a class="row" href="#bedroom" style="min-height:76px">
+<div class="row-main"><div class="d3">Bedroom</div><div class="row-sub">1 of 4 done · next: window stops</div></div>
+<span class="pm" role="img" aria-label="1 of 4 marks"><i class="on"></i><i class="now"></i><i></i><i></i></span>
+</a>
+<a class="row" href="{{hRoom}}" style="min-height:76px">
+<div class="row-main"><div class="d3">Nursery</div><div class="row-sub">3 of 6 done · next: anchor the dresser</div></div>
+<span class="pm" role="img" aria-label="3 of 6 marks"><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i></span>
+</a>
+<a class="row" href="#kitchen" style="min-height:76px">
+<div class="row-main"><div class="d3">Kitchen</div><div class="row-sub">2 of 4 done · next: stove knob covers</div></div>
+<span class="pm" role="img" aria-label="2 of 4 marks"><i class="on"></i><i class="on"></i><i class="now"></i><i></i></span>
+</a>
+<a class="row" href="#bathroom" style="min-height:76px">
+<div class="row-main"><div class="d3">Bathroom</div><div class="row-sub">1 of 3 done · next: non-slip bath mat</div></div>
+<span class="pm" role="img" aria-label="1 of 3 marks"><i class="on"></i><i class="now"></i><i></i></span>
+</a>
+<a class="row" href="#stairs" style="min-height:76px">
+<div class="row-main"><div class="d3">Stairs</div><div class="row-sub">None yet · next: gate at the top</div></div>
+<span class="pm" role="img" aria-label="0 of 2 marks"><i class="now"></i><i></i></span>
+</a>
+</div>
+
+<div class="card" style="margin-top:16px;display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px">
+<div style="flex:1;min-width:0"><div class="t2b">Photograph a room</div><div class="t1 muted">We suggest what to fix. You decide.</div></div>
+<a class="btn btn-secondary" href="{{hScan}}" style="padding:0 16px">Take photo</a>
+</div>
+</main>
+
+<nav class="tabs" aria-label="Main">
+<a class="tab" href="{{hToday}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M6 8h9M6 13h12M6 18h7"></path></svg>Today</a>
+<a class="tab" href="{{hRooms}}" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4h12v17M3 21h18M14.5 13v.01"></path></svg>Rooms</a>
+<a class="tab" href="{{hHelp}}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 17v.01"></path></svg>Help</a>
+<a class="tab" href="#people"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"></path><circle cx="17" cy="9" r="2.4"></circle><path d="M17 14c2.6 0 4.5 1.9 4.5 5"></path></svg>People</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"easy":{"editor":"boolean","default":false},"$preview":{"width":375,"height":812}}'>
+class Component extends DCLogic {
+renderVals() {
+const dark = (this.props.theme || 'light') === 'dark';
+const s = dark ? '-dark' : '';
+return {
+theme: dark ? 'dark' : 'light',
+scale: this.props.easy ? 'easy' : 'normal',
+hToday: 'Today' + s + '.dc.html',
+hRooms: 'Rooms' + s + '.dc.html',
+hHelp: 'Help' + s + '.dc.html',
+hRoom: 'Room' + s + '.dc.html',
+hScan: 'Scan' + s + '.dc.html'
+};
+}
+}
+</script>
+</body>
+</html>

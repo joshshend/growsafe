@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GrowSafe design system: components and motion</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+.ds-sec{padding:48px 0;border-top:1.5px solid var(--ink);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:32px;align-items:start}
+.ds-spec{display:flex;flex-direction:column;gap:10px}
+.ds-spec p{margin:0;font:400 15px/1.55 var(--font-body);color:var(--muted)}
+.ds-spec code,.ds-note code{font:400 13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--well);padding:1px 5px;border-radius:4px;color:var(--ink)}
+.ds-stage{background:var(--ground);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.ds-cap{font:700 12px/1.3 var(--font-body);color:var(--muted);letter-spacing:.02em}
+.ds-code{font:400 13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--well);color:var(--ink);border-radius:12px;padding:20px;margin:0;overflow:auto;white-space:pre}
+.ds-table{width:100%;border-collapse:collapse;font:400 14px/1.45 var(--font-body)}
+.ds-table th{text-align:left;font-weight:700;padding:8px 12px 8px 0;border-bottom:1.5px solid var(--ink);color:var(--muted);font-size:13px}
+.ds-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+@keyframes demo-draw{0%{stroke-dashoffset:26}7%{stroke-dashoffset:0}85%{stroke-dashoffset:0}100%{stroke-dashoffset:26}}
+@keyframes demo-fill{0%{clip-path:inset(100% 0 0 0)}11%{clip-path:inset(0 0 0 0)}85%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(100% 0 0 0)}}
+@keyframes demo-fade{0%{opacity:0}4%{opacity:1}85%{opacity:1}100%{opacity:0}}
+.demo-draw{stroke-dasharray:26;animation:demo-draw 3.2s var(--ease-pencil) infinite}
+.demo-fill{animation:demo-fill 3.2s cubic-bezier(.2,.7,.2,1) infinite}
+@media (prefers-reduced-motion:reduce){.demo-draw{animation:demo-fade 3.2s linear infinite;stroke-dashoffset:0}.demo-fill{animation:demo-fade 3.2s linear infinite}}
+</style>
+</helmet>
+<div class="gs" data-theme="light" style="min-height:4800px">
+<div style="max-width:1200px;margin:0 auto;padding:56px 40px 72px">
+
+<header style="padding-bottom:40px">
+<div class="lbl">Design system · components and motion</div>
+<h1 class="d4" style="margin-top:6px;font-size:44px;line-height:48px">Built from hairlines, not cards</h1>
+<p class="t2 muted" style="max-width:720px;margin-top:10px">Every component below is plain HTML plus the classes in <code style="font:400 14px ui-monospace,Menlo,monospace">gs.css</code>. No default card. The only containers are the bottom sheet, the toast and, once per screen at most, the offset card.</p>
+</header>
+
+<!-- BUTTONS -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Buttons</h2>
+<p><strong style="color:var(--ink)">Primary</strong> <code>.btn-primary</code>: pencil yellow, graphite text, 1.5 px graphite edge and a hard 3 px under-edge, 56 px tall. One per screen, at the bottom, in thumb reach. Pressing it drops 2 px onto its edge.</p>
+<p><strong style="color:var(--ink)">Secondary</strong> <code>.btn-secondary</code>: graphite outline, 44 px. <strong style="color:var(--ink)">Quiet</strong> <code>.btn-quiet</code>: text with a hairline underline, still a 44 px target, for “Not tonight”, “Undo”, “Retake photo”.</p>
+<p><strong style="color:var(--ink)">Danger</strong> <code>.btn-danger</code>: the only red fill in the product. Reserved for Call Poison Help. <code>.btn-danger-line</code> is the outline form for Call 911. No other action, however destructive, may use them.</p>
+</div>
+<div class="ds-stage">
+<div class="ds-cap">Primary · default, pressed, disabled</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+<a class="btn btn-primary" href="#b1">See the steps</a>
+<a class="btn btn-primary" href="#b2" style="transform:translateY(2px);box-shadow:0 1px 0 var(--edge)">See the steps</a>
+<button class="btn btn-primary" type="button" disabled>See the steps</button>
+</div>
+<div class="ds-cap">Secondary · Quiet · Focus ring</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:center">
+<a class="btn btn-secondary" href="#b3">Take photo</a>
+<button class="btn btn-quiet" type="button">Not tonight</button>
+<a class="btn btn-secondary" href="#b4" style="outline:3px solid var(--ink);outline-offset:3px">Take photo</a>
+</div>
+<div class="ds-cap">Danger · Poison Help and 911 only</div>
+<a class="btn btn-danger btn-block btn-tall" href="#b5"><span class="t2b">Call Poison Help</span><span class="d3">1-800-222-1222</span></a>
+<a class="btn btn-danger-line btn-block" href="#b6">Call 911</a>
+</div>
+</section>
+
+<!-- CHIPS -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Chips</h2>
+<p><code>.chip</code> with <code>aria-pressed</code>. 44 px tall, pill, 1.5 px control edge. Selected is the same yellow-and-graphite as a primary button, minus the weight, so “selected” and “the main thing” share one idea. Used for filters (To do, Done) and the child switcher.</p>
+</div>
+<div class="ds-stage">
+<div class="chips"><button class="chip" type="button" aria-pressed="true">To do 3</button><button class="chip" type="button" aria-pressed="false">Done 3</button><button class="chip" type="button" aria-pressed="false">All 6</button></div>
+<div class="chips"><button class="chip" type="button" aria-pressed="false">Mia · 10 months</button><button class="chip" type="button" aria-pressed="false">Add a child</button></div>
+</div>
+</section>
+
+<!-- ROWS -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">List rows</h2>
+<p><code>.row</code>: 64 px minimum, 1 px hairline below, no container, no icon tile, no chevron. The title is 17/25 at weight 500, the sub-line 13/18 muted. A row that opens something ends in a progress mark or a quiet link word (“Look up”), never an arrow. Room names use the display face (<code>.d3</code>) because rooms are places, not settings.</p>
+</div>
+<div class="ds-stage" style="padding:8px 24px">
+<a class="row" href="#r1" style="min-height:76px"><div class="row-main"><div class="d3">Nursery</div><div class="row-sub">3 of 6 done · next: anchor the dresser</div></div><span class="pm" role="img" aria-label="3 of 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i></span></a>
+<a class="row" href="#r2"><div class="row-main"><div class="row-title">Car seat check</div><div class="row-sub">Have a certified technician check the fit</div></div><span class="link t1">Look up</span></a>
+<div class="row"><div class="row-main"><div class="row-title">Mia’s age</div><div class="row-sub">Your plan updates when she turns 1</div></div><div class="row-end">10 months</div></div>
+</div>
+</section>
+
+<!-- TASK ROW -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Task row and check</h2>
+<p><code>.task</code> + <code>.check</code>. The hit area is 44 px (56 in easy mode) while the drawn box is 28 px. Unticked: a 1.5 px control-edge box. Ticked: graphite edge, a graphite pencil tick, and the <em>offset fill</em> shadow (3 px right, 3 px down) behind the box. That echo of the drawings is the only decoration. Done titles drop to <code>--muted</code>; they are never struck through, because crossing out reads as “wrong”.</p>
+<p>Use <code>role="checkbox"</code> on a real <code>&lt;button&gt;</code> with <code>aria-checked</code> and a label that says what ticking does: “Mark Anchor the dresser as done”.</p>
+</div>
+<div class="ds-stage" style="padding:8px 24px">
+<div class="task"><button class="check" type="button" role="checkbox" aria-checked="false" aria-label="Mark Anchor the dresser as done"><span class="box"><svg class="tk" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></button><div class="row-main"><div class="row-title">Anchor the dresser to the wall</div><div class="row-sub">15 min · usually $8–20</div></div></div>
+<div class="task"><button class="check" type="button" role="checkbox" aria-checked="true" aria-label="Cover the outlets, done. Tap to undo"><span class="box"><svg class="tk" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></button><div class="row-main"><div class="row-title" style="color:var(--ink)">Cover the outlets</div><div class="row-sub">Just ticked</div></div></div>
+<div class="task done"><button class="check" type="button" role="checkbox" aria-checked="true" aria-label="Lower the crib mattress, done. Tap to undo"><span class="box"><svg class="tk" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></button><div class="row-main"><div class="row-title">Lower the crib mattress</div></div></div>
+</div>
+</section>
+
+<!-- PROGRESS MARK -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Progress mark</h2>
+<p><code>.pm</code>: a jamb with ticks that climb from the bottom. Ticks are CSS, not images, so one tick per task is free. Lit ticks are graphite and tilted a hair; the next tick is yellow with a graphite ring; the rest are faint.</p>
+<p>Two rules. In a room, one tick per task. For the whole home, always 12 ticks, lit = round(done ÷ total × 12), so 9 of 24 shows 5 lit and the 6th yellow. The number is always shown beside it: the mark is warmth, the figure is truth.</p>
+</div>
+<div class="ds-stage">
+<div style="display:flex;gap:40px;align-items:flex-end;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><span class="pm" role="img" aria-label="None done"><i class="now"></i><i></i><i></i><i></i></span><span class="ds-cap">0 of 4</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><span class="pm" role="img" aria-label="3 of 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i></span><span class="ds-cap">3 of 6</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><span class="pm" role="img" aria-label="All 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="ds-cap">6 of 6</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><span class="pm" role="img" aria-label="5 of 12"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="ds-cap">Home: 9 of 24</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><span class="pm lg" role="img" aria-label="5 of 12" style="gap:7px"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i><i></i></span><span class="ds-cap">Large (done screen)</span></div>
+</div>
+</div>
+</section>
+
+<!-- TAB BAR -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Bottom tab bar</h2>
+<p><code>.tabs</code>: four tabs, Today, Rooms, Help, People. 56 px of bar plus 34 px home-indicator safe area. Icons are 24 px, 1.8 px stroke, drawn in the same round-cap graphite as the mark. The current tab gets a yellow tick above the icon and bold label; that tick is the whole “selected” treatment, so there is no tinted pill.</p>
+<p>Labels are always shown. Tab labels never truncate: in easy mode they grow to 15 px and still fit at 375.</p>
+</div>
+<div class="ds-stage" style="padding:0;overflow:hidden">
+<nav class="tabs" aria-label="Specimen" style="padding-bottom:0;max-width:375px">
+<a class="tab" href="#t1" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v18M6 8h9M6 13h12M6 18h7"></path></svg>Today</a>
+<a class="tab" href="#t2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4h12v17M3 21h18M14.5 13v.01"></path></svg>Rooms</a>
+<a class="tab" href="#t3"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 17v.01"></path></svg>Help</a>
+<a class="tab" href="#t4"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"></path><circle cx="17" cy="9" r="2.4"></circle><path d="M17 14c2.6 0 4.5 1.9 4.5 5"></path></svg>People</a>
+</nav>
+</div>
+</section>
+
+<!-- SHEET + TOAST -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Bottom sheet and toast</h2>
+<p><strong style="color:var(--ink)">Sheet</strong> <code>.sheet</code>: --surface, 24 px top radius, a 1.5 px graphite top edge, 40 × 4 grabber. Opens to 88% height, drags to dismiss, scrim at 42% graphite. The primary action is pinned at the bottom of the sheet, above the safe area.</p>
+<p><strong style="color:var(--ink)">Toast</strong> <code>.toast</code>: inverse ink on paper, 48 px, sits 8 px above the tab bar. Says what happened in plain words and offers Undo for 6 seconds. It never covers the primary action.</p>
+</div>
+<div class="ds-stage" style="gap:20px">
+<div style="position:relative;height:250px;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:var(--ground);max-width:375px">
+<div style="padding:16px 20px"><div class="d3">Living room</div><div class="row-sub">2 of 5 done</div></div>
+<div class="scrim"></div>
+<div class="sheet" style="top:70px"><div class="grab"></div><div style="padding:0 20px"><div class="t1 muted">Living room · about 10 minutes</div><div class="d4">Anchor the TV</div><div class="lbl" style="margin-top:8px">Why it matters</div><div class="t2">Children climb, and a TV pulled from the front can fall forward.</div></div></div>
+</div>
+<div class="toast" role="status" style="max-width:375px"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg>Marked: cover the outlets<button class="btn btn-quiet" type="button">Undo</button></div>
+</div>
+</section>
+
+<!-- FIELD -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Form field</h2>
+<p><code>.field</code> with a real <code>&lt;label&gt;</code> above, never a placeholder-as-label. Input 52 px, --surface, 1.5 px control edge. Focus: graphite edge plus a 3 px offset-yellow halo. Error: a 2.5 px <em>dashed</em> graphite edge and a sentence saying what to do. Red is not used for errors.</p>
+</div>
+<div class="ds-stage" style="max-width:420px">
+<div class="field"><label for="f1">Child’s first name (optional)</label><input class="input" id="f1" type="text" value="Mia"></div>
+<div class="field"><label for="f2">How old is your child?</label><input class="input is-focus" id="f2" type="text" value="10 months"><span class="help">The plan changes as they grow.</span></div>
+<div class="field"><label for="f3">Your pediatrician’s number</label><input class="input is-error" id="f3" type="tel" value="512 55"><span class="help" style="color:var(--ink)">That number looks short. Add the area code and 7 digits.</span></div>
+</div>
+</section>
+
+<!-- CARD -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">The one card</h2>
+<p><code>.card</code>: --surface, 1.5 px graphite edge, 12 px radius and a 4 px offset yellow shadow, the same off-register fill as the drawings. Allowed once per screen, for the one thing that needs to stand out (today: “Photograph a room”). Everything else sits straight on paper.</p>
+</div>
+<div class="ds-stage"><div class="card" style="display:flex;align-items:center;gap:12px;max-width:375px"><div style="flex:1"><div class="t2b">Photograph a room</div><div class="t1 muted">We suggest what to fix. You decide.</div></div><a class="btn btn-secondary" href="#c1" style="padding:0 16px">Take photo</a></div></div>
+</section>
+
+<!-- MOTION -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">Motion</h2>
+<p>Motion is pencil on paper: a stroke being drawn, a frame being shaded in. Nothing bounces, nothing overshoots, and nothing runs longer than 400 ms. Haptics: one light tap on tick, one soft double tap when a room completes.</p>
+<table class="ds-table"><thead><tr><th>Moment</th><th>What moves</th><th>Time · easing</th></tr></thead><tbody>
+<tr><td>Tick a task</td><td>Pencil stroke draws along the tick (dash offset 26 → 0). Box edge to graphite and the offset fill appears; title fades to muted.</td><td>220 ms · <code>cubic-bezier(.3,.7,.2,1)</code>; colour and shadow 160 ms linear</td></tr>
+<tr><td>Un-tick (Undo)</td><td>Stroke erases in reverse.</td><td>140 ms · ease-in</td></tr>
+<tr><td>Row joins “Done”</td><td>Row slides to its new place after a 500 ms beat so the tick is seen.</td><td>240 ms · <code>cubic-bezier(.2,.7,.2,1)</code></td></tr>
+<tr><td>Room complete</td><td>The doorframe fills from the bottom with yellow (clip-path inset 100% → 0). The six ticks draw in on a 30 ms stagger underneath, 120 ms each.</td><td>360 ms total · <code>cubic-bezier(.2,.7,.2,1)</code></td></tr>
+<tr><td>Sheet</td><td>Rises from the bottom; scrim fades.</td><td>300 ms · <code>cubic-bezier(.2,.8,.2,1)</code>; scrim 200 ms</td></tr>
+<tr><td>Toast</td><td>Rises 12 px while fading in.</td><td>200 ms · ease-out</td></tr>
+<tr><td>Primary press</td><td>Drops 2 px onto its under-edge.</td><td>90 ms · linear</td></tr>
+</tbody></table>
+</div>
+<div class="ds-stage">
+<div class="ds-cap">Live: tick draw (220 ms) and frame fill (360 ms), looping slowly with a hold</div>
+<div style="display:flex;gap:40px;align-items:center;flex-wrap:wrap">
+<span class="check" style="margin:0"><span class="box" style="border-color:var(--ink);box-shadow:3px 3px 0 var(--fill);background:var(--ground)"><svg class="tk demo-draw" viewBox="0 0 22 22" aria-hidden="true" style="stroke-dashoffset:0"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></span>
+<div style="width:120px"><svg class="il" viewBox="0 0 160 150" aria-hidden="true"><g class="demo-fill"><rect class="fl" x="45" y="14" width="80" height="124" rx="1"></rect></g><g class="ln"><rect x="40" y="10" width="80" height="124" rx="1"></rect><path d="M48 134V18H112V134M49 120q6-1 13 0M49 104q8-1 15 0M49 88q6-1 13 0M49 72q9-1 17 0M49 56q8-1 15 0M49 40q12-1 27 0"></path></g></svg></div>
+</div>
+<div class="ds-cap" style="margin-top:8px">Reduced motion (<code>prefers-reduced-motion: reduce</code>)</div>
+<p style="margin:0;font:400 14px/1.55 var(--font-body);color:var(--muted)">Nothing draws or slides. The tick, offset fill and frame fill appear in their final state with a 120 ms opacity cross-fade. Sheet and toast fade in place with no translation. Haptics stay. The same CSS ships the rule:</p>
+<pre class="ds-code">.anim-draw  { animation: gs-draw var(--dur-tick) var(--ease-pencil) both; }
+.anim-fill  { animation: gs-fill var(--dur-fill) cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .anim-draw, .anim-fill { animation: gs-fade 120ms linear both; }
+  .check .tk { transition: none; }
+}</pre>
+</div>
+</section>
+
+<!-- DARK -->
+<section class="ds-sec">
+<div class="ds-spec">
+<h2 class="d3" style="margin:0">The same parts in dark</h2>
+<p>Dark mode is warm graphite, not black. The yellow does not change: it is the one colour that is already right on both grounds, which is why it is the signature. Ink and hairlines invert; the offset fill becomes a deep olive-gold that keeps the graphite line legible (7.2 : 1).</p>
+</div>
+<div class="gs ds-stage" data-theme="dark" style="background:var(--ground);border-color:#3F3A31">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><a class="btn btn-primary" href="#d1">See the steps</a><a class="btn btn-secondary" href="#d2">Take photo</a></div>
+<a class="btn btn-danger btn-block btn-tall" href="#d3"><span class="t2b">Call Poison Help</span><span class="d3">1-800-222-1222</span></a>
+<div class="chips"><button class="chip" type="button" aria-pressed="true">To do 3</button><button class="chip" type="button" aria-pressed="false">Done 3</button></div>
+<div>
+<div class="task"><button class="check" type="button" role="checkbox" aria-checked="false" aria-label="Mark Tie up the blind cord as done"><span class="box"><svg class="tk" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></button><div class="row-main"><div class="row-title">Tie up the blind cord</div><div class="row-sub">5 min · no cost</div></div></div>
+<div class="task done"><button class="check" type="button" role="checkbox" aria-checked="true" aria-label="Cover the outlets, done. Tap to undo"><span class="box"><svg class="tk" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></button><div class="row-main"><div class="row-title">Cover the outlets</div></div></div>
+</div>
+<div class="toast" role="status"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11.5l5 5L18.5 5"></path></svg>Marked: cover the outlets<button class="btn btn-quiet" type="button">Undo</button></div>
+<div class="field"><label for="d4">How old is your child?</label><input class="input" id="d4" type="text" value="10 months"></div>
+</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":4800}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

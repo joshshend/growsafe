@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GrowSafe design system: brand, colour, type</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+.ds-sec{padding:56px 0;border-top:1.5px solid var(--ink)}
+.ds-grid{display:grid;gap:24px}
+.ds-code{font:400 13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--well);color:var(--ink);border-radius:12px;padding:20px;margin:0;overflow:auto;white-space:pre}
+.ds-table{width:100%;border-collapse:collapse;font:400 14px/1.4 var(--font-body)}
+.ds-table th{text-align:left;font-weight:700;padding:8px 12px 8px 0;border-bottom:1.5px solid var(--ink);color:var(--muted);font-size:13px}
+.ds-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.ds-chipx{display:inline-flex;align-items:center;justify-content:center;width:44px;height:28px;border-radius:6px;font:700 15px/1 var(--font-body);border:1px solid var(--line)}
+.ds-sw{border-radius:12px;padding:16px;min-height:132px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;border:1px solid var(--line)}
+.ds-no{font:400 14px/1.5 var(--font-body);color:var(--muted)}
+</style>
+</helmet>
+<div class="gs" data-theme="light" style="min-height:6000px">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="gs-mark" viewBox="0 0 64 64"><path d="M21.5 21C31 20.4 40 21.3 50 20.5" style="stroke:var(--action)" stroke-width="10" fill="none" stroke-linecap="round" transform="translate(2 3.5)"></path><g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round"><path d="M21 7C20 24 22 40 21 57"></path><path d="M21.5 47C27 46.6 33 47.4 38 46.8"></path><path d="M21.5 34C29 33.5 36 34.4 44 33.7"></path><path d="M21.5 21C31 20.4 40 21.3 50 20.5"></path></g></symbol>
+<symbol id="gs-mark-flat" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round"><path d="M21 7C20 24 22 40 21 57"></path><path d="M21.5 47C27 46.6 33 47.4 38 46.8"></path><path d="M21.5 34C29 33.5 36 34.4 44 33.7"></path><path d="M21.5 21C31 20.4 40 21.3 50 20.5"></path></g></symbol>
+<symbol id="gs-mark-heavy" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="7.6" stroke-linecap="round"><path d="M20 7C19 24 21 40 20 57"></path><path d="M21 47C27 46.6 33 47.4 38 46.8"></path><path d="M21 34C29 33.5 36 34.4 44 33.7"></path><path d="M21 21C31 20.4 40 21.3 50 20.5"></path></g></symbol>
+</defs></svg>
+
+<div style="max-width:1200px;margin:0 auto;padding:56px 40px 72px">
+
+<!-- HEADER -->
+<header style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between;padding-bottom:48px">
+<div style="display:flex;flex-direction:column;gap:16px;max-width:640px">
+<div class="lbl">Visual identity and design system · v1 · October 2026</div>
+<div style="display:flex;align-items:center;gap:20px">
+<svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" style="color:var(--ink)"><use href="#gs-mark"></use></svg>
+<h1 style="font:400 88px/1 var(--font-display);letter-spacing:-.02em;margin:0">GrowSafe</h1>
+</div>
+<p style="font:400 22px/1.45 var(--font-body);margin:0;color:var(--muted)">A free, no-account web app that helps parents, grandparents and sitters make a home safe for a baby or toddler. Calm, competent, warm. Built from one idea: the pencil marks on a doorframe.</p>
+</div>
+<nav aria-label="Contents" style="display:flex;flex-wrap:wrap;gap:8px 20px;font:700 15px/1 var(--font-body)">
+<a class="link" href="#logo">Logo</a><a class="link" href="#colour">Colour</a><a class="link" href="#type">Type</a><a class="link" href="#space">Space</a><a class="link" href="#tokens">Tokens</a><a class="link" href="#why">Why</a>
+</nav>
+</header>
+
+<!-- LOGO -->
+<section class="ds-sec" id="logo">
+<h2 class="d4" style="margin:0 0 8px">Logo and app icon</h2>
+<p class="t2 muted" style="max-width:720px;margin:0 0 40px">The mark is a doorframe jamb with three hand-tilted pencil ticks, each one longer than the last. It is the only thing in the product that is allowed to be called a logo. No shield, heart, leaf, house or padlock.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;align-items:start">
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="lbl">App icon · 1024 × 1024, full-bleed square (iOS applies the mask)</div>
+<svg viewBox="0 0 64 64" width="320" height="320" role="img" aria-label="GrowSafe app icon: graphite doorframe mark on pencil yellow" style="display:block;max-width:100%;height:auto;border:1px solid var(--line)"><rect width="64" height="64" style="fill:var(--action)"></rect><use href="#gs-mark-flat" x="7" y="9" width="46" height="46" style="color:#24221E"></use></svg>
+<p class="ds-no">On pencil yellow the mark is all graphite, #24221E, with no offset fill. The yellow is the icon; recognition on a crowded home screen comes from colour first and the ticks second.</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="lbl">Actual sizes on the home screen (masked)</div>
+<div style="display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:8px;align-items:center"><svg viewBox="0 0 64 64" width="180" height="180" role="img" aria-label="Icon at 180 pixels"><rect width="64" height="64" rx="14.3" style="fill:var(--action)"></rect><use href="#gs-mark-flat" x="7" y="9" width="46" height="46" style="color:#24221E"></use></svg><span class="ds-no">180 (3x)</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:center"><svg viewBox="0 0 64 64" width="120" height="120" role="img" aria-label="Icon at 120 pixels"><rect width="64" height="64" rx="14.3" style="fill:var(--action)"></rect><use href="#gs-mark-flat" x="7" y="9" width="46" height="46" style="color:#24221E"></use></svg><span class="ds-no">120 (2x)</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:center"><svg viewBox="0 0 64 64" width="58" height="58" role="img" aria-label="Icon at 58 pixels"><rect width="64" height="64" rx="14.3" style="fill:var(--action)"></rect><use href="#gs-mark-heavy" x="7" y="9" width="46" height="46" style="color:#24221E"></use></svg><span class="ds-no">58</span></div>
+<div style="display:flex;flex-direction:column;gap:8px;align-items:center"><svg viewBox="0 0 64 64" width="29" height="29" role="img" aria-label="Icon at 29 pixels"><rect width="64" height="64" rx="14.3" style="fill:var(--action)"></rect><use href="#gs-mark-heavy" x="6" y="8" width="48" height="48" style="color:#24221E"></use></svg><span class="ds-no">29 (Settings)</span></div>
+</div>
+<p class="ds-no">Optical sizes: at 60 px and below use the heavy cut (stroke 7.6 of 64, jamb nudged 1 px left) so the ticks stay open at 29 px. Above that use the regular cut (stroke 5.4).</p>
+
+<div class="lbl" style="margin-top:12px">Mark on its three grounds</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+<div style="background:#F5EFE2;border:1px solid var(--line);border-radius:12px;height:132px;display:grid;place-items:center;color:#24221E"><svg viewBox="0 0 64 64" width="84" height="84" style="--action:#F2B705" aria-hidden="true"><use href="#gs-mark"></use></svg></div>
+<div style="background:#1F1D19;border-radius:12px;height:132px;display:grid;place-items:center;color:#F1EADB"><svg viewBox="0 0 64 64" width="84" height="84" style="--action:#F2B705" aria-hidden="true"><use href="#gs-mark"></use></svg></div>
+<div style="background:#F2B705;border-radius:12px;height:132px;display:grid;place-items:center;color:#24221E"><svg viewBox="0 0 64 64" width="84" height="84" aria-hidden="true"><use href="#gs-mark-flat"></use></svg></div>
+</div>
+<p class="ds-no">On paper and dark, the top tick carries a yellow underlay shifted 2 right and 3.5 down (of 64): the same off-register fill the drawings use.</p>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;margin-top:48px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="lbl">Wordmark and lockup</div>
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:40px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" style="color:var(--ink)"><use href="#gs-mark"></use></svg>
+<span style="font:400 64px/1 var(--font-display);letter-spacing:-.02em">GrowSafe</span>
+</div>
+<p class="ds-no">Wordmark: Young Serif 400, tracking −0.02em, one word, capital G and S. The mark sits left, its height equal to the cap-height plus descender, with a gap of one jamb-to-first-tick spacing (about 0.25 of the mark). Clear space on every side: the height of the lowest tick spacing, doubled. Minimum lockup width 96 px; below that use the mark alone.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="lbl">Mark source (64 × 64 viewBox, copy as is)</div>
+<pre class="ds-code">&lt;g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round"&gt;
+  &lt;path d="M21 7C20 24 22 40 21 57"/&gt;           jamb
+  &lt;path d="M21.5 47C27 46.6 33 47.4 38 46.8"/&gt;  tick 1
+  &lt;path d="M21.5 34C29 33.5 36 34.4 44 33.7"/&gt;  tick 2
+  &lt;path d="M21.5 21C31 20.4 40 21.3 50 20.5"/&gt;  tick 3
+&lt;/g&gt;
+underlay (paper, dark only), drawn first:
+&lt;path d="M21.5 21C31 20.4 40 21.3 50 20.5"
+  stroke="#F2B705" stroke-width="10"
+  transform="translate(2 3.5)"/&gt;</pre>
+<div class="ds-no"><strong style="color:var(--ink)">Never:</strong> rotate the mark, outline it, set the ticks level, recolour any tick (least of all red), add a fourth tick, or put it in a shield, circle or house. Never put the wordmark on a photo.</div>
+</div>
+</div>
+</section>
+
+<!-- COLOUR -->
+<section class="ds-sec" id="colour">
+<h2 class="d4" style="margin:0 0 8px">Colour</h2>
+<p class="t2 muted" style="max-width:760px;margin:0 0 40px">Three core colours, named for what they are: <strong style="color:var(--ink)">Paper</strong>, <strong style="color:var(--ink)">Graphite</strong> and the signature <strong style="color:var(--ink)">Pencil Yellow</strong>. Everything else is a neutral drawn from those. Red is not part of the palette; it is a reserved signal and appears on exactly two things.</p>
+
+<div class="lbl" style="margin-bottom:12px">Core · light</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px">
+<div class="ds-sw" style="background:#F5EFE2;color:#24221E"><strong>Paper</strong><span class="t1">--ground</span><span class="t1">#F5EFE2</span></div>
+<div class="ds-sw" style="background:#24221E;color:#F5EFE2"><strong>Graphite</strong><span class="t1">--ink</span><span class="t1">#24221E</span></div>
+<div class="ds-sw" style="background:#F2B705;color:#24221E;border-color:#24221E"><strong>Pencil Yellow</strong><span class="t1">--action</span><span class="t1">#F2B705 · the signature</span></div>
+</div>
+<div class="lbl" style="margin:28px 0 12px">Neutrals and signals · light</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:12px">
+<div class="ds-sw" style="background:#FBF8F1;color:#24221E"><strong>Lifted paper</strong><span class="t1">--surface</span><span class="t1">#FBF8F1</span></div>
+<div class="ds-sw" style="background:#EBE3D0;color:#24221E"><strong>Pressed paper</strong><span class="t1">--well</span><span class="t1">#EBE3D0</span></div>
+<div class="ds-sw" style="background:#F5EFE2;color:#5E584D"><strong>Soft graphite</strong><span class="t1">--muted</span><span class="t1">#5E584D</span></div>
+<div class="ds-sw" style="background:#D8CFBB;color:#24221E"><strong>Hairline</strong><span class="t1">--line</span><span class="t1">#D8CFBB</span></div>
+<div class="ds-sw" style="background:#8F8671;color:#14120F"><strong>Control edge</strong><span class="t1">--line-strong</span><span class="t1">#8F8671</span></div>
+<div class="ds-sw" style="background:#F6DD8B;color:#24221E"><strong>Offset fill</strong><span class="t1">--fill</span><span class="t1">#F6DD8B</span></div>
+<div class="ds-sw" style="background:#F5EFE2;color:#7A5800"><strong>Yellow, as text</strong><span class="t1">--action-ink</span><span class="t1">#7A5800</span></div>
+<div class="ds-sw" style="background:#3D3A33;color:#F5EFE2"><strong>Finished mark</strong><span class="t1">--done</span><span class="t1">#3D3A33</span></div>
+<div class="ds-sw" style="background:#B3261E;color:#FFF8F0"><strong>Emergency</strong><span class="t1">--emergency</span><span class="t1">#B3261E · Poison Help and 911 only</span></div>
+</div>
+
+<div class="lbl" style="margin:40px 0 12px">Dark mode · warm graphite, not black</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:12px">
+<div class="ds-sw" style="background:#1F1D19;color:#F1EADB;border-color:#3F3A31"><strong>--ground</strong><span class="t1">#1F1D19</span></div>
+<div class="ds-sw" style="background:#2A2722;color:#F1EADB;border-color:#3F3A31"><strong>--surface</strong><span class="t1">#2A2722</span></div>
+<div class="ds-sw" style="background:#181612;color:#F1EADB;border-color:#3F3A31"><strong>--well</strong><span class="t1">#181612</span></div>
+<div class="ds-sw" style="background:#F1EADB;color:#1F1D19"><strong>--ink</strong><span class="t1">#F1EADB</span></div>
+<div class="ds-sw" style="background:#1F1D19;color:#B8AF9D;border-color:#3F3A31"><strong>--muted</strong><span class="t1">#B8AF9D</span></div>
+<div class="ds-sw" style="background:#3F3A31;color:#F1EADB"><strong>--line</strong><span class="t1">#3F3A31</span></div>
+<div class="ds-sw" style="background:#8A826F;color:#14120F"><strong>--line-strong</strong><span class="t1">#8A826F</span></div>
+<div class="ds-sw" style="background:#F2B705;color:#1F1D19"><strong>--action</strong><span class="t1">#F2B705 (unchanged)</span></div>
+<div class="ds-sw" style="background:#1F1D19;color:#F2C94C;border-color:#3F3A31"><strong>--action-ink</strong><span class="t1">#F2C94C</span></div>
+<div class="ds-sw" style="background:#5C4A12;color:#F1EADB"><strong>--fill</strong><span class="t1">#5C4A12</span></div>
+<div class="ds-sw" style="background:#1F1D19;color:#E4DCC9;border-color:#3F3A31"><strong>--done</strong><span class="t1">#E4DCC9</span></div>
+<div class="ds-sw" style="background:#FF8F83;color:#1F1D19"><strong>--emergency</strong><span class="t1">#FF8F83 · same two uses</span></div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;margin-top:48px;align-items:start">
+<div>
+<div class="lbl" style="margin-bottom:8px">How red is kept honest</div>
+<p class="ds-no" style="color:var(--ink);font-size:16px;margin:0 0 12px">--emergency is allowed on two things: the Call Poison Help button and the Call 911 line (Help tab, Visit pack). Nothing else may be red, including errors, deletes, overdue and "not done". An error is a dashed ink border plus words. A hazard in a drawing is circled in graphite. When red appears, it means call someone.</p>
+<p class="ds-no">Yellow is never used for text or for a boundary on paper (it is 1.6 : 1 against Paper). Yellow fills carry graphite text and a graphite 1.5 px edge; yellow as readable text uses --action-ink.</p>
+</div>
+<div>
+<div class="lbl" style="margin-bottom:8px">Done is graphite, not green</div>
+<p class="ds-no" style="color:var(--ink);font-size:16px;margin:0">A finished fix is a pencil tick in --done. There is no success green and no warning orange: ticks, the offset yellow shadow behind a ticked box, and a calm muted label are the whole vocabulary. A parent at 11 pm never has to decode a colour.</p>
+</div>
+</div>
+
+<h3 class="d3" style="margin:56px 0 8px">Contrast, measured</h3>
+<p class="ds-no" style="margin:0 0 16px">WCAG 2.2 relative-luminance ratios. Text pairs need 4.5 : 1 (3 : 1 from 24 px display type). Control edges need 3 : 1. Every pair below passes AA; ones marked AAA also pass 7 : 1.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr));gap:40px">
+<div style="overflow-x:auto">
+<table class="ds-table"><caption style="text-align:left;font:700 15px/1.4 var(--font-body);padding-bottom:8px">Light</caption>
+<thead><tr><th>Pair</th><th>Sample</th><th>Ratio</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>--ink on --ground</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#24221E">Aa</span></td><td>13.86 : 1</td><td>AAA</td></tr>
+<tr><td>--ink on --surface</td><td><span class="ds-chipx" style="background:#FBF8F1;color:#24221E">Aa</span></td><td>14.97 : 1</td><td>AAA</td></tr>
+<tr><td>--ink on --well</td><td><span class="ds-chipx" style="background:#EBE3D0;color:#24221E">Aa</span></td><td>12.42 : 1</td><td>AAA</td></tr>
+<tr><td>--ink on --fill</td><td><span class="ds-chipx" style="background:#F6DD8B;color:#24221E">Aa</span></td><td>11.82 : 1</td><td>AAA</td></tr>
+<tr><td>--muted on --ground</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#5E584D">Aa</span></td><td>6.15 : 1</td><td>AA</td></tr>
+<tr><td>--muted on --surface</td><td><span class="ds-chipx" style="background:#FBF8F1;color:#5E584D">Aa</span></td><td>6.65 : 1</td><td>AA</td></tr>
+<tr><td>--muted on --well</td><td><span class="ds-chipx" style="background:#EBE3D0;color:#5E584D">Aa</span></td><td>5.52 : 1</td><td>AA</td></tr>
+<tr><td>--on-action on --action</td><td><span class="ds-chipx" style="background:#F2B705;color:#24221E">Aa</span></td><td>8.73 : 1</td><td>AAA</td></tr>
+<tr><td>--action-ink on --ground</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#7A5800">Aa</span></td><td>5.69 : 1</td><td>AA</td></tr>
+<tr><td>--action-ink on --surface</td><td><span class="ds-chipx" style="background:#FBF8F1;color:#7A5800">Aa</span></td><td>6.14 : 1</td><td>AA</td></tr>
+<tr><td>--on-emergency on --emergency</td><td><span class="ds-chipx" style="background:#B3261E;color:#FFF8F0">Aa</span></td><td>6.21 : 1</td><td>AA</td></tr>
+<tr><td>--emergency text on --ground</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#B3261E">Aa</span></td><td>5.70 : 1</td><td>AA</td></tr>
+<tr><td>--done on --ground</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#3D3A33">Aa</span></td><td>9.90 : 1</td><td>AAA</td></tr>
+<tr><td>--on-inverse on --inverse (toast)</td><td><span class="ds-chipx" style="background:#24221E;color:#F5EFE2">Aa</span></td><td>13.86 : 1</td><td>AAA</td></tr>
+<tr><td>--link-inverse on --inverse</td><td><span class="ds-chipx" style="background:#24221E;color:#F2B705">Aa</span></td><td>8.73 : 1</td><td>AAA</td></tr>
+<tr><td>--line-strong on --ground (edge)</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#8F8671;border-color:#8F8671">▢</span></td><td>3.15 : 1</td><td>3:1 pass</td></tr>
+<tr><td>--line-strong on --surface (edge)</td><td><span class="ds-chipx" style="background:#FBF8F1;color:#8F8671;border-color:#8F8671">▢</span></td><td>3.40 : 1</td><td>3:1 pass</td></tr>
+<tr><td>--action on --ground (fill only)</td><td><span class="ds-chipx" style="background:#F5EFE2;color:#F2B705">▇</span></td><td>1.59 : 1</td><td>Never text; always edged by --edge</td></tr>
+</tbody></table>
+</div>
+<div style="overflow-x:auto">
+<table class="ds-table"><caption style="text-align:left;font:700 15px/1.4 var(--font-body);padding-bottom:8px">Dark</caption>
+<thead><tr><th>Pair</th><th>Sample</th><th>Ratio</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>--ink on --ground</td><td><span class="ds-chipx" style="background:#1F1D19;color:#F1EADB;border-color:#3F3A31">Aa</span></td><td>14.05 : 1</td><td>AAA</td></tr>
+<tr><td>--ink on --surface</td><td><span class="ds-chipx" style="background:#2A2722;color:#F1EADB;border-color:#3F3A31">Aa</span></td><td>12.42 : 1</td><td>AAA</td></tr>
+<tr><td>--ink on --well</td><td><span class="ds-chipx" style="background:#181612;color:#F1EADB;border-color:#3F3A31">Aa</span></td><td>15.08 : 1</td><td>AAA</td></tr>
+<tr><td>--ink on --fill</td><td><span class="ds-chipx" style="background:#5C4A12;color:#F1EADB;border-color:#3F3A31">Aa</span></td><td>7.18 : 1</td><td>AAA</td></tr>
+<tr><td>--muted on --ground</td><td><span class="ds-chipx" style="background:#1F1D19;color:#B8AF9D;border-color:#3F3A31">Aa</span></td><td>7.74 : 1</td><td>AAA</td></tr>
+<tr><td>--muted on --surface</td><td><span class="ds-chipx" style="background:#2A2722;color:#B8AF9D;border-color:#3F3A31">Aa</span></td><td>6.84 : 1</td><td>AA</td></tr>
+<tr><td>--muted on --well</td><td><span class="ds-chipx" style="background:#181612;color:#B8AF9D;border-color:#3F3A31">Aa</span></td><td>8.31 : 1</td><td>AAA</td></tr>
+<tr><td>--on-action on --action</td><td><span class="ds-chipx" style="background:#F2B705;color:#1F1D19">Aa</span></td><td>9.26 : 1</td><td>AAA</td></tr>
+<tr><td>--action-ink on --ground</td><td><span class="ds-chipx" style="background:#1F1D19;color:#F2C94C;border-color:#3F3A31">Aa</span></td><td>10.60 : 1</td><td>AAA</td></tr>
+<tr><td>--action-ink on --surface</td><td><span class="ds-chipx" style="background:#2A2722;color:#F2C94C;border-color:#3F3A31">Aa</span></td><td>9.37 : 1</td><td>AAA</td></tr>
+<tr><td>--on-emergency on --emergency</td><td><span class="ds-chipx" style="background:#FF8F83;color:#1F1D19">Aa</span></td><td>7.62 : 1</td><td>AAA</td></tr>
+<tr><td>--emergency text on --ground</td><td><span class="ds-chipx" style="background:#1F1D19;color:#FF8F83;border-color:#3F3A31">Aa</span></td><td>7.62 : 1</td><td>AAA</td></tr>
+<tr><td>--done on --ground</td><td><span class="ds-chipx" style="background:#1F1D19;color:#E4DCC9;border-color:#3F3A31">Aa</span></td><td>12.32 : 1</td><td>AAA</td></tr>
+<tr><td>--on-inverse on --inverse (toast)</td><td><span class="ds-chipx" style="background:#F1EADB;color:#1F1D19">Aa</span></td><td>14.05 : 1</td><td>AAA</td></tr>
+<tr><td>--link-inverse on --inverse</td><td><span class="ds-chipx" style="background:#F1EADB;color:#7A5800">Aa</span></td><td>5.44 : 1</td><td>AA</td></tr>
+<tr><td>--line-strong on --ground (edge)</td><td><span class="ds-chipx" style="background:#1F1D19;color:#8A826F;border-color:#8A826F">▢</span></td><td>4.41 : 1</td><td>3:1 pass</td></tr>
+<tr><td>--line-strong on --surface (edge)</td><td><span class="ds-chipx" style="background:#2A2722;color:#8A826F;border-color:#8A826F">▢</span></td><td>3.90 : 1</td><td>3:1 pass</td></tr>
+<tr><td>--action on --ground (fill)</td><td><span class="ds-chipx" style="background:#1F1D19;color:#F2B705;border-color:#3F3A31">▇</span></td><td>9.26 : 1</td><td>Fill passes 3:1</td></tr>
+</tbody></table>
+</div>
+</div>
+</section>
+
+<!-- TYPE -->
+<section class="ds-sec" id="type">
+<h2 class="d4" style="margin:0 0 8px">Typography</h2>
+<p class="t2 muted" style="max-width:760px;margin:0 0 40px">Young Serif for headlines and numbers: sturdy, a little old-fashioned, like a name written in a hall. Atkinson Hyperlegible Next for everything you read or tap, because its letterforms were drawn to be told apart at a glance. Two families, four weights in total.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;margin-bottom:48px">
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px">
+<div class="lbl">Display · Young Serif 400</div>
+<div style="font:400 72px/1 var(--font-display);letter-spacing:-.01em;margin:16px 0 12px">Aa 0123</div>
+<div style="font:400 28px/1.3 var(--font-display)">Anchor the TV. Nine of twenty-four.</div>
+</div>
+<div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px">
+<div class="lbl">Body · Atkinson Hyperlegible Next 400 · 500 · 700</div>
+<div style="font:400 72px/1 var(--font-body);margin:16px 0 12px">Aa 0123</div>
+<div style="font:400 20px/1.5 var(--font-body)">Thread the strap through the back of the TV.</div>
+<div style="font:500 20px/1.5 var(--font-body)">Thread the strap through the back of the TV.</div>
+<div style="font:700 20px/1.5 var(--font-body)">Thread the strap through the back of the TV.</div>
+</div>
+</div>
+
+<div style="overflow-x:auto">
+<table class="ds-table"><thead><tr><th>Token</th><th>Role</th><th>Standard (px / line-height)</th><th>Easy mode (+15%)</th><th>Family · weight</th></tr></thead>
+<tbody>
+<tr><td><code>--fs-1</code></td><td>Captions, labels, row meta, tab labels</td><td>13 / 18</td><td>15 / 21</td><td>Atkinson · 400, labels 700</td></tr>
+<tr><td><code>--fs-2</code></td><td>Body, row titles, buttons, fields</td><td>17 / 25</td><td>20 / 29</td><td>Atkinson · 400, 500 rows, 700 buttons</td></tr>
+<tr><td><code>--fs-3</code></td><td>Section titles, sheet titles, room names</td><td>22 / 28</td><td>25 / 32</td><td>Young Serif · 400</td></tr>
+<tr><td><code>--fs-4</code></td><td>Screen headline</td><td>30 / 34, tracking −0.01em</td><td>34 / 39</td><td>Young Serif · 400</td></tr>
+<tr><td><code>--fs-5</code></td><td>Big numbers (progress, steps)</td><td>44 / 46, tracking −0.01em</td><td>51 / 53</td><td>Young Serif · 400</td></tr>
+</tbody></table>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;margin-top:40px;align-items:start">
+<div class="gs" style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<div class="lbl">Standard</div>
+<div class="d5">9 of 24</div>
+<div class="d4">Anchor the TV</div>
+<div class="d3">Why it matters</div>
+<div class="t2">A TV on a low stand can tip if a child pulls on it. A strap to the wall stops that.</div>
+<div class="t1 muted">Living room · about 10 minutes</div>
+</div>
+<div class="gs" data-scale="easy" style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<div class="lbl">Easy mode · for grandparents and tired eyes · targets grow to 56 px</div>
+<div class="d5">9 of 24</div>
+<div class="d4">Anchor the TV</div>
+<div class="d3">Why it matters</div>
+<div class="t2">A TV on a low stand can tip if a child pulls on it. A strap to the wall stops that.</div>
+<div class="t1 muted">Living room · about 10 minutes</div>
+</div>
+</div>
+<p class="ds-no" style="margin-top:24px;max-width:760px">Rules: paragraphs never drop below --fs-2; --fs-1 is for one-line meta only. No all-caps, no light weights, no italics in UI. Keep lines near 34 characters on a phone. Numbers are always set in Young Serif so a count reads as a mark, not a statistic. Easy mode is a single attribute, <code>data-scale="easy"</code>, set from Settings and by default on the Visit pack.</p>
+</section>
+
+<!-- SPACE -->
+<section class="ds-sec" id="space">
+<h2 class="d4" style="margin:0 0 8px">Space, shape, touch</h2>
+<p class="t2 muted" style="max-width:760px;margin:0 0 32px">Structure comes from whitespace, hairlines and type size. There is no default card, no tinted icon square and no chevron. One card, with a hard offset yellow shadow, is allowed per screen, and only for the one thing that must stand out.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;align-items:start">
+<div style="overflow-x:auto">
+<table class="ds-table"><thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead><tbody>
+<tr><td><code>--s-1</code></td><td>4</td><td>Tick gaps, icon to label</td></tr>
+<tr><td><code>--s-2</code></td><td>8</td><td>Chip gaps, tight stacks</td></tr>
+<tr><td><code>--s-3</code></td><td>12</td><td>Row gaps</td></tr>
+<tr><td><code>--s-4</code></td><td>16</td><td>Paragraph to control</td></tr>
+<tr><td><code>--s-5</code></td><td>24</td><td>Between groups</td></tr>
+<tr><td><code>--s-6</code></td><td>32</td><td>Between sections</td></tr>
+<tr><td><code>--s-7</code></td><td>48</td><td>Hero air</td></tr>
+<tr><td><code>--gutter</code></td><td>20</td><td>Screen side padding</td></tr>
+</tbody></table>
+</div>
+<div style="overflow-x:auto">
+<table class="ds-table"><thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead><tbody>
+<tr><td><code>--r-tile</code></td><td>12</td><td>Buttons, the one card, toast</td></tr>
+<tr><td><code>--r-field</code></td><td>8</td><td>Inputs</td></tr>
+<tr><td><code>--r-chip</code></td><td>999</td><td>Chips</td></tr>
+<tr><td><code>--r-sheet</code></td><td>24</td><td>Bottom sheet top corners</td></tr>
+<tr><td><code>--hit</code></td><td>44 · 56 easy</td><td>Minimum touch target</td></tr>
+<tr><td>Safe top</td><td>54</td><td>Dynamic Island clearance (leave empty)</td></tr>
+<tr><td>Safe bottom</td><td>34</td><td>Home indicator; tab bar is 56 + 34</td></tr>
+<tr><td>Thumb zone</td><td>bottom 40%</td><td>Primary action lives here; one-handed</td></tr>
+</tbody></table>
+</div>
+</div>
+</section>
+
+<!-- TOKENS -->
+<section class="ds-sec" id="tokens">
+<h2 class="d4" style="margin:0 0 8px">Design tokens</h2>
+<p class="t2 muted" style="max-width:760px;margin:0 0 32px">Plain CSS custom properties, shipped as <code>gs.css</code> on this canvas. Put <code>class="gs"</code> on the root, <code>data-theme="dark"</code> for dark, <code>data-scale="easy"</code> for the large scale.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:24px">
+<pre class="ds-code">/* light (default) */
+--ground: #F5EFE2;
+--surface: #FBF8F1;
+--well: #EBE3D0;
+--ink: #24221E;
+--muted: #5E584D;
+--line: #D8CFBB;
+--line-strong: #8F8671;
+--action: #F2B705;
+--on-action: #24221E;
+--action-ink: #7A5800;
+--fill: #F6DD8B;
+--edge: #24221E;
+--done: #3D3A33;
+--emergency: #B3261E;
+--on-emergency: #FFF8F0;
+--inverse: #24221E;
+--on-inverse: #F5EFE2;
+--link-inverse: #F2B705;
+--scrim: rgba(36,34,30,.42);</pre>
+<pre class="ds-code">/* [data-theme="dark"] overrides */
+--ground: #1F1D19;
+--surface: #2A2722;
+--well: #181612;
+--ink: #F1EADB;
+--muted: #B8AF9D;
+--line: #3F3A31;
+--line-strong: #8A826F;
+--action: #F2B705;
+--on-action: #1F1D19;
+--action-ink: #F2C94C;
+--fill: #5C4A12;
+--edge: #14120F;
+--done: #E4DCC9;
+--emergency: #FF8F83;
+--on-emergency: #1F1D19;
+--inverse: #F1EADB;
+--on-inverse: #1F1D19;
+--link-inverse: #7A5800;
+--scrim: rgba(0,0,0,.62);</pre>
+<pre class="ds-code">/* shape, space, type */
+--r-tile: 12px;
+--r-field: 8px;
+--r-chip: 999px;
+--r-sheet: 24px;
+--s-1: 4px;  --s-2: 8px;
+--s-3: 12px; --s-4: 16px;
+--s-5: 24px; --s-6: 32px;
+--s-7: 48px; --gutter: 20px;
+--hit: 44px;
+--font-display: 'Young Serif', Georgia, serif;
+--font-body: 'Atkinson Hyperlegible Next', system-ui;
+--fs-1: 13px; --lh-1: 18px;
+--fs-2: 17px; --lh-2: 25px;
+--fs-3: 22px; --lh-3: 28px;
+--fs-4: 30px; --lh-4: 34px;
+--fs-5: 44px; --lh-5: 46px;
+
+/* [data-scale="easy"] */
+--fs-1: 15px; --lh-1: 21px;
+--fs-2: 20px; --lh-2: 29px;
+--fs-3: 25px; --lh-3: 32px;
+--fs-4: 34px; --lh-4: 39px;
+--fs-5: 51px; --lh-5: 53px;
+--hit: 56px;
+
+/* motion */
+--ease-pencil: cubic-bezier(.3,.7,.2,1);
+--dur-tick: 220ms;  --dur-fill: 360ms;
+--dur-sheet: 300ms; --dur-toast: 200ms;</pre>
+</div>
+</section>
+
+<!-- WHY -->
+<section class="ds-sec" id="why">
+<h2 class="d4" style="margin:0 0 24px">Why this looks like GrowSafe and nothing else</h2>
+<p style="font:400 22px/1.55 var(--font-body);max-width:860px;margin:0">GrowSafe borrows the one object every family already owns, a pencil mark on a doorframe, so its logo is a jamb with three hand-tilted ticks and its progress meter is those same ticks climbing. Its colour is pencil yellow, graphite and warm paper, which no baby, safety or health app uses, with red held back for Poison Help and 911 alone. Young Serif gives numbers and headlines the weight of a name written on a wall, while Atkinson Hyperlegible Next keeps instructions readable at 11 pm or at 70. Drawings are single-weight pencil with one flat yellow fill knocked slightly off-register, and that same offset reappears in ticked boxes and the one card, so everything reads as one hand. Structure comes from hairlines, whitespace and type size instead of tinted icon squares and chevrons, so no screen looks like a template.</p>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":6000}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

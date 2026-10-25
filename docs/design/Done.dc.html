@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>All done: Nursery</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="gs phone" data-theme="{{theme}}" data-scale="{{scale}}">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter>
+<g id="f-done"><rect x="40" y="10" width="80" height="124" rx="1"></rect></g>
+</defs></svg>
+<div class="safe-t"></div>
+
+<div class="pad" style="display:flex;align-items:center;justify-content:flex-end;min-height:44px">
+<a class="btn btn-quiet" href="{{hToday}}">Close</a>
+</div>
+
+<main class="scroll pad" style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:8px">
+<div style="width:236px">
+<svg class="il" viewBox="0 0 160 150" role="img" aria-label="A doorframe with six pencil ticks climbing the side. The top tick is highlighted and the frame is filled in.">
+<g class="anim-fill"><use class="fl" href="#f-done" transform="translate(5 4)"></use></g>
+<path class="hl" d="M49 40q12-1 27 0" transform="translate(2 3)"></path>
+<g class="ln" style="filter:url(#wob)"><use href="#f-done"></use><path d="M16 134H144M48 134V18H112V134"></path><path d="M49 120q6-1 13 0M49 104q8-1 15 0M49 88q6-1 13 0M49 72q9-1 17 0M49 56q8-1 15 0"></path><path d="M49 40q12-1 27 0" style="stroke-width:3"></path></g>
+</svg>
+</div>
+
+<div class="lbl" style="margin-top:20px">Nursery · Mia, 10 months · Oct 24</div>
+<h1 class="d4" style="margin-top:6px">The nursery is done.</h1>
+<p class="t2 muted" style="margin-top:8px;max-width:300px">All six fixes are marked. Next is the bathroom: 2 fixes left, about 20 minutes.</p>
+<p class="t2b" style="margin-top:14px">12 of 24 done</p>
+</main>
+
+<div class="pad" style="padding-top:8px;display:flex;flex-direction:column;gap:6px">
+<a class="btn btn-primary btn-block" href="{{hRooms}}">Start on the bathroom</a>
+<a class="btn btn-quiet" href="{{hToday}}" style="align-self:center">Back to Today</a>
+</div>
+<div class="safe-b"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"easy":{"editor":"boolean","default":false},"$preview":{"width":375,"height":812}}'>
+class Component extends DCLogic {
+renderVals() {
+const dark = (this.props.theme || 'light') === 'dark';
+const s = dark ? '-dark' : '';
+return {
+theme: dark ? 'dark' : 'light',
+scale: this.props.easy ? 'easy' : 'normal',
+hToday: 'Today' + s + '.dc.html',
+hRooms: 'Rooms' + s + '.dc.html'
+};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Visit pack</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+.vp{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.vp:last-child{border-bottom:0}
+.vp .n{font:400 var(--fs-4)/1 var(--font-display);width:26px;flex:none;text-align:center;padding-top:2px}
+</style>
+</helmet>
+<div class="gs phone" data-theme="{{theme}}" data-scale="easy">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="gs-mark" viewBox="0 0 64 64"><path d="M21.5 21C31 20.4 40 21.3 50 20.5" style="stroke:var(--action)" stroke-width="10" fill="none" stroke-linecap="round" transform="translate(2 3.5)"></path><g fill="none" stroke="currentColor" stroke-width="5.4" stroke-linecap="round"><path d="M21 7C20 24 22 40 21 57"></path><path d="M21.5 47C27 46.6 33 47.4 38 46.8"></path><path d="M21.5 34C29 33.5 36 34.4 44 33.7"></path><path d="M21.5 21C31 20.4 40 21.3 50 20.5"></path></g></symbol>
+</defs></svg>
+<div class="safe-t"></div>
+
+<div class="pad" style="display:flex;align-items:center;min-height:36px">
+<span class="wm" style="font-size:19px"><svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><use href="#gs-mark"></use></svg>GrowSafe</span>
+</div>
+
+<main class="scroll pad" style="padding-top:14px;display:flex;flex-direction:column">
+<h1 class="d4">Visiting Mia?</h1>
+<p class="t2" style="margin-top:6px">Mia is 10 months old and moves fast. These are the four things that matter most while she’s with you.</p>
+
+<div style="margin-top:10px">
+<div class="vp"><span class="n">1</span><div><div class="t2b">Keep the stairs gate shut</div><div class="t1 muted">Latch it every time, even for a minute.</div></div></div>
+<div class="vp"><span class="n">2</span><div><div class="t2b">Medicines and cleaners up high</div><div class="t1 muted">Handbags count too.</div></div></div>
+<div class="vp"><span class="n">3</span><div><div class="t2b">Never leave her alone on a bed or sofa</div><div class="t1 muted">Babies roll sooner than you expect.</div></div></div>
+<div class="vp"><span class="n">4</span><div><div class="t2b">Stay within arm’s reach at bath time</div><div class="t1 muted">Even to answer the phone.</div></div></div>
+</div>
+</main>
+
+<div class="pad" style="padding-top:8px;display:flex;flex-direction:column;gap:8px">
+<a class="btn btn-danger btn-block btn-tall" href="tel:18002221222"><span class="t2b">Call Poison Help</span><span class="d3">1-800-222-1222</span></a>
+<p class="t1 muted" style="text-align:center">Sent by Mia’s parents with GrowSafe. No app, no account.</p>
+</div>
+<div class="safe-b"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":375,"height":812}}'>
+class Component extends DCLogic {
+renderVals() {
+return { theme: (this.props.theme || 'light') === 'dark' ? 'dark' : 'light' };
+}
+}
+</script>
+</body>
+</html>

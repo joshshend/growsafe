@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Task sheet: Anchor the TV</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./gs.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;700&family=Young+Serif&display=swap">
+<style>
+body{margin:0}
+.step{display:flex;gap:14px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .n{font:400 var(--fs-3)/var(--lh-3) var(--font-display);width:22px;flex:none;text-align:center}
+</style>
+</helmet>
+<div class="gs phone" data-theme="{{theme}}" data-scale="{{scale}}">
+<div class="safe-t"></div>
+<div class="pad" style="padding-top:12px">
+<h1 class="d4">Living room</h1>
+<p class="t2 muted">2 of 5 done</p>
+<div style="margin-top:12px">
+<div class="task done"><span class="check" aria-hidden="true"><span class="box"><svg class="tk" viewBox="0 0 22 22" style="stroke-dashoffset:0"><path d="M4 11.5l5 5L18.5 5"></path></svg></span></span><div class="row-main"><div class="row-title">Put corner guards on the coffee table</div></div></div>
+<div class="task"><span class="check" aria-hidden="true"><span class="box"></span></span><div class="row-main"><div class="row-title">Anchor the TV</div><div class="row-sub">10 min</div></div></div>
+<div class="task"><span class="check" aria-hidden="true"><span class="box"></span></span><div class="row-main"><div class="row-title">Anchor the bookcase</div><div class="row-sub">15 min</div></div></div>
+</div>
+</div>
+
+<div class="scrim"></div>
+
+<section class="sheet" aria-labelledby="sheet-title" style="top:96px">
+<div class="grab"></div>
+<div class="pad" style="display:flex;flex-direction:column;flex:1;min-height:0">
+<div class="t1 muted">Living room · about 10 minutes · usually $10–25</div>
+<h2 class="d4" id="sheet-title" style="margin-top:2px">Anchor the TV</h2>
+
+<div class="lbl" style="margin-top:14px">Why it matters</div>
+<p class="t2">Children climb, and a TV pulled from the front can fall forward. A strap to the wall holds it in place.</p>
+
+<div class="lbl" style="margin-top:14px">What you need</div>
+<p class="t2">A TV anchor strap kit, a screwdriver, and a stud finder if you have one.</p>
+
+<div class="lbl" style="margin-top:14px">Steps</div>
+<div>
+<div class="step"><span class="n">1</span><span class="t2">Pick a spot on the wall behind the TV that can hold a screw. A stud is best.</span></div>
+<div class="step"><span class="n">2</span><span class="t2">Fix one end of the strap to the back of the TV.</span></div>
+<div class="step"><span class="n">3</span><span class="t2">Fix the other end to the wall and pull the strap snug.</span></div>
+<div class="step"><span class="n">4</span><span class="t2">Give the TV a gentle tug. It should not move.</span></div>
+</div>
+
+<div style="margin-top:auto;padding-bottom:6px;display:flex;flex-direction:column;gap:8px">
+<button class="btn btn-primary btn-block" type="button"><svg viewBox="0 0 22 22" width="22" height="22" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round"><path d="M4 11.5l5 5L18.5 5"></path></svg>Mark as done</button>
+<button class="btn btn-quiet" type="button" style="align-self:center">Not tonight</button>
+</div>
+</div>
+<div class="safe-b"></div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"easy":{"editor":"boolean","default":false},"$preview":{"width":375,"height":812}}'>
+class Component extends DCLogic {
+renderVals() {
+const dark = (this.props.theme || 'light') === 'dark';
+return {
+theme: dark ? 'dark' : 'light',
+scale: this.props.easy ? 'easy' : 'normal'
+};
+}
+}
+</script>
+</body>
+</html>
