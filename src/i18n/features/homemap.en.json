@@ -1,0 +1,16 @@
+{
+  "homemap.label": "Map of {home}",
+  "homemap.start": "Start by checking a room",
+  "homemap.none": "Nothing open in the rooms you have checked",
+  "homemap.summary": "{n} fixes open across {m} rooms",
+  "homemap.summaryRoom": "{n} fixes open in 1 room",
+  "homemap.summaryOne": "1 fix open in 1 room",
+  "homemap.aria.unchecked": "{room}, not checked",
+  "homemap.aria.open": "{room}, {done} of {total} done",
+  "homemap.aria.done": "{room}, all {total} done",
+  "homemap.aria.clear": "{room}, checked, nothing to fix",
+  "homemap.legend.unchecked": "Not looked at yet",
+  "homemap.legend.open": "Fixes to do",
+  "homemap.legend.done": "Finished",
+  "homemap.legend.missing": "Not in this home"
+}

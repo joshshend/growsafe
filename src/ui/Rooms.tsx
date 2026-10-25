@@ -12,6 +12,7 @@ import { useActiveChild } from "./ui-state";
 import { useLang, useT } from "./useT";
 import { GearSection } from "../recalls/GearSection";
 import { DemoBanner } from "./DemoBanner";
+import { HomeMap } from "./HomeMap";
 
 export function Rooms() {
   const t = useT();
@@ -40,6 +41,7 @@ export function Rooms() {
               {h.name}
             </h2>
           )}
+          <HomeMap home={h} views={views} />
           <ul className="rows">
             {h.rooms.map((r) => {
               const mine = views.filter((v) => v.task.home_id === h.id && v.task.room === r);

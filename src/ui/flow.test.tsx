@@ -144,7 +144,8 @@ describe("core flow (jsdom stand-in for the browser smoke test)", () => {
     demo();
     fireEvent.click(screen.getByRole("link", { name: "Rooms" }));
     expect(screen.getByRole("heading", { level: 1, name: "Rooms" })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("link", { name: /^Kitchen/ }));
+    // the Home map link comes first, the row in the list below it second
+    fireEvent.click(screen.getAllByRole("link", { name: /^Kitchen/ }).at(-1)!);
     expect(screen.getByRole("heading", { level: 1, name: "Kitchen" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "To do" })).toBeInTheDocument();
   });

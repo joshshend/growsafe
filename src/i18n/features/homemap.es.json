@@ -1,0 +1,16 @@
+{
+  "homemap.label": "Plano de {home}",
+  "homemap.start": "Empiece revisando un cuarto",
+  "homemap.none": "No hay nada pendiente en los cuartos que ha revisado",
+  "homemap.summary": "{n} arreglos pendientes en {m} cuartos",
+  "homemap.summaryRoom": "{n} arreglos pendientes en 1 cuarto",
+  "homemap.summaryOne": "1 arreglo pendiente en 1 cuarto",
+  "homemap.aria.unchecked": "{room}, sin revisar",
+  "homemap.aria.open": "{room}, {done} de {total} hechos",
+  "homemap.aria.done": "{room}, los {total} hechos",
+  "homemap.aria.clear": "{room}, revisado, nada que arreglar",
+  "homemap.legend.unchecked": "Sin mirar todavía",
+  "homemap.legend.open": "Arreglos por hacer",
+  "homemap.legend.done": "Terminado",
+  "homemap.legend.missing": "No está en esta casa"
+}

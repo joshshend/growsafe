@@ -1,0 +1,149 @@
+/* Home map (src/ui/HomeMap.tsx, illustrations/HomeCutaway.tsx). Colours come from tokens only. */
+.hm-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+.hm-summary {
+  margin: 0;
+}
+.hm {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  overflow: visible;
+  margin: 0 auto;
+}
+.hm .fl {
+  fill: var(--fill);
+  stroke: none;
+}
+.hm .hm-ln {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hm .hm-ln .thin {
+  stroke-width: 1.5;
+}
+.hm .hm-base {
+  fill: var(--surface);
+  stroke: none;
+}
+.hm .hm-tint {
+  stroke: none;
+  fill: color-mix(in srgb, var(--action) 30%, var(--surface));
+}
+.hm .hm-i1 {
+  fill: color-mix(in srgb, var(--action) 30%, var(--surface));
+}
+.hm .hm-i2 {
+  fill: color-mix(in srgb, var(--action) 52%, var(--surface));
+}
+.hm .hm-i3 {
+  fill: color-mix(in srgb, var(--action) 74%, var(--surface));
+}
+.hm .hm-i4 {
+  fill: var(--action);
+}
+.hm .hm-tint.hm-done {
+  fill: var(--well);
+}
+.hm .hm-hatch-line {
+  stroke: var(--line-strong);
+  stroke-width: 1.2;
+  opacity: 0.55;
+}
+.hm .hm-hatch {
+  stroke: none;
+}
+.hm .hm-name {
+  font: 700 10.5px/1 var(--font-body);
+  fill: var(--ink);
+  stroke: var(--surface);
+  stroke-width: 3px;
+  paint-order: stroke;
+  stroke-linejoin: round;
+}
+.hm .hm-badge-open circle {
+  fill: var(--action);
+  stroke: var(--edge);
+  stroke-width: 1.5;
+}
+.hm .hm-badge-open text {
+  font: 800 11px/1 var(--font-body);
+  fill: var(--on-action);
+}
+.hm .hm-badge-done circle {
+  fill: var(--ink);
+}
+.hm .hm-badge-done path {
+  fill: none;
+  stroke: var(--surface);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hm .hm-missing {
+  opacity: 0.38;
+}
+.hm .hm-missing .hm-ln {
+  stroke-dasharray: 4 4;
+}
+.hm .hm-room {
+  cursor: pointer;
+  outline: none;
+}
+.hm .hm-missing {
+  cursor: default;
+}
+.hm .hm-focus {
+  fill: none;
+  stroke: none;
+  rx: 3px;
+}
+.hm .hm-room:focus-visible .hm-focus {
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-dasharray: 6 3;
+}
+@media (hover: hover) {
+  .hm a.hm-room:hover .hm-base {
+    fill: var(--well);
+  }
+}
+.hm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+.hm-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.hm-sw {
+  width: 18px;
+  height: 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  background: var(--surface);
+  flex: none;
+}
+.hm-sw-unchecked {
+  background: repeating-linear-gradient(45deg, var(--line-strong) 0 1px, var(--surface) 1px 5px);
+}
+.hm-sw-open {
+  background: color-mix(in srgb, var(--action) 62%, var(--surface));
+}
+.hm-sw-done {
+  background: var(--well);
+}

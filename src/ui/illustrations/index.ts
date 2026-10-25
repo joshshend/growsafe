@@ -11,3 +11,5 @@ export {
   ROOM_ILLUSTRATIONS,
 } from "./rooms";
 export { EmptyDoorframe, DoneDoorframe, ScanTrace } from "./states";
+export { HomeCutaway } from "./HomeCutaway";
+export type { CutawayRoom } from "./HomeCutaway";
