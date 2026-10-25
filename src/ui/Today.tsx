@@ -16,6 +16,7 @@ import { useEasy } from "./easy";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
 import { RecallBanner } from "../recalls/RecallBanner";
+import { DemoBanner } from "./DemoBanner";
 
 const NEXT_LIMIT = 6;
 
@@ -93,6 +94,7 @@ export function Today() {
 
   return (
     <div className="flow today">
+      <DemoBanner />
       <RecallBanner />
       <div className="today-who">
         <ChildChip />

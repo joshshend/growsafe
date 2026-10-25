@@ -12,7 +12,7 @@ describe("App first screen", () => {
     useStore.setState({ hydrated: true });
   });
 
-  it("welcomes a new user with the app name, two ways in, no AI mention and a Poison Help tel link", () => {
+  it("welcomes a new user with the app name, two ways in, no AI mention and no header Emergency pill", () => {
     render(<App />);
     expect(
       screen.getByRole("heading", { level: 1, name: "A safer home, one small fix at a time." }),
@@ -22,10 +22,12 @@ describe("App first screen", () => {
       "href",
       "#/start",
     );
-    expect(screen.getByRole("button", { name: "See an example" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Explore a sample family" })).toBeInTheDocument();
     expect(screen.queryByText(/\bAI\b/)).not.toBeInTheDocument();
-    const link = screen.getByRole("link", { name: /Poison Help, 1-800-222-1222/ });
-    expect(link).toHaveAttribute("href", "tel:+18002221222");
+    expect(
+      screen.getByText("See GrowSafe with an example family. You can start your own anytime."),
+    ).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Emergency help" })).not.toBeInTheDocument();
     expect(screen.queryByRole("navigation", { name: "Main" })).not.toBeInTheDocument();
   });
 });

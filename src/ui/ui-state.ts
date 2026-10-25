@@ -13,6 +13,8 @@ interface UiState {
   openTaskId: string | null;
   switcherOpen: boolean;
   toast: Toast | null;
+  demoBannerDismissed: boolean;
+  dismissDemoBanner: () => void;
   setActiveChild: (id: string) => void;
   openTask: (id: string | null) => void;
   setSwitcher: (open: boolean) => void;
@@ -24,6 +26,8 @@ export const useUi = create<UiState>()((set) => ({
   openTaskId: null,
   switcherOpen: false,
   toast: null,
+  demoBannerDismissed: false,
+  dismissDemoBanner: () => set({ demoBannerDismissed: true }),
   setActiveChild: (id) => set({ activeChildId: id }),
   openTask: (id) => set({ openTaskId: id }),
   setSwitcher: (open) => set({ switcherOpen: open }),

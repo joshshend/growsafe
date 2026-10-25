@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { GearSix, Phone } from "@phosphor-icons/react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { GearSix, Siren } from "@phosphor-icons/react";
 import { useStore } from "../store/store";
 import { ChildChip } from "./ChildChip";
 import { ChildSwitcher } from "./ChildSwitcher";
@@ -12,8 +12,6 @@ import { useApplyEasy, useEasy } from "./easy";
 import { applyTheme, readTheme } from "./theme";
 import { useActiveChild, useUi } from "./ui-state";
 import { useLang, useT } from "./useT";
-
-const POISON_HREF = "tel:+18002221222";
 
 function Toaster() {
   const t = useT();
@@ -82,7 +80,10 @@ export function Layout() {
   const switcherOpen = useUi((s) => s.switcherOpen);
   const openTaskId = useUi((s) => s.openTaskId);
   const easy = useEasy();
-  const onToday = useLocation().pathname === "/";
+  const pathname = useLocation().pathname;
+  const onToday = pathname === "/";
+  // No family yet (Welcome, Onboarding) or already on Help: the pill would be noise.
+  const showEmergency = hasFamily && !pathname.startsWith("/start") && pathname !== "/help";
   useApplyEasy();
 
   useEffect(() => {
@@ -103,10 +104,12 @@ export function Layout() {
       <header className="topbar">
         {brand ? <Wordmark text={t("app.title")} /> : <ChildChip />}
         <div className="topbar-actions">
-          <a className="poison" href={POISON_HREF} aria-label={t("poison.label")}>
-            <Phone size={20} weight="fill" aria-hidden="true" />
-            <span aria-hidden="true">{t("poison.short")}</span>
-          </a>
+          {showEmergency && (
+            <Link className="poison" to="/help" aria-label={t("nav.emergencyLabel")}>
+              <Siren size={20} weight="fill" aria-hidden="true" />
+              <span aria-hidden="true">{t("nav.emergency")}</span>
+            </Link>
+          )}
           {hasFamily && (
             <NavLink to="/settings" className="icon-btn" aria-label={t("nav.settings")}>
               <GearSix size={26} weight="regular" aria-hidden="true" />

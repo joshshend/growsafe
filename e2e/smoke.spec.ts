@@ -33,10 +33,10 @@ test("onboarding -> Today -> mark done -> reload persists", async ({ page }) => 
 
 test("demo family: Today and task sheet are axe clean, no horizontal scroll", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "See an example" }).click();
-  await expect(page.getByRole("link", { name: /Poison Help/ }).first()).toHaveAttribute(
+  await page.getByRole("button", { name: "Explore a sample family" }).click();
+  await expect(page.getByRole("link", { name: "Emergency help" })).toHaveAttribute(
     "href",
-    "tel:+18002221222",
+    "#/help",
   );
   let results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);

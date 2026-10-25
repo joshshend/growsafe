@@ -9,6 +9,7 @@ import { ProgressMarks } from "./ProgressMarks";
 import { useActiveChild } from "./ui-state";
 import { useLang, useT } from "./useT";
 import { GearSection } from "../recalls/GearSection";
+import { DemoBanner } from "./DemoBanner";
 
 export function Rooms() {
   const t = useT();
@@ -19,6 +20,7 @@ export function Rooms() {
   const all = progress(views);
   return (
     <div className="flow">
+      <DemoBanner />
       <div>
         <h1 className="d4">{t("rooms.title")}</h1>
         {child && (

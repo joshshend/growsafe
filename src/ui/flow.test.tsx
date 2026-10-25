@@ -6,7 +6,7 @@ import { useUi } from "./ui-state";
 
 function demo() {
   render(<App />);
-  fireEvent.click(screen.getByRole("button", { name: "See an example" }));
+  fireEvent.click(screen.getByRole("button", { name: "Explore a sample family" }));
 }
 
 describe("core flow (jsdom stand-in for the browser smoke test)", () => {
@@ -124,14 +124,14 @@ describe("core flow (jsdom stand-in for the browser smoke test)", () => {
       fireEvent.click(within(dialog).getByRole("button", { name: "Erase data" }));
     });
     expect(useStore.getState().children).toHaveLength(0);
-    expect(screen.getByRole("button", { name: "See an example" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Explore a sample family" })).toBeInTheDocument();
   });
 
   it("Help puts the Poison Help number first and People has the share stub", () => {
     demo();
     fireEvent.click(screen.getByRole("link", { name: "Help" }));
     const links = screen.getAllByRole("link", { name: /Poison Help, 1-800-222-1222/ });
-    expect(links.length).toBeGreaterThanOrEqual(2);
+    expect(links.length).toBeGreaterThanOrEqual(1);
     fireEvent.click(screen.getByRole("link", { name: "People" }));
     expect(screen.getByRole("button", { name: "Share this plan" })).toBeInTheDocument();
   });

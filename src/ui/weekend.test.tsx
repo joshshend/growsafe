@@ -14,7 +14,7 @@ describe("Plan my weekend", () => {
 
   it("goes from the Today card to a plan whose checkboxes share task state", () => {
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: "See an example" }));
+    fireEvent.click(screen.getByRole("button", { name: "Explore a sample family" }));
     fireEvent.click(screen.getByRole("link", { name: /Plan a safety session/ }));
     expect(screen.getByRole("heading", { level: 1, name: "Plan a safety session" })).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: "2 hr" }));

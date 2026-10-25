@@ -6,7 +6,7 @@ test("emergency card, medicine check and briefing are axe clean at phone width",
 }) => {
   await page.setViewportSize({ width: 375, height: 800 });
   await page.goto("/");
-  await page.getByRole("button", { name: "See an example" }).click();
+  await page.getByRole("button", { name: "Explore a sample family" }).click();
   for (const hash of ["emergency/demo-mia", "medicine/demo-home", "briefing/demo-home"]) {
     await page.goto(`/#/${hash}`);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

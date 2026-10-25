@@ -1171,18 +1171,54 @@
 .welcome {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  /* Fill the viewport under the top bar; the art block centers in the free space. */
+  min-height: calc(100dvh - 140px - var(--safe-b));
+  padding-bottom: var(--safe-b);
+}
+.welcome-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
-  min-height: calc(100dvh - 140px);
+  text-align: center;
+  padding: 8px 0 20px;
+}
+.welcome-copy {
+  align-items: center;
 }
 .welcome .form-actions {
   margin-top: auto;
 }
 .welcome-art {
-  width: 200px;
-  margin-left: -4px;
+  width: min(220px, 60%);
+  margin: 0 auto;
+}
+.welcome-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .welcome-free {
   text-align: center;
+}
+.demo-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-tile);
+  background: var(--paper, var(--ground));
+}
+.demo-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .brand-row {
   display: flex;
