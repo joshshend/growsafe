@@ -48,7 +48,14 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: false, // registered from src/main.tsx so the native app can skip it
-      includeAssets: ["icon-192.png", "icon-512.png", "demo/sample-room.svg"],
+      includeAssets: [
+        "favicon.svg",
+        "apple-touch-icon.png",
+        "icon-192.png",
+        "icon-512.png",
+        "icon-maskable-512.png",
+        "demo/sample-room.svg",
+      ],
       manifest: {
         name: "GrowSafe",
         short_name: "GrowSafe",
@@ -56,11 +63,17 @@ export default defineConfig({
         display: "standalone",
         start_url: "/",
         scope: "/",
-        background_color: "#f4f5f7",
-        theme_color: "#f4f5f7",
+        background_color: "#f5efe2",
+        theme_color: "#f5efe2",
         icons: [
           { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
           { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+          {
+            src: "/icon-maskable-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
         ],
       },
     }),
