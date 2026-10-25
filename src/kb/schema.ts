@@ -112,6 +112,10 @@ export const HomeSchema = z.object({
   id: z.string().min(1), // local id
   name: z.string().min(1), // e.g. "Grandma's house"
   rooms: z.array(RoomSchema), // rooms in this home
+  // Rooms the person has checked: checkedAt (ISO) and the cues they ticked. Missing = not checked yet.
+  checks: z
+    .record(z.string(), z.object({ checkedAt: z.string(), cues: z.array(z.string()).default([]) }))
+    .optional(),
 });
 
 export const TaskSchema = z.object({

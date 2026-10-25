@@ -24,7 +24,7 @@ describe("demo banner and Emergency pill", () => {
     render(<App />);
     expect(screen.queryByRole("link", { name: "Emergency help" })).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole("link", { name: "Show me the first fix" }));
-    expect(screen.getByText("Step 1 of 3")).toBeInTheDocument();
+    expect(screen.getByText("Step 1 of 4")).toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Emergency help" })).not.toBeInTheDocument();
   });
 
@@ -47,6 +47,6 @@ describe("demo banner and Emergency pill", () => {
     fireEvent.click(screen.getByRole("button", { name: "Start my own" }));
     expect(useStore.getState().children).toHaveLength(0);
     expect(window.location.hash).toBe("#/start");
-    expect(screen.getByText("Step 1 of 3")).toBeInTheDocument();
+    expect(screen.getByText("Step 1 of 4")).toBeInTheDocument();
   });
 });

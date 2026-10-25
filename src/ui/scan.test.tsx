@@ -17,10 +17,12 @@ describe("room check", () => {
     window.location.hash = "#/scan?home=demo-home&room=kitchen";
     render(<App />);
     expect(screen.getByRole("heading", { name: "Room check" })).toBeInTheDocument();
-    const boxes = screen.getAllByRole("checkbox");
+    const boxes = screen.getAllByRole("checkbox") as HTMLInputElement[];
     expect(boxes.length).toBeGreaterThan(1);
-    fireEvent.click(boxes[0]!);
-    fireEvent.click(screen.getByRole("button", { name: "Add 1 to my list" }));
+    // The sample family is pre-checked, so earlier taps are already ticked. Add one more.
+    const off = boxes.find((b) => !b.checked)!;
+    fireEvent.click(off);
+    fireEvent.click(screen.getByRole("button", { name: /^Add \d+ to my list$/ }));
     expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(
       /added to your plan|Nothing added/,
     );
@@ -32,7 +34,7 @@ describe("room check", () => {
     useStore.getState().loadDemo();
     window.location.hash = "#/room/demo-home/kitchen";
     render(<App />);
-    expect(screen.getByRole("link", { name: "Check this room" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "What's in this room" })).toBeInTheDocument();
   });
 });
 

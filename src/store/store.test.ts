@@ -19,13 +19,15 @@ describe("store", () => {
     s().reset();
   });
 
-  it("builds a plan when a child and a home are added", () => {
+  it("makes no tasks when a child and a home are added", () => {
     expect(s().tasks).toHaveLength(0);
     const now = new Date();
     s().addChild("Mia", now.getMonth() + 1, now.getFullYear() - 1);
     expect(s().tasks).toHaveLength(0); // no home yet
     s().addHome("Home", ["kitchen", "bathroom"]);
-    expect(s().tasks.length).toBeGreaterThan(0);
+    // Hazards are only assumed after the person checks a room, so nothing yet.
+    expect(s().tasks).toHaveLength(0);
+    expect(s().homes[0]!.checks).toEqual({});
   });
 
   it("keeps status when the family changes", () => {

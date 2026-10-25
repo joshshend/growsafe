@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { loadKb } from "../kb";
 import { nextUnlocks } from "../plan";
 import { useStore } from "../store/store";
+import { anyChecked, firstUnchecked, isChecked } from "../plan/roomCheck";
 import { progress } from "../store/selectors";
 import { costText, localHazard, monthsText, taskTotals } from "./format";
 import { ChildChip } from "./ChildChip";
@@ -28,6 +29,7 @@ export function Today() {
   const setStatus = useStore((s) => s.setStatus);
   const openTask = useUi((s) => s.openTask);
   const homes = useStore((s) => s.homes);
+  const hasTasks = useStore((s) => s.tasks.length > 0);
   const easy = useEasy();
   // "Show me a different one" steps through the open tasks in ranked order.
   const [skip, setSkip] = useState(0);
@@ -65,6 +67,39 @@ export function Today() {
 
   if (!child) return <Navigate to="/" replace />;
 
+  // Nothing is assumed about a home: until a room has been checked there is nothing to show but a prompt.
+  const unchecked = firstUnchecked(homes);
+  if (unchecked && !anyChecked(homes) && !hasTasks) {
+    const scanTo = `/scan?home=${unchecked.home.id}&room=${unchecked.room}`;
+    return (
+      <div className="flow today">
+        <DemoBanner />
+        <div className="today-who">
+          <ChildChip />
+        </div>
+        <section className="hero" aria-labelledby="start-title">
+          <h1 id="start-title" className="d4">
+            {t("today.start.title")}
+          </h1>
+          <p className="t2">{t("today.start.body")}</p>
+          <div className="hero-actions">
+            <Link to={scanTo} className="btn btn-primary btn-block">
+              {t("today.start.button", { room: t(`room.${unchecked.room}`) })}
+            </Link>
+          </div>
+          <p className="t1 muted">{t("today.start.photoHint")}</p>
+          <Link to={scanTo} className="btn btn-secondary btn-block">
+            {t("today.start.photo")}
+          </Link>
+        </section>
+      </div>
+    );
+  }
+
+  const uncheckedCount = homes.reduce(
+    (n, h) => n + h.rooms.filter((r) => !isChecked(h, r)).length,
+    0,
+  );
   const rest = easy ? [] : open.filter((_, i) => i !== heroIdx);
   const lingerViews = views.filter(
     (v) => lingering.includes(v.task.id) && v.task.status === "done",
@@ -200,6 +235,26 @@ export function Today() {
           <span className="row-body">
             <span className="row-title">{t("scan.cta.today")}</span>
             <span className="row-sub">{t("scan.cta.todaySub")}</span>
+          </span>
+        </Link>
+        {unchecked && (
+          <Link to={`/scan?home=${unchecked.home.id}&room=${unchecked.room}`} className="row">
+            <span className="row-body">
+              <span className="row-title">
+                {uncheckedCount === 1
+                  ? t("today.moreRoomsOne")
+                  : t("today.moreRooms", { n: uncheckedCount })}
+              </span>
+              <span className="row-sub">
+                {t("today.moreRoomsSub", { room: t(`room.${unchecked.room}`) })}
+              </span>
+            </span>
+          </Link>
+        )}
+        <Link to="/reminders" className="row">
+          <span className="row-body">
+            <span className="row-title">{t("reminders.link")}</span>
+            <span className="row-sub">{t("reminders.link.sub")}</span>
           </span>
         </Link>
         {!easy && open.length > 0 && (

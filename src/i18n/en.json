@@ -35,7 +35,7 @@
   "welcome.free": "Free. No account, no email.",
   "welcome.start": "Show me the first fix",
   "welcome.demo": "Explore a sample family",
-  "onboard.step": "Step {n} of 3",
+  "onboard.step": "Step {n} of 4",
   "onboard.who": "Who are we keeping safe?",
   "onboard.where": "Where does {name} spend time?",
   "onboard.whereHint": "Pick every place. You can add more later.",

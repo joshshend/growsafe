@@ -17,10 +17,10 @@ describe("core flow (jsdom stand-in for the browser smoke test)", () => {
     useStore.setState({ hydrated: true });
   });
 
-  it("onboarding builds a plan in three steps and lands on Today", () => {
+  it("onboarding builds a plan from the rooms you describe and lands on Today", () => {
     render(<App />);
     fireEvent.click(screen.getByRole("link", { name: "Show me the first fix" }));
-    expect(screen.getByText("Step 1 of 3")).toBeInTheDocument();
+    expect(screen.getByText("Step 1 of 4")).toBeInTheDocument();
     fireEvent.change(screen.getByLabelText("First name or nickname"), {
       target: { value: "Maya" },
     });
@@ -33,15 +33,51 @@ describe("core flow (jsdom stand-in for the browser smoke test)", () => {
       target: { value: String(d.getFullYear()) },
     });
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
-    expect(screen.getByText("Step 2 of 3")).toBeInTheDocument();
+    expect(screen.getByText("Step 2 of 4")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "My home", pressed: true })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Next" }));
-    expect(screen.getByText("Step 3 of 3")).toBeInTheDocument();
+    expect(screen.getByText("Step 3 of 4")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Looks right" }));
+    expect(screen.getByText("Step 4 of 4")).toBeInTheDocument();
+    expect(screen.getByText("Room 1 of 5")).toBeInTheDocument();
+    // Tap one thing in the first room, skip the other four.
+    const chips = within(screen.getByRole("group", { name: "Things in this room" })).getAllByRole(
+      "button",
+    );
+    fireEvent.click(chips[0]!);
+    fireEvent.click(screen.getByRole("button", { name: "Add these and continue" }));
+    for (let i = 2; i <= 5; i++) {
+      expect(screen.getByText(`Room ${i} of 5`)).toBeInTheDocument();
+      fireEvent.click(screen.getByRole("button", { name: "Skip this room" }));
+    }
     expect(screen.getByText("Right now")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Main" })).toBeInTheDocument();
     expect(useStore.getState().tasks.length).toBeGreaterThan(0);
+  });
+
+  it("onboarding with every room skipped makes no tasks and Today asks you to start with one room", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("link", { name: "Show me the first fix" }));
+    fireEvent.change(screen.getByLabelText("First name or nickname"), {
+      target: { value: "Maya" },
+    });
+    const d = new Date();
+    d.setMonth(d.getMonth() - 9);
+    fireEvent.change(screen.getByLabelText("Birth month"), {
+      target: { value: String(d.getMonth() + 1) },
+    });
+    fireEvent.change(screen.getByLabelText("Birth year"), {
+      target: { value: String(d.getFullYear()) },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    fireEvent.click(screen.getByRole("button", { name: "Looks right" }));
+    for (let i = 0; i < 5; i++)
+      fireEvent.click(screen.getByRole("button", { name: "Skip this room" }));
+    expect(useStore.getState().tasks).toHaveLength(0);
+    expect(screen.getByRole("heading", { name: "Start with one room" })).toBeInTheDocument();
+    expect(screen.queryByText("Right now")).not.toBeInTheDocument();
   });
 
   it("onboarding says what is wrong when the birth date is missing", () => {

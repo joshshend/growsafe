@@ -3,14 +3,9 @@ import { useMemo, useState } from "react";
 import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { loadKb } from "../kb";
 import type { Room, Task } from "../kb/schema";
-import {
-  cuesForRoom,
-  findingsFromTaps,
-  findingsToTasks,
-  verifyFix,
-  type RoomCue,
-} from "../perception";
+import { cuesForRoom, findingsFromTaps, verifyFix, type RoomCue } from "../perception";
 import { useStore } from "../store/store";
+import { isChecked, prefillCues } from "../plan/roomCheck";
 import { localHazard } from "./format";
 import { PhotoScan } from "./PhotoScan";
 import { BackLink, Tick, useChildViews, useSetDone } from "./parts";
@@ -53,7 +48,7 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
   const home = useStore((s) => s.homes.find((h) => h.id === homeId))!;
   const homes = useStore((s) => s.homes);
   const tasks = useStore((s) => s.tasks);
-  const addTasks = useStore((s) => s.addTasks);
+  const checkRoom = useStore((s) => s.checkRoom);
   const setStatus = useStore((s) => s.setStatus);
   const showToast = useUi((s) => s.showToast);
   const setDone = useSetDone();
@@ -68,13 +63,28 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
     return all.filter((c) => h?.detection_cues.includes(c.cue));
   }, [all, kb, recheck]);
 
+  // Re-opening a checked room starts from what was ticked before, so saving only changes what you change.
   const [ticked, setTicked] = useState<Set<string>>(
-    () => new Set(recheck ? cues.map((c) => c.cue) : []),
+    () =>
+      new Set(
+        recheck
+          ? cues.map((c) => c.cue)
+          : prefillCues(
+              kb,
+              home,
+              room,
+              tasks,
+              all.map((c) => c.cue),
+            ),
+      ),
   );
   const [showAll, setShowAll] = useState(false);
-  const [result, setResult] = useState<{ added: Task[]; fresh: number; blind: string[] } | null>(
-    null,
-  );
+  const [result, setResult] = useState<{
+    added: Task[];
+    fresh: number;
+    removed: number;
+    blind: string[];
+  } | null>(null);
 
   const hazardName = (id: string) => {
     const h = kb.find((x) => x.id === id);
@@ -89,18 +99,17 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
     });
 
   function finishAdd() {
-    const findings = findingsFromTaps([...ticked]);
     const scoped = kb.filter((h) => all.some((c) => c.hazardIds.includes(h.id)));
-    const made = findingsToTasks(findings, scoped, home, room, [child.id]);
-    const have = new Map(tasks.map((x) => [x.id, x]));
-    const fresh = made.filter((x) => !have.has(x.id)).length;
-    addTasks(made);
-    for (const m of made) if (have.get(m.id)?.status === "done") setStatus(m.id, "todo"); // it is there again
+    // Saves the check: tasks for what is ticked, and untouched to-do tasks for what was unticked go.
+    const res = checkRoom(home.id, room, [...ticked], child.id);
+    if (!res) return;
+    const made = res.added;
+    const fresh = res.fresh;
     const hazards = made.length
       ? made.map((m) => kb.find((h) => h.id === m.hazard_id)!)
       : scoped.filter((h) => h.rooms.includes(room));
     const blind = [...new Set(hazards.flatMap((h) => h.blind_spots))];
-    setResult({ added: made, fresh, blind });
+    setResult({ added: made, fresh, removed: res.removed, blind });
   }
 
   function finishRecheck() {
@@ -133,6 +142,7 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
             : t(result.fresh === 1 ? "scan.result.one" : "scan.result.other", { n: result.fresh })}
         </h1>
         {existing > 0 && <p className="muted">{t("scan.result.existing", { n: existing })}</p>}
+        {result.removed > 0 && <p className="muted">{t("rooms.removed", { n: result.removed })}</p>}
         {rows.length > 0 && (
           <section aria-labelledby="scan-tasks">
             <h2 id="scan-tasks" className="lbl">
@@ -295,7 +305,9 @@ function ScanBody({ homeId, room, taskId }: { homeId: string; room: Room; taskId
         </button>
       ) : (
         <button type="button" className="btn btn-primary btn-block" onClick={finishAdd}>
-          {n === 0 ? t("scan.finish") : t(n === 1 ? "scan.addN.one" : "scan.addN.other", { n })}
+          {n === 0
+            ? t(isChecked(home, room) ? "scan.finish" : "rooms.nothingNeeds")
+            : t(n === 1 ? "scan.addN.one" : "scan.addN.other", { n })}
         </button>
       )}
       <p className="scan-note">{t("scan.disclaimer")}</p>

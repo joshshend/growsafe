@@ -3,6 +3,7 @@ import { create } from "zustand";
 import { loadKb } from "../kb";
 import { PlanSchema, type Child, type Home, type Room, type Task } from "../kb/schema";
 import { buildPlan } from "../plan";
+import { applyRoomCheck, markChecked, migrateChecks } from "../plan/roomCheck";
 import type { Lang } from "../i18n/t";
 import { clearSaved, loadSaved, save } from "./persist";
 import { GearListSchema, type GearItem, type RecallMatch } from "../recalls/types";
@@ -39,6 +40,14 @@ interface Actions {
   setGearRecalls: (id: string, checkedAt: string, matches: RecallMatch[]) => void;
   dismissRecall: (gearId: string, recallId: string) => void;
   addTasks: (tasks: Task[]) => void;
+  // Saves a room check: tasks for the ticked cues, removes untouched to-do tasks for unticked ones.
+  checkRoom: (
+    homeId: string,
+    room: Room,
+    cues: string[],
+    childId: string,
+  ) => { added: Task[]; fresh: number; removed: number } | null;
+  markRoomChecked: (homeId: string, room: Room) => void; // "Nothing here needs fixing"
   setStatus: (taskId: string, status: Task["status"]) => void;
   setOwner: (taskId: string, owner: string | undefined) => void;
   setDue: (taskId: string, due: string | undefined) => void;
@@ -71,7 +80,10 @@ const rebuild = (
   now = new Date(),
 ) => {
   const kb = loadKb();
-  const built = buildPlan(kb, s.children, s.homes, now, s.tasks);
+  // The plan engine would make a task for every hazard in a room. We only keep the ones the person
+  // already confirmed (a room check, a photo scan or a gear answer); it never invents new ones.
+  const known = new Set(s.tasks.map((t) => t.id));
+  const built = buildPlan(kb, s.children, s.homes, now, s.tasks).filter((t) => known.has(t.id));
   const childIds = new Set(s.children.map((c) => c.id));
   const prev = new Map(s.tasks.map((t) => [t.id, t]));
   const merged = built.map((t) => {
@@ -120,11 +132,14 @@ export const useStore = create<State>()((set, get) => ({
         const base = initial();
         const gearParsed = GearListSchema.safeParse(raw.gear ?? []); // saves from before T23 have no gear
         const gear = gearParsed.success ? gearParsed.data : [];
+        // Saves from before room checks: drop guessed to-do tasks, keep anything the person touched.
+        const mig = migrateChecks(plan.data.homes, plan.data.tasks, new Date());
         set({
           ...plan.data,
+          homes: mig.homes,
           gear,
-          // A new month may have unlocked new risks, so rebuild on load (keeps progress).
-          tasks: rebuild({ ...plan.data, gear }),
+          // Keeps the confirmed tasks and adds any child who now falls under them.
+          tasks: rebuild({ ...plan.data, homes: mig.homes, tasks: mig.tasks, gear }),
           owners: raw.owners ?? [],
           emergencyCards: raw.emergencyCards ?? {},
           settings: { ...base.settings, ...raw.settings },
@@ -153,7 +168,7 @@ export const useStore = create<State>()((set, get) => ({
 
   addHome: (name, rooms) => {
     const id = newId("h");
-    const homes = [...get().homes, { id, name: name.trim(), rooms }];
+    const homes = [...get().homes, { id, name: name.trim(), rooms, checks: {} }];
     set((s) => ({ homes, tasks: rebuild({ ...s, homes }) }));
     return id;
   },
@@ -214,6 +229,30 @@ export const useStore = create<State>()((set, get) => ({
       return { tasks: [...byId.values()] };
     }),
 
+  checkRoom: (homeId, room, cues, childId) => {
+    const s = get();
+    const home = s.homes.find((h) => h.id === homeId);
+    const child = s.children.find((c) => c.id === childId);
+    if (!home || !child) return null;
+    const r = applyRoomCheck({
+      kb: loadKb(),
+      home,
+      room,
+      cues,
+      child,
+      tasks: s.tasks,
+      now: new Date(),
+    });
+    const homes = s.homes.map((h) => (h.id === homeId ? r.home : h));
+    set({ homes, tasks: rebuild({ ...s, homes, tasks: r.tasks }) });
+    return { added: r.added, fresh: r.fresh, removed: r.removed };
+  },
+
+  markRoomChecked: (homeId, room) =>
+    set((s) => ({
+      homes: s.homes.map((h) => (h.id === homeId ? markChecked(h, room, new Date()) : h)),
+    })),
+
   setStatus: (taskId, status) =>
     set((s) => ({ tasks: s.tasks.map((t) => (t.id === taskId ? { ...t, status } : t)) })),
 
@@ -251,14 +290,27 @@ export const useStore = create<State>()((set, get) => ({
       { id: "demo-mia", nickname: "Mia", birth_month: a.month, birth_year: a.year },
       { id: "demo-noah", nickname: "Noah", birth_month: b.month, birth_year: b.year },
     ];
+    const demoRooms: Room[] = [
+      "living_room",
+      "bedroom",
+      "nursery",
+      "kitchen",
+      "bathroom",
+      "stairs",
+    ];
+    // The sample family is pre-checked so the demo looks full: every room counts as checked and gets
+    // the plan engine's tasks for it.
     const homes: Home[] = [
       {
         id: "demo-home",
         name: "Our home",
-        rooms: ["living_room", "bedroom", "nursery", "kitchen", "bathroom", "stairs"],
+        rooms: demoRooms,
+        checks: Object.fromEntries(
+          demoRooms.map((r) => [r, { checkedAt: now.toISOString(), cues: [] }]),
+        ),
       },
     ];
-    const tasks = rebuild({ children, homes, tasks: [] }, now);
+    const tasks = buildPlan(loadKb(), children, homes, now);
     const due = new Date(now.getTime() + 7 * 864e5).toISOString().slice(0, 10);
     // Show a little progress so the demo plan does not look untouched.
     const withProgress = tasks.map((t, i): Task => {

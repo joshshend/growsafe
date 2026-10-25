@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { loadKb } from "../kb";
 import { ROOMS, type Room } from "../kb/schema";
+import { cuesForRoom } from "../perception";
 import { useStore } from "../store/store";
 import { Tick } from "./parts";
+import { RoomSetup } from "./RoomSetup";
 import { useUi } from "./ui-state";
 import { useT } from "./useT";
 
@@ -18,6 +21,8 @@ export function Onboarding() {
   const nav = useNavigate();
   const addChild = useStore((s) => s.addChild);
   const addHome = useStore((s) => s.addHome);
+  const checkRoom = useStore((s) => s.checkRoom);
+  const markRoomChecked = useStore((s) => s.markRoomChecked);
   const setActiveChild = useUi((s) => s.setActiveChild);
   const now = new Date();
   const [step, setStep] = useState(1);
@@ -28,12 +33,21 @@ export function Onboarding() {
   const [picked, setPicked] = useState<HomeKey[]>(["mine"]);
   const [rooms, setRooms] = useState<Record<HomeKey, Room[]> | null>(null);
   const [editing, setEditing] = useState(false);
+  // Step 4: what the person said about each room. "skip" = leave it Not checked yet.
+  const [slot, setSlot] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string[] | "skip">>({});
   const heading = useRef<HTMLHeadingElement>(null);
   const years = Array.from({ length: 6 }, (_, i) => now.getFullYear() - i);
 
   useEffect(() => {
     if (step > 1) heading.current?.focus();
   }, [step]);
+
+  const slots = rooms
+    ? HOME_KEYS.filter((k) => picked.includes(k)).flatMap((k) =>
+        ROOMS.filter((r) => rooms[k].includes(r)).map((r) => ({ key: `${k}|${r}`, k, room: r })),
+      )
+    : [];
 
   function next1(e: FormEvent) {
     e.preventDefault();
@@ -73,18 +87,36 @@ export function Onboarding() {
     });
   }
 
-  function finish() {
+  function toSetup() {
     if (!rooms) return;
     if (picked.some((k) => rooms[k].length === 0)) return setError(t("home.errorRooms"));
+    setError("");
+    setSlot(0);
+    setStep(4);
+  }
+
+  function finish(final: Record<string, string[] | "skip">) {
+    if (!rooms) return;
     const childId = addChild(name, Number(month), Number(year));
-    for (const k of picked) {
-      addHome(
-        t(`onboard.home.${k}`),
-        ROOMS.filter((r) => rooms[k].includes(r)),
-      );
+    for (const k of HOME_KEYS.filter((x) => picked.includes(x))) {
+      const list = ROOMS.filter((r) => rooms[k].includes(r));
+      const homeId = addHome(t(`onboard.home.${k}`), list);
+      for (const r of list) {
+        const a = final[`${k}|${r}`];
+        if (a === undefined || a === "skip") continue; // not checked yet
+        if (a.length === 0) markRoomChecked(homeId, r);
+        else checkRoom(homeId, r, a, childId);
+      }
     }
     setActiveChild(childId);
     nav("/", { replace: true });
+  }
+
+  function answer(key: string, value: string[] | "skip") {
+    const next = { ...answers, [key]: value };
+    setAnswers(next);
+    if (slot + 1 >= slots.length) finish(next);
+    else setSlot(slot + 1);
   }
 
   const back = (
@@ -225,6 +257,33 @@ export function Onboarding() {
     );
   }
 
+  if (step === 4) {
+    const cur = slots[slot];
+    if (!cur) return null;
+    const draft = {
+      id: "draft",
+      nickname: name.trim() || "?",
+      birth_month: Number(month),
+      birth_year: Number(year),
+    };
+    const prev = answers[cur.key];
+    return (
+      <RoomSetup
+        key={cur.key}
+        index={slot}
+        total={slots.length}
+        homeName={picked.length > 1 ? t(`onboard.home.${cur.k}`) : undefined}
+        room={cur.room}
+        cues={cuesForRoom(loadKb(), cur.room, draft, now)}
+        initial={Array.isArray(prev) ? prev : []}
+        last={slot + 1 >= slots.length}
+        onTaps={(cues) => answer(cur.key, cues)}
+        onSkip={() => answer(cur.key, "skip")}
+        onBack={() => (slot === 0 ? setStep(3) : setSlot(slot - 1))}
+      />
+    );
+  }
+
   return (
     <div className="flow">
       <div className="flow-s">
@@ -271,7 +330,7 @@ export function Onboarding() {
         </p>
       )}
       <div className="form-actions">
-        <button type="button" className="btn btn-primary btn-block" onClick={finish}>
+        <button type="button" className="btn btn-primary btn-block" onClick={toSetup}>
           {t("onboard.looksRight")}
         </button>
         {!editing && (
