@@ -94,6 +94,13 @@ export function Settings() {
             ))}
           </div>
         </div>
+        <Link to="/reminders" className="link-row">
+          <span>
+            {t("reminders.link")}
+            <span className="row-sub block">{t("reminders.link.sub")}</span>
+          </span>
+          <CaretRight size={20} weight="bold" aria-hidden="true" />
+        </Link>
         <Link to="/height" className="link-row">
           {t("height.settings")}
           <CaretRight size={20} weight="bold" aria-hidden="true" />

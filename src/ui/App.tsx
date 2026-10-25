@@ -13,6 +13,7 @@ import { Merge } from "./Merge";
 import { MedicineCheck } from "./MedicineCheck";
 import { Onboarding } from "./Onboarding";
 import { People } from "./People";
+import { Reminders } from "./Reminders";
 import { RoomPage, Rooms } from "./Rooms";
 import { Scan } from "./Scan";
 import { Privacy, Settings } from "./Settings";
@@ -82,6 +83,7 @@ export function App() {
           <Route path="visit" element={<Visit />} />
           <Route path="merge" element={<Merge />} />
           <Route path="height/:childId?" element={<Height />} />
+          <Route path="reminders" element={<Reminders />} />
           <Route path="settings" element={<Settings />} />
           <Route path="settings/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
