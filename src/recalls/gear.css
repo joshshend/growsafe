@@ -10,7 +10,7 @@
   border-bottom: 1px solid var(--line);
 }
 .gear-item.is-target {
-  outline: 2px solid var(--action);
+  outline: 2px solid var(--ink);
   outline-offset: 4px;
   border-radius: var(--r-control);
 }
@@ -38,12 +38,12 @@
   white-space: nowrap;
 }
 .gear-chip.is-warn {
-  border-color: var(--emergency-text);
-  color: var(--emergency-text);
+  border: 2.5px solid var(--ink);
+  color: var(--ink);
 }
 .gear-chip.is-ok {
-  border-color: var(--done-text);
-  color: var(--done-text);
+  border-color: var(--line-strong);
+  color: var(--ink);
 }
 .gear-actions {
   display: flex;
@@ -54,10 +54,7 @@
   flex: 1 1 140px;
 }
 .gear-banner {
-  border-color: var(--emergency-text);
-}
-.gear-banner .wk-card-icon {
-  color: var(--emergency-text);
+  border-bottom: 2.5px solid var(--ink);
 }
 .gear-q {
   display: flex;

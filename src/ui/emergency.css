@@ -17,7 +17,7 @@
 }
 .notice svg {
   flex: none;
-  color: var(--action);
+  color: var(--action-ink);
 }
 .audit-item {
   display: flex;
@@ -65,8 +65,8 @@
   html,
   body,
   .app {
-    background: #fff !important;
-    color: #000 !important;
+    background: var(--print-bg) !important;
+    color: var(--print-ink) !important;
   }
   .page {
     max-width: none;
@@ -74,7 +74,7 @@
     padding: 0 !important;
   }
   .briefing-numbers {
-    border-color: #000;
+    border-color: var(--print-ink);
     break-inside: avoid;
   }
   .briefing-block {

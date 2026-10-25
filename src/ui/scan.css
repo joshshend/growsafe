@@ -50,13 +50,13 @@
 }
 .scan-row.is-on .scan-box {
   background: var(--action);
-  border-color: var(--action);
+  border-color: var(--edge);
 }
 .scan-row.is-on .scan-tick {
   transform: scale(1);
 }
 .scan-input:focus-visible ~ .scan-box {
-  outline: 3px solid var(--action);
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 .scan-note {

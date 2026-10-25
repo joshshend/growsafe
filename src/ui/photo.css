@@ -34,7 +34,7 @@
 }
 .photo-chip[aria-pressed="true"] {
   background: var(--action);
-  border-color: var(--action);
+  border-color: var(--edge);
   color: var(--on-action);
 }
 .photo-badge {

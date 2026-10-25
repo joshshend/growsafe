@@ -1,7 +1,7 @@
 // Shared UI pieces: ranked views for the active child, progress ring, severity, check button and task row.
 import { lightTap } from "../native/haptics";
 import { useMemo } from "react";
-import { Check, Info, Warning, WarningDiamond, WarningOctagon } from "@phosphor-icons/react";
+import { Info, Warning, WarningDiamond, WarningOctagon } from "@phosphor-icons/react";
 import { loadKb } from "../kb";
 import { useStore } from "../store/store";
 import { buildViews, type TaskView } from "../store/selectors";
@@ -121,7 +121,9 @@ export function CheckButton({
       onClick={onToggle}
     >
       <span className="check-mark" aria-hidden="true">
-        <Check className="check-tick" size={18} weight="bold" />
+        <svg className="check-tick" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M4 11.5l5 5L18.5 5" />
+        </svg>
       </span>
     </button>
   );

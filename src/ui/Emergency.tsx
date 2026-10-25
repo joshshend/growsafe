@@ -196,7 +196,7 @@ export function EmergencyCard() {
         </button>
         <button
           type="button"
-          className="btn btn-danger btn-block"
+          className="btn btn-secondary btn-block"
           onClick={() => {
             clearCard(childId);
             setCard(emptyCard());

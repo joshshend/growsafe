@@ -182,7 +182,7 @@ export function People() {
           <div className="form-actions">
             <button
               type="button"
-              className="btn btn-danger btn-block"
+              className="btn btn-secondary btn-block"
               onClick={() => {
                 removing.run();
                 setRemoving(null);

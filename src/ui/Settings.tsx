@@ -106,7 +106,7 @@ export function Settings() {
           <div className="form-actions">
             <button
               type="button"
-              className="btn btn-danger btn-block"
+              className="btn btn-secondary btn-block"
               onClick={() => {
                 reset();
                 useUi.setState({ activeChildId: null, openTaskId: null, switcherOpen: false });

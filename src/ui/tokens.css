@@ -1,33 +1,94 @@
-/* Design tokens. Light is the default; dark is a warm charcoal variant (never navy). */
+/* Design tokens: "pencil marks on a doorframe". Source of truth is docs/design/gs.css.
+   Light is the default (paper + graphite + one pencil yellow). Dark is warm charcoal, never navy.
+   Dark applies when the OS asks for it and the user has not forced light, or when data-theme="dark" is set (src/ui/theme.ts).
+   Red (--emergency) is for Poison Help and 911 only.
+   This is the only stylesheet that may contain colour literals. */
 :root {
-  --ground: #f4f5f7;
-  --surface: #ffffff;
-  --ink: #14213d;
-  --muted: #5b6575;
-  --line: #e3e6eb;
-  --control-line: #8a93a1;
-  --action: #c2410c;
-  --action-pressed: #9a3412;
-  --action-bright: #e8590c;
-  --on-action: #ffffff;
-  --done: #2f8f5b;
-  --done-text: #237a49;
-  --emergency: #c92a2a;
-  --emergency-text: #c92a2a;
-  --on-emergency: #ffffff;
-  --scrim: rgba(20, 33, 61, 0.45);
-  --sheet-shadow: 0 -8px 32px rgba(20, 33, 61, 0.18);
+  /* paper + pencil */
+  --ground: #f5efe2;
+  --surface: #fbf8f1;
+  --well: #ebe3d0;
+  --ink: #24221e;
+  --muted: #5e584d;
+  --line: #d8cfbb; /* hairline, decorative only */
+  --line-strong: #8f8671; /* control borders, unticked boxes (3:1) */
+  /* signature */
+  --action: #f2b705; /* pencil yellow: primary fill */
+  --on-action: #24221e;
+  --action-ink: #7a5800; /* yellow you can read as text on paper */
+  --fill: #f6dd8b; /* offset fill in drawings, done-box shadow */
+  --edge: #24221e; /* outline and hard under-edge of buttons */
+  --done: #3d3a33;
+  /* reserved */
+  --emergency: #b3261e;
+  --on-emergency: #fff8f0;
+  /* inverse (toast) */
+  --inverse: #24221e;
+  --on-inverse: #f5efe2;
+  --link-inverse: #f2b705;
+  --scrim: rgba(36, 34, 30, 0.42);
+  --sheet-shadow: 0 -10px 30px rgba(36, 34, 30, 0.14);
+  --print-bg: #ffffff;
+  --print-ink: #000000;
 
-  --r-tile: 14px;
-  --r-control: 10px;
+  /* Old names kept so every existing stylesheet keeps working. New code should use the names on the left. */
+  --control-line: var(--line-strong);
+  --action-bright: var(--action);
+  --action-pressed: var(--action);
+  --done-text: var(--done);
+  --emergency-text: var(--emergency);
+
+  /* shape */
+  --r-tile: 12px;
+  --r-field: 8px;
+  --r-chip: 999px;
+  --r-sheet: 24px;
+  --r-control: var(--r-field);
   --r-round: 999px;
 
-  --fs-1: 34px;
-  --fs-2: 28px;
-  --fs-3: 22px;
-  --fs-4: 18px;
-  --fs-5: 16px;
-  --fs-body: 18px;
+  /* space */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --gutter: 20px;
+  --hit: 44px;
+  --min-target: var(--hit);
+
+  /* fonts: both bundled with @fontsource, no network */
+  --font-display: "Young Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system,
+    sans-serif;
+
+  /* New type scale (design names fs-1..5 run small to large). */
+  --gs-fs-1: 13px;
+  --gs-lh-1: 18px;
+  --gs-fs-2: 17px;
+  --gs-lh-2: 25px;
+  --gs-fs-3: 22px;
+  --gs-lh-3: 28px;
+  --gs-fs-4: 30px;
+  --gs-lh-4: 34px;
+  --gs-fs-5: 44px;
+  --gs-lh-5: 46px;
+
+  /* Old type scale, which ran large to small (fs-1 was the page title). Re-pointed at the new sizes. */
+  --fs-1: var(--gs-fs-4);
+  --fs-2: 26px;
+  --fs-3: var(--gs-fs-3);
+  --fs-4: var(--gs-fs-2);
+  --fs-5: 15px;
+  --fs-body: var(--gs-fs-2);
+
+  /* motion */
+  --ease-pencil: cubic-bezier(0.3, 0.7, 0.2, 1);
+  --dur-tick: 220ms;
+  --dur-fill: 360ms;
+  --dur-sheet: 300ms;
+  --dur-toast: 200ms;
 
   --tab-h: 56px;
   --rail-w: 96px;
@@ -36,85 +97,98 @@
   color-scheme: light;
 }
 
-:root.large {
-  --fs-1: 38px;
-  --fs-2: 31px;
-  --fs-3: 25px;
-  --fs-4: 21px;
-  --fs-5: 18px;
-  --fs-body: 20px;
-}
-
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ground: #17181b;
-    --surface: #202226;
-    --ink: #f2f3f5;
-    --muted: #a3a9b3;
-    --line: #34363b;
-    --control-line: #7b828d;
-    --action: #ff8a4c;
-    --action-pressed: #ffa070;
-    --action-bright: #ff8a4c;
-    --on-action: #17181b;
-    --done: #5cc48a;
-    --done-text: #5cc48a;
-    --emergency-text: #ff7a7a;
-    --scrim: rgba(0, 0, 0, 0.6);
-    --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+    --ground: #1f1d19;
+    --surface: #2a2722;
+    --well: #181612;
+    --ink: #f1eadb;
+    --muted: #b8af9d;
+    --line: #3f3a31;
+    --line-strong: #8a826f;
+    --action: #f2b705;
+    --on-action: #1f1d19;
+    --action-ink: #f2c94c;
+    --fill: #5c4a12;
+    --edge: #14120f;
+    --done: #e4dcc9;
+    --emergency: #ff8f83;
+    --on-emergency: #1f1d19;
+    --inverse: #f1eadb;
+    --on-inverse: #1f1d19;
+    --link-inverse: #7a5800;
+    --scrim: rgba(0, 0, 0, 0.62);
+    --sheet-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --ground: #17181b;
-  --surface: #202226;
-  --ink: #f2f3f5;
-  --muted: #a3a9b3;
-  --line: #34363b;
-  --control-line: #7b828d;
-  --action: #ff8a4c;
-  --action-pressed: #ffa070;
-  --action-bright: #ff8a4c;
-  --on-action: #17181b;
-  --done: #5cc48a;
-  --done-text: #5cc48a;
-  --emergency-text: #ff7a7a;
-  --scrim: rgba(0, 0, 0, 0.6);
-  --sheet-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+  --ground: #1f1d19;
+  --surface: #2a2722;
+  --well: #181612;
+  --ink: #f1eadb;
+  --muted: #b8af9d;
+  --line: #3f3a31;
+  --line-strong: #8a826f;
+  --action: #f2b705;
+  --on-action: #1f1d19;
+  --action-ink: #f2c94c;
+  --fill: #5c4a12;
+  --edge: #14120f;
+  --done: #e4dcc9;
+  --emergency: #ff8f83;
+  --on-emergency: #1f1d19;
+  --inverse: #f1eadb;
+  --on-inverse: #1f1d19;
+  --link-inverse: #7a5800;
+  --scrim: rgba(0, 0, 0, 0.62);
+  --sheet-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
   color-scheme: dark;
 }
 
-/* Easy mode (T24): bigger type, 56px targets, high contrast. Set via data-easy on <html>. */
-:root {
-  --min-target: 44px;
+/* "Larger text" setting (class "large" on <html>): about +10% type. */
+:root.large {
+  --gs-fs-1: 14px;
+  --gs-lh-1: 20px;
+  --gs-fs-2: 19px;
+  --gs-lh-2: 27px;
+  --gs-fs-3: 24px;
+  --gs-lh-3: 30px;
+  --gs-fs-4: 33px;
+  --gs-lh-4: 37px;
+  --gs-fs-5: 48px;
+  --gs-lh-5: 50px;
+  --fs-2: 29px;
+  --fs-5: 17px;
 }
-:root[data-easy="on"] {
-  --min-target: 56px;
-  --fs-1: 40px;
-  --fs-2: 34px;
-  --fs-3: 28px;
-  --fs-4: 24px;
-  --fs-5: 22px;
-  --fs-body: 22px;
-  --ink: #000000;
-  --muted: #26303f;
-  --line: #5b6575;
-  --control-line: #14213d;
-  --action: #9a3412;
-  --action-pressed: #7c2d12;
-  --on-action: #ffffff;
+
+/* Easy mode (src/ui/easy.ts sets data-easy="on" on <html>); the design calls the same thing data-scale="easy".
+   About +15% type and 56px targets. Colours are not changed. */
+:root[data-easy="on"],
+[data-scale="easy"] {
+  --gs-fs-1: 15px;
+  --gs-lh-1: 21px;
+  --gs-fs-2: 20px;
+  --gs-lh-2: 29px;
+  --gs-fs-3: 25px;
+  --gs-lh-3: 32px;
+  --gs-fs-4: 34px;
+  --gs-lh-4: 39px;
+  --gs-fs-5: 51px;
+  --gs-lh-5: 53px;
+  --fs-2: 31px;
+  --fs-5: 18px;
+  --hit: 56px;
 }
 :root[data-easy="on"] .btn,
 :root[data-easy="on"] .link-row,
 :root[data-easy="on"] .seg-btn,
 :root[data-easy="on"] .input,
 :root[data-easy="on"] .tab,
-:root[data-easy="on"] .icon-btn {
+:root[data-easy="on"] .icon-btn,
+:root[data-easy="on"] .chip {
   min-height: var(--min-target);
-}
-:root[data-easy="on"] .btn {
-  font-size: var(--fs-4);
 }
 :root[data-easy="on"] .easy-actions {
   display: grid;

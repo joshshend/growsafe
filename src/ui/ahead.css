@@ -47,7 +47,7 @@
   margin: 0;
 }
 .ah-note a {
-  color: var(--action);
+  color: var(--action-ink);
   font-weight: 600;
   overflow-wrap: anywhere;
 }
